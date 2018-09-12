@@ -6485,9 +6485,17 @@
 			"get": {
 				"operationId": "downloadObservationCollectionImage",
 				"produces": [
-					"application/json"
+					"image/jpeg",
+					"image/png",
+					"application/octet-stream"
 				],
 				"responses": {
+					"200": {
+						"description": "Media file",
+						"schema": {
+							"type": "file"
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
@@ -6583,9 +6591,17 @@
 			"get": {
 				"operationId": "downloadObservationImage",
 				"produces": [
-					"application/json"
+					"image/jpeg",
+					"image/png",
+					"application/octet-stream"
 				],
 				"responses": {
+					"200": {
+						"description": "Media file",
+						"schema": {
+							"type": "file"
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
