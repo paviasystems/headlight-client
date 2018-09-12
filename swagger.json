@@ -3067,6 +3067,42 @@
 				"parameters": []
 			}
 		},
+		"/BidItems/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"BidItem"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/BidItems/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -3326,6 +3362,42 @@
 				"parameters": []
 			}
 		},
+		"/Comments/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Comment"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Comments/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -3567,6 +3639,42 @@
 				"parameters": []
 			}
 		},
+		"/Contracts/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Contract"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Contracts/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -3806,6 +3914,42 @@
 					"Customer"
 				],
 				"parameters": []
+			}
+		},
+		"/Customers/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Customer"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Customers/FilteredTo/{filter}/{begin}/{max}": {
@@ -4486,6 +4630,42 @@
 				"parameters": []
 			}
 		},
+		"/Documents/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Document"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Documents/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -4841,6 +5021,42 @@
 				"parameters": []
 			}
 		},
+		"/ElectronicSignatures/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"ElectronicSignature"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ElectronicSignatures/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -5080,6 +5296,42 @@
 					"Equipment"
 				],
 				"parameters": []
+			}
+		},
+		"/Equipments/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Equipment"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Equipments/FilteredTo/{filter}/{begin}/{max}": {
@@ -5323,6 +5575,42 @@
 				"parameters": []
 			}
 		},
+		"/LineItems/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"LineItem"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/LineItems/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -5564,6 +5852,42 @@
 				"parameters": []
 			}
 		},
+		"/Modules/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Module"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Modules/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -5803,6 +6127,42 @@
 					"Notification"
 				],
 				"parameters": []
+			}
+		},
+		"/Notifications/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Notification"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Notifications/FilteredTo/{filter}/{begin}/{max}": {
@@ -6537,6 +6897,42 @@
 				"parameters": []
 			}
 		},
+		"/Observations/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Observation"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Observations/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -7109,6 +7505,42 @@
 				"parameters": []
 			}
 		},
+		"/Organizations/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Organization"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Organizations/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -7350,6 +7782,42 @@
 				"parameters": []
 			}
 		},
+		"/PayItems/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"PayItem"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/PayItems/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -7589,6 +8057,42 @@
 					"Project"
 				],
 				"parameters": []
+			}
+		},
+		"/Projects/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Project"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Projects/FilteredTo/{filter}/{begin}/{max}": {
@@ -8044,6 +8548,42 @@
 				"parameters": []
 			}
 		},
+		"/ReportNamedInstances/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"ReportNamedInstance"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ReportNamedInstances/FilteredTo/{filter}/{begin}/{max}": {
 			"get": {
 				"operationId": "_readsFiltered",
@@ -8202,6 +8742,42 @@
 					"Report"
 				],
 				"parameters": []
+			}
+		},
+		"/Reports/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Reports/FilteredTo/{filter}/{begin}/{max}": {
@@ -8443,6 +9019,42 @@
 					"User"
 				],
 				"parameters": []
+			}
+		},
+		"/Users/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Users/FilteredTo/{filter}/{begin}/{max}": {
