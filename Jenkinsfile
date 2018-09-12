@@ -6,7 +6,7 @@ node('nodejs'){
         try {
             sh 'echo "build number = $BUILD_NUMBER"'
             sh './codegen.sh'
-            sh 'sed -i \'\' "s/\"version\": \"3.0.*\"/\"version\": \"3.0.$BUILD_NUMBER\"/" ./package.json'
+            sh 'sed -i \'\' "s/\\"version\\": \\"3.0.*\\"/\\"version\\": \\"3.0.$BUILD_NUMBER\\"/" ./package.json'
             sh 'npm publish .'
 
             currentBuild.result = 'SUCCESS'
