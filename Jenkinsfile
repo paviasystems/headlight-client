@@ -13,5 +13,12 @@ node('nodejs'){
         } catch (Exception err) {
             currentBuild.result = 'FAILURE'
         }
+
+        if (currentBuild.result == "SUCCESS") {
+            slackSend color: 'good', message: "headlight-client: npm published v3.0.${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        }
+        else {
+            slackSend color: 'danger', message: "headlight-client:master Build Failed (<${env.BUILD_URL}|Open>)"
+        }
     }
 }
