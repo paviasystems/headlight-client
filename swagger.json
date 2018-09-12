@@ -3011,7 +3011,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -3270,7 +3270,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -3511,7 +3511,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -3752,7 +3752,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -4316,7 +4316,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -4785,7 +4785,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -5026,7 +5026,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -5267,7 +5267,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -5508,7 +5508,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -5749,7 +5749,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -6176,7 +6176,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -7053,7 +7053,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -7294,7 +7294,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -7535,7 +7535,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -7794,7 +7794,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -7988,7 +7988,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
@@ -8389,7 +8389,7 @@
 				]
 			},
 			"delete": {
-				"operationId": "delete",
+				"operationId": "_delete",
 				"produces": [
 					"application/json"
 				],
