@@ -2,10 +2,10 @@
   "name": "headlight-client",
   "version": "3.0.1",
   "description": "",
-  "main": "node/Headlight-Client.ts",
+  "main": "node/index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonhillier/headlight-client.git"
+    "url": "https://github.com/paviasystems/headlight-client.git"
   },
   "keywords": [
     "headlight",
