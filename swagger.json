@@ -436,6 +436,103 @@
 				"LastLoginTime"
 			]
 		},
+		"ISession": {
+			"description": "",
+			"properties": {
+				"SessionID": {
+					"type": "string",
+					"description": ""
+				},
+				"LoggedIn": {
+					"type": "boolean",
+					"description": ""
+				},
+				"UserRole": {
+					"type": "string",
+					"description": ""
+				},
+				"UserRoleIndex": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UserID": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"CustomerID": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Title": {
+					"type": "string",
+					"description": ""
+				},
+				"NameFirst": {
+					"type": "string",
+					"description": ""
+				},
+				"NameLast": {
+					"type": "string",
+					"description": ""
+				},
+				"Email": {
+					"type": "string",
+					"description": ""
+				},
+				"LoginID": {
+					"type": "string",
+					"description": ""
+				},
+				"UIHash": {
+					"type": "string",
+					"description": ""
+				},
+				"Timezone": {
+					"type": "string",
+					"description": ""
+				},
+				"Settings": {
+					"type": "object",
+					"description": ""
+				},
+				"DeviceID": {
+					"type": "string",
+					"description": ""
+				},
+				"IDDevice": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ServerHostURL": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"SessionID",
+				"LoggedIn",
+				"UserRole",
+				"UserRoleIndex",
+				"UserID",
+				"CustomerID",
+				"Title",
+				"NameFirst",
+				"NameLast",
+				"Email",
+				"LoginID",
+				"UIHash",
+				"Timezone",
+				"Settings",
+				"DeviceID",
+				"IDDevice",
+				"ServerHostURL"
+			]
+		},
 		"LoginRequest": {
 			"description": "",
 			"properties": {
@@ -2817,6 +2914,12 @@
 					"application/json"
 				],
 				"responses": {
+					"200": {
+						"description": "User session data",
+						"schema": {
+							"$ref": "#/definitions/ISession"
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
@@ -3190,6 +3293,30 @@
 						"format": "int64"
 					}
 				]
+			}
+		},
+		"/CheckSession": {
+			"get": {
+				"operationId": "_checkSession",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "User session data",
+						"schema": {
+							"$ref": "#/definitions/ISession"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Authenticate"
+				],
+				"parameters": []
 			}
 		},
 		"/CheckoutSessionToken": {
