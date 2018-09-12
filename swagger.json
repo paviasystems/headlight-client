@@ -6469,6 +6469,13 @@
 				],
 				"parameters": [
 					{
+						"description": "e.g. Thumbnail,Standard,Preview,Enhanced",
+						"in": "path",
+						"name": "Size",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "ID of record",
 						"in": "path",
 						"name": "IDObservation",
