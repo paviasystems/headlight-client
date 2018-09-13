@@ -28,4 +28,4 @@ docker run --rm -v $DIR:/headlight-client swaggerapi/swagger-codegen-cli generat
 
 
 #config help tool
-#docker run -v /Pavia/mpi_api/docs:/docs  swaggerapi/swagger-codegen-cli config-help -l typescript-node
+#docker run --rm swaggerapi/swagger-codegen-cli config-help -l typescript-node

@@ -192,7 +192,7 @@ export class BidItem {
     */
     'ExternalSyncDate': Date;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -409,7 +409,7 @@ export class BundlesContentManagementObservationModel {
     */
     'ExternalSyncGUID': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -607,7 +607,7 @@ export class BundlesContentManagementObservationModelLabels {
     */
     'SAVE'?: boolean;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -678,7 +678,7 @@ export class CommentModel {
     */
     'CommentHtml': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -873,7 +873,7 @@ export class Contract {
     */
     'NetChangeOrderAmount': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1088,7 +1088,7 @@ export class Customer {
     */
     'Timezone': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1288,7 +1288,7 @@ export class DocumentModel {
     */
     'ExternalSyncGUID': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1503,7 +1503,7 @@ export class ElectronicSignature {
     */
     'Approved': number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1647,7 +1647,7 @@ export class ElectronicSignatureModel {
     */
     'Approved': number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1804,7 +1804,7 @@ export class Equipment {
     */
     'Status': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -1971,7 +1971,7 @@ export class ISession {
     */
     'ServerHostURL': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2071,7 +2071,7 @@ export class InlineResponse200 {
     */
     'Count'?: number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2210,7 +2210,7 @@ export class LineItem {
     */
     'Tax': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2382,7 +2382,7 @@ export class LoginRequest {
     */
     'Password': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2406,7 +2406,7 @@ export class LoginRequest {
 */
 export class MappedArrayArtifact {
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
     ];
@@ -2489,7 +2489,7 @@ export class ModuleModel {
     */
     'Ordinal': number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2632,7 +2632,7 @@ export class Notification {
     */
     'NotificationType': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -2861,7 +2861,7 @@ export class ObservationArchive {
     */
     'ExternalSyncGUID': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3091,7 +3091,7 @@ export class ObservationCloneRequest {
     */
     'OffsetFromCurrentTime': Date;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3148,7 +3148,7 @@ export class ObservationFilterRequest {
     */
     'IDArtifact': Array<number>;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3210,7 +3210,7 @@ export class ObservationFilterRequestDesignatedTime {
     */
     'To'?: Date;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3242,7 +3242,7 @@ export class ObservationFilterRequestPriority {
     */
     'Value'?: number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3404,7 +3404,7 @@ export class ObservationModel {
     */
     'ExternalSyncGUID': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3682,7 +3682,7 @@ export class Organization {
     */
     'Type': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -3869,7 +3869,7 @@ export class PayItemModel {
     */
     'ExternalSyncDate': Date;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -4068,7 +4068,7 @@ export class ProjectModel {
     */
     'Status': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -4259,7 +4259,7 @@ export class ReportModel {
     */
     'IDCustomer': number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -4402,7 +4402,7 @@ export class ReportNamedInstanceModel {
     */
     'IDCustomer': number;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -4512,7 +4512,7 @@ export class SendToEmailRequest {
     */
     'Message': string;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
@@ -4666,7 +4666,7 @@ export class UserModel {
     */
     'LastLoginTime': Date;
 
-    static discriminator = undefined;
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
