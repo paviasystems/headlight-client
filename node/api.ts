@@ -13,6 +13,8 @@
 import localVarRequest = require('request');
 import http = require('http');
 
+const DEFAULT_TIMEOUT = 30 * 1000; //default to 30 second request timeout
+
 let defaultBasePath = 'https://localhost/1.0';
 
 // ===============================================
@@ -4921,6 +4923,8 @@ export class AuthenticateApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -4951,6 +4955,14 @@ export class AuthenticateApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -4968,6 +4980,9 @@ export class AuthenticateApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling authenticate.');
@@ -4978,6 +4993,7 @@ export class AuthenticateApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -4997,6 +5013,8 @@ export class AuthenticateApi {
         }
         return new Promise<ISession>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5019,11 +5037,15 @@ export class AuthenticateApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5042,6 +5064,8 @@ export class AuthenticateApi {
         }
         return new Promise<ISession>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5064,11 +5088,15 @@ export class AuthenticateApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5087,6 +5115,8 @@ export class AuthenticateApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5110,6 +5140,9 @@ export class AuthenticateApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDUser' is not null or undefined
         if (IDUser === null || IDUser === undefined) {
             throw new Error('Required parameter IDUser was null or undefined when calling impersonateUser.');
@@ -5120,6 +5153,7 @@ export class AuthenticateApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5138,6 +5172,8 @@ export class AuthenticateApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5150,6 +5186,14 @@ export class AuthenticateApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum BatchExportApiApiKeys {
 }
@@ -5158,6 +5202,8 @@ export class BatchExportApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -5188,6 +5234,14 @@ export class BatchExportApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -5204,11 +5258,15 @@ export class BatchExportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5227,6 +5285,8 @@ export class BatchExportApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5250,6 +5310,9 @@ export class BatchExportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'ExportType' is not null or undefined
         if (ExportType === null || ExportType === undefined) {
             throw new Error('Required parameter ExportType was null or undefined when calling batchExportListFiles.');
@@ -5260,6 +5323,7 @@ export class BatchExportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5278,6 +5342,8 @@ export class BatchExportApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5290,6 +5356,14 @@ export class BatchExportApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum BidItemApiApiKeys {
 }
@@ -5298,6 +5372,8 @@ export class BidItemApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -5328,6 +5404,14 @@ export class BidItemApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -5346,6 +5430,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -5356,6 +5443,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5374,6 +5462,8 @@ export class BidItemApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5396,11 +5486,15 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5419,6 +5513,8 @@ export class BidItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5443,6 +5539,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -5453,6 +5552,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5471,6 +5571,8 @@ export class BidItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5494,6 +5596,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -5504,6 +5609,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5523,6 +5629,8 @@ export class BidItemApi {
         }
         return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5547,6 +5655,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -5557,6 +5668,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5575,6 +5687,8 @@ export class BidItemApi {
         }
         return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5601,6 +5715,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -5616,6 +5733,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5634,6 +5752,8 @@ export class BidItemApi {
         }
         return new Promise<Array<BidItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5662,6 +5782,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -5682,6 +5805,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5700,6 +5824,8 @@ export class BidItemApi {
         }
         return new Promise<Array<BidItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5723,6 +5849,9 @@ export class BidItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -5733,6 +5862,7 @@ export class BidItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5752,6 +5882,8 @@ export class BidItemApi {
         }
         return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5765,6 +5897,14 @@ export class BidItemApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum CommentApiApiKeys {
 }
@@ -5773,6 +5913,8 @@ export class CommentApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -5803,6 +5945,14 @@ export class CommentApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -5821,6 +5971,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -5831,6 +5984,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5849,6 +6003,8 @@ export class CommentApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5871,11 +6027,15 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5894,6 +6054,8 @@ export class CommentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5918,6 +6080,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -5928,6 +6093,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5946,6 +6112,8 @@ export class CommentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -5969,6 +6137,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -5979,6 +6150,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -5998,6 +6170,8 @@ export class CommentApi {
         }
         return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6022,6 +6196,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -6032,6 +6209,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6050,6 +6228,8 @@ export class CommentApi {
         }
         return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6076,6 +6256,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -6091,6 +6274,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6109,6 +6293,8 @@ export class CommentApi {
         }
         return new Promise<Array<CommentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6137,6 +6323,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -6157,6 +6346,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6175,6 +6365,8 @@ export class CommentApi {
         }
         return new Promise<Array<CommentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6198,6 +6390,9 @@ export class CommentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -6208,6 +6403,7 @@ export class CommentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6227,6 +6423,8 @@ export class CommentApi {
         }
         return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6240,6 +6438,14 @@ export class CommentApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ContractApiApiKeys {
 }
@@ -6248,6 +6454,8 @@ export class ContractApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -6278,6 +6486,14 @@ export class ContractApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -6296,6 +6512,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -6306,6 +6525,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6324,6 +6544,8 @@ export class ContractApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6346,11 +6568,15 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6369,6 +6595,8 @@ export class ContractApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6393,6 +6621,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -6403,6 +6634,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6421,6 +6653,8 @@ export class ContractApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6444,6 +6678,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -6454,6 +6691,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6473,6 +6711,8 @@ export class ContractApi {
         }
         return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6497,6 +6737,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -6507,6 +6750,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6525,6 +6769,8 @@ export class ContractApi {
         }
         return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6551,6 +6797,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -6566,6 +6815,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6584,6 +6834,8 @@ export class ContractApi {
         }
         return new Promise<Array<Contract>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6612,6 +6864,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -6632,6 +6887,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6650,6 +6906,8 @@ export class ContractApi {
         }
         return new Promise<Array<Contract>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6673,6 +6931,9 @@ export class ContractApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -6683,6 +6944,7 @@ export class ContractApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6702,6 +6964,8 @@ export class ContractApi {
         }
         return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6715,6 +6979,14 @@ export class ContractApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum CustomerApiApiKeys {
 }
@@ -6723,6 +6995,8 @@ export class CustomerApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -6753,6 +7027,14 @@ export class CustomerApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -6771,6 +7053,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -6781,6 +7066,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6799,6 +7085,8 @@ export class CustomerApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6821,11 +7109,15 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6844,6 +7136,8 @@ export class CustomerApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6868,6 +7162,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -6878,6 +7175,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6896,6 +7194,8 @@ export class CustomerApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6919,6 +7219,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -6929,6 +7232,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -6948,6 +7252,8 @@ export class CustomerApi {
         }
         return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -6972,6 +7278,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -6982,6 +7291,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7000,6 +7310,8 @@ export class CustomerApi {
         }
         return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7026,6 +7338,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -7041,6 +7356,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7059,6 +7375,8 @@ export class CustomerApi {
         }
         return new Promise<Array<Customer>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7087,6 +7405,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -7107,6 +7428,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7125,6 +7447,8 @@ export class CustomerApi {
         }
         return new Promise<Array<Customer>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7148,6 +7472,9 @@ export class CustomerApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -7158,6 +7485,7 @@ export class CustomerApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7177,6 +7505,8 @@ export class CustomerApi {
         }
         return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7190,6 +7520,14 @@ export class CustomerApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum DocumentApiApiKeys {
 }
@@ -7198,6 +7536,8 @@ export class DocumentApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -7228,6 +7568,14 @@ export class DocumentApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -7246,6 +7594,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -7256,6 +7607,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7274,6 +7626,8 @@ export class DocumentApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7300,6 +7654,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
@@ -7315,6 +7672,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7333,6 +7691,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7358,6 +7718,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
@@ -7373,6 +7736,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7391,6 +7755,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7412,11 +7778,15 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7435,6 +7805,8 @@ export class DocumentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7459,6 +7831,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -7469,6 +7844,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7487,6 +7863,8 @@ export class DocumentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7510,6 +7888,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -7520,6 +7901,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7539,6 +7921,8 @@ export class DocumentApi {
         }
         return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7563,6 +7947,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentCountBySequenceNumber.');
@@ -7573,6 +7960,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7591,6 +7979,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7614,6 +8004,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentHTML.');
@@ -7624,6 +8017,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7642,6 +8036,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7665,6 +8061,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentJSON.');
@@ -7675,6 +8074,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7693,6 +8093,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7716,6 +8118,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentPDF.');
@@ -7726,6 +8131,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7744,6 +8150,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7767,6 +8175,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentReportParameters.');
@@ -7777,6 +8188,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7795,6 +8207,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7818,6 +8232,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -7828,6 +8245,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7846,6 +8264,8 @@ export class DocumentApi {
         }
         return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7872,6 +8292,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -7887,6 +8310,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7905,6 +8329,8 @@ export class DocumentApi {
         }
         return new Promise<Array<DocumentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7933,6 +8359,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -7953,6 +8382,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -7971,6 +8401,8 @@ export class DocumentApi {
         }
         return new Promise<Array<DocumentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -7997,6 +8429,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
@@ -8012,6 +8447,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8030,6 +8466,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8055,6 +8493,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
@@ -8070,6 +8511,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8088,6 +8530,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8111,6 +8555,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling undeleteDocument.');
@@ -8121,6 +8568,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8139,6 +8587,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8161,6 +8611,9 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -8171,6 +8624,7 @@ export class DocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8190,6 +8644,8 @@ export class DocumentApi {
         }
         return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8212,11 +8668,15 @@ export class DocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8235,6 +8695,8 @@ export class DocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8247,6 +8709,14 @@ export class DocumentApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum DocumentApprovalApiApiKeys {
 }
@@ -8255,6 +8725,8 @@ export class DocumentApprovalApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -8285,6 +8757,14 @@ export class DocumentApprovalApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -8303,6 +8783,9 @@ export class DocumentApprovalApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentApproverList.');
@@ -8313,6 +8796,7 @@ export class DocumentApprovalApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8331,6 +8815,8 @@ export class DocumentApprovalApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8354,6 +8840,9 @@ export class DocumentApprovalApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentState.');
@@ -8364,6 +8853,7 @@ export class DocumentApprovalApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8382,6 +8872,8 @@ export class DocumentApprovalApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8403,11 +8895,15 @@ export class DocumentApprovalApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8426,6 +8922,8 @@ export class DocumentApprovalApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8438,6 +8936,14 @@ export class DocumentApprovalApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum DocumentSendToApiApiKeys {
 }
@@ -8446,6 +8952,8 @@ export class DocumentSendToApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -8474,6 +8982,14 @@ export class DocumentSendToApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -8495,6 +9011,9 @@ export class DocumentSendToApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
@@ -8510,6 +9029,7 @@ export class DocumentSendToApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8529,6 +9049,8 @@ export class DocumentSendToApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8541,6 +9063,14 @@ export class DocumentSendToApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum DocumentsApiApiKeys {
 }
@@ -8549,6 +9079,8 @@ export class DocumentsApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -8577,6 +9109,14 @@ export class DocumentsApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -8601,6 +9141,9 @@ export class DocumentsApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SynchronizeFromDate' is not null or undefined
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
@@ -8621,6 +9164,7 @@ export class DocumentsApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8639,6 +9183,8 @@ export class DocumentsApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8666,6 +9212,9 @@ export class DocumentsApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SynchronizeFromDate' is not null or undefined
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
@@ -8686,6 +9235,7 @@ export class DocumentsApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8704,6 +9254,8 @@ export class DocumentsApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8716,6 +9268,14 @@ export class DocumentsApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum DocumentsByObservationApiApiKeys {
 }
@@ -8724,6 +9284,8 @@ export class DocumentsByObservationApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -8752,6 +9314,14 @@ export class DocumentsByObservationApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -8772,6 +9342,9 @@ export class DocumentsByObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling getDocumentByObservation.');
@@ -8782,6 +9355,7 @@ export class DocumentsByObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8800,6 +9374,8 @@ export class DocumentsByObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8812,6 +9388,14 @@ export class DocumentsByObservationApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ElectronicSignatureApiApiKeys {
 }
@@ -8820,6 +9404,8 @@ export class ElectronicSignatureApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -8850,6 +9436,14 @@ export class ElectronicSignatureApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -8868,6 +9462,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -8878,6 +9475,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8896,6 +9494,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8918,11 +9518,15 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8941,6 +9545,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -8965,6 +9571,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -8975,6 +9584,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -8993,6 +9603,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9016,6 +9628,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -9026,6 +9641,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9045,6 +9661,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9069,6 +9687,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -9079,6 +9700,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9097,6 +9719,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9123,6 +9747,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -9138,6 +9765,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9156,6 +9784,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9184,6 +9814,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -9204,6 +9837,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9222,6 +9856,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9245,6 +9881,9 @@ export class ElectronicSignatureApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -9255,6 +9894,7 @@ export class ElectronicSignatureApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9274,6 +9914,8 @@ export class ElectronicSignatureApi {
         }
         return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9287,6 +9929,14 @@ export class ElectronicSignatureApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum EquipmentApiApiKeys {
 }
@@ -9295,6 +9945,8 @@ export class EquipmentApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -9325,6 +9977,14 @@ export class EquipmentApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -9343,6 +10003,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -9353,6 +10016,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9371,6 +10035,8 @@ export class EquipmentApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9393,11 +10059,15 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9416,6 +10086,8 @@ export class EquipmentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9440,6 +10112,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -9450,6 +10125,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9468,6 +10144,8 @@ export class EquipmentApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9491,6 +10169,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -9501,6 +10182,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9520,6 +10202,8 @@ export class EquipmentApi {
         }
         return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9544,6 +10228,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -9554,6 +10241,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9572,6 +10260,8 @@ export class EquipmentApi {
         }
         return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9598,6 +10288,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -9613,6 +10306,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9631,6 +10325,8 @@ export class EquipmentApi {
         }
         return new Promise<Array<Equipment>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9659,6 +10355,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -9679,6 +10378,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9697,6 +10397,8 @@ export class EquipmentApi {
         }
         return new Promise<Array<Equipment>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9720,6 +10422,9 @@ export class EquipmentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -9730,6 +10435,7 @@ export class EquipmentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9749,6 +10455,8 @@ export class EquipmentApi {
         }
         return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9762,6 +10470,14 @@ export class EquipmentApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum LineItemApiApiKeys {
 }
@@ -9770,6 +10486,8 @@ export class LineItemApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -9800,6 +10518,14 @@ export class LineItemApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -9818,6 +10544,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -9828,6 +10557,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9846,6 +10576,8 @@ export class LineItemApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9868,11 +10600,15 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9891,6 +10627,8 @@ export class LineItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9915,6 +10653,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -9925,6 +10666,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9943,6 +10685,8 @@ export class LineItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -9966,6 +10710,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -9976,6 +10723,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -9995,6 +10743,8 @@ export class LineItemApi {
         }
         return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10019,6 +10769,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -10029,6 +10782,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10047,6 +10801,8 @@ export class LineItemApi {
         }
         return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10073,6 +10829,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -10088,6 +10847,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10106,6 +10866,8 @@ export class LineItemApi {
         }
         return new Promise<Array<LineItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10134,6 +10896,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -10154,6 +10919,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10172,6 +10938,8 @@ export class LineItemApi {
         }
         return new Promise<Array<LineItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10195,6 +10963,9 @@ export class LineItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -10205,6 +10976,7 @@ export class LineItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10224,6 +10996,8 @@ export class LineItemApi {
         }
         return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10237,6 +11011,14 @@ export class LineItemApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ModuleApiApiKeys {
 }
@@ -10245,6 +11027,8 @@ export class ModuleApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -10275,6 +11059,14 @@ export class ModuleApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -10293,6 +11085,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -10303,6 +11098,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10321,6 +11117,8 @@ export class ModuleApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10343,11 +11141,15 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10366,6 +11168,8 @@ export class ModuleApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10390,6 +11194,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -10400,6 +11207,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10418,6 +11226,8 @@ export class ModuleApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10441,6 +11251,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -10451,6 +11264,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10470,6 +11284,8 @@ export class ModuleApi {
         }
         return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10494,6 +11310,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -10504,6 +11323,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10522,6 +11342,8 @@ export class ModuleApi {
         }
         return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10548,6 +11370,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -10563,6 +11388,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10581,6 +11407,8 @@ export class ModuleApi {
         }
         return new Promise<Array<ModuleModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10609,6 +11437,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -10629,6 +11460,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10647,6 +11479,8 @@ export class ModuleApi {
         }
         return new Promise<Array<ModuleModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10670,6 +11504,9 @@ export class ModuleApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -10680,6 +11517,7 @@ export class ModuleApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10699,6 +11537,8 @@ export class ModuleApi {
         }
         return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10712,6 +11552,14 @@ export class ModuleApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum NotificationApiApiKeys {
 }
@@ -10720,6 +11568,8 @@ export class NotificationApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -10750,6 +11600,14 @@ export class NotificationApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -10768,6 +11626,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -10778,6 +11639,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10796,6 +11658,8 @@ export class NotificationApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10818,11 +11682,15 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10841,6 +11709,8 @@ export class NotificationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10865,6 +11735,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -10875,6 +11748,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10893,6 +11767,8 @@ export class NotificationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10916,6 +11792,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -10926,6 +11805,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10945,6 +11825,8 @@ export class NotificationApi {
         }
         return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -10969,6 +11851,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -10979,6 +11864,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -10997,6 +11883,8 @@ export class NotificationApi {
         }
         return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11023,6 +11911,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -11038,6 +11929,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11056,6 +11948,8 @@ export class NotificationApi {
         }
         return new Promise<Array<Notification>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11084,6 +11978,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -11104,6 +12001,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11122,6 +12020,8 @@ export class NotificationApi {
         }
         return new Promise<Array<Notification>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11145,6 +12045,9 @@ export class NotificationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -11155,6 +12058,7 @@ export class NotificationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11174,6 +12078,8 @@ export class NotificationApi {
         }
         return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11187,6 +12093,14 @@ export class NotificationApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationApiApiKeys {
 }
@@ -11195,6 +12109,8 @@ export class ObservationApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -11225,6 +12141,14 @@ export class ObservationApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -11243,6 +12167,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -11253,6 +12180,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11271,6 +12199,8 @@ export class ObservationApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11295,6 +12225,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SynchronizeByDay' is not null or undefined
         if (SynchronizeByDay === null || SynchronizeByDay === undefined) {
             throw new Error('Required parameter SynchronizeByDay was null or undefined when calling beginIndexByDay.');
@@ -11305,6 +12238,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11323,6 +12257,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11346,6 +12282,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling beginIndexByProject.');
@@ -11356,6 +12295,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11374,6 +12314,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11395,11 +12337,15 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11418,6 +12364,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11439,11 +12387,15 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11462,6 +12414,8 @@ export class ObservationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11486,6 +12440,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -11496,6 +12453,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11514,6 +12472,8 @@ export class ObservationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11537,6 +12497,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -11547,6 +12510,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11566,6 +12530,8 @@ export class ObservationApi {
         }
         return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11592,6 +12558,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SpritePageNumber' is not null or undefined
         if (SpritePageNumber === null || SpritePageNumber === undefined) {
             throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
@@ -11607,6 +12576,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11625,6 +12595,8 @@ export class ObservationApi {
         }
         return new Promise<Buffer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11651,6 +12623,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'Size' is not null or undefined
         if (Size === null || Size === undefined) {
             throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
@@ -11666,6 +12641,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11684,6 +12660,8 @@ export class ObservationApi {
         }
         return new Promise<Buffer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11710,6 +12688,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'Size' is not null or undefined
         if (Size === null || Size === undefined) {
             throw new Error('Required parameter Size was null or undefined when calling getObservationImageHash.');
@@ -11725,6 +12706,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11743,6 +12725,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11770,6 +12754,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SynchronizeFromDate' is not null or undefined
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
@@ -11790,6 +12777,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11808,6 +12796,8 @@ export class ObservationApi {
         }
         return new Promise<Array<BundlesContentManagementObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11831,6 +12821,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postCloneBulkObservations.');
@@ -11841,6 +12834,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11860,6 +12854,8 @@ export class ObservationApi {
         }
         return new Promise<Array<BundlesContentManagementObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11884,6 +12880,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling postCloneObservation.');
@@ -11894,6 +12893,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11912,6 +12912,8 @@ export class ObservationApi {
         }
         return new Promise<BundlesContentManagementObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11934,11 +12936,15 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -11957,6 +12963,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -11978,11 +12986,15 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12001,6 +13013,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12024,6 +13038,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling pushObservationSearchIndexByIDs.');
@@ -12034,6 +13051,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12052,6 +13070,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12075,6 +13095,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -12085,6 +13108,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12103,6 +13127,8 @@ export class ObservationApi {
         }
         return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12129,6 +13155,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -12144,6 +13173,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12162,6 +13192,8 @@ export class ObservationApi {
         }
         return new Promise<Array<ObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12190,6 +13222,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -12210,6 +13245,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12228,6 +13264,8 @@ export class ObservationApi {
         }
         return new Promise<Array<ObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12256,6 +13294,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SynchronizeFromDate' is not null or undefined
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
@@ -12276,6 +13317,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12294,6 +13336,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12317,6 +13361,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling transcodeTouchObservation.');
@@ -12327,6 +13374,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12345,6 +13393,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12368,6 +13418,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling undeleteObservation.');
@@ -12378,6 +13431,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12396,6 +13450,8 @@ export class ObservationApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12418,6 +13474,9 @@ export class ObservationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -12428,6 +13487,7 @@ export class ObservationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12447,6 +13507,8 @@ export class ObservationApi {
         }
         return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12460,6 +13522,14 @@ export class ObservationApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationCloneTemplatesApiApiKeys {
 }
@@ -12468,6 +13538,8 @@ export class ObservationCloneTemplatesApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -12496,6 +13568,14 @@ export class ObservationCloneTemplatesApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -12516,6 +13596,9 @@ export class ObservationCloneTemplatesApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getCloneTemplates.');
@@ -12526,6 +13609,7 @@ export class ObservationCloneTemplatesApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12544,6 +13628,8 @@ export class ObservationCloneTemplatesApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12556,6 +13642,14 @@ export class ObservationCloneTemplatesApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationSearchsApiApiKeys {
 }
@@ -12564,6 +13658,8 @@ export class ObservationSearchsApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -12592,6 +13688,14 @@ export class ObservationSearchsApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -12618,6 +13722,9 @@ export class ObservationSearchsApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SearchQuery' is not null or undefined
         if (SearchQuery === null || SearchQuery === undefined) {
             throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
@@ -12643,6 +13750,7 @@ export class ObservationSearchsApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12661,6 +13769,8 @@ export class ObservationSearchsApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12686,6 +13796,9 @@ export class ObservationSearchsApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'SearchQuery' is not null or undefined
         if (SearchQuery === null || SearchQuery === undefined) {
             throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearchCount.');
@@ -12701,6 +13814,7 @@ export class ObservationSearchsApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12719,6 +13833,8 @@ export class ObservationSearchsApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12731,6 +13847,14 @@ export class ObservationSearchsApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationSendToApiApiKeys {
 }
@@ -12739,6 +13863,8 @@ export class ObservationSendToApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -12767,6 +13893,14 @@ export class ObservationSendToApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -12789,6 +13923,9 @@ export class ObservationSendToApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'EmailAddress' is not null or undefined
         if (EmailAddress === null || EmailAddress === undefined) {
             throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
@@ -12804,6 +13941,7 @@ export class ObservationSendToApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12822,6 +13960,8 @@ export class ObservationSendToApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12843,11 +13983,15 @@ export class ObservationSendToApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12866,6 +14010,8 @@ export class ObservationSendToApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12878,6 +14024,14 @@ export class ObservationSendToApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationsBatchTagApiApiKeys {
 }
@@ -12886,6 +14040,8 @@ export class ObservationsBatchTagApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -12916,6 +14072,14 @@ export class ObservationsBatchTagApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -12932,11 +14096,15 @@ export class ObservationsBatchTagApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12955,6 +14123,8 @@ export class ObservationsBatchTagApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -12976,11 +14146,15 @@ export class ObservationsBatchTagApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -12999,6 +14173,8 @@ export class ObservationsBatchTagApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13011,6 +14187,14 @@ export class ObservationsBatchTagApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationsByDocumentApiApiKeys {
 }
@@ -13019,6 +14203,8 @@ export class ObservationsByDocumentApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -13047,6 +14233,14 @@ export class ObservationsByDocumentApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -13071,6 +14265,9 @@ export class ObservationsByDocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getObservationsByDocument.');
@@ -13091,6 +14288,7 @@ export class ObservationsByDocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13109,6 +14307,8 @@ export class ObservationsByDocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13134,6 +14334,9 @@ export class ObservationsByDocumentApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getObservationsByNoDocument.');
@@ -13149,6 +14352,7 @@ export class ObservationsByDocumentApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13167,6 +14371,8 @@ export class ObservationsByDocumentApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13179,6 +14385,14 @@ export class ObservationsByDocumentApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationsByUpdateDateApiApiKeys {
 }
@@ -13187,6 +14401,8 @@ export class ObservationsByUpdateDateApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -13215,6 +14431,14 @@ export class ObservationsByUpdateDateApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -13237,6 +14461,9 @@ export class ObservationsByUpdateDateApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'ByDate' is not null or undefined
         if (ByDate === null || ByDate === undefined) {
             throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
@@ -13252,6 +14479,7 @@ export class ObservationsByUpdateDateApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13270,6 +14498,8 @@ export class ObservationsByUpdateDateApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13282,6 +14512,14 @@ export class ObservationsByUpdateDateApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ObservationsFilterApiApiKeys {
 }
@@ -13290,6 +14528,8 @@ export class ObservationsFilterApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -13318,6 +14558,14 @@ export class ObservationsFilterApi {
 
     get basePath() {
         return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
     }
 
     public setDefaultAuthentication(auth: Authentication) {
@@ -13341,6 +14589,9 @@ export class ObservationsFilterApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling getObservationsFilter.');
@@ -13361,6 +14612,7 @@ export class ObservationsFilterApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13380,6 +14632,8 @@ export class ObservationsFilterApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13402,6 +14656,9 @@ export class ObservationsFilterApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling getObservationsFilterCount.');
@@ -13412,6 +14669,7 @@ export class ObservationsFilterApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13431,6 +14689,8 @@ export class ObservationsFilterApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13443,6 +14703,14 @@ export class ObservationsFilterApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum OrganizationApiApiKeys {
 }
@@ -13451,6 +14719,8 @@ export class OrganizationApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -13481,6 +14751,14 @@ export class OrganizationApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -13499,6 +14777,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -13509,6 +14790,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13527,6 +14809,8 @@ export class OrganizationApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13549,11 +14833,15 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13572,6 +14860,8 @@ export class OrganizationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13596,6 +14886,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -13606,6 +14899,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13624,6 +14918,8 @@ export class OrganizationApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13647,6 +14943,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -13657,6 +14956,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13676,6 +14976,8 @@ export class OrganizationApi {
         }
         return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13700,6 +15002,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -13710,6 +15015,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13728,6 +15034,8 @@ export class OrganizationApi {
         }
         return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13754,6 +15062,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -13769,6 +15080,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13787,6 +15099,8 @@ export class OrganizationApi {
         }
         return new Promise<Array<Organization>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13815,6 +15129,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -13835,6 +15152,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13853,6 +15171,8 @@ export class OrganizationApi {
         }
         return new Promise<Array<Organization>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13876,6 +15196,9 @@ export class OrganizationApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -13886,6 +15209,7 @@ export class OrganizationApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -13905,6 +15229,8 @@ export class OrganizationApi {
         }
         return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -13918,6 +15244,14 @@ export class OrganizationApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum PayItemApiApiKeys {
 }
@@ -13926,6 +15260,8 @@ export class PayItemApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -13956,6 +15292,14 @@ export class PayItemApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -13974,6 +15318,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -13984,6 +15331,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14002,6 +15350,8 @@ export class PayItemApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14024,11 +15374,15 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14047,6 +15401,8 @@ export class PayItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14071,6 +15427,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -14081,6 +15440,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14099,6 +15459,8 @@ export class PayItemApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14122,6 +15484,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -14132,6 +15497,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14151,6 +15517,8 @@ export class PayItemApi {
         }
         return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14175,6 +15543,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -14185,6 +15556,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14203,6 +15575,8 @@ export class PayItemApi {
         }
         return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14229,6 +15603,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -14244,6 +15621,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14262,6 +15640,8 @@ export class PayItemApi {
         }
         return new Promise<Array<PayItemModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14290,6 +15670,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -14310,6 +15693,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14328,6 +15712,8 @@ export class PayItemApi {
         }
         return new Promise<Array<PayItemModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14351,6 +15737,9 @@ export class PayItemApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -14361,6 +15750,7 @@ export class PayItemApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14380,6 +15770,8 @@ export class PayItemApi {
         }
         return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14393,6 +15785,14 @@ export class PayItemApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ProjectApiApiKeys {
 }
@@ -14401,6 +15801,8 @@ export class ProjectApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -14431,6 +15833,14 @@ export class ProjectApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -14449,6 +15859,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -14459,6 +15872,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14477,6 +15891,8 @@ export class ProjectApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14499,11 +15915,15 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14522,6 +15942,8 @@ export class ProjectApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14546,6 +15968,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -14556,6 +15981,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14574,6 +16000,8 @@ export class ProjectApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14597,6 +16025,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -14607,6 +16038,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14626,6 +16058,8 @@ export class ProjectApi {
         }
         return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14650,6 +16084,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -14660,6 +16097,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14678,6 +16116,8 @@ export class ProjectApi {
         }
         return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14704,6 +16144,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -14719,6 +16162,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14737,6 +16181,8 @@ export class ProjectApi {
         }
         return new Promise<Array<ProjectModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14765,6 +16211,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -14785,6 +16234,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14803,6 +16253,8 @@ export class ProjectApi {
         }
         return new Promise<Array<ProjectModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14826,6 +16278,9 @@ export class ProjectApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -14836,6 +16291,7 @@ export class ProjectApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14855,6 +16311,8 @@ export class ProjectApi {
         }
         return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14868,6 +16326,14 @@ export class ProjectApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ReportApiApiKeys {
 }
@@ -14876,6 +16342,8 @@ export class ReportApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -14906,6 +16374,14 @@ export class ReportApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -14924,6 +16400,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -14934,6 +16413,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14952,6 +16432,8 @@ export class ReportApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -14974,11 +16456,15 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -14997,6 +16483,8 @@ export class ReportApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15021,6 +16509,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -15031,6 +16522,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15049,6 +16541,8 @@ export class ReportApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15072,6 +16566,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -15082,6 +16579,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15101,6 +16599,8 @@ export class ReportApi {
         }
         return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15123,11 +16623,15 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15146,6 +16650,8 @@ export class ReportApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15169,6 +16675,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -15179,6 +16688,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15197,6 +16707,8 @@ export class ReportApi {
         }
         return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15223,6 +16735,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -15238,6 +16753,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15256,6 +16772,8 @@ export class ReportApi {
         }
         return new Promise<Array<ReportModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15284,6 +16802,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -15304,6 +16825,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15322,6 +16844,8 @@ export class ReportApi {
         }
         return new Promise<Array<ReportModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15345,6 +16869,9 @@ export class ReportApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -15355,6 +16882,7 @@ export class ReportApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15374,6 +16902,8 @@ export class ReportApi {
         }
         return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15387,6 +16917,14 @@ export class ReportApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum ReportNamedInstanceApiApiKeys {
 }
@@ -15395,6 +16933,8 @@ export class ReportNamedInstanceApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -15425,6 +16965,14 @@ export class ReportNamedInstanceApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -15443,6 +16991,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -15453,6 +17004,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15471,6 +17023,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15497,6 +17051,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDReportNamedInstance' is not null or undefined
         if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
             throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling addReportNamedInstanceToProject.');
@@ -15512,6 +17069,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15530,6 +17088,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15551,11 +17111,15 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15574,6 +17138,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15598,6 +17164,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -15608,6 +17177,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15626,6 +17196,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15649,6 +17221,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -15659,6 +17234,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15678,6 +17254,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15706,6 +17284,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getReportNamedInstanceByProject.');
@@ -15726,6 +17307,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15744,6 +17326,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15767,6 +17351,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -15777,6 +17364,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15795,6 +17383,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15821,6 +17411,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -15836,6 +17429,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15854,6 +17448,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15882,6 +17478,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -15902,6 +17501,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15920,6 +17520,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -15946,6 +17548,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'IDReportNamedInstance' is not null or undefined
         if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
             throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling removeReportNamedInstanceFromProject.');
@@ -15961,6 +17566,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -15979,6 +17585,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16001,6 +17609,9 @@ export class ReportNamedInstanceApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -16011,6 +17622,7 @@ export class ReportNamedInstanceApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16030,6 +17642,8 @@ export class ReportNamedInstanceApi {
         }
         return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16043,6 +17657,14 @@ export class ReportNamedInstanceApi {
             });
         });
     }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 export enum UserApiApiKeys {
 }
@@ -16051,6 +17673,8 @@ export class UserApi {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -16081,6 +17705,14 @@ export class UserApi {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -16099,6 +17731,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
@@ -16109,6 +17744,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'DELETE',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16127,6 +17763,8 @@ export class UserApi {
         }
         return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16149,11 +17787,15 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16172,6 +17814,8 @@ export class UserApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16196,6 +17840,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
@@ -16206,6 +17853,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16224,6 +17872,8 @@ export class UserApi {
         }
         return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16247,6 +17897,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
@@ -16257,6 +17910,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'PUT',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16276,6 +17930,8 @@ export class UserApi {
         }
         return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16300,6 +17956,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
@@ -16310,6 +17969,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16328,6 +17988,8 @@ export class UserApi {
         }
         return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16354,6 +18016,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
@@ -16369,6 +18034,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16387,6 +18053,8 @@ export class UserApi {
         }
         return new Promise<Array<UserModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16415,6 +18083,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'filter' is not null or undefined
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
@@ -16435,6 +18106,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'GET',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16453,6 +18125,8 @@ export class UserApi {
         }
         return new Promise<Array<UserModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16476,6 +18150,9 @@ export class UserApi {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
@@ -16486,6 +18163,7 @@ export class UserApi {
 
         let localVarRequestOptions: localVarRequest.Options = {
             method: 'POST',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -16505,6 +18183,8 @@ export class UserApi {
         }
         return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -16517,5 +18197,13 @@ export class UserApi {
                 }
             });
         });
+    }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
     }
 }

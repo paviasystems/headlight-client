@@ -1,6 +1,8 @@
 'use strict'
 
 import 'mocha';
+import * as fs from 'fs';
+import * as process from 'process';
 import * as chai from 'chai';
 import * as Headlight from '../';
 
@@ -8,8 +10,8 @@ const expect = chai.expect;
 //const jsonata = require('jsonata');
 
 const _ServerURL = 'https://headlightqa.paviasystems.com/1.0';
-const _UserName = 'jason';
-const _Password = 'password123';
+const _UserName = process.env['DEV_USER'] || 'user';
+const _Password = process.env['DEV_PASSWORD'] || 'password123';
 
 describe('Node API test', () => {
     var client = new Headlight.Client(_ServerURL);
@@ -43,8 +45,12 @@ describe('Node API test', () => {
     it('can download media files', async() => {
         let observations = client.API(Headlight.API.ObservationApi);
 
-        let response = await observations.downloadObservationImage('Thumbnail', 12);
+        let image = await observations.downloadObservationImage('Thumbnail', 12);
+        expect(image instanceof Buffer).to.eq(true);
 
-        expect(response instanceof Buffer).to.eq(true);
+        let lastResponse = observations.getLastResponse();
+        expect(lastResponse.headers['content-type']).to.eq('image/jpeg');
+
+        //fs.writeFileSync('junk.png', image);
     });
 });

@@ -3,6 +3,9 @@
   "version": "3.0.1",
   "description": "",
   "main": "node/index.ts",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/_mocha --colors --compilers ts-node/register ./node/test/*.ts"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/paviasystems/headlight-client.git"

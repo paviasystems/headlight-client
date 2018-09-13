@@ -5,6 +5,8 @@ import http = require('http');
 import Promise = require('bluebird');
 {{/supportsES6}}
 
+const DEFAULT_TIMEOUT = 30 * 1000; //default to 30 second request timeout
+
 let defaultBasePath = '{{{basePath}}}';
 
 // ===============================================
@@ -286,6 +288,8 @@ export class {{classname}} {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -338,6 +342,14 @@ export class {{classname}} {
         return this._basePath;
     }
 
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
     public setDefaultAuthentication(auth: Authentication) {
 	this.authentications.default = auth;
     }
@@ -379,6 +391,9 @@ export class {{classname}} {
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
 {{#allParams}}
 {{#required}}
         // verify required parameter '{{paramName}}' is not null or undefined
@@ -416,6 +431,7 @@ export class {{classname}} {
 {{/formParams}}
         let localVarRequestOptions: localVarRequest.Options = {
             method: '{{httpMethod}}',
+            timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -446,6 +462,8 @@ export class {{classname}} {
         }
         return new Promise<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}any{{/returnType}}>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
@@ -462,6 +480,14 @@ export class {{classname}} {
         });
     }
 {{/operation}}
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
 }
 {{/operations}}
 {{/apis}}
