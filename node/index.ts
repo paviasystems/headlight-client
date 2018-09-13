@@ -36,13 +36,13 @@ export class Client
     public async login(pUsername: string, pPassword: string): Promise<API.ISession>
     {
         var result = await this._Auth.authenticate({UserName: pUsername, Password: pPassword});
-        if (!result.body || !result.body.LoggedIn || !result.body.UserID)
+        if (!result.UserID)
         {
             return Promise.reject('Login failure! Check username and password.');
         }
-        this._Cookie = new CookieAuth(result.body.SessionID);
+        this._Cookie = new CookieAuth(result.SessionID);
 
-        return Promise.resolve(result.body);
+        return Promise.resolve(result);
     }
 
     /**

@@ -4962,7 +4962,7 @@ export class AuthenticateApi {
      * Forward authentication request to authentication microservice.
      * @param body 
      */
-    public authenticate (body: LoginRequest) : Promise<{ response: http.IncomingMessage; body: ISession;  }> {
+    public authenticate (body: LoginRequest) : Promise<ISession> {
         const localVarPath = this.basePath + '/Authenticate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -4995,16 +4995,16 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ISession;  }>((resolve, reject) => {
+        return new Promise<ISession>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ISession");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in authenticate!`);
                     }
                 }
             });
@@ -5013,7 +5013,7 @@ export class AuthenticateApi {
     /**
      * 
      */
-    public checkSession () : Promise<{ response: http.IncomingMessage; body: ISession;  }> {
+    public checkSession () : Promise<ISession> {
         const localVarPath = this.basePath + '/CheckSession';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5040,16 +5040,16 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ISession;  }>((resolve, reject) => {
+        return new Promise<ISession>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ISession");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in checkSession!`);
                     }
                 }
             });
@@ -5058,7 +5058,7 @@ export class AuthenticateApi {
     /**
      * Check out temporary authentication token for user in session.
      */
-    public checkoutSessionToken () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public checkoutSessionToken () : Promise<any> {
         const localVarPath = this.basePath + '/CheckoutSessionToken';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5085,15 +5085,15 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in checkoutSessionToken!`);
                     }
                 }
             });
@@ -5103,7 +5103,7 @@ export class AuthenticateApi {
      * 
      * @param IDUser 
      */
-    public impersonateUser (IDUser: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public impersonateUser (IDUser: number) : Promise<any> {
         const localVarPath = this.basePath + '/Authenticate/Impersonate/{IDUser}'
             .replace('{' + 'IDUser' + '}', encodeURIComponent(String(IDUser)));
         let localVarQueryParameters: any = {};
@@ -5136,15 +5136,15 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in impersonateUser!`);
                     }
                 }
             });
@@ -5198,7 +5198,7 @@ export class BatchExportApi {
     /**
      * Begin Batch Export Job
      */
-    public batchExport () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public batchExport () : Promise<any> {
         const localVarPath = this.basePath + '/BatchExport';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5225,15 +5225,15 @@ export class BatchExportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in batchExport!`);
                     }
                 }
             });
@@ -5243,7 +5243,7 @@ export class BatchExportApi {
      * List export files that are ready for download
      * @param ExportType 
      */
-    public batchExportListFiles (ExportType: string) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public batchExportListFiles (ExportType: string) : Promise<any> {
         const localVarPath = this.basePath + '/BatchExport/Files/{ExportType}'
             .replace('{' + 'ExportType' + '}', encodeURIComponent(String(ExportType)));
         let localVarQueryParameters: any = {};
@@ -5276,15 +5276,15 @@ export class BatchExportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in batchExportListFiles!`);
                     }
                 }
             });
@@ -5339,7 +5339,7 @@ export class BidItemApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/BidItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -5372,16 +5372,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -5390,7 +5390,7 @@ export class BidItemApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/BidItems/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5417,16 +5417,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -5436,7 +5436,7 @@ export class BidItemApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/BidItems/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -5469,16 +5469,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -5488,7 +5488,7 @@ export class BidItemApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: BidItem) : Promise<{ response: http.IncomingMessage; body: BidItem;  }> {
+    public create (body: BidItem) : Promise<BidItem> {
         const localVarPath = this.basePath + '/BidItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5521,16 +5521,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: BidItem;  }>((resolve, reject) => {
+        return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "BidItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -5540,7 +5540,7 @@ export class BidItemApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: BidItem;  }> {
+    public read (id: number) : Promise<BidItem> {
         const localVarPath = this.basePath + '/BidItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -5573,16 +5573,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: BidItem;  }>((resolve, reject) => {
+        return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "BidItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -5593,7 +5593,7 @@ export class BidItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<BidItem>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<BidItem>> {
         const localVarPath = this.basePath + '/BidItems/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -5632,16 +5632,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<BidItem>;  }>((resolve, reject) => {
+        return new Promise<Array<BidItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -5653,7 +5653,7 @@ export class BidItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<BidItem>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<BidItem>> {
         const localVarPath = this.basePath + '/BidItems/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -5698,16 +5698,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<BidItem>;  }>((resolve, reject) => {
+        return new Promise<Array<BidItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -5717,7 +5717,7 @@ export class BidItemApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: BidItem) : Promise<{ response: http.IncomingMessage; body: BidItem;  }> {
+    public update (body: BidItem) : Promise<BidItem> {
         const localVarPath = this.basePath + '/BidItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5750,16 +5750,16 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: BidItem;  }>((resolve, reject) => {
+        return new Promise<BidItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "BidItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -5814,7 +5814,7 @@ export class CommentApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Comment/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -5847,16 +5847,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -5865,7 +5865,7 @@ export class CommentApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Comments/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5892,16 +5892,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -5911,7 +5911,7 @@ export class CommentApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Comments/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -5944,16 +5944,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -5963,7 +5963,7 @@ export class CommentApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: CommentModel) : Promise<{ response: http.IncomingMessage; body: CommentModel;  }> {
+    public create (body: CommentModel) : Promise<CommentModel> {
         const localVarPath = this.basePath + '/Comment';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -5996,16 +5996,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: CommentModel;  }>((resolve, reject) => {
+        return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "CommentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -6015,7 +6015,7 @@ export class CommentApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: CommentModel;  }> {
+    public read (id: number) : Promise<CommentModel> {
         const localVarPath = this.basePath + '/Comment/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -6048,16 +6048,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: CommentModel;  }>((resolve, reject) => {
+        return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "CommentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -6068,7 +6068,7 @@ export class CommentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<CommentModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<CommentModel>> {
         const localVarPath = this.basePath + '/Comments/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -6107,16 +6107,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<CommentModel>;  }>((resolve, reject) => {
+        return new Promise<Array<CommentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -6128,7 +6128,7 @@ export class CommentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<CommentModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<CommentModel>> {
         const localVarPath = this.basePath + '/Comments/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -6173,16 +6173,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<CommentModel>;  }>((resolve, reject) => {
+        return new Promise<Array<CommentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -6192,7 +6192,7 @@ export class CommentApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: CommentModel) : Promise<{ response: http.IncomingMessage; body: CommentModel;  }> {
+    public update (body: CommentModel) : Promise<CommentModel> {
         const localVarPath = this.basePath + '/Comment';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6225,16 +6225,16 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: CommentModel;  }>((resolve, reject) => {
+        return new Promise<CommentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "CommentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -6289,7 +6289,7 @@ export class ContractApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Contract/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -6322,16 +6322,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -6340,7 +6340,7 @@ export class ContractApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Contracts/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6367,16 +6367,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -6386,7 +6386,7 @@ export class ContractApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Contracts/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -6419,16 +6419,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -6438,7 +6438,7 @@ export class ContractApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: Contract) : Promise<{ response: http.IncomingMessage; body: Contract;  }> {
+    public create (body: Contract) : Promise<Contract> {
         const localVarPath = this.basePath + '/Contract';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6471,16 +6471,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Contract;  }>((resolve, reject) => {
+        return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Contract");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -6490,7 +6490,7 @@ export class ContractApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: Contract;  }> {
+    public read (id: number) : Promise<Contract> {
         const localVarPath = this.basePath + '/Contract/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -6523,16 +6523,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Contract;  }>((resolve, reject) => {
+        return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Contract");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -6543,7 +6543,7 @@ export class ContractApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Contract>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<Contract>> {
         const localVarPath = this.basePath + '/Contracts/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -6582,16 +6582,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Contract>;  }>((resolve, reject) => {
+        return new Promise<Array<Contract>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Contract>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -6603,7 +6603,7 @@ export class ContractApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Contract>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Contract>> {
         const localVarPath = this.basePath + '/Contracts/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -6648,16 +6648,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Contract>;  }>((resolve, reject) => {
+        return new Promise<Array<Contract>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Contract>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -6667,7 +6667,7 @@ export class ContractApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: Contract) : Promise<{ response: http.IncomingMessage; body: Contract;  }> {
+    public update (body: Contract) : Promise<Contract> {
         const localVarPath = this.basePath + '/Contract';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6700,16 +6700,16 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Contract;  }>((resolve, reject) => {
+        return new Promise<Contract>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Contract");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -6764,7 +6764,7 @@ export class CustomerApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Customer/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -6797,16 +6797,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -6815,7 +6815,7 @@ export class CustomerApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Customers/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6842,16 +6842,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -6861,7 +6861,7 @@ export class CustomerApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -6894,16 +6894,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -6913,7 +6913,7 @@ export class CustomerApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: Customer) : Promise<{ response: http.IncomingMessage; body: Customer;  }> {
+    public create (body: Customer) : Promise<Customer> {
         const localVarPath = this.basePath + '/Customer';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -6946,16 +6946,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Customer;  }>((resolve, reject) => {
+        return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Customer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -6965,7 +6965,7 @@ export class CustomerApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: Customer;  }> {
+    public read (id: number) : Promise<Customer> {
         const localVarPath = this.basePath + '/Customer/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -6998,16 +6998,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Customer;  }>((resolve, reject) => {
+        return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Customer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -7018,7 +7018,7 @@ export class CustomerApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Customer>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<Customer>> {
         const localVarPath = this.basePath + '/Customers/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -7057,16 +7057,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Customer>;  }>((resolve, reject) => {
+        return new Promise<Array<Customer>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Customer>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -7078,7 +7078,7 @@ export class CustomerApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Customer>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Customer>> {
         const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -7123,16 +7123,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Customer>;  }>((resolve, reject) => {
+        return new Promise<Array<Customer>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Customer>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -7142,7 +7142,7 @@ export class CustomerApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: Customer) : Promise<{ response: http.IncomingMessage; body: Customer;  }> {
+    public update (body: Customer) : Promise<Customer> {
         const localVarPath = this.basePath + '/Customer';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -7175,16 +7175,16 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Customer;  }>((resolve, reject) => {
+        return new Promise<Customer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Customer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -7239,7 +7239,7 @@ export class DocumentApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Document/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -7272,16 +7272,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -7292,7 +7292,7 @@ export class DocumentApi {
      * @param IDDocument ID of record
      * @param IDComment ID of record
      */
-    public addCommentsToDocument (IDDocument: number, IDComment: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public addCommentsToDocument (IDDocument: number, IDComment: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/Comment/Add/{IDComment}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
             .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)));
@@ -7331,15 +7331,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in addCommentsToDocument!`);
                     }
                 }
             });
@@ -7350,7 +7350,7 @@ export class DocumentApi {
      * @param IDDocument ID of record
      * @param IDObservation ID of record
      */
-    public addDocumentObservation (IDDocument: number, IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public addDocumentObservation (IDDocument: number, IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/AddObservation/{IDObservation}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
@@ -7389,15 +7389,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in addDocumentObservation!`);
                     }
                 }
             });
@@ -7406,7 +7406,7 @@ export class DocumentApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Documents/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -7433,16 +7433,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -7452,7 +7452,7 @@ export class DocumentApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -7485,16 +7485,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -7504,7 +7504,7 @@ export class DocumentApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: DocumentModel) : Promise<{ response: http.IncomingMessage; body: DocumentModel;  }> {
+    public create (body: DocumentModel) : Promise<DocumentModel> {
         const localVarPath = this.basePath + '/Document';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -7537,16 +7537,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: DocumentModel;  }>((resolve, reject) => {
+        return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "DocumentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -7556,7 +7556,7 @@ export class DocumentApi {
      * Get Document count form beginning of month in Customer timezone UP TO target DocumentID
      * @param IDDocument ID of record
      */
-    public getDocumentCountBySequenceNumber (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentCountBySequenceNumber (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/SequenceNumber/Monthly'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -7589,15 +7589,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentCountBySequenceNumber!`);
                     }
                 }
             });
@@ -7607,7 +7607,7 @@ export class DocumentApi {
      * Generate a DCR in HTML format
      * @param IDDocument ID of record
      */
-    public getDocumentHTML (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentHTML (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/DCR.html'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -7640,15 +7640,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentHTML!`);
                     }
                 }
             });
@@ -7658,7 +7658,7 @@ export class DocumentApi {
      * Generate a DCR in JSON format
      * @param IDDocument ID of record
      */
-    public getDocumentJSON (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentJSON (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/DCR.json'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -7691,15 +7691,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentJSON!`);
                     }
                 }
             });
@@ -7709,7 +7709,7 @@ export class DocumentApi {
      * Generate a DCR in PDF format
      * @param IDDocument ID of record
      */
-    public getDocumentPDF (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentPDF (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/DCR.pdf'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -7742,15 +7742,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentPDF!`);
                     }
                 }
             });
@@ -7760,7 +7760,7 @@ export class DocumentApi {
      * Get Report Parameters that being sent to the report service
      * @param IDDocument ID of record
      */
-    public getDocumentReportParameters (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentReportParameters (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/ReportParameters'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -7793,15 +7793,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentReportParameters!`);
                     }
                 }
             });
@@ -7811,7 +7811,7 @@ export class DocumentApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: DocumentModel;  }> {
+    public read (id: number) : Promise<DocumentModel> {
         const localVarPath = this.basePath + '/Document/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -7844,16 +7844,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: DocumentModel;  }>((resolve, reject) => {
+        return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "DocumentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -7864,7 +7864,7 @@ export class DocumentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<DocumentModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<DocumentModel>> {
         const localVarPath = this.basePath + '/Documents/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -7903,16 +7903,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<DocumentModel>;  }>((resolve, reject) => {
+        return new Promise<Array<DocumentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -7924,7 +7924,7 @@ export class DocumentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<DocumentModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<DocumentModel>> {
         const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -7969,16 +7969,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<DocumentModel>;  }>((resolve, reject) => {
+        return new Promise<Array<DocumentModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -7989,7 +7989,7 @@ export class DocumentApi {
      * @param IDDocument ID of record
      * @param IDObservation ID of record
      */
-    public removeDocumentObservation (IDDocument: number, IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public removeDocumentObservation (IDDocument: number, IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/RemoveObservation/{IDObservation}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
@@ -8028,15 +8028,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in removeDocumentObservation!`);
                     }
                 }
             });
@@ -8047,7 +8047,7 @@ export class DocumentApi {
      * @param IDDocument ID of record
      * @param IDElectronicSignature ID of record
      */
-    public signDocument (IDDocument: number, IDElectronicSignature: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public signDocument (IDDocument: number, IDElectronicSignature: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/Sign/{IDDocument}/{IDElectronicSignature}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
             .replace('{' + 'IDElectronicSignature' + '}', encodeURIComponent(String(IDElectronicSignature)));
@@ -8086,15 +8086,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in signDocument!`);
                     }
                 }
             });
@@ -8104,7 +8104,7 @@ export class DocumentApi {
      * UNDelete a specific Document
      * @param IDDocument ID of record
      */
-    public undeleteDocument (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public undeleteDocument (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/Undelete/{IDDocument}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -8137,15 +8137,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in undeleteDocument!`);
                     }
                 }
             });
@@ -8155,7 +8155,7 @@ export class DocumentApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: DocumentModel) : Promise<{ response: http.IncomingMessage; body: DocumentModel;  }> {
+    public update (body: DocumentModel) : Promise<DocumentModel> {
         const localVarPath = this.basePath + '/Document';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -8188,16 +8188,16 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: DocumentModel;  }>((resolve, reject) => {
+        return new Promise<DocumentModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "DocumentModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -8206,7 +8206,7 @@ export class DocumentApi {
     /**
      * Update Document ExternalSyncDate field
      */
-    public updateDocumentExternalSyncDate () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public updateDocumentExternalSyncDate () : Promise<any> {
         const localVarPath = this.basePath + '/Document/UpdateExternalSyncDate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -8233,15 +8233,15 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in updateDocumentExternalSyncDate!`);
                     }
                 }
             });
@@ -8296,7 +8296,7 @@ export class DocumentApprovalApi {
      * Get list of Approvers for Document
      * @param IDDocument ID of record
      */
-    public getDocumentApproverList (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentApproverList (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentApproval/{IDDocument}/ApproverList'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -8329,15 +8329,15 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentApproverList!`);
                     }
                 }
             });
@@ -8347,7 +8347,7 @@ export class DocumentApprovalApi {
      * Get current Approval state of Document, and available actions for respective user as it relates to that state
      * @param IDDocument ID of record
      */
-    public getDocumentState (IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentState (IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentApproval/{IDDocument}/State'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -8380,15 +8380,15 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentState!`);
                     }
                 }
             });
@@ -8397,7 +8397,7 @@ export class DocumentApprovalApi {
     /**
      * Perform Approval state transition action against Document
      */
-    public postChangeDocumenttState () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postChangeDocumenttState () : Promise<any> {
         const localVarPath = this.basePath + '/DocumentApproval';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -8424,15 +8424,15 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postChangeDocumenttState!`);
                     }
                 }
             });
@@ -8488,7 +8488,7 @@ export class DocumentSendToApi {
      * @param body 
      * @param IDDocument ID of record
      */
-    public postDocumentSendToEmail (body: SendToEmailRequest, IDDocument: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postDocumentSendToEmail (body: SendToEmailRequest, IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentSendTo/{IDDocument}/Email'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -8527,15 +8527,15 @@ export class DocumentSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postDocumentSendToEmail!`);
                     }
                 }
             });
@@ -8592,7 +8592,7 @@ export class DocumentsApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getUpdatedDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getUpdatedDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -8637,15 +8637,15 @@ export class DocumentsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getUpdatedDocuments!`);
                     }
                 }
             });
@@ -8657,7 +8657,7 @@ export class DocumentsApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public syncDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public syncDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -8702,15 +8702,15 @@ export class DocumentsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in syncDocuments!`);
                     }
                 }
             });
@@ -8765,7 +8765,7 @@ export class DocumentsByObservationApi {
      * 
      * @param IDObservation ID of record
      */
-    public getDocumentByObservation (IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentByObservation (IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentsByObservation/{IDObservation}'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
@@ -8798,15 +8798,15 @@ export class DocumentsByObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentByObservation!`);
                     }
                 }
             });
@@ -8861,7 +8861,7 @@ export class ElectronicSignatureApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/ElectronicSignature/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -8894,16 +8894,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -8912,7 +8912,7 @@ export class ElectronicSignatureApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/ElectronicSignatures/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -8939,16 +8939,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -8958,7 +8958,7 @@ export class ElectronicSignatureApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/ElectronicSignatures/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -8991,16 +8991,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -9010,7 +9010,7 @@ export class ElectronicSignatureApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ElectronicSignatureModel) : Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }> {
+    public create (body: ElectronicSignatureModel) : Promise<ElectronicSignatureModel> {
         const localVarPath = this.basePath + '/ElectronicSignature';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9043,16 +9043,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }>((resolve, reject) => {
+        return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -9062,7 +9062,7 @@ export class ElectronicSignatureApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }> {
+    public read (id: number) : Promise<ElectronicSignatureModel> {
         const localVarPath = this.basePath + '/ElectronicSignature/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -9095,16 +9095,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }>((resolve, reject) => {
+        return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -9115,7 +9115,7 @@ export class ElectronicSignatureApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ElectronicSignatureModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ElectronicSignatureModel>> {
         const localVarPath = this.basePath + '/ElectronicSignatures/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -9154,16 +9154,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ElectronicSignatureModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -9175,7 +9175,7 @@ export class ElectronicSignatureApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ElectronicSignatureModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ElectronicSignatureModel>> {
         const localVarPath = this.basePath + '/ElectronicSignatures/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -9220,16 +9220,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ElectronicSignatureModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -9239,7 +9239,7 @@ export class ElectronicSignatureApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ElectronicSignatureModel) : Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }> {
+    public update (body: ElectronicSignatureModel) : Promise<ElectronicSignatureModel> {
         const localVarPath = this.basePath + '/ElectronicSignature';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9272,16 +9272,16 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ElectronicSignatureModel;  }>((resolve, reject) => {
+        return new Promise<ElectronicSignatureModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -9336,7 +9336,7 @@ export class EquipmentApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Equipment/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -9369,16 +9369,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -9387,7 +9387,7 @@ export class EquipmentApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Equipments/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9414,16 +9414,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -9433,7 +9433,7 @@ export class EquipmentApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Equipments/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -9466,16 +9466,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -9485,7 +9485,7 @@ export class EquipmentApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: Equipment) : Promise<{ response: http.IncomingMessage; body: Equipment;  }> {
+    public create (body: Equipment) : Promise<Equipment> {
         const localVarPath = this.basePath + '/Equipment';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9518,16 +9518,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Equipment;  }>((resolve, reject) => {
+        return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Equipment");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -9537,7 +9537,7 @@ export class EquipmentApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: Equipment;  }> {
+    public read (id: number) : Promise<Equipment> {
         const localVarPath = this.basePath + '/Equipment/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -9570,16 +9570,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Equipment;  }>((resolve, reject) => {
+        return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Equipment");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -9590,7 +9590,7 @@ export class EquipmentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Equipment>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<Equipment>> {
         const localVarPath = this.basePath + '/Equipments/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -9629,16 +9629,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Equipment>;  }>((resolve, reject) => {
+        return new Promise<Array<Equipment>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -9650,7 +9650,7 @@ export class EquipmentApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Equipment>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Equipment>> {
         const localVarPath = this.basePath + '/Equipments/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -9695,16 +9695,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Equipment>;  }>((resolve, reject) => {
+        return new Promise<Array<Equipment>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -9714,7 +9714,7 @@ export class EquipmentApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: Equipment) : Promise<{ response: http.IncomingMessage; body: Equipment;  }> {
+    public update (body: Equipment) : Promise<Equipment> {
         const localVarPath = this.basePath + '/Equipment';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9747,16 +9747,16 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Equipment;  }>((resolve, reject) => {
+        return new Promise<Equipment>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Equipment");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -9811,7 +9811,7 @@ export class LineItemApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/LineItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -9844,16 +9844,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -9862,7 +9862,7 @@ export class LineItemApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/LineItems/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9889,16 +9889,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -9908,7 +9908,7 @@ export class LineItemApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/LineItems/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -9941,16 +9941,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -9960,7 +9960,7 @@ export class LineItemApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: LineItem) : Promise<{ response: http.IncomingMessage; body: LineItem;  }> {
+    public create (body: LineItem) : Promise<LineItem> {
         const localVarPath = this.basePath + '/LineItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -9993,16 +9993,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: LineItem;  }>((resolve, reject) => {
+        return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "LineItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -10012,7 +10012,7 @@ export class LineItemApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: LineItem;  }> {
+    public read (id: number) : Promise<LineItem> {
         const localVarPath = this.basePath + '/LineItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -10045,16 +10045,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: LineItem;  }>((resolve, reject) => {
+        return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "LineItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -10065,7 +10065,7 @@ export class LineItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<LineItem>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<LineItem>> {
         const localVarPath = this.basePath + '/LineItems/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -10104,16 +10104,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<LineItem>;  }>((resolve, reject) => {
+        return new Promise<Array<LineItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -10125,7 +10125,7 @@ export class LineItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<LineItem>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LineItem>> {
         const localVarPath = this.basePath + '/LineItems/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -10170,16 +10170,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<LineItem>;  }>((resolve, reject) => {
+        return new Promise<Array<LineItem>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -10189,7 +10189,7 @@ export class LineItemApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: LineItem) : Promise<{ response: http.IncomingMessage; body: LineItem;  }> {
+    public update (body: LineItem) : Promise<LineItem> {
         const localVarPath = this.basePath + '/LineItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10222,16 +10222,16 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: LineItem;  }>((resolve, reject) => {
+        return new Promise<LineItem>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "LineItem");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -10286,7 +10286,7 @@ export class ModuleApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Module/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -10319,16 +10319,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -10337,7 +10337,7 @@ export class ModuleApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Modules/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10364,16 +10364,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -10383,7 +10383,7 @@ export class ModuleApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Modules/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -10416,16 +10416,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -10435,7 +10435,7 @@ export class ModuleApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ModuleModel) : Promise<{ response: http.IncomingMessage; body: ModuleModel;  }> {
+    public create (body: ModuleModel) : Promise<ModuleModel> {
         const localVarPath = this.basePath + '/Module';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10468,16 +10468,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ModuleModel;  }>((resolve, reject) => {
+        return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ModuleModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -10487,7 +10487,7 @@ export class ModuleApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ModuleModel;  }> {
+    public read (id: number) : Promise<ModuleModel> {
         const localVarPath = this.basePath + '/Module/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -10520,16 +10520,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ModuleModel;  }>((resolve, reject) => {
+        return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ModuleModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -10540,7 +10540,7 @@ export class ModuleApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ModuleModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ModuleModel>> {
         const localVarPath = this.basePath + '/Modules/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -10579,16 +10579,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ModuleModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ModuleModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -10600,7 +10600,7 @@ export class ModuleApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ModuleModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ModuleModel>> {
         const localVarPath = this.basePath + '/Modules/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -10645,16 +10645,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ModuleModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ModuleModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -10664,7 +10664,7 @@ export class ModuleApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ModuleModel) : Promise<{ response: http.IncomingMessage; body: ModuleModel;  }> {
+    public update (body: ModuleModel) : Promise<ModuleModel> {
         const localVarPath = this.basePath + '/Module';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10697,16 +10697,16 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ModuleModel;  }>((resolve, reject) => {
+        return new Promise<ModuleModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ModuleModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -10761,7 +10761,7 @@ export class NotificationApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Notification/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -10794,16 +10794,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -10812,7 +10812,7 @@ export class NotificationApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Notifications/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10839,16 +10839,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -10858,7 +10858,7 @@ export class NotificationApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Notifications/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -10891,16 +10891,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -10910,7 +10910,7 @@ export class NotificationApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: Notification) : Promise<{ response: http.IncomingMessage; body: Notification;  }> {
+    public create (body: Notification) : Promise<Notification> {
         const localVarPath = this.basePath + '/Notification';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -10943,16 +10943,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Notification;  }>((resolve, reject) => {
+        return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Notification");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -10962,7 +10962,7 @@ export class NotificationApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: Notification;  }> {
+    public read (id: number) : Promise<Notification> {
         const localVarPath = this.basePath + '/Notification/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -10995,16 +10995,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Notification;  }>((resolve, reject) => {
+        return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Notification");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -11015,7 +11015,7 @@ export class NotificationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Notification>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<Notification>> {
         const localVarPath = this.basePath + '/Notifications/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -11054,16 +11054,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Notification>;  }>((resolve, reject) => {
+        return new Promise<Array<Notification>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Notification>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -11075,7 +11075,7 @@ export class NotificationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Notification>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Notification>> {
         const localVarPath = this.basePath + '/Notifications/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -11120,16 +11120,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Notification>;  }>((resolve, reject) => {
+        return new Promise<Array<Notification>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Notification>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -11139,7 +11139,7 @@ export class NotificationApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: Notification) : Promise<{ response: http.IncomingMessage; body: Notification;  }> {
+    public update (body: Notification) : Promise<Notification> {
         const localVarPath = this.basePath + '/Notification';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11172,16 +11172,16 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Notification;  }>((resolve, reject) => {
+        return new Promise<Notification>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Notification");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -11236,7 +11236,7 @@ export class ObservationApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Observation/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -11269,16 +11269,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -11288,7 +11288,7 @@ export class ObservationApi {
      * Index all Observations for a single day (solr)
      * @param SynchronizeByDay 
      */
-    public beginIndexByDay (SynchronizeByDay: string) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public beginIndexByDay (SynchronizeByDay: string) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchSyncByDay/{SynchronizeByDay}'
             .replace('{' + 'SynchronizeByDay' + '}', encodeURIComponent(String(SynchronizeByDay)));
         let localVarQueryParameters: any = {};
@@ -11321,15 +11321,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in beginIndexByDay!`);
                     }
                 }
             });
@@ -11339,7 +11339,7 @@ export class ObservationApi {
      * Index all Observations for a single project (solr)
      * @param IDProject ID of record
      */
-    public beginIndexByProject (IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public beginIndexByProject (IDProject: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchSyncByProject/{IDProject}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
         let localVarQueryParameters: any = {};
@@ -11372,15 +11372,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in beginIndexByProject!`);
                     }
                 }
             });
@@ -11389,7 +11389,7 @@ export class ObservationApi {
     /**
      * Delete and rebuild entire Observation search index (solr)
      */
-    public beginObservationSearchRebuild () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public beginObservationSearchRebuild () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchRebuild';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11416,15 +11416,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in beginObservationSearchRebuild!`);
                     }
                 }
             });
@@ -11433,7 +11433,7 @@ export class ObservationApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Observations/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11460,16 +11460,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -11479,7 +11479,7 @@ export class ObservationApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -11512,16 +11512,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -11531,7 +11531,7 @@ export class ObservationApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ObservationModel) : Promise<{ response: http.IncomingMessage; body: ObservationModel;  }> {
+    public create (body: ObservationModel) : Promise<ObservationModel> {
         const localVarPath = this.basePath + '/Observation';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11564,16 +11564,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ObservationModel;  }>((resolve, reject) => {
+        return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ObservationModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -11584,7 +11584,7 @@ export class ObservationApi {
      * @param SpritePageNumber 
      * @param IDProject ID of record
      */
-    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number) : Promise<{ response: http.IncomingMessage; body: Buffer;  }> {
+    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Observation/Project/{IDProject}/Sprites/{SpritePageNumber}'
             .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -11623,16 +11623,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Buffer;  }>((resolve, reject) => {
+        return new Promise<Buffer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Buffer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in downloadObservationCollectionImage!`);
                     }
                 }
             });
@@ -11643,7 +11643,7 @@ export class ObservationApi {
      * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
      */
-    public downloadObservationImage (Size: string, IDObservation: number) : Promise<{ response: http.IncomingMessage; body: Buffer;  }> {
+    public downloadObservationImage (Size: string, IDObservation: number) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Image/{Size}'
             .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
@@ -11682,16 +11682,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Buffer;  }>((resolve, reject) => {
+        return new Promise<Buffer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Buffer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in downloadObservationImage!`);
                     }
                 }
             });
@@ -11702,7 +11702,7 @@ export class ObservationApi {
      * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param Version 
      */
-    public getObservationImageHash (Size: string, Version: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationImageHash (Size: string, Version: number) : Promise<any> {
         const localVarPath = this.basePath + '/Observation/ImageHash/{Size}/V/{Version}'
             .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
             .replace('{' + 'Version' + '}', encodeURIComponent(String(Version)));
@@ -11741,15 +11741,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationImageHash!`);
                     }
                 }
             });
@@ -11761,7 +11761,7 @@ export class ObservationApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getUpdatedObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body: Array<BundlesContentManagementObservationModel>;  }> {
+    public getUpdatedObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<Array<BundlesContentManagementObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -11806,16 +11806,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<BundlesContentManagementObservationModel>;  }>((resolve, reject) => {
+        return new Promise<Array<BundlesContentManagementObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<BundlesContentManagementObservationModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getUpdatedObservations!`);
                     }
                 }
             });
@@ -11825,7 +11825,7 @@ export class ObservationApi {
      * postCloneBulkObservations API
      * @param body 
      */
-    public postCloneBulkObservations (body: ObservationCloneRequest) : Promise<{ response: http.IncomingMessage; body: Array<BundlesContentManagementObservationModel>;  }> {
+    public postCloneBulkObservations (body: ObservationCloneRequest) : Promise<Array<BundlesContentManagementObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Clone';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11858,16 +11858,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<BundlesContentManagementObservationModel>;  }>((resolve, reject) => {
+        return new Promise<Array<BundlesContentManagementObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<BundlesContentManagementObservationModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postCloneBulkObservations!`);
                     }
                 }
             });
@@ -11877,7 +11877,7 @@ export class ObservationApi {
      * postCloneObservation API
      * @param IDObservation ID of record
      */
-    public postCloneObservation (IDObservation: number) : Promise<{ response: http.IncomingMessage; body: BundlesContentManagementObservationModel;  }> {
+    public postCloneObservation (IDObservation: number) : Promise<BundlesContentManagementObservationModel> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Clone'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
@@ -11910,16 +11910,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: BundlesContentManagementObservationModel;  }>((resolve, reject) => {
+        return new Promise<BundlesContentManagementObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "BundlesContentManagementObservationModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postCloneObservation!`);
                     }
                 }
             });
@@ -11928,7 +11928,7 @@ export class ObservationApi {
     /**
      * Add a tag to a set of Observations (by ID)
      */
-    public postObservationsBatchTagAdd () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postObservationsBatchTagAdd () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsBatchTag/Add';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11955,15 +11955,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postObservationsBatchTagAdd!`);
                     }
                 }
             });
@@ -11972,7 +11972,7 @@ export class ObservationApi {
     /**
      * Remove a tag to a set of Observations (by ID)
      */
-    public postObservationsBatchTagRemove () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postObservationsBatchTagRemove () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsBatchTag/Remove';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -11999,15 +11999,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postObservationsBatchTagRemove!`);
                     }
                 }
             });
@@ -12017,7 +12017,7 @@ export class ObservationApi {
      * Index specific Observations (solr)
      * @param IDObservation ID of record
      */
-    public pushObservationSearchIndexByIDs (IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public pushObservationSearchIndexByIDs (IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchSyncByID/{IDObservation}'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
@@ -12050,15 +12050,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in pushObservationSearchIndexByIDs!`);
                     }
                 }
             });
@@ -12068,7 +12068,7 @@ export class ObservationApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ObservationModel;  }> {
+    public read (id: number) : Promise<ObservationModel> {
         const localVarPath = this.basePath + '/Observation/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -12101,16 +12101,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ObservationModel;  }>((resolve, reject) => {
+        return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ObservationModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -12121,7 +12121,7 @@ export class ObservationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ObservationModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -12160,16 +12160,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ObservationModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -12181,7 +12181,7 @@ export class ObservationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ObservationModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -12226,16 +12226,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ObservationModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ObservationModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -12247,7 +12247,7 @@ export class ObservationApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public syncObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public syncObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -12292,15 +12292,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in syncObservations!`);
                     }
                 }
             });
@@ -12310,7 +12310,7 @@ export class ObservationApi {
      * Touch Observation record UpdateDate and set Transcoded flag - When media files are updated, we want other devices to see the changes and pull it down
      * @param IDObservation ID of record
      */
-    public transcodeTouchObservation (IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public transcodeTouchObservation (IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/TranscodeTouch'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
@@ -12343,15 +12343,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in transcodeTouchObservation!`);
                     }
                 }
             });
@@ -12361,7 +12361,7 @@ export class ObservationApi {
      * UNDelete a specific observation
      * @param IDObservation ID of record
      */
-    public undeleteObservation (IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public undeleteObservation (IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/Observation/Undelete/{IDObservation}'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
@@ -12394,15 +12394,15 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in undeleteObservation!`);
                     }
                 }
             });
@@ -12412,7 +12412,7 @@ export class ObservationApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ObservationModel) : Promise<{ response: http.IncomingMessage; body: ObservationModel;  }> {
+    public update (body: ObservationModel) : Promise<ObservationModel> {
         const localVarPath = this.basePath + '/Observation';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -12445,16 +12445,16 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ObservationModel;  }>((resolve, reject) => {
+        return new Promise<ObservationModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ObservationModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -12509,7 +12509,7 @@ export class ObservationCloneTemplatesApi {
      * 
      * @param IDProject ID of record
      */
-    public getCloneTemplates (IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getCloneTemplates (IDProject: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationCloneTemplates/{IDProject}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
         let localVarQueryParameters: any = {};
@@ -12542,15 +12542,15 @@ export class ObservationCloneTemplatesApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getCloneTemplates!`);
                     }
                 }
             });
@@ -12608,7 +12608,7 @@ export class ObservationSearchsApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getObservationSearch (SearchQuery: string, IDProject: number, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationSearch (SearchQuery: string, IDProject: number, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchs/{IDProject}/{SearchQuery}/{Begin}/{Cap}'
             .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
@@ -12659,15 +12659,15 @@ export class ObservationSearchsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationSearch!`);
                     }
                 }
             });
@@ -12678,7 +12678,7 @@ export class ObservationSearchsApi {
      * @param SearchQuery solr search query
      * @param IDProject ID of record
      */
-    public getObservationSearchCount (SearchQuery: string, IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationSearchCount (SearchQuery: string, IDProject: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchs/Count/{IDProject}/{SearchQuery}'
             .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -12717,15 +12717,15 @@ export class ObservationSearchsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationSearchCount!`);
                     }
                 }
             });
@@ -12781,7 +12781,7 @@ export class ObservationSendToApi {
      * @param EmailAddress 
      * @param IDObservation ID of record
      */
-    public getObservationSendToEmail (EmailAddress: string, IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationSendToEmail (EmailAddress: string, IDObservation: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSendTo/{IDObservation}/Email/{EmailAddress}'
             .replace('{' + 'EmailAddress' + '}', encodeURIComponent(String(EmailAddress)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
@@ -12820,15 +12820,15 @@ export class ObservationSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationSendToEmail!`);
                     }
                 }
             });
@@ -12837,7 +12837,7 @@ export class ObservationSendToApi {
     /**
      * 
      */
-    public postObservationSendToEmail () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postObservationSendToEmail () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSendTo/Email';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -12864,15 +12864,15 @@ export class ObservationSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postObservationSendToEmail!`);
                     }
                 }
             });
@@ -12926,7 +12926,7 @@ export class ObservationsBatchTagApi {
     /**
      * Add a tag to a set of Observations (by ID)
      */
-    public postObservationsBatchTagAdd () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postObservationsBatchTagAdd () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsBatchTag/Add';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -12953,15 +12953,15 @@ export class ObservationsBatchTagApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postObservationsBatchTagAdd!`);
                     }
                 }
             });
@@ -12970,7 +12970,7 @@ export class ObservationsBatchTagApi {
     /**
      * Remove a tag to a set of Observations (by ID)
      */
-    public postObservationsBatchTagRemove () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public postObservationsBatchTagRemove () : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsBatchTag/Remove';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -12997,15 +12997,15 @@ export class ObservationsBatchTagApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in postObservationsBatchTagRemove!`);
                     }
                 }
             });
@@ -13062,7 +13062,7 @@ export class ObservationsByDocumentApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getObservationsByDocument (IDDocument: number, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationsByDocument (IDDocument: number, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsByDocument/{IDDocument}/{Begin}/{Cap}'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -13107,15 +13107,15 @@ export class ObservationsByDocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationsByDocument!`);
                     }
                 }
             });
@@ -13126,7 +13126,7 @@ export class ObservationsByDocumentApi {
      * @param IDProject ID of record
      * @param Cap Maximum number of records to return
      */
-    public getObservationsByNoDocument (IDProject: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationsByNoDocument (IDProject: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsByNoDocument/{IDProject}/{Cap}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
@@ -13165,15 +13165,15 @@ export class ObservationsByDocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationsByNoDocument!`);
                     }
                 }
             });
@@ -13229,7 +13229,7 @@ export class ObservationsByUpdateDateApi {
      * @param ByDate 
      * @param Cap Maximum number of records to return
      */
-    public getObservationsByUpdateDate (ByDate: Date, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationsByUpdateDate (ByDate: Date, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsByUpdateDate/{ByDate}/{Cap}'
             .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
@@ -13268,15 +13268,15 @@ export class ObservationsByUpdateDateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationsByUpdateDate!`);
                     }
                 }
             });
@@ -13333,7 +13333,7 @@ export class ObservationsFilterApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getObservationsFilter (body: ObservationFilterRequest, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationsFilter (body: ObservationFilterRequest, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsFilter/{Begin}/{Cap}'
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
@@ -13378,15 +13378,15 @@ export class ObservationsFilterApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationsFilter!`);
                     }
                 }
             });
@@ -13396,7 +13396,7 @@ export class ObservationsFilterApi {
      * Search Observations using search index (solr)
      * @param body 
      */
-    public getObservationsFilterCount (body: ObservationFilterRequest) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getObservationsFilterCount (body: ObservationFilterRequest) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsFilter/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -13429,15 +13429,15 @@ export class ObservationsFilterApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getObservationsFilterCount!`);
                     }
                 }
             });
@@ -13492,7 +13492,7 @@ export class OrganizationApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Organization/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -13525,16 +13525,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -13543,7 +13543,7 @@ export class OrganizationApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Organizations/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -13570,16 +13570,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -13589,7 +13589,7 @@ export class OrganizationApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Organizations/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -13622,16 +13622,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -13641,7 +13641,7 @@ export class OrganizationApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: Organization) : Promise<{ response: http.IncomingMessage; body: Organization;  }> {
+    public create (body: Organization) : Promise<Organization> {
         const localVarPath = this.basePath + '/Organization';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -13674,16 +13674,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Organization;  }>((resolve, reject) => {
+        return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Organization");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -13693,7 +13693,7 @@ export class OrganizationApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: Organization;  }> {
+    public read (id: number) : Promise<Organization> {
         const localVarPath = this.basePath + '/Organization/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -13726,16 +13726,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Organization;  }>((resolve, reject) => {
+        return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Organization");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -13746,7 +13746,7 @@ export class OrganizationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Organization>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<Organization>> {
         const localVarPath = this.basePath + '/Organizations/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -13785,16 +13785,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Organization>;  }>((resolve, reject) => {
+        return new Promise<Array<Organization>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Organization>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -13806,7 +13806,7 @@ export class OrganizationApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<Organization>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Organization>> {
         const localVarPath = this.basePath + '/Organizations/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -13851,16 +13851,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<Organization>;  }>((resolve, reject) => {
+        return new Promise<Array<Organization>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<Organization>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -13870,7 +13870,7 @@ export class OrganizationApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: Organization) : Promise<{ response: http.IncomingMessage; body: Organization;  }> {
+    public update (body: Organization) : Promise<Organization> {
         const localVarPath = this.basePath + '/Organization';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -13903,16 +13903,16 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Organization;  }>((resolve, reject) => {
+        return new Promise<Organization>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Organization");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -13967,7 +13967,7 @@ export class PayItemApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/PayItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -14000,16 +14000,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -14018,7 +14018,7 @@ export class PayItemApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/PayItems/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14045,16 +14045,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -14064,7 +14064,7 @@ export class PayItemApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/PayItems/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -14097,16 +14097,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -14116,7 +14116,7 @@ export class PayItemApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: PayItemModel) : Promise<{ response: http.IncomingMessage; body: PayItemModel;  }> {
+    public create (body: PayItemModel) : Promise<PayItemModel> {
         const localVarPath = this.basePath + '/PayItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14149,16 +14149,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: PayItemModel;  }>((resolve, reject) => {
+        return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "PayItemModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -14168,7 +14168,7 @@ export class PayItemApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: PayItemModel;  }> {
+    public read (id: number) : Promise<PayItemModel> {
         const localVarPath = this.basePath + '/PayItem/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -14201,16 +14201,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: PayItemModel;  }>((resolve, reject) => {
+        return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "PayItemModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -14221,7 +14221,7 @@ export class PayItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<PayItemModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<PayItemModel>> {
         const localVarPath = this.basePath + '/PayItems/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -14260,16 +14260,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<PayItemModel>;  }>((resolve, reject) => {
+        return new Promise<Array<PayItemModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -14281,7 +14281,7 @@ export class PayItemApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<PayItemModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<PayItemModel>> {
         const localVarPath = this.basePath + '/PayItems/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -14326,16 +14326,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<PayItemModel>;  }>((resolve, reject) => {
+        return new Promise<Array<PayItemModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -14345,7 +14345,7 @@ export class PayItemApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: PayItemModel) : Promise<{ response: http.IncomingMessage; body: PayItemModel;  }> {
+    public update (body: PayItemModel) : Promise<PayItemModel> {
         const localVarPath = this.basePath + '/PayItem';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14378,16 +14378,16 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: PayItemModel;  }>((resolve, reject) => {
+        return new Promise<PayItemModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "PayItemModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -14442,7 +14442,7 @@ export class ProjectApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Project/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -14475,16 +14475,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -14493,7 +14493,7 @@ export class ProjectApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Projects/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14520,16 +14520,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -14539,7 +14539,7 @@ export class ProjectApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Projects/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -14572,16 +14572,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -14591,7 +14591,7 @@ export class ProjectApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ProjectModel) : Promise<{ response: http.IncomingMessage; body: ProjectModel;  }> {
+    public create (body: ProjectModel) : Promise<ProjectModel> {
         const localVarPath = this.basePath + '/Project';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14624,16 +14624,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ProjectModel;  }>((resolve, reject) => {
+        return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ProjectModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -14643,7 +14643,7 @@ export class ProjectApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ProjectModel;  }> {
+    public read (id: number) : Promise<ProjectModel> {
         const localVarPath = this.basePath + '/Project/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -14676,16 +14676,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ProjectModel;  }>((resolve, reject) => {
+        return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ProjectModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -14696,7 +14696,7 @@ export class ProjectApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ProjectModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ProjectModel>> {
         const localVarPath = this.basePath + '/Projects/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -14735,16 +14735,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ProjectModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ProjectModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -14756,7 +14756,7 @@ export class ProjectApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ProjectModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ProjectModel>> {
         const localVarPath = this.basePath + '/Projects/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -14801,16 +14801,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ProjectModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ProjectModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -14820,7 +14820,7 @@ export class ProjectApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ProjectModel) : Promise<{ response: http.IncomingMessage; body: ProjectModel;  }> {
+    public update (body: ProjectModel) : Promise<ProjectModel> {
         const localVarPath = this.basePath + '/Project';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14853,16 +14853,16 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ProjectModel;  }>((resolve, reject) => {
+        return new Promise<ProjectModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ProjectModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -14917,7 +14917,7 @@ export class ReportApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/Report/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -14950,16 +14950,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -14968,7 +14968,7 @@ export class ReportApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Reports/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -14995,16 +14995,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -15014,7 +15014,7 @@ export class ReportApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Reports/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -15047,16 +15047,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -15066,7 +15066,7 @@ export class ReportApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ReportModel) : Promise<{ response: http.IncomingMessage; body: ReportModel;  }> {
+    public create (body: ReportModel) : Promise<ReportModel> {
         const localVarPath = this.basePath + '/Report';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -15099,16 +15099,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportModel;  }>((resolve, reject) => {
+        return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -15117,7 +15117,7 @@ export class ReportApi {
     /**
      * 
      */
-    public getDocumentRenderByType () : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getDocumentRenderByType () : Promise<any> {
         const localVarPath = this.basePath + '/Report/{ReportType}';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -15144,15 +15144,15 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getDocumentRenderByType!`);
                     }
                 }
             });
@@ -15162,7 +15162,7 @@ export class ReportApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ReportModel;  }> {
+    public read (id: number) : Promise<ReportModel> {
         const localVarPath = this.basePath + '/Report/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -15195,16 +15195,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportModel;  }>((resolve, reject) => {
+        return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -15215,7 +15215,7 @@ export class ReportApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ReportModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ReportModel>> {
         const localVarPath = this.basePath + '/Reports/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -15254,16 +15254,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ReportModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ReportModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -15275,7 +15275,7 @@ export class ReportApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ReportModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportModel>> {
         const localVarPath = this.basePath + '/Reports/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -15320,16 +15320,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ReportModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ReportModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -15339,7 +15339,7 @@ export class ReportApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ReportModel) : Promise<{ response: http.IncomingMessage; body: ReportModel;  }> {
+    public update (body: ReportModel) : Promise<ReportModel> {
         const localVarPath = this.basePath + '/Report';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -15372,16 +15372,16 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportModel;  }>((resolve, reject) => {
+        return new Promise<ReportModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -15436,7 +15436,7 @@ export class ReportNamedInstanceApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -15469,16 +15469,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -15489,7 +15489,7 @@ export class ReportNamedInstanceApi {
      * @param IDReportNamedInstance ID of record
      * @param IDProject ID of record
      */
-    public addReportNamedInstanceToProject (IDReportNamedInstance: number, IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public addReportNamedInstanceToProject (IDReportNamedInstance: number, IDProject: number) : Promise<any> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/AddToProject/{IDProject}'
             .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -15528,15 +15528,15 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in addReportNamedInstanceToProject!`);
                     }
                 }
             });
@@ -15545,7 +15545,7 @@ export class ReportNamedInstanceApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/ReportNamedInstances/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -15572,16 +15572,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -15591,7 +15591,7 @@ export class ReportNamedInstanceApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -15624,16 +15624,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -15643,7 +15643,7 @@ export class ReportNamedInstanceApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: ReportNamedInstanceModel) : Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }> {
+    public create (body: ReportNamedInstanceModel) : Promise<ReportNamedInstanceModel> {
         const localVarPath = this.basePath + '/ReportNamedInstance';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -15676,16 +15676,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }>((resolve, reject) => {
+        return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -15697,7 +15697,7 @@ export class ReportNamedInstanceApi {
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      */
-    public getReportNamedInstanceByProject (IDProject: number, Begin: number, Cap: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public getReportNamedInstanceByProject (IDProject: number, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ReportNamedInstancesByProject/{IDProject}/{Begin}/{Cap}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
@@ -15742,15 +15742,15 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in getReportNamedInstanceByProject!`);
                     }
                 }
             });
@@ -15760,7 +15760,7 @@ export class ReportNamedInstanceApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }> {
+    public read (id: number) : Promise<ReportNamedInstanceModel> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -15793,16 +15793,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }>((resolve, reject) => {
+        return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -15813,7 +15813,7 @@ export class ReportNamedInstanceApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ReportNamedInstanceModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<ReportNamedInstanceModel>> {
         const localVarPath = this.basePath + '/ReportNamedInstances/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -15852,16 +15852,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ReportNamedInstanceModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -15873,7 +15873,7 @@ export class ReportNamedInstanceApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<ReportNamedInstanceModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportNamedInstanceModel>> {
         const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -15918,16 +15918,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<ReportNamedInstanceModel>;  }>((resolve, reject) => {
+        return new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -15938,7 +15938,7 @@ export class ReportNamedInstanceApi {
      * @param IDReportNamedInstance ID of record
      * @param IDProject ID of record
      */
-    public removeReportNamedInstanceFromProject (IDReportNamedInstance: number, IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public removeReportNamedInstanceFromProject (IDReportNamedInstance: number, IDProject: number) : Promise<any> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/RemoveFromProject/{IDProject}'
             .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -15977,15 +15977,15 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in removeReportNamedInstanceFromProject!`);
                     }
                 }
             });
@@ -15995,7 +15995,7 @@ export class ReportNamedInstanceApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: ReportNamedInstanceModel) : Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }> {
+    public update (body: ReportNamedInstanceModel) : Promise<ReportNamedInstanceModel> {
         const localVarPath = this.basePath + '/ReportNamedInstance';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -16028,16 +16028,16 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: ReportNamedInstanceModel;  }>((resolve, reject) => {
+        return new Promise<ReportNamedInstanceModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
@@ -16092,7 +16092,7 @@ export class UserApi {
      * Meadow DELETE
      * @param id ID of record
      */
-    public _delete (id: number) : Promise<{ response: http.IncomingMessage; body: boolean;  }> {
+    public _delete (id: number) : Promise<boolean> {
         const localVarPath = this.basePath + '/User/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -16125,16 +16125,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: boolean;  }>((resolve, reject) => {
+        return new Promise<boolean>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "boolean");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in _delete!`);
                     }
                 }
             });
@@ -16143,7 +16143,7 @@ export class UserApi {
     /**
      * Meadow COUNT
      */
-    public count () : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public count () : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Users/Count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -16170,16 +16170,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in count!`);
                     }
                 }
             });
@@ -16189,7 +16189,7 @@ export class UserApi {
      * Meadow COUNT with filter
      * @param filter FBV meadow filter
      */
-    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
         const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
@@ -16222,16 +16222,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+        return new Promise<InlineResponse200>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "InlineResponse200");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
                     }
                 }
             });
@@ -16241,7 +16241,7 @@ export class UserApi {
      * Meadow PUT (Create)
      * @param body 
      */
-    public create (body: UserModel) : Promise<{ response: http.IncomingMessage; body: UserModel;  }> {
+    public create (body: UserModel) : Promise<UserModel> {
         const localVarPath = this.basePath + '/User';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -16274,16 +16274,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: UserModel;  }>((resolve, reject) => {
+        return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "UserModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in create!`);
                     }
                 }
             });
@@ -16293,7 +16293,7 @@ export class UserApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number) : Promise<{ response: http.IncomingMessage; body: UserModel;  }> {
+    public read (id: number) : Promise<UserModel> {
         const localVarPath = this.basePath + '/User/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -16326,16 +16326,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: UserModel;  }>((resolve, reject) => {
+        return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "UserModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in read!`);
                     }
                 }
             });
@@ -16346,7 +16346,7 @@ export class UserApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<UserModel>;  }> {
+    public reads (begin: number, max: number) : Promise<Array<UserModel>> {
         const localVarPath = this.basePath + '/Users/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -16385,16 +16385,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<UserModel>;  }>((resolve, reject) => {
+        return new Promise<Array<UserModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in reads!`);
                     }
                 }
             });
@@ -16406,7 +16406,7 @@ export class UserApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<{ response: http.IncomingMessage; body: Array<UserModel>;  }> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<UserModel>> {
         const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
@@ -16451,16 +16451,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: Array<UserModel>;  }>((resolve, reject) => {
+        return new Promise<Array<UserModel>>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
                     }
                 }
             });
@@ -16470,7 +16470,7 @@ export class UserApi {
      * Meadow POST (Update)
      * @param body 
      */
-    public update (body: UserModel) : Promise<{ response: http.IncomingMessage; body: UserModel;  }> {
+    public update (body: UserModel) : Promise<UserModel> {
         const localVarPath = this.basePath + '/User';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -16503,16 +16503,16 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body: UserModel;  }>((resolve, reject) => {
+        return new Promise<UserModel>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "UserModel");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
+                        resolve(body);
                     } else {
-                        reject({ response: response, body: body });
+                        reject(`Request Error ${response.statusCode} in update!`);
                     }
                 }
             });
