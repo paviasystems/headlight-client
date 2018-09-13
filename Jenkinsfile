@@ -8,6 +8,7 @@ node('docker'){
             sh './codegen.sh'
         }
         stage('Test') {
+            sh 'npm install'
             sh 'npm test'
         }
         stage('Deploy') {
