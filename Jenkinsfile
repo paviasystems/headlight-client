@@ -12,7 +12,7 @@ node('docker'){
             sh 'npm test'
         }
         stage('Deploy') {
-            if (currentBuild.result == "SUCCESS") {
+            if (currentBuild.result == null || currentBuild.result == "SUCCESS") {
                 sh 'sed -i \'\' "s/\\"version\\": \\"3.0.*\\"/\\"version\\": \\"3.0.$BUILD_NUMBER\\"/" ./package.json'
                 sh 'npm publish .'
 
