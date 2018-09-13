@@ -10,8 +10,7 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
             "args": [
-                "--timeout",
-                "999999",
+                "--bail",
                 "--colors",
                 "--compilers",
                 "ts-node/register",

@@ -4,7 +4,7 @@
   "description": "",
   "main": "node/index.ts",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha --colors --compilers ts-node/register ./node/test/*.ts"
+    "test": "./node_modules/mocha/bin/_mocha --bail --colors --compilers ts-node/register ./node/test/*.ts"
   },
   "repository": {
     "type": "git",
