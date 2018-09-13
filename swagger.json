@@ -1936,6 +1936,206 @@
 				"ExternalSyncDate"
 			]
 		},
+		"Artifact": {
+			"description": "",
+			"properties": {
+				"IDArtifact": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"GUIDArtifact": {
+					"type": "string",
+					"description": ""
+				},
+				"CreateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"CreatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UpdateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"UpdatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Deleted": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"DeleteDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"DeletingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ArtifactType": {
+					"type": "string",
+					"description": ""
+				},
+				"Datum": {
+					"type": "string",
+					"description": ""
+				},
+				"Version": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Invalid": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDDevice": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Sync": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDArtifact",
+				"GUIDArtifact",
+				"CreateDate",
+				"CreatingIDUser",
+				"UpdateDate",
+				"UpdatingIDUser",
+				"Deleted",
+				"DeleteDate",
+				"DeletingIDUser",
+				"ArtifactType",
+				"Datum",
+				"Version",
+				"Invalid",
+				"IDDevice",
+				"Sync"
+			]
+		},
+		"ArtifactModel": {
+			"description": "",
+			"properties": {
+				"Datum": {
+					"type": "object",
+					"description": ""
+				},
+				"FileName": {
+					"type": "object",
+					"description": ""
+				},
+				"IDObservationRequirementSpecification": {
+					"type": "object",
+					"description": ""
+				},
+				"IDArtifact": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"GUIDArtifact": {
+					"type": "string",
+					"description": ""
+				},
+				"CreateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"CreatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UpdateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"UpdatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Deleted": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"DeleteDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"DeletingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ArtifactType": {
+					"type": "string",
+					"description": ""
+				},
+				"Version": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Invalid": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDDevice": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Sync": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"Datum",
+				"FileName",
+				"IDObservationRequirementSpecification",
+				"IDArtifact",
+				"GUIDArtifact",
+				"CreateDate",
+				"CreatingIDUser",
+				"UpdateDate",
+				"UpdatingIDUser",
+				"Deleted",
+				"DeleteDate",
+				"DeletingIDUser",
+				"ArtifactType",
+				"Version",
+				"Invalid",
+				"IDDevice",
+				"Sync"
+			]
+		},
 		"Equipment": {
 			"description": "",
 			"properties": {
@@ -2907,6 +3107,473 @@
 		"version": "0.0.12"
 	},
 	"paths": {
+		"/Artifact": {
+			"post": {
+				"operationId": "_update",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					}
+				},
+				"description": "Meadow POST (Update)",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "_create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					}
+				},
+				"description": "Meadow PUT (Create)",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					}
+				]
+			}
+		},
+		"/Artifact/Media/GetSyncList": {
+			"get": {
+				"operationId": "getArtifactSyncList",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "List of artifacts whose media has not been uploaded yet from this session's device.",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Artifact"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get Artifact records for media types that don't have the Sync flag set",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": []
+			}
+		},
+		"/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}": {
+			"post": {
+				"operationId": "_uploadArtifact",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Upload Artifact media file to Headlight",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"multipart/form-data"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "formData",
+						"name": "file",
+						"required": true,
+						"type": "file"
+					},
+					{
+						"description": "",
+						"in": "path",
+						"name": "ArtifactVersion",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDObservationArtifact",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}": {
+			"get": {
+				"operationId": "copyArtifact",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Copy Artifact media from ID to target ID",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "ArtifactVersion",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "",
+						"in": "path",
+						"name": "TargetArtifactVersion",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDObservationArtifact",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDTargetArtifact",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}": {
+			"get": {
+				"operationId": "downloadArtifact",
+				"produces": [
+					"application/octet-stream"
+				],
+				"responses": {
+					"200": {
+						"description": "Artifact file",
+						"schema": {
+							"type": "file"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Download Artifact media file from Headlight",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "Size",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDObservationArtifact",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifact/{IDArtifact}/ClearSyncFlag": {
+			"get": {
+				"operationId": "clearArtifactSyncFlag",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Switch Artifact records Sync flag",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDArtifact",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifact/{id}": {
+			"get": {
+				"operationId": "_read",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					}
+				},
+				"description": "Meadow READ",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "_delete",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				},
+				"description": "Meadow DELETE",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifacts/Count": {
+			"get": {
+				"operationId": "_count",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": []
+			}
+		},
+		"/Artifacts/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Artifacts/FilteredTo/{filter}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ArtifactModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ filtered list",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Artifacts/{begin}/{max}": {
+			"get": {
+				"operationId": "_reads",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ArtifactModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ list",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
 		"/Authenticate": {
 			"post": {
 				"operationId": "authenticate",
@@ -4445,9 +5112,16 @@
 			"get": {
 				"operationId": "getDocumentPDF",
 				"produces": [
-					"application/json"
+					"application/pdf",
+					"application/octet-stream"
 				],
 				"responses": {
+					"200": {
+						"description": "Document PDF file",
+						"schema": {
+							"type": "file"
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
