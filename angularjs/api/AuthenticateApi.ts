@@ -30,7 +30,7 @@ export class AuthenticateApi {
      * Forward authentication request to authentication microservice.
      * @param body 
      */
-    public authenticate (body: models.LoginRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public authenticate (body: models.LoginRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ISession> {
         const localVarPath = this.basePath + '/Authenticate';
 
         let queryParameters: any = {};
@@ -44,6 +44,27 @@ export class AuthenticateApi {
             method: 'POST',
             url: localVarPath,
             data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * 
+     */
+    public checkSession (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ISession> {
+        const localVarPath = this.basePath + '/CheckSession';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
             params: queryParameters,
             headers: headerParams
         };

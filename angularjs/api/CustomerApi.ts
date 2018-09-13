@@ -76,6 +76,34 @@ export class CustomerApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
+        const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */

@@ -197,6 +197,7 @@ font-style: italic;
   <h4><a href="#Authenticate">Authenticate</a></h4>
   <ul>
   <li><a href="#authenticate"><code><span class="http-method">post</span> /Authenticate</code></a></li>
+  <li><a href="#checkSession"><code><span class="http-method">get</span> /CheckSession</code></a></li>
   <li><a href="#checkoutSessionToken"><code><span class="http-method">get</span> /CheckoutSessionToken</code></a></li>
   <li><a href="#impersonateUser"><code><span class="http-method">get</span> /Authenticate/Impersonate/{IDUser}</code></a></li>
   </ul>
@@ -208,6 +209,7 @@ font-style: italic;
   <h4><a href="#BidItem">BidItem</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /BidItems/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /BidItems/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /BidItem</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /BidItem/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /BidItem/{id}</code></a></li>
@@ -218,6 +220,7 @@ font-style: italic;
   <h4><a href="#Comment">Comment</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Comments/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Comments/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Comment</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Comment/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Comment/{id}</code></a></li>
@@ -228,6 +231,7 @@ font-style: italic;
   <h4><a href="#Contract">Contract</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Contracts/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Contracts/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Contract</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Contract/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Contract/{id}</code></a></li>
@@ -238,6 +242,7 @@ font-style: italic;
   <h4><a href="#Customer">Customer</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Customers/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Customers/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Customer</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Customer/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Customer/{id}</code></a></li>
@@ -250,6 +255,7 @@ font-style: italic;
   <li><a href="#addCommentsToDocument"><code><span class="http-method">get</span> /Document/{IDDocument}/Comment/Add/{IDComment}</code></a></li>
   <li><a href="#addDocumentObservation"><code><span class="http-method">get</span> /Document/{IDDocument}/AddObservation/{IDObservation}</code></a></li>
   <li><a href="#count"><code><span class="http-method">get</span> /Documents/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Documents/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Document</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Document/{id}</code></a></li>
   <li><a href="#getDocumentCountBySequenceNumber"><code><span class="http-method">get</span> /Document/{IDDocument}/SequenceNumber/Monthly</code></a></li>
@@ -288,6 +294,7 @@ font-style: italic;
   <h4><a href="#ElectronicSignature">ElectronicSignature</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /ElectronicSignatures/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /ElectronicSignatures/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /ElectronicSignature</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /ElectronicSignature/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /ElectronicSignature/{id}</code></a></li>
@@ -298,6 +305,7 @@ font-style: italic;
   <h4><a href="#Equipment">Equipment</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Equipments/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Equipments/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Equipment</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Equipment/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Equipment/{id}</code></a></li>
@@ -308,6 +316,7 @@ font-style: italic;
   <h4><a href="#LineItem">LineItem</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /LineItems/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /LineItems/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /LineItem</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /LineItem/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /LineItem/{id}</code></a></li>
@@ -318,6 +327,7 @@ font-style: italic;
   <h4><a href="#Module">Module</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Modules/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Modules/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Module</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Module/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Module/{id}</code></a></li>
@@ -328,6 +338,7 @@ font-style: italic;
   <h4><a href="#Notification">Notification</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Notifications/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Notifications/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Notification</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Notification/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Notification/{id}</code></a></li>
@@ -341,6 +352,7 @@ font-style: italic;
   <li><a href="#beginIndexByProject"><code><span class="http-method">get</span> /ObservationSearchSyncByProject/{IDProject}</code></a></li>
   <li><a href="#beginObservationSearchRebuild"><code><span class="http-method">get</span> /ObservationSearchRebuild</code></a></li>
   <li><a href="#count"><code><span class="http-method">get</span> /Observations/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Observations/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Observation</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Observation/{id}</code></a></li>
   <li><a href="#downloadObservationCollectionImage"><code><span class="http-method">get</span> /Observation/Project/{IDProject}/Sprites/{SpritePageNumber}</code></a></li>
@@ -396,6 +408,7 @@ font-style: italic;
   <h4><a href="#Organization">Organization</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Organizations/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Organizations/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Organization</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Organization/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Organization/{id}</code></a></li>
@@ -406,6 +419,7 @@ font-style: italic;
   <h4><a href="#PayItem">PayItem</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /PayItems/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /PayItems/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /PayItem</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /PayItem/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /PayItem/{id}</code></a></li>
@@ -416,6 +430,7 @@ font-style: italic;
   <h4><a href="#Project">Project</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Projects/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Projects/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Project</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Project/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /Project/{id}</code></a></li>
@@ -426,6 +441,7 @@ font-style: italic;
   <h4><a href="#Report">Report</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Reports/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Reports/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /Report</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /Report/{id}</code></a></li>
   <li><a href="#getDocumentRenderByType"><code><span class="http-method">get</span> /Report/{ReportType}</code></a></li>
@@ -438,6 +454,7 @@ font-style: italic;
   <ul>
   <li><a href="#addReportNamedInstanceToProject"><code><span class="http-method">get</span> /ReportNamedInstance/{IDReportNamedInstance}/AddToProject/{IDProject}</code></a></li>
   <li><a href="#count"><code><span class="http-method">get</span> /ReportNamedInstances/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /ReportNamedInstances/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /ReportNamedInstance</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /ReportNamedInstance/{id}</code></a></li>
   <li><a href="#getReportNamedInstanceByProject"><code><span class="http-method">get</span> /ReportNamedInstancesByProject/{IDProject}/{Begin}/{Cap}</code></a></li>
@@ -450,6 +467,7 @@ font-style: italic;
   <h4><a href="#User">User</a></h4>
   <ul>
   <li><a href="#count"><code><span class="http-method">get</span> /Users/Count</code></a></li>
+  <li><a href="#countFiltered"><code><span class="http-method">get</span> /Users/FilteredTo/{filter}/Count</code></a></li>
   <li><a href="#create"><code><span class="http-method">put</span> /User</code></a></li>
   <li><a href="#delete"><code><span class="http-method">delete</span> /User/{id}</code></a></li>
   <li><a href="#read"><code><span class="http-method">get</span> /User/{id}</code></a></li>
@@ -484,9 +502,35 @@ font-style: italic;
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ISession">ISession</a>
+      
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Timezone" : "Timezone",
+  "Email" : "Email",
+  "LoginID" : "LoginID",
+  "DeviceID" : "DeviceID",
+  "Title" : "Title",
+  "NameLast" : "NameLast",
+  "CustomerID" : 1.4658129805029452,
+  "LoggedIn" : true,
+  "UserRoleIndex" : 0.8008281904610115,
+  "UIHash" : "UIHash",
+  "UserRole" : "UserRole",
+  "UserID" : 6.027456183070403,
+  "ServerHostURL" : "ServerHostURL",
+  "IDDevice" : 5.962133916683182,
+  "SessionID" : "SessionID",
+  "NameFirst" : "NameFirst",
+  "Settings" : "{}"
+}</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -496,6 +540,68 @@ font-style: italic;
     </ul>
 
     <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    User session data
+        <a href="#ISession">ISession</a>
+    <h4 class="field-label">204</h4>
+    No content
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="checkSession"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /CheckSession</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">checkSession</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ISession">ISession</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Timezone" : "Timezone",
+  "Email" : "Email",
+  "LoginID" : "LoginID",
+  "DeviceID" : "DeviceID",
+  "Title" : "Title",
+  "NameLast" : "NameLast",
+  "CustomerID" : 1.4658129805029452,
+  "LoggedIn" : true,
+  "UserRoleIndex" : 0.8008281904610115,
+  "UIHash" : "UIHash",
+  "UserRole" : "UserRole",
+  "UserID" : 6.027456183070403,
+  "ServerHostURL" : "ServerHostURL",
+  "IDDevice" : 5.962133916683182,
+  "SessionID" : "SessionID",
+  "NameFirst" : "NameFirst",
+  "Settings" : "{}"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    User session data
+        <a href="#ISession">ISession</a>
     <h4 class="field-label">204</h4>
     No content
         <a href="#"></a>
@@ -647,6 +753,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /BidItems/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -1101,6 +1253,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Comments/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1489,6 +1687,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Contracts/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -2055,6 +2299,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Customers/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -2526,6 +2816,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Documents/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -3918,6 +4254,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ElectronicSignatures/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -4320,6 +4702,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Equipments/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -4769,6 +5197,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /LineItems/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -5342,6 +5816,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Modules/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -5758,6 +6278,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Notifications/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -6300,6 +6866,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Observations/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -6454,18 +7066,31 @@ font-style: italic;
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      File
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/json</code></li>
+      <li><code>image/jpeg</code></li>
+      <li><code>image/png</code></li>
+      <li><code>application/octet-stream</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Media file
+        <a href="#File">File</a>
     <h4 class="field-label">204</h4>
     No content
         <a href="#"></a>
@@ -6484,7 +7109,9 @@ font-style: italic;
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">IDObservation (required)</div>
+      <div class="param">Size (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; e.g. Thumbnail,Standard,Preview,Enhanced </div><div class="param">IDObservation (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of record format: int64</div>
     </div>  <!-- field-items -->
@@ -6494,18 +7121,31 @@ font-style: italic;
 
 
 
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      File
+    </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
-      <li><code>application/json</code></li>
+      <li><code>image/jpeg</code></li>
+      <li><code>image/png</code></li>
+      <li><code>application/octet-stream</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Media file
+        <a href="#File">File</a>
     <h4 class="field-label">204</h4>
     No content
         <a href="#"></a>
@@ -8079,6 +8719,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Organizations/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -8556,6 +9242,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /PayItems/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -8972,6 +9704,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Projects/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -9510,6 +10288,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Reports/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -9966,6 +10790,52 @@ font-style: italic;
     <div class="method-summary"> (<span class="nickname">count</span>)</div>
     <div class="method-notes">Meadow COUNT</div>
 
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ReportNamedInstances/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -10519,6 +11389,52 @@ font-style: italic;
         <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="countFiltered"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /Users/FilteredTo/{filter}/Count</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">countFiltered</span>)</div>
+    <div class="method-notes">Meadow COUNT with filter</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">filter (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; FBV meadow filter </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Count" : 0.8008281904610115
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Ok
+        <a href="#inline_response_200">inline_response_200</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="create"/>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -11034,6 +11950,7 @@ font-style: italic;
     <li><a href="#ElectronicSignature"><code>ElectronicSignature</code> - </a></li>
     <li><a href="#ElectronicSignatureModel"><code>ElectronicSignatureModel</code> - </a></li>
     <li><a href="#Equipment"><code>Equipment</code> - </a></li>
+    <li><a href="#ISession"><code>ISession</code> - </a></li>
     <li><a href="#LineItem"><code>LineItem</code> - </a></li>
     <li><a href="#LoginRequest"><code>LoginRequest</code> - </a></li>
     <li><a href="#MappedArrayArtifact"><code>MappedArrayArtifact</code> - </a></li>
@@ -11294,6 +12211,29 @@ font-style: italic;
 <div class="param">SpecificationYear </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
 <div class="param">Code </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">Status </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ISession"><code>ISession</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">SessionID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LoggedIn </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">UserRole </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UserRoleIndex </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">UserID </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">CustomerID </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">Title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NameFirst </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">NameLast </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Email </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">LoginID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">UIHash </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Timezone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Settings </div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+<div class="param">DeviceID </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IDDevice </div><div class="param-desc"><span class="param-type"><a href="#double">Double</a></span>  format: double</div>
+<div class="param">ServerHostURL </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

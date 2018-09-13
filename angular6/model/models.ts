@@ -8,6 +8,7 @@ export * from './documentModel';
 export * from './electronicSignature';
 export * from './electronicSignatureModel';
 export * from './equipment';
+export * from './iSession';
 export * from './inlineResponse200';
 export * from './lineItem';
 export * from './loginRequest';

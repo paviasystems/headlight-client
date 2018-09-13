@@ -253,6 +253,46 @@ export class ObservationService {
 
     /**
      * 
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public countFiltered(filter: string, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
+    public countFiltered(filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
+    public countFiltered(filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
+    public countFiltered(filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse200>(`${this.basePath}/Observations/FilteredTo/${encodeURIComponent(String(filter))}/Count`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Meadow PUT (Create)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -305,9 +345,9 @@ export class ObservationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
     public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (SpritePageNumber === null || SpritePageNumber === undefined) {
             throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
@@ -320,7 +360,9 @@ export class ObservationService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
-            'application/json'
+            'image/jpeg',
+            'image/png',
+            'application/octet-stream'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -331,8 +373,9 @@ export class ObservationService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/Observation/Project/${encodeURIComponent(String(IDProject))}/Sprites/${encodeURIComponent(String(SpritePageNumber))}`,
+        return this.httpClient.get(`${this.basePath}/Observation/Project/${encodeURIComponent(String(IDProject))}/Sprites/${encodeURIComponent(String(SpritePageNumber))}`,
             {
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -344,14 +387,18 @@ export class ObservationService {
     /**
      * 
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadObservationImage(IDObservation: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public downloadObservationImage(IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public downloadObservationImage(IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public downloadObservationImage(IDObservation: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
+    public downloadObservationImage(Size: string, IDObservation: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
+        }
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling downloadObservationImage.');
         }
@@ -360,7 +407,9 @@ export class ObservationService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
-            'application/json'
+            'image/jpeg',
+            'image/png',
+            'application/octet-stream'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -371,8 +420,9 @@ export class ObservationService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/Observation/${encodeURIComponent(String(IDObservation))}/Image/${encodeURIComponent(String(Size))}`,
+        return this.httpClient.get(`${this.basePath}/Observation/${encodeURIComponent(String(IDObservation))}/Image/${encodeURIComponent(String(Size))}`,
             {
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

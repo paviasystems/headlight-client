@@ -18,6 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { ISession } from '../model/iSession';
 import { LoginRequest } from '../model/loginRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -63,9 +64,9 @@ export class AuthenticateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authenticate(body: LoginRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public authenticate(body: LoginRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public authenticate(body: LoginRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public authenticate(body: LoginRequest, observe?: 'body', reportProgress?: boolean): Observable<ISession>;
+    public authenticate(body: LoginRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISession>>;
+    public authenticate(body: LoginRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISession>>;
     public authenticate(body: LoginRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling authenticate.');
@@ -91,8 +92,44 @@ export class AuthenticateService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<any>(`${this.basePath}/Authenticate`,
+        return this.httpClient.post<ISession>(`${this.basePath}/Authenticate`,
             body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public checkSession(observe?: 'body', reportProgress?: boolean): Observable<ISession>;
+    public checkSession(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISession>>;
+    public checkSession(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISession>>;
+    public checkSession(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<ISession>(`${this.basePath}/CheckSession`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

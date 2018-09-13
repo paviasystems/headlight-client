@@ -153,6 +153,34 @@ export class ObservationApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
+        const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -185,7 +213,7 @@ export class ObservationApi {
      * @param SpritePageNumber 
      * @param IDProject ID of record
      */
-    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Observation/Project/{IDProject}/Sprites/{SpritePageNumber}'
             .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -217,14 +245,21 @@ export class ObservationApi {
     }
     /**
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
      */
-    public downloadObservationImage (IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public downloadObservationImage (Size: string, IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Image/{Size}'
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
+        }
+
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling downloadObservationImage.');

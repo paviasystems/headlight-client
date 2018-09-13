@@ -15,18 +15,19 @@ describe('Node API test', () => {
     var client = new Headlight.Client(_ServerURL);
 
     it('can get API', ()=>{
-        var bidItemApi = client.API(Headlight.API.BidItemApi);
+        let bidItemApi = client.API(Headlight.API.BidItemApi);
     });
     
     it('authenticate', async() => {
-        var session = await client.Login(_UserName, _Password);
+        let session = await client.login(_UserName, _Password);
 
         expect(session).to.have.property('SessionID');
     });
 
     it('can perform API request which requires authentication', async() => {
-        var userApi = client.API(Headlight.API.UserApi);
-        var response = await userApi.read(1);
+        let userApi = client.API(Headlight.API.UserApi);
+        let response = await userApi.read(1);
+        //userApi.
 
         (<any>userApi)._cacheFlag = true; //used for later test
 
@@ -34,8 +35,16 @@ describe('Node API test', () => {
     });
 
     it('will load API from cache', async() => {
-        var userApi = client.API(Headlight.API.UserApi);
+        let userApi = client.API(Headlight.API.UserApi);
 
         expect(userApi).has.property('_cacheFlag');
+    });
+
+    it('can download media files', async() => {
+        let observations = client.API(Headlight.API.ObservationApi);
+
+        let response = await observations.downloadObservationImage('Thumbnail', 12);
+
+        expect(response.body instanceof Buffer).to.eq(true);
     });
 });

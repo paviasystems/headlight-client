@@ -33,12 +33,16 @@ export class Client
     /**
      * Perform login operation, and keep session cookie for use in later API calls.
      */
-    public async Login(pUsername: string, pPassword: string): Promise<any>
+    public async login(pUsername: string, pPassword: string): Promise<API.ISession>
     {
         var result = await this._Auth.authenticate({UserName: pUsername, Password: pPassword});
+        if (!result.body || !result.body.LoggedIn || !result.body.UserID)
+        {
+            return Promise.reject('Login failure! Check username and password.');
+        }
         this._Cookie = new CookieAuth(result.body.SessionID);
 
-        return result.body;
+        return Promise.resolve(result.body);
     }
 
     /**

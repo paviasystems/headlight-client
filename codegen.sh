@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [[ $* == *--dev* ]];
+then
+    echo "Updating swagger.json file..."
+    cp -r /Pavia/mpi_api/docs/swagger.json ./swagger.json
+fi
+if [[ $* == *--pull* ]];
+then
+    echo "Pulling latest..."
+    git pull origin
+fi
+
 echo "Updating code generator tool..."
 docker pull swaggerapi/swagger-codegen-cli:latest
 

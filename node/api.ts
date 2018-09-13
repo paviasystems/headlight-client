@@ -1898,6 +1898,173 @@ export class Equipment {
     }
 }
 
+/**
+* 
+*/
+export class ISession {
+    /**
+    * 
+    */
+    'SessionID': string;
+    /**
+    * 
+    */
+    'LoggedIn': boolean;
+    /**
+    * 
+    */
+    'UserRole': string;
+    /**
+    * 
+    */
+    'UserRoleIndex': number;
+    /**
+    * 
+    */
+    'UserID': number;
+    /**
+    * 
+    */
+    'CustomerID': number;
+    /**
+    * 
+    */
+    'Title': string;
+    /**
+    * 
+    */
+    'NameFirst': string;
+    /**
+    * 
+    */
+    'NameLast': string;
+    /**
+    * 
+    */
+    'Email': string;
+    /**
+    * 
+    */
+    'LoginID': string;
+    /**
+    * 
+    */
+    'UIHash': string;
+    /**
+    * 
+    */
+    'Timezone': string;
+    /**
+    * 
+    */
+    'Settings': any;
+    /**
+    * 
+    */
+    'DeviceID': string;
+    /**
+    * 
+    */
+    'IDDevice': number;
+    /**
+    * 
+    */
+    'ServerHostURL': string;
+
+    static discriminator = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "SessionID",
+            "baseName": "SessionID",
+            "type": "string"
+        },
+        {
+            "name": "LoggedIn",
+            "baseName": "LoggedIn",
+            "type": "boolean"
+        },
+        {
+            "name": "UserRole",
+            "baseName": "UserRole",
+            "type": "string"
+        },
+        {
+            "name": "UserRoleIndex",
+            "baseName": "UserRoleIndex",
+            "type": "number"
+        },
+        {
+            "name": "UserID",
+            "baseName": "UserID",
+            "type": "number"
+        },
+        {
+            "name": "CustomerID",
+            "baseName": "CustomerID",
+            "type": "number"
+        },
+        {
+            "name": "Title",
+            "baseName": "Title",
+            "type": "string"
+        },
+        {
+            "name": "NameFirst",
+            "baseName": "NameFirst",
+            "type": "string"
+        },
+        {
+            "name": "NameLast",
+            "baseName": "NameLast",
+            "type": "string"
+        },
+        {
+            "name": "Email",
+            "baseName": "Email",
+            "type": "string"
+        },
+        {
+            "name": "LoginID",
+            "baseName": "LoginID",
+            "type": "string"
+        },
+        {
+            "name": "UIHash",
+            "baseName": "UIHash",
+            "type": "string"
+        },
+        {
+            "name": "Timezone",
+            "baseName": "Timezone",
+            "type": "string"
+        },
+        {
+            "name": "Settings",
+            "baseName": "Settings",
+            "type": "any"
+        },
+        {
+            "name": "DeviceID",
+            "baseName": "DeviceID",
+            "type": "string"
+        },
+        {
+            "name": "IDDevice",
+            "baseName": "IDDevice",
+            "type": "number"
+        },
+        {
+            "name": "ServerHostURL",
+            "baseName": "ServerHostURL",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return ISession.attributeTypeMap;
+    }
+}
+
 export class InlineResponse200 {
     /**
     * 
@@ -4673,6 +4840,7 @@ let typeMap: {[index: string]: any} = {
     "ElectronicSignature": ElectronicSignature,
     "ElectronicSignatureModel": ElectronicSignatureModel,
     "Equipment": Equipment,
+    "ISession": ISession,
     "InlineResponse200": InlineResponse200,
     "LineItem": LineItem,
     "LoginRequest": LoginRequest,
@@ -4794,7 +4962,7 @@ export class AuthenticateApi {
      * Forward authentication request to authentication microservice.
      * @param body 
      */
-    public authenticate (body: LoginRequest) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public authenticate (body: LoginRequest) : Promise<{ response: http.IncomingMessage; body: ISession;  }> {
         const localVarPath = this.basePath + '/Authenticate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -4827,11 +4995,57 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.IncomingMessage; body: ISession;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
+                    body = ObjectSerializer.deserialize(body, "ISession");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * 
+     */
+    public checkSession () : Promise<{ response: http.IncomingMessage; body: ISession;  }> {
+        const localVarPath = this.basePath + '/CheckSession';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: ISession;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "ISession");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -5181,6 +5395,58 @@ export class BidItemApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/BidItems/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -5642,6 +5908,58 @@ export class CommentApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Comments/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -6065,6 +6383,58 @@ export class ContractApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Contracts/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -6450,6 +6820,58 @@ export class CustomerApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -6989,6 +7411,58 @@ export class DocumentApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -8481,6 +8955,58 @@ export class ElectronicSignatureApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/ElectronicSignatures/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -8866,6 +9392,58 @@ export class EquipmentApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Equipments/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -9327,6 +9905,58 @@ export class LineItemApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/LineItems/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -9750,6 +10380,58 @@ export class ModuleApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Modules/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -10135,6 +10817,58 @@ export class NotificationApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Notifications/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -10742,6 +11476,58 @@ export class ObservationApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -10798,7 +11584,7 @@ export class ObservationApi {
      * @param SpritePageNumber 
      * @param IDProject ID of record
      */
-    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number) : Promise<{ response: http.IncomingMessage; body: Buffer;  }> {
         const localVarPath = this.basePath + '/Observation/Project/{IDProject}/Sprites/{SpritePageNumber}'
             .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
@@ -10825,7 +11611,7 @@ export class ObservationApi {
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
-            json: true,
+            encoding: null,
         };
 
         this.authentications.default.applyToRequest(localVarRequestOptions);
@@ -10837,11 +11623,12 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.IncomingMessage; body: Buffer;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
+                    body = ObjectSerializer.deserialize(body, "Buffer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -10853,14 +11640,21 @@ export class ObservationApi {
     }
     /**
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
      */
-    public downloadObservationImage (IDObservation: number) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public downloadObservationImage (Size: string, IDObservation: number) : Promise<{ response: http.IncomingMessage; body: Buffer;  }> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Image/{Size}'
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
+        }
 
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
@@ -10876,7 +11670,7 @@ export class ObservationApi {
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
-            json: true,
+            encoding: null,
         };
 
         this.authentications.default.applyToRequest(localVarRequestOptions);
@@ -10888,11 +11682,12 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.IncomingMessage; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.IncomingMessage; body: Buffer;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
+                    body = ObjectSerializer.deserialize(body, "Buffer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -12791,6 +13586,58 @@ export class OrganizationApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Organizations/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -13176,6 +14023,58 @@ export class PayItemApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/PayItems/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -13637,6 +14536,58 @@ export class ProjectApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Projects/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -14022,6 +14973,58 @@ export class ReportApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Reports/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
@@ -14585,6 +15588,58 @@ export class ReportNamedInstanceApi {
         });
     }
     /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
      * Meadow PUT (Create)
      * @param body 
      */
@@ -15093,6 +16148,58 @@ export class UserApi {
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<{ response: http.IncomingMessage; body: InlineResponse200;  }> {
+        const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
 
 
         let localVarUseFormData = false;
