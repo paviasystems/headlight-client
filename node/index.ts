@@ -1,3 +1,11 @@
+/**
+* The Headlight API client for NodeJS
+*
+* @license Pavia Systems, All Rights Reserved
+*
+* @author Jason Hillier <jason.hillier@paviasystems.com>
+*/
+
 import * as API from './api';
 export { API };
 

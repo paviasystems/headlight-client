@@ -26,12 +26,12 @@ describe('Node API test', () => {
 
     it('can perform API request which requires authentication', async() => {
         let userApi = client.API(Headlight.API.UserApi);
-        let response = await userApi.read(1);
+        let record = await userApi.read(1);
         //userApi.
 
         (<any>userApi)._cacheFlag = true; //used for later test
 
-        expect(response.body.IDUser).to.eq(1);
+        expect(record.IDUser).to.eq(1);
     });
 
     it('will load API from cache', async() => {
@@ -45,6 +45,6 @@ describe('Node API test', () => {
 
         let response = await observations.downloadObservationImage('Thumbnail', 12);
 
-        expect(response.body instanceof Buffer).to.eq(true);
+        expect(response instanceof Buffer).to.eq(true);
     });
 });
