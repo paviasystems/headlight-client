@@ -2690,6 +2690,15 @@
 				"ExternalSyncGUID": {
 					"type": "string",
 					"description": ""
+				},
+				"Form": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"FormDataJSON": {
+					"type": "string",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -2723,7 +2732,9 @@
 				"Locked",
 				"ExternalSyncDate",
 				"SequenceNumber",
-				"ExternalSyncGUID"
+				"ExternalSyncGUID",
+				"Form",
+				"FormDataJSON"
 			]
 		},
 		"Customer": {
