@@ -44,7 +44,7 @@ describe('Node API test', () => {
     it('can download media files', async() => {
         let observations = client.API(Headlight.API.ObservationApi);
 
-        let image = await observations.downloadObservationImage('Thumbnail', 12);
+        let image = await observations.downloadObservationImage(12, 'Thumbnail');
         expect(image instanceof Buffer).to.eq(true);
 
         let lastResponse = observations.getLastResponse();

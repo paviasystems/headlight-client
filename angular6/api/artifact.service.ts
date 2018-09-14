@@ -141,28 +141,28 @@ export class ArtifactService {
     /**
      * 
      * Copy Artifact media from ID to target ID
-     * @param ArtifactVersion 
-     * @param TargetArtifactVersion 
      * @param IDObservationArtifact ID of record
      * @param IDTargetArtifact ID of record
+     * @param ArtifactVersion 
+     * @param TargetArtifactVersion 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public copyArtifact(ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public copyArtifact(ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public copyArtifact(ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public copyArtifact(ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
-        }
-        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
-            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
-        }
+    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
         }
         if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
             throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
+            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
         }
 
         let headers = this.defaultHeaders;
@@ -315,20 +315,20 @@ export class ArtifactService {
     /**
      * 
      * Download Artifact media file from Headlight
-     * @param Size 
      * @param IDObservationArtifact ID of record
+     * @param Size 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadArtifact(Size: string, IDObservationArtifact: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
-    public downloadArtifact(Size: string, IDObservationArtifact: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
-    public downloadArtifact(Size: string, IDObservationArtifact: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
-    public downloadArtifact(Size: string, IDObservationArtifact: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
-        }
+    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
+        }
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
         }
 
         let headers = this.defaultHeaders;
@@ -480,24 +480,24 @@ export class ArtifactService {
     /**
      * 
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let headers = this.defaultHeaders;
@@ -575,23 +575,23 @@ export class ArtifactService {
      * 
      * Upload Artifact media file to Headlight
      * @param file 
-     * @param ArtifactVersion 
      * @param IDObservationArtifact ID of record
+     * @param ArtifactVersion 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public uploadArtifact(file: Blob, ArtifactVersion: number, IDObservationArtifact: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public uploadArtifact(file: Blob, ArtifactVersion: number, IDObservationArtifact: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public uploadArtifact(file: Blob, ArtifactVersion: number, IDObservationArtifact: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public uploadArtifact(file: Blob, ArtifactVersion: number, IDObservationArtifact: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (file === null || file === undefined) {
             throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
         }
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
-        }
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
         }
 
         let headers = this.defaultHeaders;

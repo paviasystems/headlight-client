@@ -58,20 +58,20 @@ export class ObservationsByUpdateDateService {
     /**
      * 
      * Fetch list of observations where date is earlier than ByDate.
-     * @param ByDate 
      * @param Cap Maximum number of records to return
+     * @param ByDate 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (ByDate === null || ByDate === undefined) {
-            throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
-        }
+    public getObservationsByUpdateDate(Cap: number, ByDate: Date, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getObservationsByUpdateDate(Cap: number, ByDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getObservationsByUpdateDate(Cap: number, ByDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getObservationsByUpdateDate(Cap: number, ByDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
+        }
+        if (ByDate === null || ByDate === undefined) {
+            throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
         }
 
         let headers = this.defaultHeaders;

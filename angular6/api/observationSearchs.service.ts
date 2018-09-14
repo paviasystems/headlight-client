@@ -58,20 +58,17 @@ export class ObservationSearchsService {
     /**
      * 
      * Search Observations using search index (solr)
-     * @param SearchQuery solr search query
      * @param IDProject ID of record
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SearchQuery solr search query
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getObservationSearch(SearchQuery: string, IDProject: number, Begin: number, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getObservationSearch(SearchQuery: string, IDProject: number, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getObservationSearch(SearchQuery: string, IDProject: number, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getObservationSearch(SearchQuery: string, IDProject: number, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (SearchQuery === null || SearchQuery === undefined) {
-            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
-        }
+    public getObservationSearch(IDProject: number, Begin: number, Cap: number, SearchQuery: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getObservationSearch(IDProject: number, Begin: number, Cap: number, SearchQuery: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getObservationSearch(IDProject: number, Begin: number, Cap: number, SearchQuery: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getObservationSearch(IDProject: number, Begin: number, Cap: number, SearchQuery: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getObservationSearch.');
         }
@@ -80,6 +77,9 @@ export class ObservationSearchsService {
         }
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
+        }
+        if (SearchQuery === null || SearchQuery === undefined) {
+            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
         }
 
         let headers = this.defaultHeaders;
@@ -110,20 +110,20 @@ export class ObservationSearchsService {
     /**
      * 
      * Search Observations using search index (solr)
-     * @param SearchQuery solr search query
      * @param IDProject ID of record
+     * @param SearchQuery solr search query
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getObservationSearchCount(SearchQuery: string, IDProject: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getObservationSearchCount(SearchQuery: string, IDProject: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getObservationSearchCount(SearchQuery: string, IDProject: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getObservationSearchCount(SearchQuery: string, IDProject: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (SearchQuery === null || SearchQuery === undefined) {
-            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearchCount.');
-        }
+    public getObservationSearchCount(IDProject: number, SearchQuery: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getObservationSearchCount(IDProject: number, SearchQuery: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getObservationSearchCount(IDProject: number, SearchQuery: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getObservationSearchCount(IDProject: number, SearchQuery: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getObservationSearchCount.');
+        }
+        if (SearchQuery === null || SearchQuery === undefined) {
+            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearchCount.');
         }
 
         let headers = this.defaultHeaders;

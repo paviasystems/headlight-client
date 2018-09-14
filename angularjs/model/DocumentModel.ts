@@ -31,6 +31,10 @@ export interface DocumentModel {
     /**
      * 
      */
+    "FormData": any;
+    /**
+     * 
+     */
     "IDDocument": number;
     /**
      * 

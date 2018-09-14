@@ -1504,6 +1504,10 @@ export class DocumentModel {
     /**
     * 
     */
+    'FormData': any;
+    /**
+    * 
+    */
     'IDDocument': number;
     /**
     * 
@@ -1623,6 +1627,11 @@ export class DocumentModel {
             "name": "ElectronicSignatures",
             "baseName": "ElectronicSignatures",
             "type": "Array<ElectronicSignature>"
+        },
+        {
+            "name": "FormData",
+            "baseName": "FormData",
+            "type": "any"
         },
         {
             "name": "IDDocument",
@@ -5405,33 +5414,23 @@ export class ArtifactApi {
     }
     /**
      * Copy Artifact media from ID to target ID
-     * @param ArtifactVersion 
-     * @param TargetArtifactVersion 
      * @param IDObservationArtifact ID of record
      * @param IDTargetArtifact ID of record
+     * @param ArtifactVersion 
+     * @param TargetArtifactVersion 
      */
-    public copyArtifact (ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number) : Promise<any> {
+    public copyArtifact (IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number) : Promise<any> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}'
-            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
-            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)))
             .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
-            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)));
+            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)))
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'ArtifactVersion' is not null or undefined
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
-        }
-
-        // verify required parameter 'TargetArtifactVersion' is not null or undefined
-        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
-            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
-        }
 
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
@@ -5441,6 +5440,16 @@ export class ArtifactApi {
         // verify required parameter 'IDTargetArtifact' is not null or undefined
         if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
             throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'TargetArtifactVersion' is not null or undefined
+        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
+            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
         }
 
 
@@ -5650,13 +5659,13 @@ export class ArtifactApi {
     }
     /**
      * Download Artifact media file from Headlight
-     * @param Size 
      * @param IDObservationArtifact ID of record
+     * @param Size 
      */
-    public downloadArtifact (Size: string, IDObservationArtifact: number) : Promise<Buffer> {
+    public downloadArtifact (IDObservationArtifact: number, Size: string) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}'
-            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
-            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -5664,14 +5673,14 @@ export class ArtifactApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'Size' is not null or undefined
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
+        }
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
         }
 
 
@@ -5889,26 +5898,21 @@ export class ArtifactApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ArtifactModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ArtifactModel>> {
         const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -5918,6 +5922,11 @@ export class ArtifactApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -6020,13 +6029,13 @@ export class ArtifactApi {
     /**
      * Upload Artifact media file to Headlight
      * @param file 
-     * @param ArtifactVersion 
      * @param IDObservationArtifact ID of record
+     * @param ArtifactVersion 
      */
-    public uploadArtifact (file: Buffer, ArtifactVersion: number, IDObservationArtifact: number) : Promise<any> {
+    public uploadArtifact (file: Buffer, IDObservationArtifact: number, ArtifactVersion: number) : Promise<any> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}'
-            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
-            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -6039,14 +6048,14 @@ export class ArtifactApi {
             throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
         }
 
-        // verify required parameter 'ArtifactVersion' is not null or undefined
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
         }
 
 
@@ -6954,26 +6963,21 @@ export class BidItemApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<BidItem>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<BidItem>> {
         const localVarPath = this.basePath + '/BidItems/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -6983,6 +6987,11 @@ export class BidItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -7495,26 +7504,21 @@ export class CommentApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<CommentModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<CommentModel>> {
         const localVarPath = this.basePath + '/Comments/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -7524,6 +7528,11 @@ export class CommentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -8036,26 +8045,21 @@ export class ContractApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Contract>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Contract>> {
         const localVarPath = this.basePath + '/Contracts/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -8065,6 +8069,11 @@ export class ContractApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -8577,26 +8586,21 @@ export class CustomerApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Customer>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Customer>> {
         const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -8606,6 +8610,11 @@ export class CustomerApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -9532,26 +9541,21 @@ export class DocumentApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<DocumentModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<DocumentModel>> {
         const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -9561,6 +9565,11 @@ export class DocumentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -10314,26 +10323,21 @@ export class DocumentsApi {
     }
     /**
      * 
-     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate FROM date (descending)
      */
-    public getUpdatedDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
+    public getUpdatedDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
-        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -10343,6 +10347,11 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedDocuments.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
         }
 
 
@@ -10385,26 +10394,21 @@ export class DocumentsApi {
     }
     /**
      * Sync Documents  Process (since this is so complex): 1. FOR EACH Document     1.1 Archive the Document     1.2 Merge in the Changes     1.5 After all Detail records are successfully stored, Update Document so Document.definition contains the serialized array of Details 2. Get all Document records for this user that have changed since the sync date
-     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate FROM date (descending)
      */
-    public syncDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
+    public syncDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
-        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -10414,6 +10418,11 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncDocuments.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
         }
 
 
@@ -10987,26 +10996,21 @@ export class ElectronicSignatureApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ElectronicSignatureModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ElectronicSignatureModel>> {
         const localVarPath = this.basePath + '/ElectronicSignatures/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -11016,6 +11020,11 @@ export class ElectronicSignatureApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -11528,26 +11537,21 @@ export class EquipmentApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Equipment>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Equipment>> {
         const localVarPath = this.basePath + '/Equipments/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -11557,6 +11561,11 @@ export class EquipmentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -12069,26 +12078,21 @@ export class LineItemApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LineItem>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<LineItem>> {
         const localVarPath = this.basePath + '/LineItems/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -12098,6 +12102,11 @@ export class LineItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -12610,26 +12619,21 @@ export class ModuleApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ModuleModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ModuleModel>> {
         const localVarPath = this.basePath + '/Modules/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -12639,6 +12643,11 @@ export class ModuleApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -13151,26 +13160,21 @@ export class NotificationApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Notification>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Notification>> {
         const localVarPath = this.basePath + '/Notifications/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -13180,6 +13184,11 @@ export class NotificationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -13733,13 +13742,13 @@ export class ObservationApi {
     }
     /**
      * 
-     * @param SpritePageNumber 
      * @param IDProject ID of record
+     * @param SpritePageNumber 
      */
-    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number) : Promise<Buffer> {
+    public downloadObservationCollectionImage (IDProject: number, SpritePageNumber: number) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Observation/Project/{IDProject}/Sprites/{SpritePageNumber}'
-            .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
+            .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -13747,14 +13756,14 @@ export class ObservationApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'SpritePageNumber' is not null or undefined
-        if (SpritePageNumber === null || SpritePageNumber === undefined) {
-            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
-        }
-
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling downloadObservationCollectionImage.');
+        }
+
+        // verify required parameter 'SpritePageNumber' is not null or undefined
+        if (SpritePageNumber === null || SpritePageNumber === undefined) {
+            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
         }
 
 
@@ -13798,13 +13807,13 @@ export class ObservationApi {
     }
     /**
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
-     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      */
-    public downloadObservationImage (Size: string, IDObservation: number) : Promise<Buffer> {
+    public downloadObservationImage (IDObservation: number, Size: string) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Image/{Size}'
-            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -13812,14 +13821,14 @@ export class ObservationApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'Size' is not null or undefined
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling downloadObservationImage.');
+        }
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
         }
 
 
@@ -13927,26 +13936,21 @@ export class ObservationApi {
     }
     /**
      * 
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      */
-    public getUpdatedObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<Array<BundlesContentManagementObservationModel>> {
+    public getUpdatedObservations (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<Array<BundlesContentManagementObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
-        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -13956,6 +13960,11 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedObservations.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
         }
 
 
@@ -14395,26 +14404,21 @@ export class ObservationApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ObservationModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -14424,6 +14428,11 @@ export class ObservationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -14467,26 +14476,21 @@ export class ObservationApi {
     }
     /**
      * Sync Observations  Process (since this is so complex): 1. FOR EACH OBSERVATION     1.1 Archive the Observation     1.2 Merge in the Changes     1.3 Translate the Observation Details     1.4 PERFORM SYNC MATCH AND UPDATE WHERE NECESSARY (TALK TO TRENT)     1.5 After all Detail records are successfully stored, Update Observation so Observation.definition contains the serialized array of Details 2. Get all observation records for this user that have changed since the sync date
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      */
-    public syncObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
+    public syncObservations (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
-        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -14496,6 +14500,11 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncObservations.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
         }
 
 
@@ -14893,28 +14902,23 @@ export class ObservationSearchsApi {
     }
     /**
      * Search Observations using search index (solr)
-     * @param SearchQuery solr search query
      * @param IDProject ID of record
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SearchQuery solr search query
      */
-    public getObservationSearch (SearchQuery: string, IDProject: number, Begin: number, Cap: number) : Promise<any> {
+    public getObservationSearch (IDProject: number, Begin: number, Cap: number, SearchQuery: string) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchs/{IDProject}/{SearchQuery}/{Begin}/{Cap}'
-            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'SearchQuery' is not null or undefined
-        if (SearchQuery === null || SearchQuery === undefined) {
-            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
-        }
 
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
@@ -14929,6 +14933,11 @@ export class ObservationSearchsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
+        }
+
+        // verify required parameter 'SearchQuery' is not null or undefined
+        if (SearchQuery === null || SearchQuery === undefined) {
+            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
         }
 
 
@@ -14971,13 +14980,13 @@ export class ObservationSearchsApi {
     }
     /**
      * Search Observations using search index (solr)
-     * @param SearchQuery solr search query
      * @param IDProject ID of record
+     * @param SearchQuery solr search query
      */
-    public getObservationSearchCount (SearchQuery: string, IDProject: number) : Promise<any> {
+    public getObservationSearchCount (IDProject: number, SearchQuery: string) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchs/Count/{IDProject}/{SearchQuery}'
-            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
+            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -14985,14 +14994,14 @@ export class ObservationSearchsApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'SearchQuery' is not null or undefined
-        if (SearchQuery === null || SearchQuery === undefined) {
-            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearchCount.');
-        }
-
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getObservationSearchCount.');
+        }
+
+        // verify required parameter 'SearchQuery' is not null or undefined
+        if (SearchQuery === null || SearchQuery === undefined) {
+            throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearchCount.');
         }
 
 
@@ -15098,13 +15107,13 @@ export class ObservationSendToApi {
     }
     /**
      * 
-     * @param EmailAddress 
      * @param IDObservation ID of record
+     * @param EmailAddress 
      */
-    public getObservationSendToEmail (EmailAddress: string, IDObservation: number) : Promise<any> {
+    public getObservationSendToEmail (IDObservation: number, EmailAddress: string) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSendTo/{IDObservation}/Email/{EmailAddress}'
-            .replace('{' + 'EmailAddress' + '}', encodeURIComponent(String(EmailAddress)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'EmailAddress' + '}', encodeURIComponent(String(EmailAddress)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -15112,14 +15121,14 @@ export class ObservationSendToApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'EmailAddress' is not null or undefined
-        if (EmailAddress === null || EmailAddress === undefined) {
-            throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling getObservationSendToEmail.');
+        }
+
+        // verify required parameter 'EmailAddress' is not null or undefined
+        if (EmailAddress === null || EmailAddress === undefined) {
+            throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
         }
 
 
@@ -15636,13 +15645,13 @@ export class ObservationsByUpdateDateApi {
     }
     /**
      * Fetch list of observations where date is earlier than ByDate.
-     * @param ByDate 
      * @param Cap Maximum number of records to return
+     * @param ByDate 
      */
-    public getObservationsByUpdateDate (ByDate: Date, Cap: number) : Promise<any> {
+    public getObservationsByUpdateDate (Cap: number, ByDate: Date) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsByUpdateDate/{ByDate}/{Cap}'
-            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -15650,14 +15659,14 @@ export class ObservationsByUpdateDateApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'ByDate' is not null or undefined
-        if (ByDate === null || ByDate === undefined) {
-            throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
-        }
-
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
+        }
+
+        // verify required parameter 'ByDate' is not null or undefined
+        if (ByDate === null || ByDate === undefined) {
+            throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
         }
 
 
@@ -16302,26 +16311,21 @@ export class OrganizationApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Organization>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Organization>> {
         const localVarPath = this.basePath + '/Organizations/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -16331,6 +16335,11 @@ export class OrganizationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -16843,26 +16852,21 @@ export class PayItemApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<PayItemModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<PayItemModel>> {
         const localVarPath = this.basePath + '/PayItems/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -16872,6 +16876,11 @@ export class PayItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -17384,26 +17393,21 @@ export class ProjectApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ProjectModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ProjectModel>> {
         const localVarPath = this.basePath + '/Projects/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -17413,6 +17417,11 @@ export class ProjectApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -17975,26 +17984,21 @@ export class ReportApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ReportModel>> {
         const localVarPath = this.basePath + '/Reports/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -18004,6 +18008,11 @@ export class ReportApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -18651,26 +18660,21 @@ export class ReportNamedInstanceApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportNamedInstanceModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ReportNamedInstanceModel>> {
         const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -18680,6 +18684,11 @@ export class ReportNamedInstanceApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -19256,26 +19265,21 @@ export class UserApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<UserModel>> {
+    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<UserModel>> {
         const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -19285,6 +19289,11 @@ export class UserApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 

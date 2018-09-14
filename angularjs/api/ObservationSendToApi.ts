@@ -28,24 +28,24 @@ export class ObservationSendToApi {
 
     /**
      * 
-     * @param EmailAddress 
      * @param IDObservation ID of record
+     * @param EmailAddress 
      */
-    public getObservationSendToEmail (EmailAddress: string, IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public getObservationSendToEmail (IDObservation: number, EmailAddress: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/ObservationSendTo/{IDObservation}/Email/{EmailAddress}'
-            .replace('{' + 'EmailAddress' + '}', encodeURIComponent(String(EmailAddress)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'EmailAddress' + '}', encodeURIComponent(String(EmailAddress)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'EmailAddress' is not null or undefined
-        if (EmailAddress === null || EmailAddress === undefined) {
-            throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling getObservationSendToEmail.');
+        }
+
+        // verify required parameter 'EmailAddress' is not null or undefined
+        if (EmailAddress === null || EmailAddress === undefined) {
+            throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

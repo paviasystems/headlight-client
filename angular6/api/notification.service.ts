@@ -306,24 +306,24 @@ export class NotificationService {
     /**
      * 
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Notification>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Notification>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Notification>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Notification>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Notification>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Notification>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let headers = this.defaultHeaders;

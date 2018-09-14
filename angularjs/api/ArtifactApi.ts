@@ -84,30 +84,20 @@ export class ArtifactApi {
     }
     /**
      * Copy Artifact media from ID to target ID
-     * @param ArtifactVersion 
-     * @param TargetArtifactVersion 
      * @param IDObservationArtifact ID of record
      * @param IDTargetArtifact ID of record
+     * @param ArtifactVersion 
+     * @param TargetArtifactVersion 
      */
-    public copyArtifact (ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public copyArtifact (IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}'
-            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
-            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)))
             .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
-            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)));
+            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)))
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'ArtifactVersion' is not null or undefined
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
-        }
-
-        // verify required parameter 'TargetArtifactVersion' is not null or undefined
-        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
-            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
@@ -116,6 +106,16 @@ export class ArtifactApi {
         // verify required parameter 'IDTargetArtifact' is not null or undefined
         if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
             throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'TargetArtifactVersion' is not null or undefined
+        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
+            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -210,24 +210,24 @@ export class ArtifactApi {
     }
     /**
      * Download Artifact media file from Headlight
-     * @param Size 
      * @param IDObservationArtifact ID of record
+     * @param Size 
      */
-    public downloadArtifact (Size: string, IDObservationArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
+    public downloadArtifact (IDObservationArtifact: number, Size: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}'
-            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
-            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'Size' is not null or undefined
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
+        }
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -329,23 +329,18 @@ export class ArtifactApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ArtifactModel>> {
+    public readsFiltered (begin: number, max: number, filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ArtifactModel>> {
         const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
-
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
@@ -354,6 +349,11 @@ export class ArtifactApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -400,13 +400,13 @@ export class ArtifactApi {
     /**
      * Upload Artifact media file to Headlight
      * @param file 
-     * @param ArtifactVersion 
      * @param IDObservationArtifact ID of record
+     * @param ArtifactVersion 
      */
-    public uploadArtifact (file: any, ArtifactVersion: number, IDObservationArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public uploadArtifact (file: any, IDObservationArtifact: number, ArtifactVersion: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}'
-            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
-            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -417,14 +417,14 @@ export class ArtifactApi {
             throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
         }
 
-        // verify required parameter 'ArtifactVersion' is not null or undefined
-        if (ArtifactVersion === null || ArtifactVersion === undefined) {
-            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
         }
 
         headerParams['Content-Type'] = 'application/x-www-form-urlencoded';

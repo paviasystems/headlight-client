@@ -210,24 +210,24 @@ export class ObservationApi {
     }
     /**
      * 
-     * @param SpritePageNumber 
      * @param IDProject ID of record
+     * @param SpritePageNumber 
      */
-    public downloadObservationCollectionImage (SpritePageNumber: number, IDProject: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
+    public downloadObservationCollectionImage (IDProject: number, SpritePageNumber: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Observation/Project/{IDProject}/Sprites/{SpritePageNumber}'
-            .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
+            .replace('{' + 'SpritePageNumber' + '}', encodeURIComponent(String(SpritePageNumber)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'SpritePageNumber' is not null or undefined
-        if (SpritePageNumber === null || SpritePageNumber === undefined) {
-            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
-        }
-
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling downloadObservationCollectionImage.');
+        }
+
+        // verify required parameter 'SpritePageNumber' is not null or undefined
+        if (SpritePageNumber === null || SpritePageNumber === undefined) {
+            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -245,24 +245,24 @@ export class ObservationApi {
     }
     /**
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
-     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      */
-    public downloadObservationImage (Size: string, IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
+    public downloadObservationImage (IDObservation: number, Size: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Image/{Size}'
-            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'Size' is not null or undefined
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling downloadObservationImage.');
+        }
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -315,23 +315,18 @@ export class ObservationApi {
     }
     /**
      * 
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      */
-    public getUpdatedObservations (SynchronizeFromDate: Date, Begin: number, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.BundlesContentManagementObservationModel>> {
+    public getUpdatedObservations (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.BundlesContentManagementObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
-        }
-
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedObservations.');
@@ -340,6 +335,11 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedObservations.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -546,23 +546,18 @@ export class ObservationApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ObservationModel>> {
+    public readsFiltered (begin: number, max: number, filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
-
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
@@ -571,6 +566,11 @@ export class ObservationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -588,23 +588,18 @@ export class ObservationApi {
     }
     /**
      * Sync Observations  Process (since this is so complex): 1. FOR EACH OBSERVATION     1.1 Archive the Observation     1.2 Merge in the Changes     1.3 Translate the Observation Details     1.4 PERFORM SYNC MATCH AND UPDATE WHERE NECESSARY (TALK TO TRENT)     1.5 After all Detail records are successfully stored, Update Observation so Observation.definition contains the serialized array of Details 2. Get all observation records for this user that have changed since the sync date
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      */
-    public syncObservations (SynchronizeFromDate: Date, Begin: number, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public syncObservations (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
-        }
-
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling syncObservations.');
@@ -613,6 +608,11 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncObservations.');
+        }
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

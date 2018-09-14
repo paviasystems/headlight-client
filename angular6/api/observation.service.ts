@@ -340,20 +340,20 @@ export class ObservationService {
     /**
      * 
      * 
-     * @param SpritePageNumber 
      * @param IDProject ID of record
+     * @param SpritePageNumber 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
-    public downloadObservationCollectionImage(SpritePageNumber: number, IDProject: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (SpritePageNumber === null || SpritePageNumber === undefined) {
-            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
-        }
+    public downloadObservationCollectionImage(IDProject: number, SpritePageNumber: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadObservationCollectionImage(IDProject: number, SpritePageNumber: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadObservationCollectionImage(IDProject: number, SpritePageNumber: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
+    public downloadObservationCollectionImage(IDProject: number, SpritePageNumber: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling downloadObservationCollectionImage.');
+        }
+        if (SpritePageNumber === null || SpritePageNumber === undefined) {
+            throw new Error('Required parameter SpritePageNumber was null or undefined when calling downloadObservationCollectionImage.');
         }
 
         let headers = this.defaultHeaders;
@@ -387,20 +387,20 @@ export class ObservationService {
     /**
      * 
      * Download Observation Image - Get transcoded media file for an observation. If not found, asks transcoder to regenerate it
-     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param IDObservation ID of record
+     * @param Size e.g. Thumbnail,Standard,Preview,Enhanced
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
-    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
-    public downloadObservationImage(Size: string, IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
-    public downloadObservationImage(Size: string, IDObservation: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (Size === null || Size === undefined) {
-            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
-        }
+    public downloadObservationImage(IDObservation: number, Size: string, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadObservationImage(IDObservation: number, Size: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadObservationImage(IDObservation: number, Size: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
+    public downloadObservationImage(IDObservation: number, Size: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling downloadObservationImage.');
+        }
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadObservationImage.');
         }
 
         let headers = this.defaultHeaders;
@@ -478,24 +478,24 @@ export class ObservationService {
     /**
      * 
      * 
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getUpdatedObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<Array<BundlesContentManagementObservationModel>>;
-    public getUpdatedObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundlesContentManagementObservationModel>>>;
-    public getUpdatedObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundlesContentManagementObservationModel>>>;
-    public getUpdatedObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
-        }
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<Array<BundlesContentManagementObservationModel>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundlesContentManagementObservationModel>>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundlesContentManagementObservationModel>>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedObservations.');
         }
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedObservations.');
+        }
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
         }
 
         let headers = this.defaultHeaders;
@@ -814,24 +814,24 @@ export class ObservationService {
     /**
      * 
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ObservationModel>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ObservationModel>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ObservationModel>>>;
-    public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ObservationModel>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ObservationModel>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ObservationModel>>>;
+    public readsFiltered(begin: number, max: number, filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let headers = this.defaultHeaders;
@@ -862,24 +862,24 @@ export class ObservationService {
     /**
      * 
      * Sync Observations  Process (since this is so complex): 1. FOR EACH OBSERVATION     1.1 Archive the Observation     1.2 Merge in the Changes     1.3 Translate the Observation Details     1.4 PERFORM SYNC MATCH AND UPDATE WHERE NECESSARY (TALK TO TRENT)     1.5 After all Detail records are successfully stored, Update Observation so Observation.definition contains the serialized array of Details 2. Get all observation records for this user that have changed since the sync date
-     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
+     * @param SynchronizeFromDate 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public syncObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public syncObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public syncObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public syncObservations(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
-        }
+    public syncObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public syncObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public syncObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public syncObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling syncObservations.');
         }
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncObservations.');
+        }
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
         }
 
         let headers = this.defaultHeaders;

@@ -196,23 +196,18 @@ export class UserApi {
     }
     /**
      * Meadow READ filtered list
-     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
+     * @param filter FBV meadow filter
      */
-    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.UserModel>> {
+    public readsFiltered (begin: number, max: number, filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.UserModel>> {
         const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/{begin}/{max}'
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
-        }
-
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
@@ -221,6 +216,11 @@ export class UserApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
