@@ -104,7 +104,7 @@ export class CustomerApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: models.Customer, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Customer> {
@@ -118,7 +118,7 @@ export class CustomerApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
+            method: 'POST',
             url: localVarPath,
             data: body,
             params: queryParameters,
@@ -237,7 +237,7 @@ export class CustomerApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: models.Customer, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Customer> {
@@ -251,7 +251,7 @@ export class CustomerApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'POST',
+            method: 'PUT',
             url: localVarPath,
             data: body,
             params: queryParameters,

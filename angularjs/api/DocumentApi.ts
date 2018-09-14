@@ -174,7 +174,7 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: models.DocumentModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.DocumentModel> {
@@ -188,7 +188,7 @@ export class DocumentApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
+            method: 'POST',
             url: localVarPath,
             data: body,
             params: queryParameters,
@@ -289,7 +289,7 @@ export class DocumentApi {
      * Generate a DCR in PDF format
      * @param IDDocument ID of record
      */
-    public getDocumentPDF (IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public getDocumentPDF (IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/DCR.pdf'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
@@ -545,7 +545,7 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: models.DocumentModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.DocumentModel> {
@@ -559,7 +559,7 @@ export class DocumentApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'POST',
+            method: 'PUT',
             url: localVarPath,
             data: body,
             params: queryParameters,

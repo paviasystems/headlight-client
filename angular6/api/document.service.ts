@@ -263,7 +263,7 @@ export class DocumentService {
 
     /**
      * 
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -296,7 +296,7 @@ export class DocumentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<DocumentModel>(`${this.basePath}/Document`,
+        return this.httpClient.post<DocumentModel>(`${this.basePath}/Document`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -434,9 +434,9 @@ export class DocumentService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getDocumentPDF(IDDocument: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getDocumentPDF(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getDocumentPDF(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getDocumentPDF(IDDocument: number, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public getDocumentPDF(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public getDocumentPDF(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
     public getDocumentPDF(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentPDF.');
@@ -446,7 +446,8 @@ export class DocumentService {
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
-            'application/json'
+            'application/pdf',
+            'application/octet-stream'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -457,8 +458,9 @@ export class DocumentService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/Document/${encodeURIComponent(String(IDDocument))}/DCR.pdf`,
+        return this.httpClient.get(`${this.basePath}/Document/${encodeURIComponent(String(IDDocument))}/DCR.pdf`,
             {
+                responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -769,7 +771,7 @@ export class DocumentService {
 
     /**
      * 
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -802,7 +804,7 @@ export class DocumentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<DocumentModel>(`${this.basePath}/Document`,
+        return this.httpClient.put<DocumentModel>(`${this.basePath}/Document`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,

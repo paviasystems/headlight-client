@@ -104,7 +104,7 @@ export class OrganizationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: models.Organization, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Organization> {
@@ -118,7 +118,7 @@ export class OrganizationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
+            method: 'POST',
             url: localVarPath,
             data: body,
             params: queryParameters,
@@ -237,7 +237,7 @@ export class OrganizationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: models.Organization, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Organization> {
@@ -251,7 +251,7 @@ export class OrganizationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'POST',
+            method: 'PUT',
             url: localVarPath,
             data: body,
             params: queryParameters,

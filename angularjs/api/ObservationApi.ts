@@ -181,7 +181,7 @@ export class ObservationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: models.ObservationModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ObservationModel> {
@@ -195,7 +195,7 @@ export class ObservationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
+            method: 'POST',
             url: localVarPath,
             data: body,
             params: queryParameters,
@@ -685,7 +685,7 @@ export class ObservationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: models.ObservationModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ObservationModel> {
@@ -699,7 +699,7 @@ export class ObservationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'POST',
+            method: 'PUT',
             url: localVarPath,
             data: body,
             params: queryParameters,

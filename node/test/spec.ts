@@ -28,12 +28,11 @@ describe('Node API test', () => {
 
     it('can perform API request which requires authentication', async() => {
         let userApi = client.API(Headlight.API.UserApi);
-        let record = await userApi.read(1);
-        //userApi.
+        let record = await userApi.read(client.UserSession.UserID);
 
         (<any>userApi)._cacheFlag = true; //used for later test
 
-        expect(record.IDUser).to.eq(1);
+        expect(record.IDUser).to.eq(client.UserSession.UserID);
     });
 
     it('will load API from cache', async() => {
@@ -52,5 +51,18 @@ describe('Node API test', () => {
         expect(lastResponse.headers['content-type']).to.eq('image/jpeg');
 
         //fs.writeFileSync('junk.png', image);
+    });
+
+    it('can update a record', async() => {
+        let userApi = client.API(Headlight.API.UserApi);
+
+        let record = await userApi.read(client.UserSession.UserID);
+        let testTime = new Date().getTime();
+        
+        record.Settings['apiTest'] = testTime;
+        let updatedRecord = await userApi.update(record);
+
+        expect(updatedRecord.Settings['apiTest']).to.eq(testTime);
+        expect(updatedRecord.UpdateDate).to.be.gt(record.UpdateDate);
     });
 });

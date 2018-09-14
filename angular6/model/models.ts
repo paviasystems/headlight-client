@@ -1,3 +1,5 @@
+export * from './artifact';
+export * from './artifactModel';
 export * from './bidItem';
 export * from './bundlesContentManagementObservationModel';
 export * from './bundlesContentManagementObservationModelLabels';

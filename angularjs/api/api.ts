@@ -1,3 +1,5 @@
+export * from './ArtifactApi';
+import { ArtifactApi } from './ArtifactApi';
 export * from './AuthenticateApi';
 import { AuthenticateApi } from './AuthenticateApi';
 export * from './BatchExportApi';
@@ -58,4 +60,4 @@ export * from './ReportNamedInstanceApi';
 import { ReportNamedInstanceApi } from './ReportNamedInstanceApi';
 export * from './UserApi';
 import { UserApi } from './UserApi';
-export const APIS = [AuthenticateApi, BatchExportApi, BidItemApi, CommentApi, ContractApi, CustomerApi, DocumentApi, DocumentApprovalApi, DocumentSendToApi, DocumentsApi, DocumentsByObservationApi, ElectronicSignatureApi, EquipmentApi, LineItemApi, ModuleApi, NotificationApi, ObservationApi, ObservationCloneTemplatesApi, ObservationSearchsApi, ObservationSendToApi, ObservationsBatchTagApi, ObservationsByDocumentApi, ObservationsByUpdateDateApi, ObservationsFilterApi, OrganizationApi, PayItemApi, ProjectApi, ReportApi, ReportNamedInstanceApi, UserApi];
+export const APIS = [ArtifactApi, AuthenticateApi, BatchExportApi, BidItemApi, CommentApi, ContractApi, CustomerApi, DocumentApi, DocumentApprovalApi, DocumentSendToApi, DocumentsApi, DocumentsByObservationApi, ElectronicSignatureApi, EquipmentApi, LineItemApi, ModuleApi, NotificationApi, ObservationApi, ObservationCloneTemplatesApi, ObservationSearchsApi, ObservationSendToApi, ObservationsBatchTagApi, ObservationsByDocumentApi, ObservationsByUpdateDateApi, ObservationsFilterApi, OrganizationApi, PayItemApi, ProjectApi, ReportApi, ReportNamedInstanceApi, UserApi];

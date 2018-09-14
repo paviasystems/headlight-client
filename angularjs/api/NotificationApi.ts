@@ -104,7 +104,7 @@ export class NotificationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: models.Notification, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Notification> {
@@ -118,7 +118,7 @@ export class NotificationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
+            method: 'POST',
             url: localVarPath,
             data: body,
             params: queryParameters,
@@ -237,7 +237,7 @@ export class NotificationApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: models.Notification, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Notification> {
@@ -251,7 +251,7 @@ export class NotificationApi {
         }
 
         let httpRequestParams: ng.IRequestConfig = {
-            method: 'POST',
+            method: 'PUT',
             url: localVarPath,
             data: body,
             params: queryParameters,

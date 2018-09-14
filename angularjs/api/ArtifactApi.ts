@@ -14,7 +14,7 @@ import * as models from '../model/models';
 
 /* tslint:disable:no-unused-variable member-ordering */
 
-export class ReportNamedInstanceApi {
+export class ArtifactApi {
     protected basePath = 'https://localhost/1.0';
     public defaultHeaders : any = {};
 
@@ -31,7 +31,7 @@ export class ReportNamedInstanceApi {
      * @param id ID of record
      */
     public _delete (id: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<boolean> {
-        const localVarPath = this.basePath + '/ReportNamedInstance/{id}'
+        const localVarPath = this.basePath + '/Artifact/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -55,25 +55,67 @@ export class ReportNamedInstanceApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * 
-     * @param IDReportNamedInstance ID of record
-     * @param IDProject ID of record
+     * Switch Artifact records Sync flag
+     * @param IDArtifact ID of record
      */
-    public addReportNamedInstanceToProject (IDReportNamedInstance: number, IDProject: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/AddToProject/{IDProject}'
-            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+    public clearArtifactSyncFlag (IDArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/Artifact/{IDArtifact}/ClearSyncFlag'
+            .replace('{' + 'IDArtifact' + '}', encodeURIComponent(String(IDArtifact)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDReportNamedInstance' is not null or undefined
-        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
-            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling addReportNamedInstanceToProject.');
+        // verify required parameter 'IDArtifact' is not null or undefined
+        if (IDArtifact === null || IDArtifact === undefined) {
+            throw new Error('Required parameter IDArtifact was null or undefined when calling clearArtifactSyncFlag.');
         }
 
-        // verify required parameter 'IDProject' is not null or undefined
-        if (IDProject === null || IDProject === undefined) {
-            throw new Error('Required parameter IDProject was null or undefined when calling addReportNamedInstanceToProject.');
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Copy Artifact media from ID to target ID
+     * @param ArtifactVersion 
+     * @param TargetArtifactVersion 
+     * @param IDObservationArtifact ID of record
+     * @param IDTargetArtifact ID of record
+     */
+    public copyArtifact (ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}'
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'TargetArtifactVersion' is not null or undefined
+        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
+            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'IDTargetArtifact' is not null or undefined
+        if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
+            throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -93,7 +135,7 @@ export class ReportNamedInstanceApi {
      * Meadow COUNT
      */
     public count (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
-        const localVarPath = this.basePath + '/ReportNamedInstances/Count';
+        const localVarPath = this.basePath + '/Artifacts/Count';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -115,7 +157,7 @@ export class ReportNamedInstanceApi {
      * @param filter FBV meadow filter
      */
     public countFiltered (filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
-        const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/Count'
+        const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/Count'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
 
         let queryParameters: any = {};
@@ -142,8 +184,8 @@ export class ReportNamedInstanceApi {
      * Meadow POST (Create)
      * @param body 
      */
-    public create (body: models.ReportNamedInstanceModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ReportNamedInstanceModel> {
-        const localVarPath = this.basePath + '/ReportNamedInstance';
+    public create (body: models.ArtifactModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -167,34 +209,48 @@ export class ReportNamedInstanceApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * 
-     * @param IDProject ID of record
-     * @param Begin Beginning (skip) number of records (to page)
-     * @param Cap Maximum number of records to return
+     * Download Artifact media file from Headlight
+     * @param Size 
+     * @param IDObservationArtifact ID of record
      */
-    public getReportNamedInstanceByProject (IDProject: number, Begin: number, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/ReportNamedInstancesByProject/{IDProject}/{Begin}/{Cap}'
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
-            .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
+    public downloadArtifact (Size: string, IDObservationArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}'
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDProject' is not null or undefined
-        if (IDProject === null || IDProject === undefined) {
-            throw new Error('Required parameter IDProject was null or undefined when calling getReportNamedInstanceByProject.');
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
         }
 
-        // verify required parameter 'Begin' is not null or undefined
-        if (Begin === null || Begin === undefined) {
-            throw new Error('Required parameter Begin was null or undefined when calling getReportNamedInstanceByProject.');
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
         }
 
-        // verify required parameter 'Cap' is not null or undefined
-        if (Cap === null || Cap === undefined) {
-            throw new Error('Required parameter Cap was null or undefined when calling getReportNamedInstanceByProject.');
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
         }
 
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Get Artifact records for media types that don't have the Sync flag set
+     */
+    public getArtifactSyncList (extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Artifact>> {
+        const localVarPath = this.basePath + '/Artifact/Media/GetSyncList';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let httpRequestParams: ng.IRequestConfig = {
             method: 'GET',
             url: localVarPath,
@@ -212,8 +268,8 @@ export class ReportNamedInstanceApi {
      * Meadow READ
      * @param id ID of record
      */
-    public read (id: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ReportNamedInstanceModel> {
-        const localVarPath = this.basePath + '/ReportNamedInstance/{id}'
+    public read (id: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -241,8 +297,8 @@ export class ReportNamedInstanceApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public reads (begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ReportNamedInstanceModel>> {
-        const localVarPath = this.basePath + '/ReportNamedInstances/{begin}/{max}'
+    public reads (begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ArtifactModel>> {
+        const localVarPath = this.basePath + '/Artifacts/{begin}/{max}'
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
 
@@ -277,8 +333,8 @@ export class ReportNamedInstanceApi {
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
      */
-    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ReportNamedInstanceModel>> {
-        const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/{begin}/{max}'
+    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ArtifactModel>> {
+        const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/{begin}/{max}'
             .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
             .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
@@ -314,46 +370,11 @@ export class ReportNamedInstanceApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * 
-     * @param IDReportNamedInstance ID of record
-     * @param IDProject ID of record
-     */
-    public removeReportNamedInstanceFromProject (IDReportNamedInstance: number, IDProject: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/RemoveFromProject/{IDProject}'
-            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDReportNamedInstance' is not null or undefined
-        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
-            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling removeReportNamedInstanceFromProject.');
-        }
-
-        // verify required parameter 'IDProject' is not null or undefined
-        if (IDProject === null || IDProject === undefined) {
-            throw new Error('Required parameter IDProject was null or undefined when calling removeReportNamedInstanceFromProject.');
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'GET',
-            url: localVarPath,
-            params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * Meadow PUT (Update)
      * @param body 
      */
-    public update (body: models.ReportNamedInstanceModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ReportNamedInstanceModel> {
-        const localVarPath = this.basePath + '/ReportNamedInstance';
+    public update (body: models.ArtifactModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -366,6 +387,54 @@ export class ReportNamedInstanceApi {
             method: 'PUT',
             url: localVarPath,
             data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Upload Artifact media file to Headlight
+     * @param file 
+     * @param ArtifactVersion 
+     * @param IDObservationArtifact ID of record
+     */
+    public uploadArtifact (file: any, ArtifactVersion: number, IDObservationArtifact: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}'
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let formParams: any = {};
+
+        // verify required parameter 'file' is not null or undefined
+        if (file === null || file === undefined) {
+            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+
+        headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        formParams['file'] = file;
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: this.$httpParamSerializer(formParams),
             params: queryParameters,
             headers: headerParams
         };

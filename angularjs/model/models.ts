@@ -1,3 +1,5 @@
+export * from './Artifact';
+export * from './ArtifactModel';
 export * from './BidItem';
 export * from './BundlesContentManagementObservationModel';
 export * from './BundlesContentManagementObservationModelLabels';

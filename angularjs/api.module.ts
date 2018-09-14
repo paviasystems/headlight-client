@@ -2,6 +2,7 @@ import * as api from './api/api';
 import * as angular from 'angular';
 
 const apiModule = angular.module('api', [])
+.service('ArtifactApi', api.ArtifactApi)
 .service('AuthenticateApi', api.AuthenticateApi)
 .service('BatchExportApi', api.BatchExportApi)
 .service('BidItemApi', api.BidItemApi)

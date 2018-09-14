@@ -27,6 +27,7 @@ export class Client
 {
     private _BaseURL: string;
     private _Cookie: CookieAuth;
+    private _UserSession: API.ISession;
     private _Auth: API.AuthenticateApi;
     private _ApiReferences: Map<string, GeneralAPI>;
 
@@ -36,6 +37,11 @@ export class Client
         this._ApiReferences = new Map<string, GeneralAPI>();
 
         this._Auth = new API.AuthenticateApi(pBaseURL);
+    }
+
+    get UserSession(): API.ISession
+    {
+        return this._UserSession;
     }
 
     /**
@@ -48,6 +54,7 @@ export class Client
         {
             return Promise.reject('Login failure! Check username and password.');
         }
+        this._UserSession = result;
         this._Cookie = new CookieAuth(result.SessionID);
 
         return Promise.resolve(result);

@@ -175,7 +175,7 @@ export class CommentService {
 
     /**
      * 
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -208,7 +208,7 @@ export class CommentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<CommentModel>(`${this.basePath}/Comment`,
+        return this.httpClient.post<CommentModel>(`${this.basePath}/Comment`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -353,7 +353,7 @@ export class CommentService {
 
     /**
      * 
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -386,7 +386,7 @@ export class CommentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<CommentModel>(`${this.basePath}/Comment`,
+        return this.httpClient.put<CommentModel>(`${this.basePath}/Comment`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,

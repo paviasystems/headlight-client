@@ -175,7 +175,7 @@ export class NotificationService {
 
     /**
      * 
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -208,7 +208,7 @@ export class NotificationService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.put<Notification>(`${this.basePath}/Notification`,
+        return this.httpClient.post<Notification>(`${this.basePath}/Notification`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -353,7 +353,7 @@ export class NotificationService {
 
     /**
      * 
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -386,7 +386,7 @@ export class NotificationService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<Notification>(`${this.basePath}/Notification`,
+        return this.httpClient.put<Notification>(`${this.basePath}/Notification`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,

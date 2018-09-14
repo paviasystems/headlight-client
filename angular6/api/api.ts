@@ -1,3 +1,5 @@
+export * from './artifact.service';
+import { ArtifactService } from './artifact.service';
 export * from './authenticate.service';
 import { AuthenticateService } from './authenticate.service';
 export * from './batchExport.service';
@@ -58,4 +60,4 @@ export * from './reportNamedInstance.service';
 import { ReportNamedInstanceService } from './reportNamedInstance.service';
 export * from './user.service';
 import { UserService } from './user.service';
-export const APIS = [AuthenticateService, BatchExportService, BidItemService, CommentService, ContractService, CustomerService, DocumentService, DocumentApprovalService, DocumentSendToService, DocumentsService, DocumentsByObservationService, ElectronicSignatureService, EquipmentService, LineItemService, ModuleService, NotificationService, ObservationService, ObservationCloneTemplatesService, ObservationSearchsService, ObservationSendToService, ObservationsBatchTagService, ObservationsByDocumentService, ObservationsByUpdateDateService, ObservationsFilterService, OrganizationService, PayItemService, ProjectService, ReportService, ReportNamedInstanceService, UserService];
+export const APIS = [ArtifactService, AuthenticateService, BatchExportService, BidItemService, CommentService, ContractService, CustomerService, DocumentService, DocumentApprovalService, DocumentSendToService, DocumentsService, DocumentsByObservationService, ElectronicSignatureService, EquipmentService, LineItemService, ModuleService, NotificationService, ObservationService, ObservationCloneTemplatesService, ObservationSearchsService, ObservationSendToService, ObservationsBatchTagService, ObservationsByDocumentService, ObservationsByUpdateDateService, ObservationsFilterService, OrganizationService, PayItemService, ProjectService, ReportService, ReportNamedInstanceService, UserService];

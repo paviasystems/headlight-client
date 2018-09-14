@@ -3,6 +3,7 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
+import { ArtifactService } from './api/artifact.service';
 import { AuthenticateService } from './api/authenticate.service';
 import { BatchExportService } from './api/batchExport.service';
 import { BidItemService } from './api/bidItem.service';
@@ -39,6 +40,7 @@ import { UserService } from './api/user.service';
   declarations: [],
   exports:      [],
   providers: [
+    ArtifactService,
     AuthenticateService,
     BatchExportService,
     BidItemService,

@@ -140,6 +140,322 @@ class ObjectSerializer {
 /**
 * 
 */
+export class Artifact {
+    /**
+    * 
+    */
+    'IDArtifact': number;
+    /**
+    * 
+    */
+    'GUIDArtifact': string;
+    /**
+    * 
+    */
+    'CreateDate': Date;
+    /**
+    * 
+    */
+    'CreatingIDUser': number;
+    /**
+    * 
+    */
+    'UpdateDate': Date;
+    /**
+    * 
+    */
+    'UpdatingIDUser': number;
+    /**
+    * 
+    */
+    'Deleted': number;
+    /**
+    * 
+    */
+    'DeleteDate': Date;
+    /**
+    * 
+    */
+    'DeletingIDUser': number;
+    /**
+    * 
+    */
+    'ArtifactType': string;
+    /**
+    * 
+    */
+    'Datum': string;
+    /**
+    * 
+    */
+    'Version': number;
+    /**
+    * 
+    */
+    'Invalid': number;
+    /**
+    * 
+    */
+    'IDDevice': number;
+    /**
+    * 
+    */
+    'Sync': number;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "IDArtifact",
+            "baseName": "IDArtifact",
+            "type": "number"
+        },
+        {
+            "name": "GUIDArtifact",
+            "baseName": "GUIDArtifact",
+            "type": "string"
+        },
+        {
+            "name": "CreateDate",
+            "baseName": "CreateDate",
+            "type": "Date"
+        },
+        {
+            "name": "CreatingIDUser",
+            "baseName": "CreatingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "UpdateDate",
+            "baseName": "UpdateDate",
+            "type": "Date"
+        },
+        {
+            "name": "UpdatingIDUser",
+            "baseName": "UpdatingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "Deleted",
+            "baseName": "Deleted",
+            "type": "number"
+        },
+        {
+            "name": "DeleteDate",
+            "baseName": "DeleteDate",
+            "type": "Date"
+        },
+        {
+            "name": "DeletingIDUser",
+            "baseName": "DeletingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "ArtifactType",
+            "baseName": "ArtifactType",
+            "type": "string"
+        },
+        {
+            "name": "Datum",
+            "baseName": "Datum",
+            "type": "string"
+        },
+        {
+            "name": "Version",
+            "baseName": "Version",
+            "type": "number"
+        },
+        {
+            "name": "Invalid",
+            "baseName": "Invalid",
+            "type": "number"
+        },
+        {
+            "name": "IDDevice",
+            "baseName": "IDDevice",
+            "type": "number"
+        },
+        {
+            "name": "Sync",
+            "baseName": "Sync",
+            "type": "number"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return Artifact.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
+export class ArtifactModel {
+    /**
+    * 
+    */
+    'Datum': any;
+    /**
+    * 
+    */
+    'FileName': any;
+    /**
+    * 
+    */
+    'IDObservationRequirementSpecification': any;
+    /**
+    * 
+    */
+    'IDArtifact': number;
+    /**
+    * 
+    */
+    'GUIDArtifact': string;
+    /**
+    * 
+    */
+    'CreateDate': Date;
+    /**
+    * 
+    */
+    'CreatingIDUser': number;
+    /**
+    * 
+    */
+    'UpdateDate': Date;
+    /**
+    * 
+    */
+    'UpdatingIDUser': number;
+    /**
+    * 
+    */
+    'Deleted': number;
+    /**
+    * 
+    */
+    'DeleteDate': Date;
+    /**
+    * 
+    */
+    'DeletingIDUser': number;
+    /**
+    * 
+    */
+    'ArtifactType': string;
+    /**
+    * 
+    */
+    'Version': number;
+    /**
+    * 
+    */
+    'Invalid': number;
+    /**
+    * 
+    */
+    'IDDevice': number;
+    /**
+    * 
+    */
+    'Sync': number;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "Datum",
+            "baseName": "Datum",
+            "type": "any"
+        },
+        {
+            "name": "FileName",
+            "baseName": "FileName",
+            "type": "any"
+        },
+        {
+            "name": "IDObservationRequirementSpecification",
+            "baseName": "IDObservationRequirementSpecification",
+            "type": "any"
+        },
+        {
+            "name": "IDArtifact",
+            "baseName": "IDArtifact",
+            "type": "number"
+        },
+        {
+            "name": "GUIDArtifact",
+            "baseName": "GUIDArtifact",
+            "type": "string"
+        },
+        {
+            "name": "CreateDate",
+            "baseName": "CreateDate",
+            "type": "Date"
+        },
+        {
+            "name": "CreatingIDUser",
+            "baseName": "CreatingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "UpdateDate",
+            "baseName": "UpdateDate",
+            "type": "Date"
+        },
+        {
+            "name": "UpdatingIDUser",
+            "baseName": "UpdatingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "Deleted",
+            "baseName": "Deleted",
+            "type": "number"
+        },
+        {
+            "name": "DeleteDate",
+            "baseName": "DeleteDate",
+            "type": "Date"
+        },
+        {
+            "name": "DeletingIDUser",
+            "baseName": "DeletingIDUser",
+            "type": "number"
+        },
+        {
+            "name": "ArtifactType",
+            "baseName": "ArtifactType",
+            "type": "string"
+        },
+        {
+            "name": "Version",
+            "baseName": "Version",
+            "type": "number"
+        },
+        {
+            "name": "Invalid",
+            "baseName": "Invalid",
+            "type": "number"
+        },
+        {
+            "name": "IDDevice",
+            "baseName": "IDDevice",
+            "type": "number"
+        },
+        {
+            "name": "Sync",
+            "baseName": "Sync",
+            "type": "number"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return ArtifactModel.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
 export class BidItem {
     /**
     * 
@@ -4832,6 +5148,8 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
+    "Artifact": Artifact,
+    "ArtifactModel": ArtifactModel,
     "BidItem": BidItem,
     "BundlesContentManagementObservationModel": BundlesContentManagementObservationModel,
     "BundlesContentManagementObservationModelLabels": BundlesContentManagementObservationModelLabels,
@@ -4916,6 +5234,873 @@ export class VoidAuth implements Authentication {
     }
 }
 
+export enum ArtifactApiApiKeys {
+}
+
+export class ArtifactApi {
+    protected _basePath = defaultBasePath;
+    protected defaultHeaders : any = {};
+    protected _useQuerystring : boolean = false;
+    protected _lastResponse : any = null;
+    protected _timeout: number = DEFAULT_TIMEOUT;
+
+    protected authentications = {
+        'default': <Authentication>new VoidAuth(),
+    }
+
+    constructor(basePath?: string);
+    constructor(basePathOrUsername: string, password?: string, basePath?: string) {
+        if (password) {
+            if (basePath) {
+                this.basePath = basePath;
+            }
+        } else {
+            if (basePathOrUsername) {
+                this.basePath = basePathOrUsername
+            }
+        }
+    }
+
+    set useQuerystring(value: boolean) {
+        this._useQuerystring = value;
+    }
+
+    set basePath(basePath: string) {
+        this._basePath = basePath;
+    }
+
+    get basePath() {
+        return this._basePath;
+    }
+
+    set timeout(pTimeout: number) {
+        this._timeout = pTimeout;
+    }
+
+    get timeout() {
+        return this._timeout;
+    }
+
+    public setDefaultAuthentication(auth: Authentication) {
+	this.authentications.default = auth;
+    }
+
+    public setApiKey(key: ArtifactApiApiKeys, value: string) {
+        (this.authentications as any)[ArtifactApiApiKeys[key]].apiKey = value;
+    }
+    /**
+     * Meadow DELETE
+     * @param id ID of record
+     */
+    public _delete (id: number) : Promise<boolean> {
+        const localVarPath = this.basePath + '/Artifact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling _delete.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'DELETE',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<boolean>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "boolean");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in _delete!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Switch Artifact records Sync flag
+     * @param IDArtifact ID of record
+     */
+    public clearArtifactSyncFlag (IDArtifact: number) : Promise<any> {
+        const localVarPath = this.basePath + '/Artifact/{IDArtifact}/ClearSyncFlag'
+            .replace('{' + 'IDArtifact' + '}', encodeURIComponent(String(IDArtifact)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'IDArtifact' is not null or undefined
+        if (IDArtifact === null || IDArtifact === undefined) {
+            throw new Error('Required parameter IDArtifact was null or undefined when calling clearArtifactSyncFlag.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<any>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in clearArtifactSyncFlag!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Copy Artifact media from ID to target ID
+     * @param ArtifactVersion 
+     * @param TargetArtifactVersion 
+     * @param IDObservationArtifact ID of record
+     * @param IDTargetArtifact ID of record
+     */
+    public copyArtifact (ArtifactVersion: number, TargetArtifactVersion: number, IDObservationArtifact: number, IDTargetArtifact: number) : Promise<any> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}'
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
+            .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'TargetArtifactVersion' is not null or undefined
+        if (TargetArtifactVersion === null || TargetArtifactVersion === undefined) {
+            throw new Error('Required parameter TargetArtifactVersion was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'IDTargetArtifact' is not null or undefined
+        if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
+            throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<any>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in copyArtifact!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT
+     */
+    public count () : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Artifacts/Count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<InlineResponse200>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in count!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    public countFiltered (filter: string) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/Count'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<InlineResponse200>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in countFiltered!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow POST (Create)
+     * @param body 
+     */
+    public create (body: ArtifactModel) : Promise<ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling create.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "ArtifactModel")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<ArtifactModel>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in create!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Download Artifact media file from Headlight
+     * @param Size 
+     * @param IDObservationArtifact ID of record
+     */
+    public downloadArtifact (Size: string, IDObservationArtifact: number) : Promise<Buffer> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}'
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'Size' is not null or undefined
+        if (Size === null || Size === undefined) {
+            throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            encoding: null,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<Buffer>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "Buffer");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in downloadArtifact!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Get Artifact records for media types that don't have the Sync flag set
+     */
+    public getArtifactSyncList () : Promise<Array<Artifact>> {
+        const localVarPath = this.basePath + '/Artifact/Media/GetSyncList';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<Array<Artifact>>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "Array<Artifact>");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in getArtifactSyncList!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow READ
+     * @param id ID of record
+     */
+    public read (id: number) : Promise<ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling read.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<ArtifactModel>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in read!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow READ list
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     */
+    public reads (begin: number, max: number) : Promise<Array<ArtifactModel>> {
+        const localVarPath = this.basePath + '/Artifacts/{begin}/{max}'
+            .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling reads.');
+        }
+
+        // verify required parameter 'max' is not null or undefined
+        if (max === null || max === undefined) {
+            throw new Error('Required parameter max was null or undefined when calling reads.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<Array<ArtifactModel>>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in reads!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow READ filtered list
+     * @param filter FBV meadow filter
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     */
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ArtifactModel>> {
+        const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
+            .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
+        }
+
+        // verify required parameter 'max' is not null or undefined
+        if (max === null || max === undefined) {
+            throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<Array<ArtifactModel>>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in readsFiltered!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Meadow PUT (Update)
+     * @param body 
+     */
+    public update (body: ArtifactModel) : Promise<ArtifactModel> {
+        const localVarPath = this.basePath + '/Artifact';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling update.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'PUT',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "ArtifactModel")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<ArtifactModel>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in update!`);
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * Upload Artifact media file to Headlight
+     * @param file 
+     * @param ArtifactVersion 
+     * @param IDObservationArtifact ID of record
+     */
+    public uploadArtifact (file: Buffer, ArtifactVersion: number, IDObservationArtifact: number) : Promise<any> {
+        const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}'
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'file' is not null or undefined
+        if (file === null || file === undefined) {
+            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        if (file !== undefined) {
+            localVarFormParams['file'] = file;
+        }
+        localVarUseFormData = true;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<any>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                this._lastResponse = response;
+
+                if (error || (body && body.Error)) {
+                    reject(error || body.Error);
+                } else {
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve(body);
+                    } else {
+                        reject(`Request Error ${response.statusCode} in uploadArtifact!`);
+                    }
+                }
+            });
+        });
+    }
+
+    public getLastResponse() : any
+    {
+        let response = this._lastResponse;
+        this._lastResponse = null;
+
+        return response;
+    }
+}
 export enum AuthenticateApiApiKeys {
 }
 
@@ -5587,7 +6772,7 @@ export class BidItemApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: BidItem) : Promise<BidItem> {
@@ -5608,7 +6793,7 @@ export class BidItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -5840,7 +7025,7 @@ export class BidItemApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: BidItem) : Promise<BidItem> {
@@ -5861,7 +7046,7 @@ export class BidItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -6128,7 +7313,7 @@ export class CommentApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: CommentModel) : Promise<CommentModel> {
@@ -6149,7 +7334,7 @@ export class CommentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -6381,7 +7566,7 @@ export class CommentApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: CommentModel) : Promise<CommentModel> {
@@ -6402,7 +7587,7 @@ export class CommentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -6669,7 +7854,7 @@ export class ContractApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: Contract) : Promise<Contract> {
@@ -6690,7 +7875,7 @@ export class ContractApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -6922,7 +8107,7 @@ export class ContractApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: Contract) : Promise<Contract> {
@@ -6943,7 +8128,7 @@ export class ContractApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -7210,7 +8395,7 @@ export class CustomerApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: Customer) : Promise<Customer> {
@@ -7231,7 +8416,7 @@ export class CustomerApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -7463,7 +8648,7 @@ export class CustomerApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: Customer) : Promise<Customer> {
@@ -7484,7 +8669,7 @@ export class CustomerApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -7879,7 +9064,7 @@ export class DocumentApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: DocumentModel) : Promise<DocumentModel> {
@@ -7900,7 +9085,7 @@ export class DocumentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -8111,7 +9296,7 @@ export class DocumentApi {
      * Generate a DCR in PDF format
      * @param IDDocument ID of record
      */
-    public getDocumentPDF (IDDocument: number) : Promise<any> {
+    public getDocumentPDF (IDDocument: number) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/DCR.pdf'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -8136,7 +9321,7 @@ export class DocumentApi {
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
-            json: true,
+            encoding: null,
         };
 
         this.authentications.default.applyToRequest(localVarRequestOptions);
@@ -8148,13 +9333,14 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<any>((resolve, reject) => {
+        return new Promise<Buffer>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 this._lastResponse = response;
 
                 if (error || (body && body.Error)) {
                     reject(error || body.Error);
                 } else {
+                    body = ObjectSerializer.deserialize(body, "Buffer");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve(body);
                     } else {
@@ -8602,7 +9788,7 @@ export class DocumentApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: DocumentModel) : Promise<DocumentModel> {
@@ -8623,7 +9809,7 @@ export class DocumentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -9619,7 +10805,7 @@ export class ElectronicSignatureApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ElectronicSignatureModel) : Promise<ElectronicSignatureModel> {
@@ -9640,7 +10826,7 @@ export class ElectronicSignatureApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -9872,7 +11058,7 @@ export class ElectronicSignatureApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ElectronicSignatureModel) : Promise<ElectronicSignatureModel> {
@@ -9893,7 +11079,7 @@ export class ElectronicSignatureApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -10160,7 +11346,7 @@ export class EquipmentApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: Equipment) : Promise<Equipment> {
@@ -10181,7 +11367,7 @@ export class EquipmentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -10413,7 +11599,7 @@ export class EquipmentApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: Equipment) : Promise<Equipment> {
@@ -10434,7 +11620,7 @@ export class EquipmentApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -10701,7 +11887,7 @@ export class LineItemApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: LineItem) : Promise<LineItem> {
@@ -10722,7 +11908,7 @@ export class LineItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -10954,7 +12140,7 @@ export class LineItemApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: LineItem) : Promise<LineItem> {
@@ -10975,7 +12161,7 @@ export class LineItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -11242,7 +12428,7 @@ export class ModuleApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ModuleModel) : Promise<ModuleModel> {
@@ -11263,7 +12449,7 @@ export class ModuleApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -11495,7 +12681,7 @@ export class ModuleApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ModuleModel) : Promise<ModuleModel> {
@@ -11516,7 +12702,7 @@ export class ModuleApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -11783,7 +12969,7 @@ export class NotificationApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: Notification) : Promise<Notification> {
@@ -11804,7 +12990,7 @@ export class NotificationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -12036,7 +13222,7 @@ export class NotificationApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: Notification) : Promise<Notification> {
@@ -12057,7 +13243,7 @@ export class NotificationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -12488,7 +13674,7 @@ export class ObservationApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ObservationModel) : Promise<ObservationModel> {
@@ -12509,7 +13695,7 @@ export class ObservationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -13465,7 +14651,7 @@ export class ObservationApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ObservationModel) : Promise<ObservationModel> {
@@ -13486,7 +14672,7 @@ export class ObservationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -14934,7 +16120,7 @@ export class OrganizationApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: Organization) : Promise<Organization> {
@@ -14955,7 +16141,7 @@ export class OrganizationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -15187,7 +16373,7 @@ export class OrganizationApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: Organization) : Promise<Organization> {
@@ -15208,7 +16394,7 @@ export class OrganizationApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -15475,7 +16661,7 @@ export class PayItemApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: PayItemModel) : Promise<PayItemModel> {
@@ -15496,7 +16682,7 @@ export class PayItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -15728,7 +16914,7 @@ export class PayItemApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: PayItemModel) : Promise<PayItemModel> {
@@ -15749,7 +16935,7 @@ export class PayItemApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -16016,7 +17202,7 @@ export class ProjectApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ProjectModel) : Promise<ProjectModel> {
@@ -16037,7 +17223,7 @@ export class ProjectApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -16269,7 +17455,7 @@ export class ProjectApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ProjectModel) : Promise<ProjectModel> {
@@ -16290,7 +17476,7 @@ export class ProjectApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -16557,7 +17743,7 @@ export class ReportApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ReportModel) : Promise<ReportModel> {
@@ -16578,7 +17764,7 @@ export class ReportApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -16860,7 +18046,7 @@ export class ReportApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ReportModel) : Promise<ReportModel> {
@@ -16881,7 +18067,7 @@ export class ReportApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -17212,7 +18398,7 @@ export class ReportNamedInstanceApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: ReportNamedInstanceModel) : Promise<ReportNamedInstanceModel> {
@@ -17233,7 +18419,7 @@ export class ReportNamedInstanceApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -17600,7 +18786,7 @@ export class ReportNamedInstanceApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: ReportNamedInstanceModel) : Promise<ReportNamedInstanceModel> {
@@ -17621,7 +18807,7 @@ export class ReportNamedInstanceApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -17888,7 +19074,7 @@ export class UserApi {
         });
     }
     /**
-     * Meadow PUT (Create)
+     * Meadow POST (Create)
      * @param body 
      */
     public create (body: UserModel) : Promise<UserModel> {
@@ -17909,7 +19095,7 @@ export class UserApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
+            method: 'POST',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
@@ -18141,7 +19327,7 @@ export class UserApi {
         });
     }
     /**
-     * Meadow POST (Update)
+     * Meadow PUT (Update)
      * @param body 
      */
     public update (body: UserModel) : Promise<UserModel> {
@@ -18162,7 +19348,7 @@ export class UserApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             timeout: this._timeout,
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
