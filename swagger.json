@@ -7404,6 +7404,81 @@
 				]
 			}
 		},
+		"/ObservationApproval": {
+			"post": {
+				"operationId": "postChangeObservationtState",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Perform Approval state transition action against Observation",
+				"tags": [
+					"ObservationApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": []
+			}
+		},
+		"/ObservationApproval/{IDObservation}/ApproverList": {
+			"get": {
+				"operationId": "getObservationApproverList",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get list of Approvers for Observation",
+				"tags": [
+					"ObservationApproval"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDObservation",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/ObservationApproval/{IDObservation}/State": {
+			"get": {
+				"operationId": "getObservationState",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get current Approval state of Observation, and available actions for respective user as it relates to that state",
+				"tags": [
+					"ObservationApproval"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDObservation",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
 		"/ObservationCloneTemplates/{IDProject}": {
 			"get": {
 				"operationId": "getCloneTemplates",
