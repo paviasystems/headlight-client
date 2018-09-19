@@ -9376,7 +9376,7 @@
 				]
 			}
 		},
-		"/Documents/{SynchronizeFromDate}/{Begin}/{Cap}": {
+		"/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}": {
 			"post": {
 				"operationId": "syncDocuments",
 				"produces": [
