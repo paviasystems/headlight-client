@@ -9431,7 +9431,7 @@
 						"description": "No content"
 					}
 				},
-				"description": "",
+				"description": "Get all Document records for this user that have changed since the sync date",
 				"tags": [
 					"Documents"
 				],
