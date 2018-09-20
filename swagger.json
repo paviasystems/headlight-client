@@ -1285,7 +1285,7 @@
 			"properties": {},
 			"type": "object"
 		},
-		"Bundles.ContentManagement.ObservationModel": {
+		"ObservationModel": {
 			"description": "",
 			"properties": {
 				"_StatusOverride": {
@@ -1621,216 +1621,6 @@
 				"IDProject",
 				"DocumentCount",
 				"IDArtifact"
-			]
-		},
-		"ObservationModel": {
-			"description": "",
-			"properties": {
-				"_StatusOverride": {
-					"type": "boolean",
-					"description": ""
-				},
-				"Labels": {
-					"type": "object",
-					"properties": {
-						"SAVE": {
-							"type": "boolean",
-							"description": ""
-						}
-					},
-					"description": ""
-				},
-				"Details": {
-					"$ref": "#/definitions/MappedArrayArtifact"
-				},
-				"Statistics": {
-					"type": "object",
-					"description": ""
-				},
-				"IDObservation": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"GUIDObservation": {
-					"type": "string",
-					"description": ""
-				},
-				"CreateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"CreatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"UpdateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"UpdatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Deleted": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"DeleteDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"DeletingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Name": {
-					"type": "string",
-					"description": ""
-				},
-				"Description": {
-					"type": "string",
-					"description": ""
-				},
-				"IDDevice": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"CaptureLatitude": {
-					"type": "string",
-					"description": ""
-				},
-				"CaptureLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"IDProject": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Priority": {
-					"type": "string",
-					"description": ""
-				},
-				"Version": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"SpritePage": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"DesignatedTime": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"ObservationType": {
-					"type": "string",
-					"description": ""
-				},
-				"UserLatitude": {
-					"type": "string",
-					"description": ""
-				},
-				"UserLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"AlignmentStation": {
-					"type": "string",
-					"description": ""
-				},
-				"AlignmentOffset": {
-					"type": "string",
-					"description": ""
-				},
-				"AppHash": {
-					"type": "string",
-					"description": ""
-				},
-				"Locked": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Transcoded": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Status": {
-					"type": "string",
-					"description": ""
-				},
-				"StateName": {
-					"type": "string",
-					"description": ""
-				},
-				"StateStep": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ExternalSyncDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"ExternalSyncGUID": {
-					"type": "string",
-					"description": ""
-				}
-			},
-			"type": "object",
-			"required": [
-				"_StatusOverride",
-				"Labels",
-				"Details",
-				"Statistics",
-				"IDObservation",
-				"GUIDObservation",
-				"CreateDate",
-				"CreatingIDUser",
-				"UpdateDate",
-				"UpdatingIDUser",
-				"Deleted",
-				"DeleteDate",
-				"DeletingIDUser",
-				"Name",
-				"Description",
-				"IDDevice",
-				"CaptureLatitude",
-				"CaptureLongitude",
-				"IDProject",
-				"Priority",
-				"Version",
-				"SpritePage",
-				"DesignatedTime",
-				"ObservationType",
-				"UserLatitude",
-				"UserLongitude",
-				"AlignmentStation",
-				"AlignmentOffset",
-				"AppHash",
-				"Locked",
-				"Transcoded",
-				"Status",
-				"StateName",
-				"StateStep",
-				"ExternalSyncDate",
-				"ExternalSyncGUID"
 			]
 		},
 		"PayItemModel": {
@@ -2737,7 +2527,7 @@
 				"FormDataJSON"
 			]
 		},
-		"ORM.SampleLabJoin": {
+		"SampleLabJoin": {
 			"description": "",
 			"properties": {
 				"IDSampleLabJoin": {
@@ -2804,7 +2594,7 @@
 				"Received"
 			]
 		},
-		"ORM.Lab": {
+		"Lab": {
 			"description": "",
 			"properties": {
 				"IDLab": {
@@ -2911,7 +2701,7 @@
 				"IDLabParent"
 			]
 		},
-		"ORM.LabTestApproval": {
+		"LabTestApproval": {
 			"description": "",
 			"properties": {
 				"IDLabTestJoin": {
@@ -3013,7 +2803,7 @@
 				"Notes"
 			]
 		},
-		"ORM.LabMaterialAssignment": {
+		"LabMaterialAssignment": {
 			"description": "",
 			"properties": {
 				"IDLabMaterialAssignment": {
@@ -3114,7 +2904,7 @@
 				"ProductGroup"
 			]
 		},
-		"ORM.OrganizationMaterialJoin": {
+		"OrganizationMaterialJoin": {
 			"description": "",
 			"properties": {
 				"IDOrganizationMaterialJoin": {
@@ -3221,7 +3011,7 @@
 				"SourceType"
 			]
 		},
-		"ORM.TestLabJoin": {
+		"TestLabJoin": {
 			"description": "",
 			"properties": {
 				"IDTestLabJoin": {
@@ -3333,7 +3123,7 @@
 				"QualificationAuthorization"
 			]
 		},
-		"ORM.LabTestDefault": {
+		"LabTestDefault": {
 			"description": "",
 			"properties": {
 				"IDLabTestDefault": {
@@ -3459,7 +3249,7 @@
 				"TestRuns"
 			]
 		},
-		"ORM.Material": {
+		"Material": {
 			"description": "",
 			"properties": {
 				"IDMaterial": {
@@ -3579,7 +3369,7 @@
 				"BrandNameRequired"
 			]
 		},
-		"ORM.MaterialPayItemJoin": {
+		"MaterialPayItemJoin": {
 			"description": "",
 			"properties": {
 				"IDMaterialPayItemJoin": {
@@ -3670,7 +3460,7 @@
 				"IDMaterial"
 			]
 		},
-		"ORM.MaterialLineItemJoin": {
+		"MaterialLineItemJoin": {
 			"description": "",
 			"properties": {
 				"IDMaterialLineItemJoin": {
@@ -3776,7 +3566,7 @@
 				"Units"
 			]
 		},
-		"ORM.MixSpecification": {
+		"MixSpecification": {
 			"description": "",
 			"properties": {
 				"IDMixSpecification": {
@@ -3893,7 +3683,7 @@
 				"ApprovingIDUser"
 			]
 		},
-		"ORM.MixSpecificationMaterialJoin": {
+		"MixSpecificationMaterialJoin": {
 			"description": "",
 			"properties": {
 				"IDMixSpecificationMaterialJoin": {
@@ -3978,7 +3768,7 @@
 				"IDMaterial"
 			]
 		},
-		"ORM.ProductionPlant": {
+		"ProductionPlant": {
 			"description": "",
 			"properties": {
 				"IDProductionPlant": {
@@ -4073,7 +3863,7 @@
 				"Notes"
 			]
 		},
-		"ORM.Product": {
+		"Product": {
 			"description": "",
 			"properties": {
 				"IDProduct": {
@@ -4194,7 +3984,7 @@
 				"IDOrganization"
 			]
 		},
-		"ORM.ProductionPlantMaterialApproval": {
+		"ProductionPlantMaterialApproval": {
 			"description": "",
 			"properties": {
 				"IDProductionPlantMaterialApproval": {
@@ -4302,7 +4092,7 @@
 				"Notes"
 			]
 		},
-		"ORM.Sample": {
+		"Sample": {
 			"description": "",
 			"properties": {
 				"IDSample": {
@@ -4579,7 +4369,7 @@
 				"Datum"
 			]
 		},
-		"ORM.SampleLineItemJoin": {
+		"SampleLineItemJoin": {
 			"description": "",
 			"properties": {
 				"IDSampleLineItemJoin": {
@@ -4639,7 +4429,7 @@
 				"RepresentedQuantity"
 			]
 		},
-		"ORM.SampleLog": {
+		"SampleLog": {
 			"description": "",
 			"properties": {
 				"IDSampleLog": {
@@ -4776,7 +4566,7 @@
 				"ExternalSyncGUID"
 			]
 		},
-		"ORM.TestPlan": {
+		"TestPlan": {
 			"description": "",
 			"properties": {
 				"IDTestPlan": {
@@ -4872,7 +4662,7 @@
 				"DateEnd"
 			]
 		},
-		"ORM.TestInstance": {
+		"TestInstance": {
 			"description": "",
 			"properties": {
 				"IDTestInstance": {
@@ -5014,7 +4804,7 @@
 				"ExternalSyncGUID"
 			]
 		},
-		"ORM.TestInstanceSampleJoin": {
+		"TestInstanceSampleJoin": {
 			"description": "",
 			"properties": {
 				"IDTestInstanceSampleJoin": {
@@ -5099,7 +4889,7 @@
 				"IDCustomer"
 			]
 		},
-		"ORM.TestInstanceLabJoin": {
+		"TestInstanceLabJoin": {
 			"description": "",
 			"properties": {
 				"IDTestInstanceLabJoin": {
@@ -5184,7 +4974,7 @@
 				"IDLab"
 			]
 		},
-		"ORM.TestInstanceData": {
+		"TestInstanceData": {
 			"description": "",
 			"properties": {
 				"IDTestInstanceData": {
@@ -5283,7 +5073,7 @@
 				"ExternalSyncGUID"
 			]
 		},
-		"ORM.TestInstanceDataArchive": {
+		"TestInstanceDataArchive": {
 			"description": "",
 			"properties": {
 				"IDTestInstanceDataArchive": {
@@ -5367,7 +5157,7 @@
 				"TestInstanceData"
 			]
 		},
-		"ORM.TestSpecificationSet": {
+		"TestSpecificationSet": {
 			"description": "",
 			"properties": {
 				"IDTestSpecificationSet": {
@@ -5451,7 +5241,7 @@
 				"Year"
 			]
 		},
-		"ORM.TestSpecificationSetTestJoin": {
+		"TestSpecificationSetTestJoin": {
 			"description": "",
 			"properties": {
 				"IDTestSpecificationSetTestJoin": {
@@ -5536,7 +5326,7 @@
 				"IDTest"
 			]
 		},
-		"ORM.TestSpecification": {
+		"TestSpecification": {
 			"description": "",
 			"properties": {
 				"IDTestSpecification": {
@@ -5625,7 +5415,7 @@
 				"Description"
 			]
 		},
-		"ORM.TestSpecificationRequirement": {
+		"TestSpecificationRequirement": {
 			"description": "",
 			"properties": {
 				"IDTestSpecificationRequirement": {
@@ -5734,7 +5524,7 @@
 				"ComputationTemplate"
 			]
 		},
-		"ORM.TestSpecificationMaterialTestJoin": {
+		"TestSpecificationMaterialTestJoin": {
 			"description": "",
 			"properties": {
 				"IDTestSpecificationMaterialTestJoin": {
@@ -5825,7 +5615,7 @@
 				"IDTest"
 			]
 		},
-		"ORM.MaterialRecordOfMaterialEntryJoin": {
+		"MaterialRecordOfMaterialEntryJoin": {
 			"description": "",
 			"properties": {
 				"IDMaterialRecordOfMaterialEntryJoin": {
@@ -5910,7 +5700,7 @@
 				"IDRecordOfMaterialEntry"
 			]
 		},
-		"ORM.RecordOfMaterial": {
+		"RecordOfMaterial": {
 			"description": "",
 			"properties": {
 				"IDRecordOfMaterial": {
@@ -5994,7 +5784,7 @@
 				"Notes"
 			]
 		},
-		"ORM.RecordOfMaterialEntryArchive": {
+		"RecordOfMaterialEntryArchive": {
 			"description": "",
 			"properties": {
 				"IDRecordOfMaterialEntryArchive": {
@@ -6078,7 +5868,7 @@
 				"RecordOfMaterialEntry"
 			]
 		},
-		"ORM.RecordOfMaterialEntry": {
+		"RecordOfMaterialEntry": {
 			"description": "",
 			"properties": {
 				"IDRecordOfMaterialEntry": {
@@ -6180,7 +5970,7 @@
 				"Notes"
 			]
 		},
-		"ORM.TestRecordOfMaterialEntryJoin": {
+		"TestRecordOfMaterialEntryJoin": {
 			"description": "",
 			"properties": {
 				"IDTestRecordOfMaterialEntryJoin": {
@@ -6311,7 +6101,7 @@
 				"IDRecordOfMaterialEntry"
 			]
 		},
-		"ORM.Test": {
+		"Test": {
 			"description": "",
 			"properties": {
 				"IDTest": {
@@ -6394,7 +6184,7 @@
 				"Notes"
 			]
 		},
-		"ORM.TestStep": {
+		"TestStep": {
 			"description": "",
 			"properties": {
 				"IDTestStep": {
@@ -6488,7 +6278,7 @@
 				"ComputationTemplate"
 			]
 		},
-		"ORM.TestData": {
+		"TestData": {
 			"description": "",
 			"properties": {
 				"IDTestData": {
@@ -10095,7 +9885,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Lab"
+							"$ref": "#/definitions/Lab"
 						}
 					}
 				},
@@ -10113,7 +9903,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Lab"
+							"$ref": "#/definitions/Lab"
 						}
 					}
 				]
@@ -10127,7 +9917,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Lab"
+							"$ref": "#/definitions/Lab"
 						}
 					}
 				},
@@ -10145,7 +9935,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Lab"
+							"$ref": "#/definitions/Lab"
 						}
 					}
 				]
@@ -10161,7 +9951,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Lab"
+							"$ref": "#/definitions/Lab"
 						}
 					}
 				},
@@ -10219,7 +10009,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabMaterialAssignment"
+							"$ref": "#/definitions/LabMaterialAssignment"
 						}
 					}
 				},
@@ -10237,7 +10027,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabMaterialAssignment"
+							"$ref": "#/definitions/LabMaterialAssignment"
 						}
 					}
 				]
@@ -10251,7 +10041,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabMaterialAssignment"
+							"$ref": "#/definitions/LabMaterialAssignment"
 						}
 					}
 				},
@@ -10269,7 +10059,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabMaterialAssignment"
+							"$ref": "#/definitions/LabMaterialAssignment"
 						}
 					}
 				]
@@ -10285,7 +10075,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabMaterialAssignment"
+							"$ref": "#/definitions/LabMaterialAssignment"
 						}
 					}
 				},
@@ -10409,7 +10199,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabMaterialAssignment"
+								"$ref": "#/definitions/LabMaterialAssignment"
 							}
 						}
 					}
@@ -10457,7 +10247,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabMaterialAssignment"
+								"$ref": "#/definitions/LabMaterialAssignment"
 							}
 						}
 					}
@@ -10496,7 +10286,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestApproval"
+							"$ref": "#/definitions/LabTestApproval"
 						}
 					}
 				},
@@ -10514,7 +10304,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestApproval"
+							"$ref": "#/definitions/LabTestApproval"
 						}
 					}
 				]
@@ -10528,7 +10318,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestApproval"
+							"$ref": "#/definitions/LabTestApproval"
 						}
 					}
 				},
@@ -10546,7 +10336,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestApproval"
+							"$ref": "#/definitions/LabTestApproval"
 						}
 					}
 				]
@@ -10562,7 +10352,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestApproval"
+							"$ref": "#/definitions/LabTestApproval"
 						}
 					}
 				},
@@ -10686,7 +10476,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabTestApproval"
+								"$ref": "#/definitions/LabTestApproval"
 							}
 						}
 					}
@@ -10734,7 +10524,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabTestApproval"
+								"$ref": "#/definitions/LabTestApproval"
 							}
 						}
 					}
@@ -10773,7 +10563,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestDefault"
+							"$ref": "#/definitions/LabTestDefault"
 						}
 					}
 				},
@@ -10791,7 +10581,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestDefault"
+							"$ref": "#/definitions/LabTestDefault"
 						}
 					}
 				]
@@ -10805,7 +10595,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestDefault"
+							"$ref": "#/definitions/LabTestDefault"
 						}
 					}
 				},
@@ -10823,7 +10613,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestDefault"
+							"$ref": "#/definitions/LabTestDefault"
 						}
 					}
 				]
@@ -10839,7 +10629,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.LabTestDefault"
+							"$ref": "#/definitions/LabTestDefault"
 						}
 					}
 				},
@@ -10963,7 +10753,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabTestDefault"
+								"$ref": "#/definitions/LabTestDefault"
 							}
 						}
 					}
@@ -11011,7 +10801,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.LabTestDefault"
+								"$ref": "#/definitions/LabTestDefault"
 							}
 						}
 					}
@@ -11116,7 +10906,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Lab"
+								"$ref": "#/definitions/Lab"
 							}
 						}
 					}
@@ -11164,7 +10954,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Lab"
+								"$ref": "#/definitions/Lab"
 							}
 						}
 					}
@@ -11480,7 +11270,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Material"
+							"$ref": "#/definitions/Material"
 						}
 					}
 				},
@@ -11498,7 +11288,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Material"
+							"$ref": "#/definitions/Material"
 						}
 					}
 				]
@@ -11512,7 +11302,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Material"
+							"$ref": "#/definitions/Material"
 						}
 					}
 				},
@@ -11530,7 +11320,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Material"
+							"$ref": "#/definitions/Material"
 						}
 					}
 				]
@@ -11546,7 +11336,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Material"
+							"$ref": "#/definitions/Material"
 						}
 					}
 				},
@@ -11604,7 +11394,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+							"$ref": "#/definitions/MaterialLineItemJoin"
 						}
 					}
 				},
@@ -11622,7 +11412,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+							"$ref": "#/definitions/MaterialLineItemJoin"
 						}
 					}
 				]
@@ -11636,7 +11426,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+							"$ref": "#/definitions/MaterialLineItemJoin"
 						}
 					}
 				},
@@ -11654,7 +11444,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+							"$ref": "#/definitions/MaterialLineItemJoin"
 						}
 					}
 				]
@@ -11670,7 +11460,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+							"$ref": "#/definitions/MaterialLineItemJoin"
 						}
 					}
 				},
@@ -11794,7 +11584,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+								"$ref": "#/definitions/MaterialLineItemJoin"
 							}
 						}
 					}
@@ -11842,7 +11632,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialLineItemJoin"
+								"$ref": "#/definitions/MaterialLineItemJoin"
 							}
 						}
 					}
@@ -11881,7 +11671,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+							"$ref": "#/definitions/MaterialPayItemJoin"
 						}
 					}
 				},
@@ -11899,7 +11689,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+							"$ref": "#/definitions/MaterialPayItemJoin"
 						}
 					}
 				]
@@ -11913,7 +11703,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+							"$ref": "#/definitions/MaterialPayItemJoin"
 						}
 					}
 				},
@@ -11931,7 +11721,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+							"$ref": "#/definitions/MaterialPayItemJoin"
 						}
 					}
 				]
@@ -11947,7 +11737,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+							"$ref": "#/definitions/MaterialPayItemJoin"
 						}
 					}
 				},
@@ -12071,7 +11861,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+								"$ref": "#/definitions/MaterialPayItemJoin"
 							}
 						}
 					}
@@ -12119,7 +11909,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialPayItemJoin"
+								"$ref": "#/definitions/MaterialPayItemJoin"
 							}
 						}
 					}
@@ -12158,7 +11948,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -12176,7 +11966,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 						}
 					}
 				]
@@ -12190,7 +11980,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -12208,7 +11998,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 						}
 					}
 				]
@@ -12224,7 +12014,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -12348,7 +12138,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+								"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 							}
 						}
 					}
@@ -12396,7 +12186,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MaterialRecordOfMaterialEntryJoin"
+								"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
 							}
 						}
 					}
@@ -12501,7 +12291,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Material"
+								"$ref": "#/definitions/Material"
 							}
 						}
 					}
@@ -12549,7 +12339,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Material"
+								"$ref": "#/definitions/Material"
 							}
 						}
 					}
@@ -12588,7 +12378,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecification"
+							"$ref": "#/definitions/MixSpecification"
 						}
 					}
 				},
@@ -12606,7 +12396,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecification"
+							"$ref": "#/definitions/MixSpecification"
 						}
 					}
 				]
@@ -12620,7 +12410,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecification"
+							"$ref": "#/definitions/MixSpecification"
 						}
 					}
 				},
@@ -12638,7 +12428,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecification"
+							"$ref": "#/definitions/MixSpecification"
 						}
 					}
 				]
@@ -12654,7 +12444,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecification"
+							"$ref": "#/definitions/MixSpecification"
 						}
 					}
 				},
@@ -12712,7 +12502,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
 						}
 					}
 				},
@@ -12730,7 +12520,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
 						}
 					}
 				]
@@ -12744,7 +12534,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
 						}
 					}
 				},
@@ -12762,7 +12552,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
 						}
 					}
 				]
@@ -12778,7 +12568,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
 						}
 					}
 				},
@@ -12902,7 +12692,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+								"$ref": "#/definitions/MixSpecificationMaterialJoin"
 							}
 						}
 					}
@@ -12950,7 +12740,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MixSpecificationMaterialJoin"
+								"$ref": "#/definitions/MixSpecificationMaterialJoin"
 							}
 						}
 					}
@@ -13055,7 +12845,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MixSpecification"
+								"$ref": "#/definitions/MixSpecification"
 							}
 						}
 					}
@@ -13103,7 +12893,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.MixSpecification"
+								"$ref": "#/definitions/MixSpecification"
 							}
 						}
 					}
@@ -13866,7 +13656,7 @@
 					"200": {
 						"description": "Cloned observation",
 						"schema": {
-							"$ref": "#/definitions/Bundles.ContentManagement.ObservationModel"
+							"$ref": "#/definitions/ObservationModel"
 						}
 					},
 					"204": {
@@ -14371,7 +14161,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/Bundles.ContentManagement.ObservationModel"
+								"$ref": "#/definitions/ObservationModel"
 							}
 						}
 					},
@@ -14567,7 +14357,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/Bundles.ContentManagement.ObservationModel"
+								"$ref": "#/definitions/ObservationModel"
 							}
 						}
 					},
@@ -15017,7 +14807,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+							"$ref": "#/definitions/OrganizationMaterialJoin"
 						}
 					}
 				},
@@ -15035,7 +14825,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+							"$ref": "#/definitions/OrganizationMaterialJoin"
 						}
 					}
 				]
@@ -15049,7 +14839,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+							"$ref": "#/definitions/OrganizationMaterialJoin"
 						}
 					}
 				},
@@ -15067,7 +14857,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+							"$ref": "#/definitions/OrganizationMaterialJoin"
 						}
 					}
 				]
@@ -15083,7 +14873,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+							"$ref": "#/definitions/OrganizationMaterialJoin"
 						}
 					}
 				},
@@ -15207,7 +14997,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+								"$ref": "#/definitions/OrganizationMaterialJoin"
 							}
 						}
 					}
@@ -15255,7 +15045,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.OrganizationMaterialJoin"
+								"$ref": "#/definitions/OrganizationMaterialJoin"
 							}
 						}
 					}
@@ -15724,7 +15514,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Product"
+							"$ref": "#/definitions/Product"
 						}
 					}
 				},
@@ -15742,7 +15532,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Product"
+							"$ref": "#/definitions/Product"
 						}
 					}
 				]
@@ -15756,7 +15546,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Product"
+							"$ref": "#/definitions/Product"
 						}
 					}
 				},
@@ -15774,7 +15564,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Product"
+							"$ref": "#/definitions/Product"
 						}
 					}
 				]
@@ -15790,7 +15580,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Product"
+							"$ref": "#/definitions/Product"
 						}
 					}
 				},
@@ -15848,7 +15638,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlant"
+							"$ref": "#/definitions/ProductionPlant"
 						}
 					}
 				},
@@ -15866,7 +15656,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlant"
+							"$ref": "#/definitions/ProductionPlant"
 						}
 					}
 				]
@@ -15880,7 +15670,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlant"
+							"$ref": "#/definitions/ProductionPlant"
 						}
 					}
 				},
@@ -15898,7 +15688,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlant"
+							"$ref": "#/definitions/ProductionPlant"
 						}
 					}
 				]
@@ -15914,7 +15704,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlant"
+							"$ref": "#/definitions/ProductionPlant"
 						}
 					}
 				},
@@ -15972,7 +15762,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
 						}
 					}
 				},
@@ -15990,7 +15780,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
 						}
 					}
 				]
@@ -16004,7 +15794,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
 						}
 					}
 				},
@@ -16022,7 +15812,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
 						}
 					}
 				]
@@ -16038,7 +15828,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
 						}
 					}
 				},
@@ -16162,7 +15952,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+								"$ref": "#/definitions/ProductionPlantMaterialApproval"
 							}
 						}
 					}
@@ -16210,7 +16000,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.ProductionPlantMaterialApproval"
+								"$ref": "#/definitions/ProductionPlantMaterialApproval"
 							}
 						}
 					}
@@ -16315,7 +16105,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.ProductionPlant"
+								"$ref": "#/definitions/ProductionPlant"
 							}
 						}
 					}
@@ -16363,7 +16153,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.ProductionPlant"
+								"$ref": "#/definitions/ProductionPlant"
 							}
 						}
 					}
@@ -16468,7 +16258,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Product"
+								"$ref": "#/definitions/Product"
 							}
 						}
 					}
@@ -16516,7 +16306,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Product"
+								"$ref": "#/definitions/Product"
 							}
 						}
 					}
@@ -16832,7 +16622,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterial"
+							"$ref": "#/definitions/RecordOfMaterial"
 						}
 					}
 				},
@@ -16850,7 +16640,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterial"
+							"$ref": "#/definitions/RecordOfMaterial"
 						}
 					}
 				]
@@ -16864,7 +16654,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterial"
+							"$ref": "#/definitions/RecordOfMaterial"
 						}
 					}
 				},
@@ -16882,7 +16672,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterial"
+							"$ref": "#/definitions/RecordOfMaterial"
 						}
 					}
 				]
@@ -16898,7 +16688,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterial"
+							"$ref": "#/definitions/RecordOfMaterial"
 						}
 					}
 				},
@@ -16956,7 +16746,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+							"$ref": "#/definitions/RecordOfMaterialEntry"
 						}
 					}
 				},
@@ -16974,7 +16764,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+							"$ref": "#/definitions/RecordOfMaterialEntry"
 						}
 					}
 				]
@@ -16988,7 +16778,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+							"$ref": "#/definitions/RecordOfMaterialEntry"
 						}
 					}
 				},
@@ -17006,7 +16796,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+							"$ref": "#/definitions/RecordOfMaterialEntry"
 						}
 					}
 				]
@@ -17022,7 +16812,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+							"$ref": "#/definitions/RecordOfMaterialEntry"
 						}
 					}
 				},
@@ -17080,7 +16870,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 						}
 					}
 				},
@@ -17098,7 +16888,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 						}
 					}
 				]
@@ -17112,7 +16902,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 						}
 					}
 				},
@@ -17130,7 +16920,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 						}
 					}
 				]
@@ -17146,7 +16936,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 						}
 					}
 				},
@@ -17270,7 +17060,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+								"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 							}
 						}
 					}
@@ -17318,7 +17108,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterialEntryArchive"
+								"$ref": "#/definitions/RecordOfMaterialEntryArchive"
 							}
 						}
 					}
@@ -17423,7 +17213,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+								"$ref": "#/definitions/RecordOfMaterialEntry"
 							}
 						}
 					}
@@ -17471,7 +17261,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterialEntry"
+								"$ref": "#/definitions/RecordOfMaterialEntry"
 							}
 						}
 					}
@@ -17576,7 +17366,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterial"
+								"$ref": "#/definitions/RecordOfMaterial"
 							}
 						}
 					}
@@ -17624,7 +17414,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.RecordOfMaterial"
+								"$ref": "#/definitions/RecordOfMaterial"
 							}
 						}
 					}
@@ -18348,7 +18138,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Sample"
+							"$ref": "#/definitions/Sample"
 						}
 					}
 				},
@@ -18366,7 +18156,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Sample"
+							"$ref": "#/definitions/Sample"
 						}
 					}
 				]
@@ -18380,7 +18170,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Sample"
+							"$ref": "#/definitions/Sample"
 						}
 					}
 				},
@@ -18398,7 +18188,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Sample"
+							"$ref": "#/definitions/Sample"
 						}
 					}
 				]
@@ -18414,7 +18204,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Sample"
+							"$ref": "#/definitions/Sample"
 						}
 					}
 				},
@@ -18472,7 +18262,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLabJoin"
+							"$ref": "#/definitions/SampleLabJoin"
 						}
 					}
 				},
@@ -18490,7 +18280,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLabJoin"
+							"$ref": "#/definitions/SampleLabJoin"
 						}
 					}
 				]
@@ -18504,7 +18294,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLabJoin"
+							"$ref": "#/definitions/SampleLabJoin"
 						}
 					}
 				},
@@ -18522,7 +18312,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLabJoin"
+							"$ref": "#/definitions/SampleLabJoin"
 						}
 					}
 				]
@@ -18538,7 +18328,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLabJoin"
+							"$ref": "#/definitions/SampleLabJoin"
 						}
 					}
 				},
@@ -18662,7 +18452,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLabJoin"
+								"$ref": "#/definitions/SampleLabJoin"
 							}
 						}
 					}
@@ -18710,7 +18500,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLabJoin"
+								"$ref": "#/definitions/SampleLabJoin"
 							}
 						}
 					}
@@ -18749,7 +18539,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLineItemJoin"
+							"$ref": "#/definitions/SampleLineItemJoin"
 						}
 					}
 				},
@@ -18767,7 +18557,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLineItemJoin"
+							"$ref": "#/definitions/SampleLineItemJoin"
 						}
 					}
 				]
@@ -18781,7 +18571,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLineItemJoin"
+							"$ref": "#/definitions/SampleLineItemJoin"
 						}
 					}
 				},
@@ -18799,7 +18589,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLineItemJoin"
+							"$ref": "#/definitions/SampleLineItemJoin"
 						}
 					}
 				]
@@ -18815,7 +18605,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLineItemJoin"
+							"$ref": "#/definitions/SampleLineItemJoin"
 						}
 					}
 				},
@@ -18939,7 +18729,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLineItemJoin"
+								"$ref": "#/definitions/SampleLineItemJoin"
 							}
 						}
 					}
@@ -18987,7 +18777,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLineItemJoin"
+								"$ref": "#/definitions/SampleLineItemJoin"
 							}
 						}
 					}
@@ -19026,7 +18816,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLog"
+							"$ref": "#/definitions/SampleLog"
 						}
 					}
 				},
@@ -19044,7 +18834,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLog"
+							"$ref": "#/definitions/SampleLog"
 						}
 					}
 				]
@@ -19058,7 +18848,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLog"
+							"$ref": "#/definitions/SampleLog"
 						}
 					}
 				},
@@ -19076,7 +18866,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLog"
+							"$ref": "#/definitions/SampleLog"
 						}
 					}
 				]
@@ -19092,7 +18882,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.SampleLog"
+							"$ref": "#/definitions/SampleLog"
 						}
 					}
 				},
@@ -19216,7 +19006,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLog"
+								"$ref": "#/definitions/SampleLog"
 							}
 						}
 					}
@@ -19264,7 +19054,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.SampleLog"
+								"$ref": "#/definitions/SampleLog"
 							}
 						}
 					}
@@ -19369,7 +19159,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Sample"
+								"$ref": "#/definitions/Sample"
 							}
 						}
 					}
@@ -19417,7 +19207,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Sample"
+								"$ref": "#/definitions/Sample"
 							}
 						}
 					}
@@ -19456,7 +19246,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Test"
+							"$ref": "#/definitions/Test"
 						}
 					}
 				},
@@ -19474,7 +19264,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Test"
+							"$ref": "#/definitions/Test"
 						}
 					}
 				]
@@ -19488,7 +19278,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Test"
+							"$ref": "#/definitions/Test"
 						}
 					}
 				},
@@ -19506,7 +19296,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.Test"
+							"$ref": "#/definitions/Test"
 						}
 					}
 				]
@@ -19522,7 +19312,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.Test"
+							"$ref": "#/definitions/Test"
 						}
 					}
 				},
@@ -19580,7 +19370,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestData"
+							"$ref": "#/definitions/TestData"
 						}
 					}
 				},
@@ -19598,7 +19388,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestData"
+							"$ref": "#/definitions/TestData"
 						}
 					}
 				]
@@ -19612,7 +19402,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestData"
+							"$ref": "#/definitions/TestData"
 						}
 					}
 				},
@@ -19630,7 +19420,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestData"
+							"$ref": "#/definitions/TestData"
 						}
 					}
 				]
@@ -19646,7 +19436,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestData"
+							"$ref": "#/definitions/TestData"
 						}
 					}
 				},
@@ -19770,7 +19560,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestData"
+								"$ref": "#/definitions/TestData"
 							}
 						}
 					}
@@ -19818,7 +19608,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestData"
+								"$ref": "#/definitions/TestData"
 							}
 						}
 					}
@@ -19857,7 +19647,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstance"
+							"$ref": "#/definitions/TestInstance"
 						}
 					}
 				},
@@ -19875,7 +19665,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstance"
+							"$ref": "#/definitions/TestInstance"
 						}
 					}
 				]
@@ -19889,7 +19679,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstance"
+							"$ref": "#/definitions/TestInstance"
 						}
 					}
 				},
@@ -19907,7 +19697,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstance"
+							"$ref": "#/definitions/TestInstance"
 						}
 					}
 				]
@@ -19923,7 +19713,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstance"
+							"$ref": "#/definitions/TestInstance"
 						}
 					}
 				},
@@ -19981,7 +19771,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceData"
+							"$ref": "#/definitions/TestInstanceData"
 						}
 					}
 				},
@@ -19999,7 +19789,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceData"
+							"$ref": "#/definitions/TestInstanceData"
 						}
 					}
 				]
@@ -20013,7 +19803,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceData"
+							"$ref": "#/definitions/TestInstanceData"
 						}
 					}
 				},
@@ -20031,7 +19821,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceData"
+							"$ref": "#/definitions/TestInstanceData"
 						}
 					}
 				]
@@ -20047,7 +19837,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceData"
+							"$ref": "#/definitions/TestInstanceData"
 						}
 					}
 				},
@@ -20105,7 +19895,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+							"$ref": "#/definitions/TestInstanceDataArchive"
 						}
 					}
 				},
@@ -20123,7 +19913,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+							"$ref": "#/definitions/TestInstanceDataArchive"
 						}
 					}
 				]
@@ -20137,7 +19927,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+							"$ref": "#/definitions/TestInstanceDataArchive"
 						}
 					}
 				},
@@ -20155,7 +19945,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+							"$ref": "#/definitions/TestInstanceDataArchive"
 						}
 					}
 				]
@@ -20171,7 +19961,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+							"$ref": "#/definitions/TestInstanceDataArchive"
 						}
 					}
 				},
@@ -20295,7 +20085,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+								"$ref": "#/definitions/TestInstanceDataArchive"
 							}
 						}
 					}
@@ -20343,7 +20133,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceDataArchive"
+								"$ref": "#/definitions/TestInstanceDataArchive"
 							}
 						}
 					}
@@ -20448,7 +20238,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceData"
+								"$ref": "#/definitions/TestInstanceData"
 							}
 						}
 					}
@@ -20496,7 +20286,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceData"
+								"$ref": "#/definitions/TestInstanceData"
 							}
 						}
 					}
@@ -20535,7 +20325,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+							"$ref": "#/definitions/TestInstanceLabJoin"
 						}
 					}
 				},
@@ -20553,7 +20343,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+							"$ref": "#/definitions/TestInstanceLabJoin"
 						}
 					}
 				]
@@ -20567,7 +20357,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+							"$ref": "#/definitions/TestInstanceLabJoin"
 						}
 					}
 				},
@@ -20585,7 +20375,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+							"$ref": "#/definitions/TestInstanceLabJoin"
 						}
 					}
 				]
@@ -20601,7 +20391,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+							"$ref": "#/definitions/TestInstanceLabJoin"
 						}
 					}
 				},
@@ -20725,7 +20515,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+								"$ref": "#/definitions/TestInstanceLabJoin"
 							}
 						}
 					}
@@ -20773,7 +20563,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceLabJoin"
+								"$ref": "#/definitions/TestInstanceLabJoin"
 							}
 						}
 					}
@@ -20812,7 +20602,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+							"$ref": "#/definitions/TestInstanceSampleJoin"
 						}
 					}
 				},
@@ -20830,7 +20620,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+							"$ref": "#/definitions/TestInstanceSampleJoin"
 						}
 					}
 				]
@@ -20844,7 +20634,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+							"$ref": "#/definitions/TestInstanceSampleJoin"
 						}
 					}
 				},
@@ -20862,7 +20652,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+							"$ref": "#/definitions/TestInstanceSampleJoin"
 						}
 					}
 				]
@@ -20878,7 +20668,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+							"$ref": "#/definitions/TestInstanceSampleJoin"
 						}
 					}
 				},
@@ -21002,7 +20792,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+								"$ref": "#/definitions/TestInstanceSampleJoin"
 							}
 						}
 					}
@@ -21050,7 +20840,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstanceSampleJoin"
+								"$ref": "#/definitions/TestInstanceSampleJoin"
 							}
 						}
 					}
@@ -21155,7 +20945,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstance"
+								"$ref": "#/definitions/TestInstance"
 							}
 						}
 					}
@@ -21203,7 +20993,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestInstance"
+								"$ref": "#/definitions/TestInstance"
 							}
 						}
 					}
@@ -21242,7 +21032,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestLabJoin"
+							"$ref": "#/definitions/TestLabJoin"
 						}
 					}
 				},
@@ -21260,7 +21050,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestLabJoin"
+							"$ref": "#/definitions/TestLabJoin"
 						}
 					}
 				]
@@ -21274,7 +21064,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestLabJoin"
+							"$ref": "#/definitions/TestLabJoin"
 						}
 					}
 				},
@@ -21292,7 +21082,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestLabJoin"
+							"$ref": "#/definitions/TestLabJoin"
 						}
 					}
 				]
@@ -21308,7 +21098,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestLabJoin"
+							"$ref": "#/definitions/TestLabJoin"
 						}
 					}
 				},
@@ -21432,7 +21222,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestLabJoin"
+								"$ref": "#/definitions/TestLabJoin"
 							}
 						}
 					}
@@ -21480,7 +21270,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestLabJoin"
+								"$ref": "#/definitions/TestLabJoin"
 							}
 						}
 					}
@@ -21519,7 +21309,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestPlan"
+							"$ref": "#/definitions/TestPlan"
 						}
 					}
 				},
@@ -21537,7 +21327,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestPlan"
+							"$ref": "#/definitions/TestPlan"
 						}
 					}
 				]
@@ -21551,7 +21341,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestPlan"
+							"$ref": "#/definitions/TestPlan"
 						}
 					}
 				},
@@ -21569,7 +21359,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestPlan"
+							"$ref": "#/definitions/TestPlan"
 						}
 					}
 				]
@@ -21585,7 +21375,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestPlan"
+							"$ref": "#/definitions/TestPlan"
 						}
 					}
 				},
@@ -21709,7 +21499,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestPlan"
+								"$ref": "#/definitions/TestPlan"
 							}
 						}
 					}
@@ -21757,7 +21547,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestPlan"
+								"$ref": "#/definitions/TestPlan"
 							}
 						}
 					}
@@ -21796,7 +21586,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -21814,7 +21604,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 						}
 					}
 				]
@@ -21828,7 +21618,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -21846,7 +21636,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 						}
 					}
 				]
@@ -21862,7 +21652,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 						}
 					}
 				},
@@ -21986,7 +21776,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+								"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 							}
 						}
 					}
@@ -22034,7 +21824,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestRecordOfMaterialEntryJoin"
+								"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
 							}
 						}
 					}
@@ -22073,7 +21863,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecification"
+							"$ref": "#/definitions/TestSpecification"
 						}
 					}
 				},
@@ -22091,7 +21881,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecification"
+							"$ref": "#/definitions/TestSpecification"
 						}
 					}
 				]
@@ -22105,7 +21895,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecification"
+							"$ref": "#/definitions/TestSpecification"
 						}
 					}
 				},
@@ -22123,7 +21913,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecification"
+							"$ref": "#/definitions/TestSpecification"
 						}
 					}
 				]
@@ -22139,7 +21929,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecification"
+							"$ref": "#/definitions/TestSpecification"
 						}
 					}
 				},
@@ -22197,7 +21987,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 						}
 					}
 				},
@@ -22215,7 +22005,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 						}
 					}
 				]
@@ -22229,7 +22019,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 						}
 					}
 				},
@@ -22247,7 +22037,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 						}
 					}
 				]
@@ -22263,7 +22053,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 						}
 					}
 				},
@@ -22387,7 +22177,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+								"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 							}
 						}
 					}
@@ -22435,7 +22225,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationMaterialTestJoin"
+								"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
 							}
 						}
 					}
@@ -22474,7 +22264,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+							"$ref": "#/definitions/TestSpecificationRequirement"
 						}
 					}
 				},
@@ -22492,7 +22282,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+							"$ref": "#/definitions/TestSpecificationRequirement"
 						}
 					}
 				]
@@ -22506,7 +22296,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+							"$ref": "#/definitions/TestSpecificationRequirement"
 						}
 					}
 				},
@@ -22524,7 +22314,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+							"$ref": "#/definitions/TestSpecificationRequirement"
 						}
 					}
 				]
@@ -22540,7 +22330,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+							"$ref": "#/definitions/TestSpecificationRequirement"
 						}
 					}
 				},
@@ -22664,7 +22454,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+								"$ref": "#/definitions/TestSpecificationRequirement"
 							}
 						}
 					}
@@ -22712,7 +22502,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationRequirement"
+								"$ref": "#/definitions/TestSpecificationRequirement"
 							}
 						}
 					}
@@ -22751,7 +22541,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSet"
+							"$ref": "#/definitions/TestSpecificationSet"
 						}
 					}
 				},
@@ -22769,7 +22559,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSet"
+							"$ref": "#/definitions/TestSpecificationSet"
 						}
 					}
 				]
@@ -22783,7 +22573,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSet"
+							"$ref": "#/definitions/TestSpecificationSet"
 						}
 					}
 				},
@@ -22801,7 +22591,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSet"
+							"$ref": "#/definitions/TestSpecificationSet"
 						}
 					}
 				]
@@ -22817,7 +22607,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSet"
+							"$ref": "#/definitions/TestSpecificationSet"
 						}
 					}
 				},
@@ -22875,7 +22665,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
 						}
 					}
 				},
@@ -22893,7 +22683,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
 						}
 					}
 				]
@@ -22907,7 +22697,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
 						}
 					}
 				},
@@ -22925,7 +22715,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
 						}
 					}
 				]
@@ -22941,7 +22731,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
 						}
 					}
 				},
@@ -23065,7 +22855,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+								"$ref": "#/definitions/TestSpecificationSetTestJoin"
 							}
 						}
 					}
@@ -23113,7 +22903,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationSetTestJoin"
+								"$ref": "#/definitions/TestSpecificationSetTestJoin"
 							}
 						}
 					}
@@ -23218,7 +23008,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationSet"
+								"$ref": "#/definitions/TestSpecificationSet"
 							}
 						}
 					}
@@ -23266,7 +23056,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecificationSet"
+								"$ref": "#/definitions/TestSpecificationSet"
 							}
 						}
 					}
@@ -23371,7 +23161,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecification"
+								"$ref": "#/definitions/TestSpecification"
 							}
 						}
 					}
@@ -23419,7 +23209,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestSpecification"
+								"$ref": "#/definitions/TestSpecification"
 							}
 						}
 					}
@@ -23458,7 +23248,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestStep"
+							"$ref": "#/definitions/TestStep"
 						}
 					}
 				},
@@ -23476,7 +23266,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestStep"
+							"$ref": "#/definitions/TestStep"
 						}
 					}
 				]
@@ -23490,7 +23280,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestStep"
+							"$ref": "#/definitions/TestStep"
 						}
 					}
 				},
@@ -23508,7 +23298,7 @@
 						"name": "body",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/ORM.TestStep"
+							"$ref": "#/definitions/TestStep"
 						}
 					}
 				]
@@ -23524,7 +23314,7 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/ORM.TestStep"
+							"$ref": "#/definitions/TestStep"
 						}
 					}
 				},
@@ -23648,7 +23438,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestStep"
+								"$ref": "#/definitions/TestStep"
 							}
 						}
 					}
@@ -23696,7 +23486,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.TestStep"
+								"$ref": "#/definitions/TestStep"
 							}
 						}
 					}
@@ -23801,7 +23591,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Test"
+								"$ref": "#/definitions/Test"
 							}
 						}
 					}
@@ -23849,7 +23639,7 @@
 						"schema": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/ORM.Test"
+								"$ref": "#/definitions/Test"
 							}
 						}
 					}
