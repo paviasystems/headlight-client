@@ -7273,7 +7273,7 @@
 						"description": "No content"
 					}
 				},
-				"description": "",
+				"description": "Impersonate another user, according to access rights.",
 				"tags": [
 					"Authenticate"
 				],
@@ -7630,7 +7630,7 @@
 						"description": "No content"
 					}
 				},
-				"description": "",
+				"description": "Get current session state from server",
 				"tags": [
 					"Authenticate"
 				],
@@ -8484,6 +8484,33 @@
 						"format": "int64"
 					}
 				]
+			}
+		},
+		"/Deauthenticate": {
+			"get": {
+				"operationId": "_deAuthenticate",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Success": {
+									"type": "boolean",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Logout user (remove session from server)",
+				"tags": [
+					"Authenticate"
+				],
+				"parameters": []
 			}
 		},
 		"/Document": {
