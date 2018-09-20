@@ -27,13 +27,13 @@ export class DocumentsApi {
     }
 
     /**
-     * 
+     * Get all Document records for this user that have changed since the sync date
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      * @param SynchronizeFromDate FROM date (descending)
      */
     public getUpdatedDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
+        const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
@@ -75,7 +75,7 @@ export class DocumentsApi {
      * @param SynchronizeFromDate FROM date (descending)
      */
     public syncDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/Documents/{SynchronizeFromDate}/{Begin}/{Cap}'
+        const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
             .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));

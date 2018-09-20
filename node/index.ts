@@ -15,11 +15,55 @@ export interface GeneralAPI
 }
 
 export class CookieAuth implements API.Authentication {
-    constructor(private sessionId: string){
+    private _Username: string;
+    private _Password: string;
+
+    constructor(private sessionId: string, private client: Client){
+    }
+
+    setCredentials(pSessionId: string, pUsername: string, pPassword)
+    {
+        this.sessionId = pSessionId;
+        this._Username = pUsername;
+        this._Password = pPassword;
     }
 
     applyToRequest(requestOptions: any): void {
-        requestOptions.headers['Cookie'] = 'UserSession=' + this.sessionId;
+        if (this.sessionId) {
+            requestOptions.headers['Cookie'] = 'UserSession=' + this.sessionId;
+        }
+    }
+
+    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    {
+        return requestDelegate.then((result: T)=>
+        {
+            return Promise.resolve(result);
+        },
+        (pError)=>
+        {
+            //TODO: should implement with statusCode
+            if (this.sessionId && pError && pError.indexOf('authenticated'))
+            {
+                //our session has expired, login again
+                return this.client.login(this._Username, this._Password)
+                    .then(()=>
+                    {
+                        //successful login, try the request again
+                        return requestDelegate;
+                    },
+                    (pError)=>
+                    {
+                        //auth failed, so return the error
+                        return Promise.reject(pError);
+                    });
+            }
+            else
+            {
+                //other errors just forward
+                return Promise.reject(pError);
+            }
+        });
     }
 }
 
@@ -37,6 +81,7 @@ export class Client
         this._ApiReferences = new Map<string, GeneralAPI>();
 
         this._Auth = new API.AuthenticateApi(pBaseURL);
+        this._Cookie = new CookieAuth(null, this);
     }
 
     get UserSession(): API.ISession
@@ -55,7 +100,7 @@ export class Client
             return Promise.reject('Login failure! Check username and password.');
         }
         this._UserSession = result;
-        this._Cookie = new CookieAuth(result.SessionID);
+        this._Cookie.setCredentials(result.SessionID, pUsername, pPassword);
 
         return Promise.resolve(result);
     }

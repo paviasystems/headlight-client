@@ -55,7 +55,7 @@ export class AuthenticateApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * 
+     * Get current session state from server
      */
     public checkSession (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ISession> {
         const localVarPath = this.basePath + '/CheckSession';
@@ -97,7 +97,28 @@ export class AuthenticateApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * 
+     * Logout user (remove session from server)
+     */
+    public deAuthenticate (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
+        const localVarPath = this.basePath + '/Deauthenticate';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Impersonate another user, according to access rights.
      * @param IDUser 
      */
     public impersonateUser (IDUser: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {

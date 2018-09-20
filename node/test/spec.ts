@@ -65,4 +65,15 @@ describe('Node API test', () => {
         expect(updatedRecord.Settings['apiTest']).to.eq(testTime);
         expect(updatedRecord.UpdateDate).to.be.gt(record.UpdateDate);
     });
+
+    it ('will auto-login if session invalid', async() => {
+        let authAPI = client.API(Headlight.API.AuthenticateApi);
+        let result = await authAPI.deAuthenticate();
+        expect(result).to.have.property('Success');
+
+        //try getting a record after having logged out
+        let userApi = client.API(Headlight.API.UserApi);
+        let record = await userApi.read(client.UserSession.UserID);
+        expect(record.IDUser).to.eq(client.UserSession.UserID);
+    });
 });

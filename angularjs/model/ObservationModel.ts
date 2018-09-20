@@ -20,7 +20,7 @@ export interface ObservationModel {
      * 
      */
     "_StatusOverride": boolean;
-    "Labels": models.BundlesContentManagementObservationModelLabels;
+    "Labels": models.ObservationModelLabels;
     "Details": models.MappedArrayArtifact;
     /**
      * 

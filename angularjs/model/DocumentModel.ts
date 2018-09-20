@@ -136,5 +136,13 @@ export interface DocumentModel {
      * 
      */
     "ExternalSyncGUID": string;
+    /**
+     * 
+     */
+    "Form": number;
+    /**
+     * 
+     */
+    "FormDataJSON": string;
 }
 

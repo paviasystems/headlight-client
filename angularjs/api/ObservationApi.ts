@@ -319,7 +319,7 @@ export class ObservationApi {
      * @param Cap Maximum number of records to return
      * @param SynchronizeFromDate 
      */
-    public getUpdatedObservations (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.BundlesContentManagementObservationModel>> {
+    public getUpdatedObservations (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
             .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
@@ -359,7 +359,7 @@ export class ObservationApi {
      * postCloneBulkObservations API
      * @param body 
      */
-    public postCloneBulkObservations (body: models.ObservationCloneRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.BundlesContentManagementObservationModel>> {
+    public postCloneBulkObservations (body: models.ObservationCloneRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Clone';
 
         let queryParameters: any = {};
@@ -387,7 +387,7 @@ export class ObservationApi {
      * postCloneObservation API
      * @param IDObservation ID of record
      */
-    public postCloneObservation (IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.BundlesContentManagementObservationModel> {
+    public postCloneObservation (IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ObservationModel> {
         const localVarPath = this.basePath + '/Observation/{IDObservation}/Clone'
             .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
 

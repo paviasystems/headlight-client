@@ -9,8 +9,8 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { BundlesContentManagementObservationModelLabels } from './bundlesContentManagementObservationModelLabels';
 import { MappedArrayArtifact } from './mappedArrayArtifact';
+import { ObservationModelLabels } from './observationModelLabels';
 
 
 /**
@@ -21,7 +21,7 @@ export interface ObservationModel {
      * 
      */
     _StatusOverride: boolean;
-    Labels: BundlesContentManagementObservationModelLabels;
+    Labels: ObservationModelLabels;
     Details: MappedArrayArtifact;
     /**
      * 

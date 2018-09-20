@@ -57,7 +57,7 @@ export class DocumentsService {
 
     /**
      * 
-     * 
+     * Get all Document records for this user that have changed since the sync date
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
      * @param SynchronizeFromDate FROM date (descending)
@@ -93,7 +93,7 @@ export class DocumentsService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/Documents/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
+        return this.httpClient.get<any>(`${this.basePath}/Documents/Sync/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -142,7 +142,7 @@ export class DocumentsService {
             'application/json'
         ];
 
-        return this.httpClient.post<any>(`${this.basePath}/Documents/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
+        return this.httpClient.post<any>(`${this.basePath}/Documents/Sync/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
             null,
             {
                 withCredentials: this.configuration.withCredentials,

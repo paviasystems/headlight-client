@@ -19,6 +19,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs/Observable';
 
 import { ISession } from '../model/iSession';
+import { InlineResponse2001 } from '../model/inlineResponse2001';
 import { LoginRequest } from '../model/loginRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -105,7 +106,7 @@ export class AuthenticateService {
 
     /**
      * 
-     * 
+     * Get current session state from server
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -177,7 +178,43 @@ export class AuthenticateService {
 
     /**
      * 
+     * Logout user (remove session from server)
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public deAuthenticate(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
+    public deAuthenticate(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public deAuthenticate(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
+    public deAuthenticate(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/Deauthenticate`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * 
+     * Impersonate another user, according to access rights.
      * @param IDUser 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

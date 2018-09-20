@@ -18,7 +18,6 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { BundlesContentManagementObservationModel } from '../model/bundlesContentManagementObservationModel';
 import { InlineResponse200 } from '../model/inlineResponse200';
 import { ObservationCloneRequest } from '../model/observationCloneRequest';
 import { ObservationModel } from '../model/observationModel';
@@ -484,9 +483,9 @@ export class ObservationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<Array<BundlesContentManagementObservationModel>>;
-    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundlesContentManagementObservationModel>>>;
-    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundlesContentManagementObservationModel>>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<Array<ObservationModel>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ObservationModel>>>;
+    public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ObservationModel>>>;
     public getUpdatedObservations(Begin: number, Cap: number, SynchronizeFromDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedObservations.');
@@ -513,7 +512,7 @@ export class ObservationService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<BundlesContentManagementObservationModel>>(`${this.basePath}/Observations/Sync/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
+        return this.httpClient.get<Array<ObservationModel>>(`${this.basePath}/Observations/Sync/${encodeURIComponent(String(SynchronizeFromDate.toISOString()))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -530,9 +529,9 @@ export class ObservationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<BundlesContentManagementObservationModel>>;
-    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundlesContentManagementObservationModel>>>;
-    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundlesContentManagementObservationModel>>>;
+    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<ObservationModel>>;
+    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ObservationModel>>>;
+    public postCloneBulkObservations(body: ObservationCloneRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ObservationModel>>>;
     public postCloneBulkObservations(body: ObservationCloneRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postCloneBulkObservations.');
@@ -558,7 +557,7 @@ export class ObservationService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<Array<BundlesContentManagementObservationModel>>(`${this.basePath}/Observations/Clone`,
+        return this.httpClient.post<Array<ObservationModel>>(`${this.basePath}/Observations/Clone`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -576,9 +575,9 @@ export class ObservationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postCloneObservation(IDObservation: number, observe?: 'body', reportProgress?: boolean): Observable<BundlesContentManagementObservationModel>;
-    public postCloneObservation(IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BundlesContentManagementObservationModel>>;
-    public postCloneObservation(IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BundlesContentManagementObservationModel>>;
+    public postCloneObservation(IDObservation: number, observe?: 'body', reportProgress?: boolean): Observable<ObservationModel>;
+    public postCloneObservation(IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ObservationModel>>;
+    public postCloneObservation(IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ObservationModel>>;
     public postCloneObservation(IDObservation: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling postCloneObservation.');
@@ -600,7 +599,7 @@ export class ObservationService {
             'application/json'
         ];
 
-        return this.httpClient.post<BundlesContentManagementObservationModel>(`${this.basePath}/Observation/${encodeURIComponent(String(IDObservation))}/Clone`,
+        return this.httpClient.post<ObservationModel>(`${this.basePath}/Observation/${encodeURIComponent(String(IDObservation))}/Clone`,
             null,
             {
                 withCredentials: this.configuration.withCredentials,
