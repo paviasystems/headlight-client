@@ -34,9 +34,9 @@ export class CookieAuth implements API.Authentication {
         }
     }
 
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: any, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate.then((result: T)=>
+        return requestDelegate().then((result: T)=>
         {
             return Promise.resolve(result);
         },
@@ -49,8 +49,10 @@ export class CookieAuth implements API.Authentication {
                 return this.client.login(this._Username, this._Password)
                     .then(()=>
                     {
-                        //successful login, try the request again
-                        return requestDelegate;
+                        //successful login, apply the new credentials to the request
+                        this.applyToRequest(requestOptions);
+                        //now try the request again
+                        return requestDelegate();
                     },
                     (pError)=>
                     {

@@ -13,7 +13,7 @@ const _ServerURL = 'https://headlightqa.paviasystems.com/1.0';
 const _UserName = process.env['DEV_USER'] || 'user';
 const _Password = process.env['DEV_PASSWORD'] || 'password123';
 
-describe('Node API test', () => {
+describe('Node API test', function() {
     var client = new Headlight.Client(_ServerURL);
 
     it('can get API', ()=>{
@@ -75,5 +75,14 @@ describe('Node API test', () => {
         let userApi = client.API(Headlight.API.UserApi);
         let record = await userApi.read(client.UserSession.UserID);
         expect(record.IDUser).to.eq(client.UserSession.UserID);
+    }).timeout(25000);
+
+    it ('can access a different API with renewed credentials', async() => {
+        let customerApi = client.API(Headlight.API.CustomerApi);
+        let customer = await customerApi.read(client.UserSession.CustomerID);
+
+        expect(customer).to.have.property('IDCustomer');
+        expect(customer.IDCustomer).to.eq(client.UserSession.CustomerID);
     });
 });
+

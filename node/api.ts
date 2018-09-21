@@ -10983,7 +10983,7 @@ export interface Authentication {
     * Apply authentication settings to header and query params.
     */
     applyToRequest(requestOptions: localVarRequest.Options): void;
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>;
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>;
 }
 
 export class HttpBasicAuth implements Authentication {
@@ -10996,9 +10996,9 @@ export class HttpBasicAuth implements Authentication {
         }
     }
 
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -11015,9 +11015,9 @@ export class ApiKeyAuth implements Authentication {
             requestOptions.headers[this.paramName] = this.apiKey;
         }
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -11029,9 +11029,9 @@ export class OAuth implements Authentication {
             requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
         }
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -11042,9 +11042,9 @@ export class VoidAuth implements Authentication {
     applyToRequest(_: localVarRequest.Options): void {
         // Do nothing
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -11143,7 +11143,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11203,7 +11203,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11283,7 +11283,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11335,7 +11335,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11395,7 +11395,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11455,7 +11455,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ArtifactModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11522,7 +11522,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Buffer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11575,7 +11575,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Artifact>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11635,7 +11635,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ArtifactModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11702,7 +11702,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ArtifactModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11776,7 +11776,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ArtifactModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11836,7 +11836,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ArtifactModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -11914,7 +11914,7 @@ export class ArtifactApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12036,7 +12036,7 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ISession>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12089,7 +12089,7 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ISession>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12142,7 +12142,7 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12194,7 +12194,7 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse2001>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12254,7 +12254,7 @@ export class AuthenticateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12369,7 +12369,7 @@ export class BatchExportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12428,7 +12428,7 @@ export class BatchExportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12550,7 +12550,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12603,7 +12603,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12663,7 +12663,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12723,7 +12723,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<BidItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12783,7 +12783,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<BidItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12850,7 +12850,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<BidItem>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12924,7 +12924,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<BidItem>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -12984,7 +12984,7 @@ export class BidItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<BidItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13107,7 +13107,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13160,7 +13160,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13220,7 +13220,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13280,7 +13280,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<CommentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13340,7 +13340,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<CommentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13407,7 +13407,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<CommentModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13481,7 +13481,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<CommentModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13541,7 +13541,7 @@ export class CommentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<CommentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13664,7 +13664,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13717,7 +13717,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13777,7 +13777,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13837,7 +13837,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Contract>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13897,7 +13897,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Contract>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -13964,7 +13964,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Contract>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14038,7 +14038,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Contract>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14098,7 +14098,7 @@ export class ContractApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Contract>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14221,7 +14221,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14274,7 +14274,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14334,7 +14334,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14394,7 +14394,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Customer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14454,7 +14454,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Customer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14521,7 +14521,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Customer>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14595,7 +14595,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Customer>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14655,7 +14655,7 @@ export class CustomerApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Customer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14778,7 +14778,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14845,7 +14845,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14911,7 +14911,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -14963,7 +14963,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15023,7 +15023,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15083,7 +15083,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<DocumentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15143,7 +15143,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15202,7 +15202,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15261,7 +15261,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15320,7 +15320,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Buffer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15380,7 +15380,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15439,7 +15439,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<DocumentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15506,7 +15506,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<DocumentModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15580,7 +15580,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<DocumentModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15647,7 +15647,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15713,7 +15713,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15772,7 +15772,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15831,7 +15831,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<DocumentModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -15884,7 +15884,7 @@ export class DocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16006,7 +16006,7 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16065,7 +16065,7 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16117,7 +16117,7 @@ export class DocumentApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16246,7 +16246,7 @@ export class DocumentSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16382,7 +16382,7 @@ export class DocumentsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16455,7 +16455,7 @@ export class DocumentsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16577,7 +16577,7 @@ export class DocumentsByObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16699,7 +16699,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16752,7 +16752,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16812,7 +16812,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16872,7 +16872,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ElectronicSignatureModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16932,7 +16932,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ElectronicSignatureModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -16999,7 +16999,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17073,7 +17073,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17133,7 +17133,7 @@ export class ElectronicSignatureApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ElectronicSignatureModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17256,7 +17256,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17309,7 +17309,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17369,7 +17369,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17429,7 +17429,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Equipment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17489,7 +17489,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Equipment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17556,7 +17556,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Equipment>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17630,7 +17630,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Equipment>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17690,7 +17690,7 @@ export class EquipmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Equipment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17813,7 +17813,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17866,7 +17866,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17926,7 +17926,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -17986,7 +17986,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Lab>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18046,7 +18046,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Lab>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18113,7 +18113,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Lab>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18187,7 +18187,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Lab>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18247,7 +18247,7 @@ export class LabApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Lab>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18370,7 +18370,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18423,7 +18423,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18483,7 +18483,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18543,7 +18543,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabMaterialAssignment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18603,7 +18603,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabMaterialAssignment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18670,7 +18670,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabMaterialAssignment>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18744,7 +18744,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabMaterialAssignment>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18804,7 +18804,7 @@ export class LabMaterialAssignmentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabMaterialAssignment>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18927,7 +18927,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -18980,7 +18980,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19040,7 +19040,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19100,7 +19100,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19160,7 +19160,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19227,7 +19227,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabTestApproval>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19301,7 +19301,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabTestApproval>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19361,7 +19361,7 @@ export class LabTestApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19484,7 +19484,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19537,7 +19537,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19597,7 +19597,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19657,7 +19657,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestDefault>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19717,7 +19717,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestDefault>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19784,7 +19784,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabTestDefault>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19858,7 +19858,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LabTestDefault>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -19918,7 +19918,7 @@ export class LabTestDefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LabTestDefault>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20041,7 +20041,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20094,7 +20094,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20154,7 +20154,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20214,7 +20214,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LineItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20274,7 +20274,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LineItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20341,7 +20341,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LineItem>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20415,7 +20415,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<LineItem>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20475,7 +20475,7 @@ export class LineItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<LineItem>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20598,7 +20598,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20651,7 +20651,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20711,7 +20711,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20771,7 +20771,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Material>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20831,7 +20831,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Material>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20898,7 +20898,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Material>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -20972,7 +20972,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Material>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21032,7 +21032,7 @@ export class MaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Material>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21155,7 +21155,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21208,7 +21208,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21268,7 +21268,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21328,7 +21328,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21388,7 +21388,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21455,7 +21455,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialLineItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21529,7 +21529,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialLineItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21589,7 +21589,7 @@ export class MaterialLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21712,7 +21712,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21765,7 +21765,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21825,7 +21825,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21885,7 +21885,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialPayItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -21945,7 +21945,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialPayItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22012,7 +22012,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialPayItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22086,7 +22086,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialPayItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22146,7 +22146,7 @@ export class MaterialPayItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialPayItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22269,7 +22269,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22322,7 +22322,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22382,7 +22382,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22442,7 +22442,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22502,7 +22502,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22569,7 +22569,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialRecordOfMaterialEntryJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22643,7 +22643,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MaterialRecordOfMaterialEntryJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22703,7 +22703,7 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MaterialRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22826,7 +22826,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22879,7 +22879,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22939,7 +22939,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -22999,7 +22999,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23059,7 +23059,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23126,7 +23126,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MixSpecification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23200,7 +23200,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MixSpecification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23260,7 +23260,7 @@ export class MixSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23383,7 +23383,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23436,7 +23436,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23496,7 +23496,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23556,7 +23556,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecificationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23616,7 +23616,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecificationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23683,7 +23683,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MixSpecificationMaterialJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23757,7 +23757,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<MixSpecificationMaterialJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23817,7 +23817,7 @@ export class MixSpecificationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<MixSpecificationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23940,7 +23940,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -23993,7 +23993,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24053,7 +24053,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24113,7 +24113,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ModuleModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24173,7 +24173,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ModuleModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24240,7 +24240,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ModuleModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24314,7 +24314,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ModuleModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24374,7 +24374,7 @@ export class ModuleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ModuleModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24497,7 +24497,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24550,7 +24550,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24610,7 +24610,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24670,7 +24670,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Notification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24730,7 +24730,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Notification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24797,7 +24797,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Notification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24871,7 +24871,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Notification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -24931,7 +24931,7 @@ export class NotificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Notification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25054,7 +25054,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25114,7 +25114,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25173,7 +25173,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25225,7 +25225,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25277,7 +25277,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25337,7 +25337,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25397,7 +25397,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ObservationModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25464,7 +25464,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Buffer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25531,7 +25531,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Buffer>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25598,7 +25598,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25671,7 +25671,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ObservationModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25731,7 +25731,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ObservationModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25791,7 +25791,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ObservationModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25844,7 +25844,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25896,7 +25896,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -25955,7 +25955,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26014,7 +26014,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ObservationModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26081,7 +26081,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ObservationModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26155,7 +26155,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ObservationModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26229,7 +26229,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26288,7 +26288,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26347,7 +26347,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26406,7 +26406,7 @@ export class ObservationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ObservationModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26529,7 +26529,7 @@ export class ObservationApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26588,7 +26588,7 @@ export class ObservationApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26640,7 +26640,7 @@ export class ObservationApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26762,7 +26762,7 @@ export class ObservationCloneTemplatesApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26905,7 +26905,7 @@ export class ObservationSearchsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -26971,7 +26971,7 @@ export class ObservationSearchsApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27100,7 +27100,7 @@ export class ObservationSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27152,7 +27152,7 @@ export class ObservationSendToApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27267,7 +27267,7 @@ export class ObservationsBatchTagApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27319,7 +27319,7 @@ export class ObservationsBatchTagApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27455,7 +27455,7 @@ export class ObservationsByDocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27521,7 +27521,7 @@ export class ObservationsByDocumentApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27650,7 +27650,7 @@ export class ObservationsByUpdateDateApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27786,7 +27786,7 @@ export class ObservationsFilterApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27845,7 +27845,7 @@ export class ObservationsFilterApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -27967,7 +27967,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28020,7 +28020,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28080,7 +28080,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28140,7 +28140,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Organization>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28200,7 +28200,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Organization>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28267,7 +28267,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Organization>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28341,7 +28341,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Organization>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28401,7 +28401,7 @@ export class OrganizationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Organization>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28524,7 +28524,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28577,7 +28577,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28637,7 +28637,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28697,7 +28697,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<OrganizationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28757,7 +28757,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<OrganizationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28824,7 +28824,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<OrganizationMaterialJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28898,7 +28898,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<OrganizationMaterialJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -28958,7 +28958,7 @@ export class OrganizationMaterialJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<OrganizationMaterialJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29081,7 +29081,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29134,7 +29134,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29194,7 +29194,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29254,7 +29254,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<PayItemModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29314,7 +29314,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<PayItemModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29381,7 +29381,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<PayItemModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29455,7 +29455,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<PayItemModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29515,7 +29515,7 @@ export class PayItemApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<PayItemModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29638,7 +29638,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29691,7 +29691,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29751,7 +29751,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29811,7 +29811,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Product>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29871,7 +29871,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Product>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -29938,7 +29938,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Product>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30012,7 +30012,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Product>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30072,7 +30072,7 @@ export class ProductApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Product>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30195,7 +30195,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30248,7 +30248,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30308,7 +30308,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30368,7 +30368,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlant>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30428,7 +30428,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlant>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30495,7 +30495,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProductionPlant>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30569,7 +30569,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProductionPlant>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30629,7 +30629,7 @@ export class ProductionPlantApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlant>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30752,7 +30752,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30805,7 +30805,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30865,7 +30865,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30925,7 +30925,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlantMaterialApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -30985,7 +30985,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlantMaterialApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31052,7 +31052,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProductionPlantMaterialApproval>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31126,7 +31126,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProductionPlantMaterialApproval>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31186,7 +31186,7 @@ export class ProductionPlantMaterialApprovalApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProductionPlantMaterialApproval>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31309,7 +31309,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31362,7 +31362,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31422,7 +31422,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31482,7 +31482,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProjectModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31542,7 +31542,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProjectModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31609,7 +31609,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProjectModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31683,7 +31683,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ProjectModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31743,7 +31743,7 @@ export class ProjectApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ProjectModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31866,7 +31866,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31919,7 +31919,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -31979,7 +31979,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32039,7 +32039,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterial>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32099,7 +32099,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterial>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32166,7 +32166,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterial>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32240,7 +32240,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterial>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32300,7 +32300,7 @@ export class RecordOfMaterialApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterial>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32423,7 +32423,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32476,7 +32476,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32536,7 +32536,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32596,7 +32596,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntry>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32656,7 +32656,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntry>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32723,7 +32723,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterialEntry>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32797,7 +32797,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterialEntry>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32857,7 +32857,7 @@ export class RecordOfMaterialEntryApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntry>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -32980,7 +32980,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33033,7 +33033,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33093,7 +33093,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33153,7 +33153,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntryArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33213,7 +33213,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntryArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33280,7 +33280,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterialEntryArchive>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33354,7 +33354,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<RecordOfMaterialEntryArchive>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33414,7 +33414,7 @@ export class RecordOfMaterialEntryArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<RecordOfMaterialEntryArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33537,7 +33537,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33590,7 +33590,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33650,7 +33650,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33710,7 +33710,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33763,7 +33763,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33822,7 +33822,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33889,7 +33889,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ReportModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -33963,7 +33963,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ReportModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34023,7 +34023,7 @@ export class ReportApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34146,7 +34146,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34213,7 +34213,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34265,7 +34265,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34325,7 +34325,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34385,7 +34385,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportNamedInstanceModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34459,7 +34459,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34518,7 +34518,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportNamedInstanceModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34585,7 +34585,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34659,7 +34659,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34726,7 +34726,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<any>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34785,7 +34785,7 @@ export class ReportNamedInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<ReportNamedInstanceModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34908,7 +34908,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -34961,7 +34961,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35021,7 +35021,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35081,7 +35081,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Sample>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35141,7 +35141,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Sample>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35208,7 +35208,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Sample>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35282,7 +35282,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Sample>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35342,7 +35342,7 @@ export class SampleApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Sample>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35465,7 +35465,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35518,7 +35518,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35578,7 +35578,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35638,7 +35638,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35698,7 +35698,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35765,7 +35765,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35839,7 +35839,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -35899,7 +35899,7 @@ export class SampleLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36022,7 +36022,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36075,7 +36075,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36135,7 +36135,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36195,7 +36195,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36255,7 +36255,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36322,7 +36322,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLineItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36396,7 +36396,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLineItemJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36456,7 +36456,7 @@ export class SampleLineItemJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLineItemJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36579,7 +36579,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36632,7 +36632,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36692,7 +36692,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36752,7 +36752,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLog>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36812,7 +36812,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLog>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36879,7 +36879,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLog>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -36953,7 +36953,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<SampleLog>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37013,7 +37013,7 @@ export class SampleLogApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<SampleLog>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37136,7 +37136,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37189,7 +37189,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37249,7 +37249,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37309,7 +37309,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Test>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37369,7 +37369,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Test>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37436,7 +37436,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Test>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37510,7 +37510,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<Test>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37570,7 +37570,7 @@ export class TestApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Test>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37693,7 +37693,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37746,7 +37746,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37806,7 +37806,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37866,7 +37866,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37926,7 +37926,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -37993,7 +37993,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestData>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38067,7 +38067,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestData>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38127,7 +38127,7 @@ export class TestDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38250,7 +38250,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38303,7 +38303,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38363,7 +38363,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38423,7 +38423,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstance>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38483,7 +38483,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstance>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38550,7 +38550,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstance>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38624,7 +38624,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstance>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38684,7 +38684,7 @@ export class TestInstanceApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstance>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38807,7 +38807,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38860,7 +38860,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38920,7 +38920,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -38980,7 +38980,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39040,7 +39040,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39107,7 +39107,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceData>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39181,7 +39181,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceData>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39241,7 +39241,7 @@ export class TestInstanceDataApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceData>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39364,7 +39364,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39417,7 +39417,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39477,7 +39477,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39537,7 +39537,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceDataArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39597,7 +39597,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceDataArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39664,7 +39664,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceDataArchive>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39738,7 +39738,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceDataArchive>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39798,7 +39798,7 @@ export class TestInstanceDataArchiveApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceDataArchive>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39921,7 +39921,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -39974,7 +39974,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40034,7 +40034,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40094,7 +40094,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40154,7 +40154,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40221,7 +40221,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40295,7 +40295,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40355,7 +40355,7 @@ export class TestInstanceLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40478,7 +40478,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40531,7 +40531,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40591,7 +40591,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40651,7 +40651,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceSampleJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40711,7 +40711,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceSampleJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40778,7 +40778,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceSampleJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40852,7 +40852,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestInstanceSampleJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -40912,7 +40912,7 @@ export class TestInstanceSampleJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestInstanceSampleJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41035,7 +41035,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41088,7 +41088,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41148,7 +41148,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41208,7 +41208,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41268,7 +41268,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41335,7 +41335,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41409,7 +41409,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestLabJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41469,7 +41469,7 @@ export class TestLabJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestLabJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41592,7 +41592,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41645,7 +41645,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41705,7 +41705,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41765,7 +41765,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestPlan>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41825,7 +41825,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestPlan>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41892,7 +41892,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestPlan>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -41966,7 +41966,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestPlan>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42026,7 +42026,7 @@ export class TestPlanApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestPlan>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42149,7 +42149,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42202,7 +42202,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42262,7 +42262,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42322,7 +42322,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42382,7 +42382,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42449,7 +42449,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestRecordOfMaterialEntryJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42523,7 +42523,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestRecordOfMaterialEntryJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42583,7 +42583,7 @@ export class TestRecordOfMaterialEntryJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestRecordOfMaterialEntryJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42706,7 +42706,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42759,7 +42759,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42819,7 +42819,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42879,7 +42879,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -42939,7 +42939,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43006,7 +43006,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43080,7 +43080,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecification>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43140,7 +43140,7 @@ export class TestSpecificationApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecification>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43263,7 +43263,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43316,7 +43316,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43376,7 +43376,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43436,7 +43436,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationMaterialTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43496,7 +43496,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationMaterialTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43563,7 +43563,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationMaterialTestJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43637,7 +43637,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationMaterialTestJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43697,7 +43697,7 @@ export class TestSpecificationMaterialTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationMaterialTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43820,7 +43820,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43873,7 +43873,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43933,7 +43933,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -43993,7 +43993,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationRequirement>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44053,7 +44053,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationRequirement>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44120,7 +44120,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationRequirement>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44194,7 +44194,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationRequirement>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44254,7 +44254,7 @@ export class TestSpecificationRequirementApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationRequirement>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44377,7 +44377,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44430,7 +44430,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44490,7 +44490,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44550,7 +44550,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSet>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44610,7 +44610,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSet>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44677,7 +44677,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationSet>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44751,7 +44751,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationSet>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44811,7 +44811,7 @@ export class TestSpecificationSetApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSet>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44934,7 +44934,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -44987,7 +44987,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45047,7 +45047,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45107,7 +45107,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSetTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45167,7 +45167,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSetTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45234,7 +45234,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationSetTestJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45308,7 +45308,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestSpecificationSetTestJoin>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45368,7 +45368,7 @@ export class TestSpecificationSetTestJoinApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestSpecificationSetTestJoin>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45491,7 +45491,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45544,7 +45544,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45604,7 +45604,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45664,7 +45664,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestStep>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45724,7 +45724,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestStep>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45791,7 +45791,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestStep>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45865,7 +45865,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<TestStep>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -45925,7 +45925,7 @@ export class TestStepApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<TestStep>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46048,7 +46048,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<boolean>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46101,7 +46101,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46161,7 +46161,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<InlineResponse200>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46221,7 +46221,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<UserModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46281,7 +46281,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<UserModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46348,7 +46348,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<UserModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46422,7 +46422,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<Array<UserModel>>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
@@ -46482,7 +46482,7 @@ export class UserApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<UserModel>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;

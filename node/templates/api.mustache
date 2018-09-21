@@ -221,7 +221,7 @@ export interface Authentication {
     * Apply authentication settings to header and query params.
     */
     applyToRequest(requestOptions: localVarRequest.Options): void;
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>;
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>;
 }
 
 export class HttpBasicAuth implements Authentication {
@@ -234,9 +234,9 @@ export class HttpBasicAuth implements Authentication {
         }
     }
 
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -253,9 +253,9 @@ export class ApiKeyAuth implements Authentication {
             requestOptions.headers[this.paramName] = this.apiKey;
         }
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -267,9 +267,9 @@ export class OAuth implements Authentication {
             requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
         }
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -280,9 +280,9 @@ export class VoidAuth implements Authentication {
     applyToRequest(_: localVarRequest.Options): void {
         // Do nothing
     }
-    executeWithAuth<T>(requestDelegate: Promise<T>): Promise<T>
+    executeWithAuth<T>(requestOptions: localVarRequest.Options, requestDelegate: ()=>Promise<T>): Promise<T>
     {
-        return requestDelegate;
+        return requestDelegate();
     }
 }
 
@@ -478,7 +478,7 @@ export class {{classname}} {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return this.authentications.default.executeWithAuth(
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
             new Promise<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}any{{/returnType}}>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     this._lastResponse = response;
