@@ -9,6 +9,8 @@
 import * as API from './api';
 export { API };
 
+const HEADLIGHT_API_VERSION = '1.0';
+
 export interface GeneralAPI
 {
     setDefaultAuthentication(pAuth: API.Authentication);
@@ -79,6 +81,10 @@ export class Client
 
     constructor(pBaseURL: string)
     {
+        if (pBaseURL.endsWith('/'))
+            pBaseURL = pBaseURL.substr(0, pBaseURL.length-1);
+        if (pBaseURL.indexOf(HEADLIGHT_API_VERSION) < 0)
+            pBaseURL = pBaseURL + '/' + HEADLIGHT_API_VERSION;
         this._BaseURL = pBaseURL;
         this._ApiReferences = new Map<string, GeneralAPI>();
 
