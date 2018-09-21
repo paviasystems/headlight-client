@@ -75,7 +75,7 @@ describe('Node API test', function() {
         let userApi = client.API(Headlight.API.UserApi);
         let record = await userApi.read(client.UserSession.UserID);
         expect(record.IDUser).to.eq(client.UserSession.UserID);
-    }).timeout(25000);
+    }).timeout(35000);
 
     it ('can access a different API with renewed credentials', async() => {
         let customerApi = client.API(Headlight.API.CustomerApi);
