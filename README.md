@@ -5,12 +5,13 @@ The headlight-client library is an SDK for interacting with [Headlight](http://h
 It contains the following resources:
 
 |||
-|-------------------------------|-------------|
-| HTML API Documentation        |  /docs      |
-| NodeJS Typescript Client      |  /node      |
-| AngularJS Typescript Client   |  /angularjs |
-| Angular6 Typescript Client    |  /angular6  |
-| Unit tests                    |  /node/test |
+|-------------------------------|--------------------------|
+| HTML API Documentation        |  /docs                   |
+| Browserify es6 bundle         |  /dist/headlight-bundle  |
+| NodeJS Typescript Client      |  /node                   |
+| AngularJS Typescript Client   |  /angularjs              |
+| Angular6 Typescript Client    |  /angular6               |
+| Unit tests                    |  /node/test              |
 
 ### Getting Started
 
@@ -44,3 +45,24 @@ main();
 
 Execute your script with:
 > ts-node example.ts
+
+### Using in the browser
+
+Just include the headlight-bundle.min.js file in your html document. You can then reference
+the client under the "Headlight" namespace.
+```
+<html>
+  <head>
+    <script src="headlight-bundle.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var client = new Headlight.Client("https://headlightqa.paviasystems.com");
+        client.login("user", "password123")
+            .then((session) => {
+                console.log(session);
+            });
+    </script>
+  </body>
+</html>
+```

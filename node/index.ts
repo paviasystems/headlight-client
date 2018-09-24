@@ -13,7 +13,7 @@ const HEADLIGHT_API_VERSION = '1.0';
 
 export interface GeneralAPI
 {
-    setDefaultAuthentication(pAuth: API.Authentication);
+    setDefaultAuthentication(pAuth: API.Authentication): void;
 }
 
 export class CookieAuth implements API.Authentication {
@@ -23,7 +23,7 @@ export class CookieAuth implements API.Authentication {
     constructor(private sessionId: string, private client: Client){
     }
 
-    setCredentials(pSessionId: string, pUsername: string, pPassword)
+    setCredentials(pSessionId: string, pUsername: string, pPassword: string)
     {
         this.sessionId = pSessionId;
         this._Username = pUsername;
@@ -77,7 +77,7 @@ export class Client
     private _Cookie: CookieAuth;
     private _UserSession: API.ISession;
     private _Auth: API.AuthenticateApi;
-    private _ApiReferences: Map<string, GeneralAPI>;
+    private _ApiReferences: {[key: string]: GeneralAPI};
 
     constructor(pBaseURL: string)
     {
@@ -86,7 +86,7 @@ export class Client
         if (pBaseURL.indexOf(HEADLIGHT_API_VERSION) < 0)
             pBaseURL = pBaseURL + '/' + HEADLIGHT_API_VERSION;
         this._BaseURL = pBaseURL;
-        this._ApiReferences = new Map<string, GeneralAPI>();
+        this._ApiReferences = {};
 
         this._Auth = new API.AuthenticateApi(pBaseURL);
         this._Cookie = new CookieAuth(null, this);

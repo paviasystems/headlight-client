@@ -8,6 +8,7 @@ node('docker'){
             stage('Build') {
                 sh 'echo "build number = $BUILD_NUMBER"'
                 sh './codegen.sh'
+                sh 'gulp build'
             }
             stage('Test') {
                 sh 'npm install'
