@@ -21,7 +21,7 @@ Then install this package:
 > npm install headlight-client
 
 Create an example.ts script file:
-```
+```typescript
 import * as Headlight from 'headlight-client';
 
 const _ServerURL = 'https://headlightqa.paviasystems.com';
@@ -50,7 +50,7 @@ Execute your script with:
 
 Just include the headlight-bundle.min.js file in your html document. You can then reference
 the client under the "Headlight" namespace.
-```
+```html
 <html>
   <head>
     <script src="headlight-bundle.min.js"></script>
