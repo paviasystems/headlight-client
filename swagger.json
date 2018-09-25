@@ -2128,6 +2128,19 @@
 				"IDCustomer"
 			]
 		},
+		"ReportRenderResult": {
+			"description": "",
+			"properties": {
+				"GUIDReportDescription": {
+					"type": "string",
+					"description": "UUID of rendered report."
+				}
+			},
+			"type": "object",
+			"required": [
+				"GUIDReportDescription"
+			]
+		},
 		"ReportModel": {
 			"description": "",
 			"properties": {
@@ -17536,6 +17549,139 @@
 				]
 			}
 		},
+		"/Report/Report/Datum/{ReportUUID}": {
+			"get": {
+				"operationId": "getReportDatum",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Source JSON datum used to generate the report.",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "UUID of completed report render.",
+						"in": "path",
+						"name": "ReportUUID",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Report/Report/Manifest/{ReportUUID}": {
+			"get": {
+				"operationId": "getReportManifest",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Manifest (JSON metadata file) about the rendered report. Includes information about other generated assets.",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "UUID of completed report render.",
+						"in": "path",
+						"name": "ReportUUID",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Report/Report/Render/{IDDocument}/{Renderer}": {
+			"get": {
+				"operationId": "getRenderReport",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Object with report render UUID, or Error on failure",
+						"schema": {
+							"$ref": "#/definitions/ReportRenderResult"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Request to render a report. To get rendered files, use getReportStageFile()",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDDocument",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Render format (default, html, pdf, json, etc)",
+						"in": "path",
+						"name": "Renderer",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Report/Report/{ReportUUID}/{StageFilePath}": {
+			"get": {
+				"operationId": "getReportStageFile",
+				"produces": [
+					"application/octet-stream",
+					"application/pdf",
+					"text/html"
+				],
+				"responses": {
+					"200": {
+						"description": "Requested file from rendered report.",
+						"schema": {
+							"type": "file"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get staged (rendered) file for a previously rendered report.",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "UUID of completed report render.",
+						"in": "path",
+						"name": "ReportUUID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Subpath to file in rendered report stage dir",
+						"in": "path",
+						"name": "StageFilePath",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Report/{ReportType}": {
 			"get": {
 				"operationId": "getDocumentRenderByType",
@@ -17547,11 +17693,19 @@
 						"description": "No content"
 					}
 				},
-				"description": "",
+				"description": "Get list of available render types for a document type. (pdf, html, etc.)",
 				"tags": [
 					"Report"
 				],
-				"parameters": []
+				"parameters": [
+					{
+						"description": "Report type name (e.g. 'DCR', 'Headlight-Daily', etc)",
+						"in": "path",
+						"name": "ReportType",
+						"required": true,
+						"type": "string"
+					}
+				]
 			}
 		},
 		"/Report/{id}": {
