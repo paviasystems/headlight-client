@@ -17618,7 +17618,7 @@
 						"description": "No content"
 					}
 				},
-				"description": "Request to render a report. To get rendered files, use getReportStageFile()",
+				"description": "Request to render a report. To get rendered files, use getReportStageFile()\nExample HTML flow:\n1. Request /Report/Render/1247/default\n2. Extract GUIDReportDescription (i.e. \"0x5984be9c8b000000\") from response object.\n3. Open a new browser tab to: /Report/0x5984be9c8b000000/\n4. Rendered html page will subsequently request assets (images, css, etc)",
 				"tags": [
 					"Report"
 				],
