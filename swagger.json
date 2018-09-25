@@ -17549,7 +17549,7 @@
 				]
 			}
 		},
-		"/Report/Report/Datum/{ReportUUID}": {
+		"/Report/Datum/{ReportUUID}": {
 			"get": {
 				"operationId": "getReportDatum",
 				"produces": [
@@ -17575,7 +17575,7 @@
 				]
 			}
 		},
-		"/Report/Report/Manifest/{ReportUUID}": {
+		"/Report/Manifest/{ReportUUID}": {
 			"get": {
 				"operationId": "getReportManifest",
 				"produces": [
@@ -17601,7 +17601,7 @@
 				]
 			}
 		},
-		"/Report/Report/Render/{IDDocument}/{Renderer}": {
+		"/Report/Render/{IDDocument}/{Renderer}": {
 			"get": {
 				"operationId": "getRenderReport",
 				"produces": [
@@ -17641,7 +17641,33 @@
 				]
 			}
 		},
-		"/Report/Report/{ReportUUID}/{StageFilePath}": {
+		"/Report/{ReportType}": {
+			"get": {
+				"operationId": "getDocumentRenderByType",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get list of available render types for a document type. (pdf, html, etc.)",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "Report type name (e.g. 'DCR', 'Headlight-Daily', etc)",
+						"in": "path",
+						"name": "ReportType",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Report/{ReportUUID}/{StageFilePath}": {
 			"get": {
 				"operationId": "getReportStageFile",
 				"produces": [
@@ -17676,32 +17702,6 @@
 						"description": "Subpath to file in rendered report stage dir",
 						"in": "path",
 						"name": "StageFilePath",
-						"required": true,
-						"type": "string"
-					}
-				]
-			}
-		},
-		"/Report/{ReportType}": {
-			"get": {
-				"operationId": "getDocumentRenderByType",
-				"produces": [
-					"application/json"
-				],
-				"responses": {
-					"204": {
-						"description": "No content"
-					}
-				},
-				"description": "Get list of available render types for a document type. (pdf, html, etc.)",
-				"tags": [
-					"Report"
-				],
-				"parameters": [
-					{
-						"description": "Report type name (e.g. 'DCR', 'Headlight-Daily', etc)",
-						"in": "path",
-						"name": "ReportType",
 						"required": true,
 						"type": "string"
 					}
