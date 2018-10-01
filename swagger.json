@@ -551,6 +551,82 @@
 				"Password"
 			]
 		},
+		"ChangePasswordRequest": {
+			"description": "",
+			"properties": {
+				"NewPassword": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"NewPassword"
+			]
+		},
+		"UserSignupRequest": {
+			"description": "",
+			"properties": {
+				"NameFirst": {
+					"type": "string",
+					"description": ""
+				},
+				"NameLast": {
+					"type": "string",
+					"description": ""
+				},
+				"Email": {
+					"type": "string",
+					"description": ""
+				},
+				"Password": {
+					"type": "string",
+					"description": ""
+				},
+				"Phone": {
+					"type": "string",
+					"description": ""
+				},
+				"CompanyName": {
+					"type": "string",
+					"description": ""
+				},
+				"CompanyDetails": {
+					"type": "object",
+					"properties": {
+						"State": {
+							"type": "string",
+							"description": ""
+						},
+						"Size": {
+							"type": "number",
+							"format": "double",
+							"description": ""
+						},
+						"EstimatedAnnualRevenue": {
+							"type": "string",
+							"description": ""
+						}
+					},
+					"description": ""
+				},
+				"Position": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"NameFirst",
+				"NameLast",
+				"Email",
+				"Password",
+				"Phone",
+				"CompanyName",
+				"CompanyDetails",
+				"Position"
+			]
+		},
 		"Notification": {
 			"description": "",
 			"properties": {
@@ -2253,6 +2329,31 @@
 				"EmailAddressList",
 				"Subject",
 				"Message"
+			]
+		},
+		"DocumentStateChangeRequest": {
+			"description": "",
+			"properties": {
+				"IDDocument": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Action": {
+					"type": "string",
+					"description": ""
+				},
+				"IDElectronicSignature": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDDocument",
+				"Action",
+				"IDElectronicSignature"
 			]
 		},
 		"ElectronicSignature": {
@@ -6884,19 +6985,19 @@
 				],
 				"parameters": [
 					{
-						"description": "",
-						"in": "formData",
-						"name": "file",
-						"required": true,
-						"type": "file"
-					},
-					{
 						"description": "ID of record",
 						"in": "path",
 						"name": "IDObservationArtifact",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					},
+					{
+						"description": "",
+						"in": "formData",
+						"name": "file",
+						"required": true,
+						"type": "file"
 					},
 					{
 						"description": "",
@@ -6928,7 +7029,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDObservationArtifact",
+						"name": "IDTargetArtifact",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -6936,7 +7037,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDTargetArtifact",
+						"name": "IDObservationArtifact",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -6994,6 +7095,13 @@
 						"description": "",
 						"in": "path",
 						"name": "Size",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "",
+						"in": "path",
+						"name": "ArtifactVersion",
 						"required": true,
 						"type": "string"
 					}
@@ -7172,6 +7280,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -7186,13 +7301,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -7560,6 +7668,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -7574,13 +7689,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -7879,6 +7987,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -7893,13 +8008,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -8156,6 +8264,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -8170,13 +8285,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -8433,6 +8541,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -8447,13 +8562,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -8611,7 +8719,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDDocument",
+						"name": "IDElectronicSignature",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8619,7 +8727,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDElectronicSignature",
+						"name": "IDDocument",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8694,7 +8802,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDDocument",
+						"name": "IDObservation",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8702,7 +8810,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDObservation",
+						"name": "IDDocument",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8729,7 +8837,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDDocument",
+						"name": "IDComment",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8737,7 +8845,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDComment",
+						"name": "IDDocument",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8852,7 +8960,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDDocument",
+						"name": "IDObservation",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8860,7 +8968,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDObservation",
+						"name": "IDDocument",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -8998,7 +9106,17 @@
 				"consumes": [
 					"application/json"
 				],
-				"parameters": []
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocumentStateChangeRequest"
+						}
+					}
+				]
 			}
 		},
 		"/DocumentApproval/{IDDocument}/ApproverList": {
@@ -9075,6 +9193,14 @@
 				],
 				"parameters": [
 					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDDocument",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
 						"description": "",
 						"in": "body",
 						"name": "body",
@@ -9082,14 +9208,6 @@
 						"schema": {
 							"$ref": "#/definitions/SendToEmailRequest"
 						}
-					},
-					{
-						"description": "ID of record",
-						"in": "path",
-						"name": "IDDocument",
-						"required": true,
-						"type": "integer",
-						"format": "int64"
 					}
 				]
 			}
@@ -9181,6 +9299,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -9195,13 +9320,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -9226,6 +9344,14 @@
 				],
 				"parameters": [
 					{
+						"description": "FROM date (descending)",
+						"in": "path",
+						"name": "SynchronizeFromDate",
+						"required": true,
+						"type": "string",
+						"format": "date-time"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "Begin",
@@ -9240,14 +9366,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FROM date (descending)",
-						"in": "path",
-						"name": "SynchronizeFromDate",
-						"required": true,
-						"type": "string",
-						"format": "date-time"
 					}
 				]
 			},
@@ -9267,6 +9385,14 @@
 				],
 				"parameters": [
 					{
+						"description": "FROM date (descending)",
+						"in": "path",
+						"name": "SynchronizeFromDate",
+						"required": true,
+						"type": "string",
+						"format": "date-time"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "Begin",
@@ -9281,14 +9407,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FROM date (descending)",
-						"in": "path",
-						"name": "SynchronizeFromDate",
-						"required": true,
-						"type": "string",
-						"format": "date-time"
 					}
 				]
 			}
@@ -9572,6 +9690,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -9586,13 +9711,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -9849,6 +9967,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -9863,13 +9988,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -10250,6 +10368,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -10264,13 +10389,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -10527,6 +10645,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -10541,13 +10666,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -10804,6 +10922,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -10818,13 +10943,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -10957,6 +11075,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -10971,13 +11096,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -11234,6 +11352,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -11248,13 +11373,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -11635,6 +11753,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -11649,13 +11774,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -11912,6 +12030,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -11926,13 +12051,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -12189,6 +12307,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -12203,13 +12328,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -12342,6 +12460,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -12356,13 +12481,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -12743,6 +12861,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -12757,13 +12882,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -12896,6 +13014,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -12910,13 +13035,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -13173,6 +13291,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -13187,13 +13312,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -13450,6 +13568,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -13464,13 +13589,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -14117,19 +14235,19 @@
 						"format": "int64"
 					},
 					{
+						"description": "solr search query",
+						"in": "path",
+						"name": "SearchQuery",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Maximum number of records to return",
 						"in": "path",
 						"name": "Cap",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "solr search query",
-						"in": "path",
-						"name": "SearchQuery",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -14316,6 +14434,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -14330,13 +14455,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -14361,6 +14479,14 @@
 				],
 				"parameters": [
 					{
+						"description": "",
+						"in": "path",
+						"name": "SynchronizeFromDate",
+						"required": true,
+						"type": "string",
+						"format": "date-time"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "Begin",
@@ -14375,14 +14501,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "",
-						"in": "path",
-						"name": "SynchronizeFromDate",
-						"required": true,
-						"type": "string",
-						"format": "date-time"
 					}
 				]
 			},
@@ -14411,6 +14529,14 @@
 				],
 				"parameters": [
 					{
+						"description": "",
+						"in": "path",
+						"name": "SynchronizeFromDate",
+						"required": true,
+						"type": "string",
+						"format": "date-time"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "Begin",
@@ -14425,14 +14551,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "",
-						"in": "path",
-						"name": "SynchronizeFromDate",
-						"required": true,
-						"type": "string",
-						"format": "date-time"
 					}
 				]
 			}
@@ -14617,20 +14735,20 @@
 				],
 				"parameters": [
 					{
-						"description": "Maximum number of records to return",
-						"in": "path",
-						"name": "Cap",
-						"required": true,
-						"type": "integer",
-						"format": "int64"
-					},
-					{
 						"description": "",
 						"in": "path",
 						"name": "ByDate",
 						"required": true,
 						"type": "string",
 						"format": "date-time"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "Cap",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
 					}
 				]
 			}
@@ -15048,6 +15166,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -15062,13 +15187,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -15201,6 +15319,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -15215,13 +15340,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -15263,6 +15381,37 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Password": {
+			"post": {
+				"operationId": "updatePassword",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Change user password *",
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ChangePasswordRequest"
+						}
 					}
 				]
 			}
@@ -15478,6 +15627,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -15492,13 +15648,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -16003,6 +16152,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -16017,13 +16173,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -16156,6 +16305,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -16170,13 +16326,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -16309,6 +16458,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -16323,13 +16479,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -16586,6 +16735,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -16600,13 +16756,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -17111,6 +17260,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -17125,13 +17281,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -17264,6 +17413,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -17278,13 +17434,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -17417,6 +17566,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -17431,13 +17587,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -17851,7 +18000,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDReportNamedInstance",
+						"name": "IDProject",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -17859,7 +18008,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDProject",
+						"name": "IDReportNamedInstance",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -17886,7 +18035,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDReportNamedInstance",
+						"name": "IDProject",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -17894,7 +18043,7 @@
 					{
 						"description": "ID of record",
 						"in": "path",
-						"name": "IDProject",
+						"name": "IDReportNamedInstance",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
@@ -18047,6 +18196,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -18061,13 +18217,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -18243,6 +18392,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -18257,13 +18413,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -18644,6 +18793,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -18658,13 +18814,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -18921,6 +19070,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -18935,13 +19091,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -19198,6 +19347,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -19212,13 +19368,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -19351,6 +19500,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -19365,13 +19521,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -19752,6 +19901,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -19766,13 +19922,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -20277,6 +20426,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -20291,13 +20447,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -20430,6 +20579,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -20444,13 +20600,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -20707,6 +20856,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -20721,13 +20877,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -20984,6 +21133,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -20998,13 +21154,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -21137,6 +21286,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -21151,13 +21307,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -21414,6 +21563,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -21428,13 +21584,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -21691,6 +21840,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -21705,13 +21861,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -21968,6 +22117,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -21982,13 +22138,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -22369,6 +22518,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -22383,13 +22539,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -22646,6 +22795,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -22660,13 +22816,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23047,6 +23196,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -23061,13 +23217,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23200,6 +23349,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -23214,13 +23370,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23353,6 +23502,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -23367,13 +23523,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23630,6 +23779,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -23644,13 +23800,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23783,6 +23932,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -23797,13 +23953,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
@@ -23913,6 +24062,203 @@
 						}
 					}
 				]
+			}
+		},
+		"/User/Active": {
+			"get": {
+				"operationId": "getActiveUsers",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get Avtive Users list ",
+				"tags": [
+					"User"
+				],
+				"parameters": []
+			}
+		},
+		"/User/CheckEmail/{Email}": {
+			"get": {
+				"operationId": "checkEmail",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Check if an email is already in use",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "Email",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/User/CheckLoginID/{LoginID}": {
+			"get": {
+				"operationId": "checkLoginID",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Check if a LoginID is already in use",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "LoginID",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/User/ConfirmEmail/{EmailConfirmHash}": {
+			"get": {
+				"operationId": "confirmEmail",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Email confirmation link for self-signup user",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "Hash code sent in confirmation email",
+						"in": "path",
+						"name": "EmailConfirmHash",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/User/ForgotPassword/{Email}": {
+			"get": {
+				"operationId": "forgotPassword",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "User forgot password email with link",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "Email",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/User/ResendConfirmationEmail/{Email}": {
+			"get": {
+				"operationId": "resendConfirmationEmail",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Request to resend confirmation email (user email must not be confirmed yet)",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "path",
+						"name": "Email",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/User/Signup": {
+			"post": {
+				"operationId": "signupUser",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "User self-signup",
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/UserSignupRequest"
+						}
+					}
+				]
+			}
+		},
+		"/User/SyncIndicator": {
+			"get": {
+				"operationId": "getSyncIndicator",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Send version and last update dates for various ",
+				"tags": [
+					"User"
+				],
+				"parameters": []
 			}
 		},
 		"/User/{id}": {
@@ -24060,6 +24406,13 @@
 				],
 				"parameters": [
 					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
 						"description": "Beginning (skip) number of records (to page)",
 						"in": "path",
 						"name": "begin",
@@ -24074,13 +24427,6 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
-					},
-					{
-						"description": "FBV meadow filter",
-						"in": "path",
-						"name": "filter",
-						"required": true,
-						"type": "string"
 					}
 				]
 			}
