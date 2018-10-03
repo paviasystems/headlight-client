@@ -267,18 +267,6 @@
 		"UserModel": {
 			"description": "",
 			"properties": {
-				"LoginPassword": {
-					"type": "string",
-					"description": ""
-				},
-				"PasswordResetKey": {
-					"type": "string",
-					"description": ""
-				},
-				"LastSessionID": {
-					"type": "string",
-					"description": ""
-				},
 				"Settings": {
 					"type": "object",
 					"description": ""
@@ -404,9 +392,6 @@
 			},
 			"type": "object",
 			"required": [
-				"LoginPassword",
-				"PasswordResetKey",
-				"LastSessionID",
 				"Settings",
 				"IDUser",
 				"GUIDUser",
