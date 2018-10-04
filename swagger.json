@@ -1339,10 +1339,6 @@
 		"ObservationModel": {
 			"description": "",
 			"properties": {
-				"_StatusOverride": {
-					"type": "boolean",
-					"description": ""
-				},
 				"Labels": {
 					"type": "object",
 					"properties": {
@@ -1508,7 +1504,6 @@
 			},
 			"type": "object",
 			"required": [
-				"_StatusOverride",
 				"Labels",
 				"Details",
 				"Statistics",
@@ -2778,12 +2773,12 @@
 		"LabTestApproval": {
 			"description": "",
 			"properties": {
-				"IDLabTestJoin": {
+				"IDLabTestApproval": {
 					"type": "number",
 					"format": "double",
 					"description": ""
 				},
-				"GUIDLabTestJoin": {
+				"GUIDLabTestApproval": {
 					"type": "string",
 					"description": ""
 				},
@@ -2859,8 +2854,8 @@
 			},
 			"type": "object",
 			"required": [
-				"IDLabTestJoin",
-				"GUIDLabTestJoin",
+				"IDLabTestApproval",
+				"GUIDLabTestApproval",
 				"CreateDate",
 				"CreatingIDUser",
 				"UpdateDate",
