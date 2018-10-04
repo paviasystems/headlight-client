@@ -233,10 +233,6 @@
 					"type": "string",
 					"description": ""
 				},
-				"ConfigurationJSON": {
-					"type": "string",
-					"description": ""
-				},
 				"Ordinal": {
 					"type": "number",
 					"format": "double",
@@ -260,7 +256,6 @@
 				"Name",
 				"Management",
 				"ModuleHash",
-				"ConfigurationJSON",
 				"Ordinal"
 			]
 		},
@@ -375,10 +370,6 @@
 					"type": "string",
 					"description": ""
 				},
-				"SettingsJSON": {
-					"type": "string",
-					"description": ""
-				},
 				"ExternalSyncDate": {
 					"type": "string",
 					"format": "date-time",
@@ -416,7 +407,6 @@
 				"UIHash",
 				"Timezone",
 				"Shift",
-				"SettingsJSON",
 				"ExternalSyncDate",
 				"LastLoginTime"
 			]
@@ -1751,10 +1741,6 @@
 					"type": "string",
 					"description": ""
 				},
-				"ExtendedJSON": {
-					"type": "string",
-					"description": ""
-				},
 				"IDCustomer": {
 					"type": "number",
 					"format": "double",
@@ -1782,7 +1768,6 @@
 				"Description",
 				"Units",
 				"Amount",
-				"ExtendedJSON",
 				"IDCustomer",
 				"ExternalSyncDate"
 			]
@@ -2257,10 +2242,6 @@
 					"type": "string",
 					"description": ""
 				},
-				"OptionsJSON": {
-					"type": "string",
-					"description": ""
-				},
 				"IDCustomer": {
 					"type": "number",
 					"format": "double",
@@ -2280,7 +2261,6 @@
 				"DeleteDate",
 				"DeletingIDUser",
 				"Archetype",
-				"OptionsJSON",
 				"IDCustomer"
 			]
 		},
@@ -2584,10 +2564,6 @@
 					"type": "number",
 					"format": "double",
 					"description": ""
-				},
-				"FormDataJSON": {
-					"type": "string",
-					"description": ""
 				}
 			},
 			"type": "object",
@@ -2622,8 +2598,7 @@
 				"ExternalSyncDate",
 				"SequenceNumber",
 				"ExternalSyncGUID",
-				"Form",
-				"FormDataJSON"
+				"Form"
 			]
 		},
 		"SampleLabJoin": {
