@@ -7173,7 +7173,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ArtifactModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ArtifactModel"
+							}
 						}
 					},
 					"204": {
@@ -7669,7 +7672,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/BidItem"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/BidItem"
+							}
 						}
 					},
 					"204": {
@@ -8069,7 +8075,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/CommentModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/CommentModel"
+							}
 						}
 					},
 					"204": {
@@ -8427,7 +8436,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Contract"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Contract"
+							}
 						}
 					},
 					"204": {
@@ -8785,7 +8797,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Customer"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Customer"
+							}
 						}
 					},
 					"204": {
@@ -9253,7 +9268,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/DocumentModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentModel"
+							}
 						}
 					},
 					"204": {
@@ -10096,7 +10114,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ElectronicSignatureModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ElectronicSignatureModel"
+							}
 						}
 					},
 					"204": {
@@ -10454,7 +10475,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Equipment"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Equipment"
+							}
 						}
 					},
 					"204": {
@@ -10812,7 +10836,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Lab"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Lab"
+							}
 						}
 					},
 					"204": {
@@ -11017,7 +11044,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/LabMaterialAssignment"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabMaterialAssignment"
+							}
 						}
 					},
 					"204": {
@@ -11375,7 +11405,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/LabTestApproval"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestApproval"
+							}
 						}
 					},
 					"204": {
@@ -11733,7 +11766,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/LabTestDefault"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestDefault"
+							}
 						}
 					},
 					"204": {
@@ -12244,7 +12280,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/LineItem"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LineItem"
+							}
 						}
 					},
 					"204": {
@@ -12602,7 +12641,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Material"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Material"
+							}
 						}
 					},
 					"204": {
@@ -12807,7 +12849,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/MaterialLineItemJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialLineItemJoin"
+							}
 						}
 					},
 					"204": {
@@ -13165,7 +13210,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/MaterialPayItemJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialPayItemJoin"
+							}
 						}
 					},
 					"204": {
@@ -13523,7 +13571,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+							}
 						}
 					},
 					"204": {
@@ -14034,7 +14085,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/MixSpecification"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecification"
+							}
 						}
 					},
 					"204": {
@@ -14239,7 +14293,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/MixSpecificationMaterialJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecificationMaterialJoin"
+							}
 						}
 					},
 					"204": {
@@ -14750,7 +14807,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ModuleModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ModuleModel"
+							}
 						}
 					},
 					"204": {
@@ -15108,7 +15168,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Notification"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Notification"
+							}
 						}
 					},
 					"204": {
@@ -15570,7 +15633,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ObservationModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ObservationModel"
+							}
 						}
 					},
 					"204": {
@@ -16744,7 +16810,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Organization"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Organization"
+							}
 						}
 					},
 					"204": {
@@ -16949,7 +17018,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/OrganizationMaterialJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/OrganizationMaterialJoin"
+							}
 						}
 					},
 					"204": {
@@ -17491,7 +17563,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/PayItemModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/PayItemModel"
+							}
 						}
 					},
 					"204": {
@@ -17849,7 +17924,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Product"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Product"
+							}
 						}
 					},
 					"204": {
@@ -18054,7 +18132,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ProductionPlant"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlant"
+							}
 						}
 					},
 					"204": {
@@ -18259,7 +18340,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ProductionPlantMaterialApproval"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlantMaterialApproval"
+							}
 						}
 					},
 					"204": {
@@ -18923,7 +19007,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ProjectModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProjectModel"
+							}
 						}
 					},
 					"204": {
@@ -19281,7 +19368,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/RecordOfMaterial"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterial"
+							}
 						}
 					},
 					"204": {
@@ -19486,7 +19576,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/RecordOfMaterialEntry"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntry"
+							}
 						}
 					},
 					"204": {
@@ -19691,7 +19784,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+							}
 						}
 					},
 					"204": {
@@ -20447,7 +20543,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ReportModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportModel"
+							}
 						}
 					},
 					"204": {
@@ -20719,7 +20818,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/ReportNamedInstanceModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportNamedInstanceModel"
+							}
 						}
 					},
 					"204": {
@@ -21343,7 +21445,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Sample"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Sample"
+							}
 						}
 					},
 					"204": {
@@ -21548,7 +21653,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/SampleLabJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLabJoin"
+							}
 						}
 					},
 					"204": {
@@ -21906,7 +22014,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/SampleLineItemJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLineItemJoin"
+							}
 						}
 					},
 					"204": {
@@ -22264,7 +22375,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/SampleLog"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLog"
+							}
 						}
 					},
 					"204": {
@@ -22775,7 +22889,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/Test"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Test"
+							}
 						}
 					},
 					"204": {
@@ -22980,7 +23097,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestData"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestData"
+							}
 						}
 					},
 					"204": {
@@ -23338,7 +23458,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestInstance"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstance"
+							}
 						}
 					},
 					"204": {
@@ -23543,7 +23666,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestInstanceData"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceData"
+							}
 						}
 					},
 					"204": {
@@ -23748,7 +23874,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestInstanceDataArchive"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceDataArchive"
+							}
 						}
 					},
 					"204": {
@@ -24259,7 +24388,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestInstanceLabJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceLabJoin"
+							}
 						}
 					},
 					"204": {
@@ -24617,7 +24749,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestInstanceSampleJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceSampleJoin"
+							}
 						}
 					},
 					"204": {
@@ -25128,7 +25263,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestLabJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestLabJoin"
+							}
 						}
 					},
 					"204": {
@@ -25486,7 +25624,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestPlan"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestPlan"
+							}
 						}
 					},
 					"204": {
@@ -25844,7 +25985,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
+							}
 						}
 					},
 					"204": {
@@ -26202,7 +26346,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestSpecification"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecification"
+							}
 						}
 					},
 					"204": {
@@ -26407,7 +26554,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+							}
 						}
 					},
 					"204": {
@@ -26765,7 +26915,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestSpecificationRequirement"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationRequirement"
+							}
 						}
 					},
 					"204": {
@@ -27123,7 +27276,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestSpecificationSet"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSet"
+							}
 						}
 					},
 					"204": {
@@ -27328,7 +27484,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestSpecificationSetTestJoin"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSetTestJoin"
+							}
 						}
 					},
 					"204": {
@@ -27992,7 +28151,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/TestStep"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestStep"
+							}
 						}
 					},
 					"204": {
@@ -28700,7 +28862,10 @@
 					"200": {
 						"description": "Array of records found",
 						"schema": {
-							"$ref": "#/definitions/UserModel"
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserModel"
+							}
 						}
 					},
 					"204": {
