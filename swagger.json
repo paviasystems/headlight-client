@@ -160,6 +160,62 @@
 				"Status"
 			]
 		},
+		"QueryRequest": {
+			"description": "",
+			"properties": {
+				"Filters": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {}
+					},
+					"description": ""
+				},
+				"SelectFields": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {}
+					},
+					"description": ""
+				},
+				"Joins": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {}
+					},
+					"description": ""
+				},
+				"SortFields": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {}
+					},
+					"description": ""
+				},
+				"Begin": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Cap": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"Filters",
+				"SelectFields",
+				"Joins",
+				"SortFields",
+				"Begin",
+				"Cap"
+			]
+		},
 		"ModuleModel": {
 			"description": "",
 			"properties": {
@@ -7063,6 +7119,87 @@
 				]
 			}
 		},
+		"/Artifact/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Artifact/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ArtifactModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Artifact/{IDArtifact}/ClearSyncFlag": {
 			"get": {
 				"operationId": "clearArtifactSyncFlag",
@@ -7478,6 +7615,87 @@
 				]
 			}
 		},
+		"/BidItem/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"BidItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/BidItem/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/BidItem"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"BidItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/BidItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -7797,6 +8015,87 @@
 				]
 			}
 		},
+		"/Comment/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Comment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Comment/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/CommentModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Comment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Comment/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -8074,6 +8373,87 @@
 				]
 			}
 		},
+		"/Contract/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Contract"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Contract/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Contract"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Contract"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Contract/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -8346,6 +8726,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/Customer"
+						}
+					}
+				]
+			}
+		},
+		"/Customer/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Customer"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Customer/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Customer"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Customer"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -8736,6 +9197,87 @@
 					"application/json"
 				],
 				"parameters": []
+			}
+		},
+		"/Document/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Document/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/DocumentModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
 			}
 		},
 		"/Document/{IDDocument}/AddObservation/{IDObservation}": {
@@ -9500,6 +10042,87 @@
 				]
 			}
 		},
+		"/ElectronicSignature/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ElectronicSignature"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ElectronicSignature/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ElectronicSignatureModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ElectronicSignature"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/ElectronicSignature/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -9772,6 +10395,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/Equipment"
+						}
+					}
+				]
+			}
+		},
+		"/Equipment/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Equipment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Equipment/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Equipment"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Equipment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -10054,6 +10758,87 @@
 				]
 			}
 		},
+		"/Lab/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Lab"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Lab/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Lab"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Lab"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Lab/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -10173,6 +10958,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/LabMaterialAssignment"
+						}
+					}
+				]
+			}
+		},
+		"/LabMaterialAssignment/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabMaterialAssignment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LabMaterialAssignment/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/LabMaterialAssignment"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabMaterialAssignment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -10455,6 +11321,87 @@
 				]
 			}
 		},
+		"/LabTestApproval/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LabTestApproval/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/LabTestApproval"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/LabTestApproval/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -10727,6 +11674,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/LabTestDefault"
+						}
+					}
+				]
+			}
+		},
+		"/LabTestDefault/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestDefault"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LabTestDefault/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/LabTestDefault"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestDefault"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -11162,6 +12190,87 @@
 				]
 			}
 		},
+		"/LineItem/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LineItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LineItem/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/LineItem"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LineItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/LineItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -11439,6 +12548,87 @@
 				]
 			}
 		},
+		"/Material/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Material"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Material/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Material"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Material"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Material/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -11558,6 +12748,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/MaterialLineItemJoin"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialLineItemJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialLineItemJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/MaterialLineItemJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -11840,6 +13111,87 @@
 				]
 			}
 		},
+		"/MaterialPayItemJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialPayItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialPayItemJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/MaterialPayItemJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialPayItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/MaterialPayItemJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -12112,6 +13464,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialRecordOfMaterialEntryJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialRecordOfMaterialEntryJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -12547,6 +13980,87 @@
 				]
 			}
 		},
+		"/MixSpecification/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MixSpecification/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/MixSpecification"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/MixSpecification/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -12666,6 +14180,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/MixSpecificationMaterialJoin"
+						}
+					}
+				]
+			}
+		},
+		"/MixSpecificationMaterialJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecificationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MixSpecificationMaterialJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/MixSpecificationMaterialJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecificationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -13101,6 +14696,87 @@
 				]
 			}
 		},
+		"/Module/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Module"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Module/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ModuleModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Module"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Module/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -13373,6 +15049,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/Notification"
+						}
+					}
+				]
+			}
+		},
+		"/Notification/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Notification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Notification/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Notification"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Notification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -13755,6 +15512,87 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Observation/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Observation"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Observation/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ObservationModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Observation"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
 					}
 				]
 			}
@@ -14852,6 +16690,87 @@
 				]
 			}
 		},
+		"/Organization/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Organization"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Organization/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Organization"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Organization"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Organization/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -14971,6 +16890,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/OrganizationMaterialJoin"
+						}
+					}
+				]
+			}
+		},
+		"/OrganizationMaterialJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"OrganizationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/OrganizationMaterialJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/OrganizationMaterialJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"OrganizationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -15437,6 +17437,87 @@
 				]
 			}
 		},
+		"/PayItem/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"PayItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/PayItem/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/PayItemModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"PayItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/PayItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -15714,6 +17795,87 @@
 				]
 			}
 		},
+		"/Product/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Product"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Product/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Product"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Product"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Product/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -15838,6 +18000,87 @@
 				]
 			}
 		},
+		"/ProductionPlant/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlant"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ProductionPlant/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ProductionPlant"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlant"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/ProductionPlant/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -15957,6 +18200,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/ProductionPlantMaterialApproval"
+						}
+					}
+				]
+			}
+		},
+		"/ProductionPlantMaterialApproval/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlantMaterialApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ProductionPlantMaterialApproval/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ProductionPlantMaterialApproval"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlantMaterialApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -16545,6 +18869,87 @@
 				]
 			}
 		},
+		"/Project/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Project"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Project/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ProjectModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Project"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Project/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -16822,6 +19227,87 @@
 				]
 			}
 		},
+		"/RecordOfMaterial/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterial"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/RecordOfMaterial/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/RecordOfMaterial"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterial"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/RecordOfMaterial/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -16946,6 +19432,87 @@
 				]
 			}
 		},
+		"/RecordOfMaterialEntry/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntry"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/RecordOfMaterialEntry/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/RecordOfMaterialEntry"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntry"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/RecordOfMaterialEntry/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -17065,6 +19632,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+						}
+					}
+				]
+			}
+		},
+		"/RecordOfMaterialEntryArchive/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntryArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/RecordOfMaterialEntryArchive/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntryArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -17745,6 +20393,87 @@
 				]
 			}
 		},
+		"/Report/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Report"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Report/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ReportModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Report"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Report/{ReportType}": {
 			"get": {
 				"operationId": "getDocumentRenderByType",
@@ -17931,6 +20660,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/ReportNamedInstanceModel"
+						}
+					}
+				]
+			}
+		},
+		"/ReportNamedInstance/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ReportNamedInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ReportNamedInstance/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/ReportNamedInstanceModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ReportNamedInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -18479,6 +21289,87 @@
 				]
 			}
 		},
+		"/Sample/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Sample"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Sample/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Sample"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Sample"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Sample/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -18598,6 +21489,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/SampleLabJoin"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLabJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLabJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/SampleLabJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -18880,6 +21852,87 @@
 				]
 			}
 		},
+		"/SampleLineItemJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLineItemJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/SampleLineItemJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/SampleLineItemJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -19152,6 +22205,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/SampleLog"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLog/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLog"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLog/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/SampleLog"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLog"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -19587,6 +22721,87 @@
 				]
 			}
 		},
+		"/Test/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Test"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Test/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/Test"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Test"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Test/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -19706,6 +22921,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestData"
+						}
+					}
+				]
+			}
+		},
+		"/TestData/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestData/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestData"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -19988,6 +23284,87 @@
 				]
 			}
 		},
+		"/TestInstance/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstance/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestInstance"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstance/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -20112,6 +23489,87 @@
 				]
 			}
 		},
+		"/TestInstanceData/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceData/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestInstanceData"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstanceData/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -20231,6 +23689,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestInstanceDataArchive"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceDataArchive/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceDataArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceDataArchive/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestInstanceDataArchive"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceDataArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -20666,6 +24205,87 @@
 				]
 			}
 		},
+		"/TestInstanceLabJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceLabJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestInstanceLabJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstanceLabJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -20938,6 +24558,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestInstanceSampleJoin"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceSampleJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceSampleJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceSampleJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestInstanceSampleJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceSampleJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -21373,6 +25074,87 @@
 				]
 			}
 		},
+		"/TestLabJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestLabJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestLabJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestLabJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -21645,6 +25427,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestPlan"
+						}
+					}
+				]
+			}
+		},
+		"/TestPlan/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestPlan"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestPlan/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestPlan"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestPlan"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -21927,6 +25790,87 @@
 				]
 			}
 		},
+		"/TestRecordOfMaterialEntryJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestRecordOfMaterialEntryJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestRecordOfMaterialEntryJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -22204,6 +26148,87 @@
 				]
 			}
 		},
+		"/TestSpecification/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecification/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestSpecification"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecification/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -22323,6 +26348,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationMaterialTestJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationMaterialTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationMaterialTestJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationMaterialTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -22605,6 +26711,87 @@
 				]
 			}
 		},
+		"/TestSpecificationRequirement/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationRequirement"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationRequirement/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestSpecificationRequirement"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationRequirement"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecificationRequirement/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -22882,6 +27069,87 @@
 				]
 			}
 		},
+		"/TestSpecificationSet/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSet"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationSet/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestSpecificationSet"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSet"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecificationSet/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -23001,6 +27269,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestSpecificationSetTestJoin"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationSetTestJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSetTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationSetTestJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestSpecificationSetTestJoin"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSetTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -23584,6 +27933,87 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/TestStep"
+						}
+					}
+				]
+			}
+		},
+		"/TestStep/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestStep"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestStep/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/TestStep"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestStep"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
 						}
 					}
 				]
@@ -24214,6 +28644,87 @@
 					"User"
 				],
 				"parameters": []
+			}
+		},
+		"/User/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/User/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"$ref": "#/definitions/UserModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
 			}
 		},
 		"/User/{id}": {
