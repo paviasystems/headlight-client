@@ -2347,6 +2347,458 @@
 				"Message"
 			]
 		},
+		"Sample": {
+			"description": "",
+			"properties": {
+				"IDSample": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"GUIDSample": {
+					"type": "string",
+					"description": ""
+				},
+				"CreateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"CreatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UpdateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"UpdatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Deleted": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"DeleteDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"DeletingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ExternalSyncDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"IDCustomer": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"QRCode": {
+					"type": "string",
+					"description": ""
+				},
+				"CaptureLatitude": {
+					"type": "string",
+					"description": ""
+				},
+				"CaptureLongitude": {
+					"type": "string",
+					"description": ""
+				},
+				"Name": {
+					"type": "string",
+					"description": ""
+				},
+				"IDProject": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ParentIDSample": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDMaterial": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Notes": {
+					"type": "string",
+					"description": ""
+				},
+				"IDProductionPlant": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDLineItem": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"RepresentedQuantityUnits": {
+					"type": "string",
+					"description": ""
+				},
+				"SampledQuantityUnits": {
+					"type": "string",
+					"description": ""
+				},
+				"LabControlNumber": {
+					"type": "string",
+					"description": ""
+				},
+				"LabReferenceNumber": {
+					"type": "string",
+					"description": ""
+				},
+				"ProductName": {
+					"type": "string",
+					"description": ""
+				},
+				"MaterialType": {
+					"type": "string",
+					"description": ""
+				},
+				"IDOrganization": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDMixDesign": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ManufacturerCode": {
+					"type": "string",
+					"description": ""
+				},
+				"IntendedUse": {
+					"type": "string",
+					"description": ""
+				},
+				"BuyUSA": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ReceivedFrom": {
+					"type": "string",
+					"description": ""
+				},
+				"GeographicalArea": {
+					"type": "string",
+					"description": ""
+				},
+				"Station": {
+					"type": "string",
+					"description": ""
+				},
+				"Offset": {
+					"type": "string",
+					"description": ""
+				},
+				"RepresentedQuantity": {
+					"type": "string",
+					"description": ""
+				},
+				"SampledQuantity": {
+					"type": "string",
+					"description": ""
+				},
+				"Units": {
+					"type": "string",
+					"description": ""
+				},
+				"RequestedBy": {
+					"type": "string",
+					"description": ""
+				},
+				"Status": {
+					"type": "string",
+					"description": ""
+				},
+				"ExternalSyncGUID": {
+					"type": "string",
+					"description": ""
+				},
+				"IDLab": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDProduct": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"SampledByIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"WitnessIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"AuthorizedIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"CMSIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Datum": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDSample",
+				"GUIDSample",
+				"CreateDate",
+				"CreatingIDUser",
+				"UpdateDate",
+				"UpdatingIDUser",
+				"Deleted",
+				"DeleteDate",
+				"DeletingIDUser",
+				"ExternalSyncDate",
+				"IDCustomer",
+				"QRCode",
+				"CaptureLatitude",
+				"CaptureLongitude",
+				"Name",
+				"IDProject",
+				"ParentIDSample",
+				"IDMaterial",
+				"Notes",
+				"IDProductionPlant",
+				"IDLineItem",
+				"RepresentedQuantityUnits",
+				"SampledQuantityUnits",
+				"LabControlNumber",
+				"LabReferenceNumber",
+				"ProductName",
+				"MaterialType",
+				"IDOrganization",
+				"IDMixDesign",
+				"ManufacturerCode",
+				"IntendedUse",
+				"BuyUSA",
+				"ReceivedFrom",
+				"GeographicalArea",
+				"Station",
+				"Offset",
+				"RepresentedQuantity",
+				"SampledQuantity",
+				"Units",
+				"RequestedBy",
+				"Status",
+				"ExternalSyncGUID",
+				"IDLab",
+				"IDProduct",
+				"SampledByIDUser",
+				"WitnessIDUser",
+				"AuthorizedIDUser",
+				"CMSIDUser",
+				"Datum"
+			]
+		},
+		"SampleLog": {
+			"description": "",
+			"properties": {
+				"IDSampleLog": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"GUIDSampleLog": {
+					"type": "string",
+					"description": ""
+				},
+				"CreateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"CreatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UpdateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"UpdatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Deleted": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"DeleteDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"DeletingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ExternalSyncDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"IDCustomer": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDSample": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"CaptureLatitude": {
+					"type": "string",
+					"description": ""
+				},
+				"CaptureLongitude": {
+					"type": "string",
+					"description": ""
+				},
+				"UserLatitude": {
+					"type": "string",
+					"description": ""
+				},
+				"UserLongitude": {
+					"type": "string",
+					"description": ""
+				},
+				"AlignmentStation": {
+					"type": "string",
+					"description": ""
+				},
+				"AlignmentOffset": {
+					"type": "string",
+					"description": ""
+				},
+				"Notes": {
+					"type": "string",
+					"description": ""
+				},
+				"CaptureDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"IDLab": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Received": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"ExternalSyncGUID": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDSampleLog",
+				"GUIDSampleLog",
+				"CreateDate",
+				"CreatingIDUser",
+				"UpdateDate",
+				"UpdatingIDUser",
+				"Deleted",
+				"DeleteDate",
+				"DeletingIDUser",
+				"ExternalSyncDate",
+				"IDCustomer",
+				"IDSample",
+				"CaptureLatitude",
+				"CaptureLongitude",
+				"UserLatitude",
+				"UserLongitude",
+				"AlignmentStation",
+				"AlignmentOffset",
+				"Notes",
+				"CaptureDate",
+				"IDLab",
+				"Received",
+				"ExternalSyncGUID"
+			]
+		},
+		"FormProcessorRequest": {
+			"description": "",
+			"properties": {
+				"IDDocument": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Observations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ObservationModel"
+					},
+					"description": ""
+				},
+				"Samples": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Sample"
+					},
+					"description": ""
+				},
+				"SampleLogs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SampleLog"
+					},
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDDocument",
+				"Observations",
+				"Samples",
+				"SampleLogs"
+			]
+		},
 		"DocumentStateChangeRequest": {
 			"description": "",
 			"properties": {
@@ -4217,283 +4669,6 @@
 				"Notes"
 			]
 		},
-		"Sample": {
-			"description": "",
-			"properties": {
-				"IDSample": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"GUIDSample": {
-					"type": "string",
-					"description": ""
-				},
-				"CreateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"CreatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"UpdateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"UpdatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Deleted": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"DeleteDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"DeletingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ExternalSyncDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"IDCustomer": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"QRCode": {
-					"type": "string",
-					"description": ""
-				},
-				"CaptureLatitude": {
-					"type": "string",
-					"description": ""
-				},
-				"CaptureLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"Name": {
-					"type": "string",
-					"description": ""
-				},
-				"IDProject": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ParentIDSample": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"IDMaterial": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Notes": {
-					"type": "string",
-					"description": ""
-				},
-				"IDProductionPlant": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"IDLineItem": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"RepresentedQuantityUnits": {
-					"type": "string",
-					"description": ""
-				},
-				"SampledQuantityUnits": {
-					"type": "string",
-					"description": ""
-				},
-				"LabControlNumber": {
-					"type": "string",
-					"description": ""
-				},
-				"LabReferenceNumber": {
-					"type": "string",
-					"description": ""
-				},
-				"ProductName": {
-					"type": "string",
-					"description": ""
-				},
-				"MaterialType": {
-					"type": "string",
-					"description": ""
-				},
-				"IDOrganization": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"IDMixDesign": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ManufacturerCode": {
-					"type": "string",
-					"description": ""
-				},
-				"IntendedUse": {
-					"type": "string",
-					"description": ""
-				},
-				"BuyUSA": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ReceivedFrom": {
-					"type": "string",
-					"description": ""
-				},
-				"GeographicalArea": {
-					"type": "string",
-					"description": ""
-				},
-				"Station": {
-					"type": "string",
-					"description": ""
-				},
-				"Offset": {
-					"type": "string",
-					"description": ""
-				},
-				"RepresentedQuantity": {
-					"type": "string",
-					"description": ""
-				},
-				"SampledQuantity": {
-					"type": "string",
-					"description": ""
-				},
-				"Units": {
-					"type": "string",
-					"description": ""
-				},
-				"RequestedBy": {
-					"type": "string",
-					"description": ""
-				},
-				"Status": {
-					"type": "string",
-					"description": ""
-				},
-				"ExternalSyncGUID": {
-					"type": "string",
-					"description": ""
-				},
-				"IDLab": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"IDProduct": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"SampledByIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"WitnessIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"AuthorizedIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"CMSIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Datum": {
-					"type": "string",
-					"description": ""
-				}
-			},
-			"type": "object",
-			"required": [
-				"IDSample",
-				"GUIDSample",
-				"CreateDate",
-				"CreatingIDUser",
-				"UpdateDate",
-				"UpdatingIDUser",
-				"Deleted",
-				"DeleteDate",
-				"DeletingIDUser",
-				"ExternalSyncDate",
-				"IDCustomer",
-				"QRCode",
-				"CaptureLatitude",
-				"CaptureLongitude",
-				"Name",
-				"IDProject",
-				"ParentIDSample",
-				"IDMaterial",
-				"Notes",
-				"IDProductionPlant",
-				"IDLineItem",
-				"RepresentedQuantityUnits",
-				"SampledQuantityUnits",
-				"LabControlNumber",
-				"LabReferenceNumber",
-				"ProductName",
-				"MaterialType",
-				"IDOrganization",
-				"IDMixDesign",
-				"ManufacturerCode",
-				"IntendedUse",
-				"BuyUSA",
-				"ReceivedFrom",
-				"GeographicalArea",
-				"Station",
-				"Offset",
-				"RepresentedQuantity",
-				"SampledQuantity",
-				"Units",
-				"RequestedBy",
-				"Status",
-				"ExternalSyncGUID",
-				"IDLab",
-				"IDProduct",
-				"SampledByIDUser",
-				"WitnessIDUser",
-				"AuthorizedIDUser",
-				"CMSIDUser",
-				"Datum"
-			]
-		},
 		"SampleLineItemJoin": {
 			"description": "",
 			"properties": {
@@ -4552,143 +4727,6 @@
 				"IDLineItem",
 				"IDSample",
 				"RepresentedQuantity"
-			]
-		},
-		"SampleLog": {
-			"description": "",
-			"properties": {
-				"IDSampleLog": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"GUIDSampleLog": {
-					"type": "string",
-					"description": ""
-				},
-				"CreateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"CreatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"UpdateDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"UpdatingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Deleted": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"DeleteDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"DeletingIDUser": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ExternalSyncDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"IDCustomer": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"IDSample": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"CaptureLatitude": {
-					"type": "string",
-					"description": ""
-				},
-				"CaptureLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"UserLatitude": {
-					"type": "string",
-					"description": ""
-				},
-				"UserLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"AlignmentStation": {
-					"type": "string",
-					"description": ""
-				},
-				"AlignmentOffset": {
-					"type": "string",
-					"description": ""
-				},
-				"Notes": {
-					"type": "string",
-					"description": ""
-				},
-				"CaptureDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"IDLab": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Received": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"ExternalSyncGUID": {
-					"type": "string",
-					"description": ""
-				}
-			},
-			"type": "object",
-			"required": [
-				"IDSampleLog",
-				"GUIDSampleLog",
-				"CreateDate",
-				"CreatingIDUser",
-				"UpdateDate",
-				"UpdatingIDUser",
-				"Deleted",
-				"DeleteDate",
-				"DeletingIDUser",
-				"ExternalSyncDate",
-				"IDCustomer",
-				"IDSample",
-				"CaptureLatitude",
-				"CaptureLongitude",
-				"UserLatitude",
-				"UserLongitude",
-				"AlignmentStation",
-				"AlignmentOffset",
-				"Notes",
-				"CaptureDate",
-				"IDLab",
-				"Received",
-				"ExternalSyncGUID"
 			]
 		},
 		"TestPlan": {
@@ -9126,6 +9164,37 @@
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/DocumentModel"
+						}
+					}
+				]
+			}
+		},
+		"/Document/FormProcessor": {
+			"post": {
+				"operationId": "postFormProcessor",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Allows a report to perform a bulk upsert in context of a document.",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/FormProcessorRequest"
 						}
 					}
 				]
