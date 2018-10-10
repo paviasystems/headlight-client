@@ -28,18 +28,23 @@ export class DocumentsApi {
 
     /**
      * Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      */
-    public getUpdatedDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public getUpdatedDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
+        }
+
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedDocuments.');
@@ -48,11 +53,6 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedDocuments.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -70,18 +70,23 @@ export class DocumentsApi {
     }
     /**
      * Sync Documents  Process (since this is so complex): 1. FOR EACH Document     1.1 Archive the Document     1.2 Merge in the Changes     1.5 After all Detail records are successfully stored, Update Document so Document.definition contains the serialized array of Details 2. Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      */
-    public syncDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public syncDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
+        }
+
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling syncDocuments.');
@@ -90,11 +95,6 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncDocuments.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

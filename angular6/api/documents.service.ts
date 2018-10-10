@@ -58,24 +58,24 @@ export class DocumentsService {
     /**
      * 
      * Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getUpdatedDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getUpdatedDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getUpdatedDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getUpdatedDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
+        }
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedDocuments.');
         }
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedDocuments.');
-        }
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
         }
 
         let headers = this.defaultHeaders;
@@ -106,24 +106,24 @@ export class DocumentsService {
     /**
      * 
      * Sync Documents  Process (since this is so complex): 1. FOR EACH Document     1.1 Archive the Document     1.2 Merge in the Changes     1.5 After all Detail records are successfully stored, Update Document so Document.definition contains the serialized array of Details 2. Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public syncDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public syncDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public syncDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public syncDocuments(Begin: number, Cap: number, SynchronizeFromDate: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
+        }
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling syncDocuments.');
         }
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncDocuments.');
-        }
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
         }
 
         let headers = this.defaultHeaders;

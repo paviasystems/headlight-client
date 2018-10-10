@@ -17,7 +17,8 @@ describe('Node API test', function() {
     var client = new Headlight.Client(_ServerURL);
 
     it('can get API', ()=>{
-        let bidItemApi = client.API(Headlight.API.BidItemApi);
+        const bidItemApi = client.API(Headlight.API.BidItemApi);
+        expect(bidItemApi).to.not.be.null;
     });
     
     it('authenticate', async() => {
@@ -27,7 +28,7 @@ describe('Node API test', function() {
     });
 
     it('can perform API request which requires authentication', async() => {
-        let userApi = client.API(Headlight.API.UserApi);
+        const userApi = client.API(Headlight.API.UserApi);
         let record = await userApi.read(client.UserSession.UserID);
 
         (<any>userApi)._cacheFlag = true; //used for later test
@@ -54,7 +55,7 @@ describe('Node API test', function() {
     });
 
     it('can update a record', async() => {
-        let userApi = client.API(Headlight.API.UserApi);
+        const userApi = client.API(Headlight.API.UserApi);
 
         let record = await userApi.read(client.UserSession.UserID);
         let testTime = new Date().getTime();
@@ -67,7 +68,7 @@ describe('Node API test', function() {
     });
 
     it ('will auto-login if session invalid', async() => {
-        let authAPI = client.API(Headlight.API.AuthenticateApi);
+        const authAPI = client.API(Headlight.API.AuthenticateApi);
         let result = await authAPI.deAuthenticate();
         expect(result).to.have.property('Success');
 
@@ -78,11 +79,39 @@ describe('Node API test', function() {
     }).timeout(35000);
 
     it ('can access a different API with renewed credentials', async() => {
-        let customerApi = client.API(Headlight.API.CustomerApi);
+        const customerApi = client.API(Headlight.API.CustomerApi);
         let customer = await customerApi.read(client.UserSession.CustomerID);
 
         expect(customer).to.have.property('IDCustomer');
         expect(customer.IDCustomer).to.eq(client.UserSession.CustomerID);
+    });
+
+    it ('can access via Repository interface', async() => {
+        const userRepo = client.Repository(Headlight.API.UserApi, Headlight.API.UserModel);
+        let record = await userRepo.readByID(client.UserSession.UserID, client);
+        expect(record.IDUser).to.eq(client.UserSession.UserID);
+    });
+
+    it ('can access via fluent-query interface', async() => {
+        let userQuery = client.Repository(Headlight.API.UserApi, Headlight.API.UserModel).query(client);
+
+        let customerUsers = await userQuery
+            .where("IDCustomer", client.UserSession.CustomerID)
+            .cap(5)
+            .reads();
+        
+        expect(customerUsers.length).eq(5);
+    });
+
+    it ('can perform a count query', async() => {
+        let projectQuery = client.Repository(Headlight.API.ProjectApi, Headlight.API.ProjectModel).query(client);
+
+        //find out how many projects have the word 'project' in their name
+        let projectCount = await projectQuery
+            .where("Name", "%project%", Operator.Like)
+            .count();
+        
+        expect(projectCount).to.be.gt(1);
     });
 });
 

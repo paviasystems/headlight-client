@@ -30,15 +30,15 @@ export class ObservationSearchsApi {
      * Search Observations using search index (solr)
      * @param IDProject ID of record
      * @param Begin Beginning (skip) number of records (to page)
-     * @param Cap Maximum number of records to return
      * @param SearchQuery solr search query
+     * @param Cap Maximum number of records to return
      */
-    public getObservationSearch (IDProject: number, Begin: number, Cap: number, SearchQuery: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public getObservationSearch (IDProject: number, Begin: number, SearchQuery: string, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/ObservationSearchs/{IDProject}/{SearchQuery}/{Begin}/{Cap}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)));
+            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -52,14 +52,14 @@ export class ObservationSearchsApi {
             throw new Error('Required parameter Begin was null or undefined when calling getObservationSearch.');
         }
 
-        // verify required parameter 'Cap' is not null or undefined
-        if (Cap === null || Cap === undefined) {
-            throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
-        }
-
         // verify required parameter 'SearchQuery' is not null or undefined
         if (SearchQuery === null || SearchQuery === undefined) {
             throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
+        }
+
+        // verify required parameter 'Cap' is not null or undefined
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

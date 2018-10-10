@@ -56,24 +56,24 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDComment ID of record
+     * @param IDDocument ID of record
      */
-    public addCommentsToDocument (IDDocument: number, IDComment: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public addCommentsToDocument (IDComment: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/Comment/Add/{IDComment}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)));
+            .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
-        }
-
         // verify required parameter 'IDComment' is not null or undefined
         if (IDComment === null || IDComment === undefined) {
             throw new Error('Required parameter IDComment was null or undefined when calling addCommentsToDocument.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -91,24 +91,24 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDObservation ID of record
+     * @param IDDocument ID of record
      */
-    public addDocumentObservation (IDDocument: number, IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public addDocumentObservation (IDObservation: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/AddObservation/{IDObservation}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling addDocumentObservation.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -342,6 +342,62 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: models.QueryRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse200> {
+        const localVarPath = this.basePath + '/Document/query/count';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: models.QueryRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
+        const localVarPath = this.basePath + '/Document/query/read';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -406,18 +462,23 @@ export class DocumentApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
+    public readsFiltered (filter: string, begin: number, max: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
         const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
+
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
@@ -426,11 +487,6 @@ export class DocumentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -448,24 +504,24 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDObservation ID of record
+     * @param IDDocument ID of record
      */
-    public removeDocumentObservation (IDDocument: number, IDObservation: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public removeDocumentObservation (IDObservation: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/RemoveObservation/{IDObservation}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling removeDocumentObservation.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -483,24 +539,24 @@ export class DocumentApi {
     }
     /**
      * Attach an ElectronicSignature to a Document
-     * @param IDDocument ID of record
      * @param IDElectronicSignature ID of record
+     * @param IDDocument ID of record
      */
-    public signDocument (IDDocument: number, IDElectronicSignature: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public signDocument (IDElectronicSignature: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/Document/Sign/{IDDocument}/{IDElectronicSignature}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDElectronicSignature' + '}', encodeURIComponent(String(IDElectronicSignature)));
+            .replace('{' + 'IDElectronicSignature' + '}', encodeURIComponent(String(IDElectronicSignature)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
-        }
-
         // verify required parameter 'IDElectronicSignature' is not null or undefined
         if (IDElectronicSignature === null || IDElectronicSignature === undefined) {
             throw new Error('Required parameter IDElectronicSignature was null or undefined when calling signDocument.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

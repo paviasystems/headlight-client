@@ -79,10 +79,6 @@ export interface ModuleModel {
     /**
      * 
      */
-    "ConfigurationJSON": string;
-    /**
-     * 
-     */
     "Ordinal": number;
 }
 

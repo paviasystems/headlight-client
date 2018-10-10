@@ -55,6 +55,7 @@
     "babel-preset-es2015": "^6.24.1"
   },
   "dependencies": {
-    "request": "^2.75.0"
+    "request": "^2.75.0",
+    "ts-repository-fluent": "^0.0.8"
   }
 }

@@ -18,11 +18,11 @@ export interface LabTestApproval {
     /**
      * 
      */
-    IDLabTestJoin: number;
+    IDLabTestApproval: number;
     /**
      * 
      */
-    GUIDLabTestJoin: string;
+    GUIDLabTestApproval: string;
     /**
      * 
      */

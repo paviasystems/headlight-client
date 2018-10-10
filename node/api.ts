@@ -587,6 +587,29 @@ export class BidItem {
 /**
 * 
 */
+export class ChangePasswordRequest {
+    /**
+    * 
+    */
+    'NewPassword': string;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "NewPassword",
+            "baseName": "NewPassword",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return ChangePasswordRequest.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
 export class CommentModel {
     /**
     * 
@@ -1258,10 +1281,6 @@ export class DocumentModel {
     * 
     */
     'Form': number;
-    /**
-    * 
-    */
-    'FormDataJSON': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -1420,15 +1439,51 @@ export class DocumentModel {
             "name": "Form",
             "baseName": "Form",
             "type": "number"
-        },
-        {
-            "name": "FormDataJSON",
-            "baseName": "FormDataJSON",
-            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
         return DocumentModel.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
+export class DocumentStateChangeRequest {
+    /**
+    * 
+    */
+    'IDDocument': number;
+    /**
+    * 
+    */
+    'Action': string;
+    /**
+    * 
+    */
+    'IDElectronicSignature': number;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "IDDocument",
+            "baseName": "IDDocument",
+            "type": "number"
+        },
+        {
+            "name": "Action",
+            "baseName": "Action",
+            "type": "string"
+        },
+        {
+            "name": "IDElectronicSignature",
+            "baseName": "IDElectronicSignature",
+            "type": "number"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return DocumentStateChangeRequest.attributeTypeMap;
     }
 }
 
@@ -2427,11 +2482,11 @@ export class LabTestApproval {
     /**
     * 
     */
-    'IDLabTestJoin': number;
+    'IDLabTestApproval': number;
     /**
     * 
     */
-    'GUIDLabTestJoin': string;
+    'GUIDLabTestApproval': string;
     /**
     * 
     */
@@ -2493,13 +2548,13 @@ export class LabTestApproval {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "IDLabTestJoin",
-            "baseName": "IDLabTestJoin",
+            "name": "IDLabTestApproval",
+            "baseName": "IDLabTestApproval",
             "type": "number"
         },
         {
-            "name": "GUIDLabTestJoin",
-            "baseName": "GUIDLabTestJoin",
+            "name": "GUIDLabTestApproval",
+            "baseName": "GUIDLabTestApproval",
             "type": "string"
         },
         {
@@ -4118,10 +4173,6 @@ export class ModuleModel {
     /**
     * 
     */
-    'ConfigurationJSON': string;
-    /**
-    * 
-    */
     'Ordinal': number;
 
     static discriminator: string | undefined = undefined;
@@ -4200,11 +4251,6 @@ export class ModuleModel {
         {
             "name": "ModuleHash",
             "baseName": "ModuleHash",
-            "type": "string"
-        },
-        {
-            "name": "ConfigurationJSON",
-            "baseName": "ConfigurationJSON",
             "type": "string"
         },
         {
@@ -4900,10 +4946,6 @@ export class ObservationFilterRequestPriority {
 * 
 */
 export class ObservationModel {
-    /**
-    * 
-    */
-    '_StatusOverride': boolean;
     'Labels': ObservationModelLabels;
     'Details': MappedArrayArtifact;
     /**
@@ -5042,11 +5084,6 @@ export class ObservationModel {
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "_StatusOverride",
-            "baseName": "_StatusOverride",
-            "type": "boolean"
-        },
         {
             "name": "Labels",
             "baseName": "Labels",
@@ -5684,10 +5721,6 @@ export class PayItemModel {
     /**
     * 
     */
-    'ExtendedJSON': string;
-    /**
-    * 
-    */
     'IDCustomer': number;
     /**
     * 
@@ -5765,11 +5798,6 @@ export class PayItemModel {
         {
             "name": "Amount",
             "baseName": "Amount",
-            "type": "string"
-        },
-        {
-            "name": "ExtendedJSON",
-            "baseName": "ExtendedJSON",
             "type": "string"
         },
         {
@@ -6540,6 +6568,74 @@ export class ProjectModel {
 /**
 * 
 */
+export class QueryRequest {
+    /**
+    * 
+    */
+    'Filters': Array<any>;
+    /**
+    * 
+    */
+    'SelectFields': Array<any>;
+    /**
+    * 
+    */
+    'Joins': Array<any>;
+    /**
+    * 
+    */
+    'SortFields': Array<any>;
+    /**
+    * 
+    */
+    'Begin': number;
+    /**
+    * 
+    */
+    'Cap': number;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "Filters",
+            "baseName": "Filters",
+            "type": "Array<any>"
+        },
+        {
+            "name": "SelectFields",
+            "baseName": "SelectFields",
+            "type": "Array<any>"
+        },
+        {
+            "name": "Joins",
+            "baseName": "Joins",
+            "type": "Array<any>"
+        },
+        {
+            "name": "SortFields",
+            "baseName": "SortFields",
+            "type": "Array<any>"
+        },
+        {
+            "name": "Begin",
+            "baseName": "Begin",
+            "type": "number"
+        },
+        {
+            "name": "Cap",
+            "baseName": "Cap",
+            "type": "number"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return QueryRequest.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
 export class RecordOfMaterial {
     /**
     * 
@@ -7008,10 +7104,6 @@ export class ReportModel {
     /**
     * 
     */
-    'OptionsJSON': string;
-    /**
-    * 
-    */
     'IDCustomer': number;
 
     static discriminator: string | undefined = undefined;
@@ -7070,11 +7162,6 @@ export class ReportModel {
         {
             "name": "Archetype",
             "baseName": "Archetype",
-            "type": "string"
-        },
-        {
-            "name": "OptionsJSON",
-            "baseName": "OptionsJSON",
             "type": "string"
         },
         {
@@ -7243,6 +7330,29 @@ export class ReportNamedInstanceModel {
 
     static getAttributeTypeMap() {
         return ReportNamedInstanceModel.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
+export class ReportRenderResult {
+    /**
+    * UUID of rendered report.
+    */
+    'GUIDReportDescription': string;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "GUIDReportDescription",
+            "baseName": "GUIDReportDescription",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return ReportRenderResult.attributeTypeMap;
     }
 }
 
@@ -10625,18 +10735,6 @@ export class UserModel {
     /**
     * 
     */
-    'LoginPassword': string;
-    /**
-    * 
-    */
-    'PasswordResetKey': string;
-    /**
-    * 
-    */
-    'LastSessionID': string;
-    /**
-    * 
-    */
     'Settings': any;
     /**
     * 
@@ -10733,10 +10831,6 @@ export class UserModel {
     /**
     * 
     */
-    'SettingsJSON': string;
-    /**
-    * 
-    */
     'ExternalSyncDate': Date;
     /**
     * 
@@ -10746,21 +10840,6 @@ export class UserModel {
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "LoginPassword",
-            "baseName": "LoginPassword",
-            "type": "string"
-        },
-        {
-            "name": "PasswordResetKey",
-            "baseName": "PasswordResetKey",
-            "type": "string"
-        },
-        {
-            "name": "LastSessionID",
-            "baseName": "LastSessionID",
-            "type": "string"
-        },
         {
             "name": "Settings",
             "baseName": "Settings",
@@ -10882,11 +10961,6 @@ export class UserModel {
             "type": "string"
         },
         {
-            "name": "SettingsJSON",
-            "baseName": "SettingsJSON",
-            "type": "string"
-        },
-        {
             "name": "ExternalSyncDate",
             "baseName": "ExternalSyncDate",
             "type": "Date"
@@ -10902,6 +10976,130 @@ export class UserModel {
     }
 }
 
+/**
+* 
+*/
+export class UserSignupRequest {
+    /**
+    * 
+    */
+    'NameFirst': string;
+    /**
+    * 
+    */
+    'NameLast': string;
+    /**
+    * 
+    */
+    'Email': string;
+    /**
+    * 
+    */
+    'Password': string;
+    /**
+    * 
+    */
+    'Phone': string;
+    /**
+    * 
+    */
+    'CompanyName': string;
+    'CompanyDetails': UserSignupRequestCompanyDetails;
+    /**
+    * 
+    */
+    'Position': string;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "NameFirst",
+            "baseName": "NameFirst",
+            "type": "string"
+        },
+        {
+            "name": "NameLast",
+            "baseName": "NameLast",
+            "type": "string"
+        },
+        {
+            "name": "Email",
+            "baseName": "Email",
+            "type": "string"
+        },
+        {
+            "name": "Password",
+            "baseName": "Password",
+            "type": "string"
+        },
+        {
+            "name": "Phone",
+            "baseName": "Phone",
+            "type": "string"
+        },
+        {
+            "name": "CompanyName",
+            "baseName": "CompanyName",
+            "type": "string"
+        },
+        {
+            "name": "CompanyDetails",
+            "baseName": "CompanyDetails",
+            "type": "UserSignupRequestCompanyDetails"
+        },
+        {
+            "name": "Position",
+            "baseName": "Position",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return UserSignupRequest.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
+export class UserSignupRequestCompanyDetails {
+    /**
+    * 
+    */
+    'State'?: string;
+    /**
+    * 
+    */
+    'Size'?: number;
+    /**
+    * 
+    */
+    'EstimatedAnnualRevenue'?: string;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "State",
+            "baseName": "State",
+            "type": "string"
+        },
+        {
+            "name": "Size",
+            "baseName": "Size",
+            "type": "number"
+        },
+        {
+            "name": "EstimatedAnnualRevenue",
+            "baseName": "EstimatedAnnualRevenue",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return UserSignupRequestCompanyDetails.attributeTypeMap;
+    }
+}
+
 
 let enumsMap: {[index: string]: any} = {
 }
@@ -10910,10 +11108,12 @@ let typeMap: {[index: string]: any} = {
     "Artifact": Artifact,
     "ArtifactModel": ArtifactModel,
     "BidItem": BidItem,
+    "ChangePasswordRequest": ChangePasswordRequest,
     "CommentModel": CommentModel,
     "Contract": Contract,
     "Customer": Customer,
     "DocumentModel": DocumentModel,
+    "DocumentStateChangeRequest": DocumentStateChangeRequest,
     "ElectronicSignature": ElectronicSignature,
     "ElectronicSignatureModel": ElectronicSignatureModel,
     "Equipment": Equipment,
@@ -10949,11 +11149,13 @@ let typeMap: {[index: string]: any} = {
     "ProductionPlant": ProductionPlant,
     "ProductionPlantMaterialApproval": ProductionPlantMaterialApproval,
     "ProjectModel": ProjectModel,
+    "QueryRequest": QueryRequest,
     "RecordOfMaterial": RecordOfMaterial,
     "RecordOfMaterialEntry": RecordOfMaterialEntry,
     "RecordOfMaterialEntryArchive": RecordOfMaterialEntryArchive,
     "ReportModel": ReportModel,
     "ReportNamedInstanceModel": ReportNamedInstanceModel,
+    "ReportRenderResult": ReportRenderResult,
     "Sample": Sample,
     "SampleLabJoin": SampleLabJoin,
     "SampleLineItemJoin": SampleLineItemJoin,
@@ -10976,6 +11178,8 @@ let typeMap: {[index: string]: any} = {
     "TestSpecificationSetTestJoin": TestSpecificationSetTestJoin,
     "TestStep": TestStep,
     "UserModel": UserModel,
+    "UserSignupRequest": UserSignupRequest,
+    "UserSignupRequestCompanyDetails": UserSignupRequestCompanyDetails,
 }
 
 export interface Authentication {
@@ -11223,15 +11427,15 @@ export class ArtifactApi {
     }
     /**
      * Copy Artifact media from ID to target ID
-     * @param IDObservationArtifact ID of record
      * @param IDTargetArtifact ID of record
+     * @param IDObservationArtifact ID of record
      * @param ArtifactVersion 
      * @param TargetArtifactVersion 
      */
-    public copyArtifact (IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number) : Promise<any> {
+    public copyArtifact (IDTargetArtifact: number, IDObservationArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number) : Promise<any> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/CopyTo/{IDTargetArtifact}/{TargetArtifactVersion}'
-            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
             .replace('{' + 'IDTargetArtifact' + '}', encodeURIComponent(String(IDTargetArtifact)))
+            .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
             .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)))
             .replace('{' + 'TargetArtifactVersion' + '}', encodeURIComponent(String(TargetArtifactVersion)));
         let localVarQueryParameters: any = {};
@@ -11241,14 +11445,14 @@ export class ArtifactApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDObservationArtifact' is not null or undefined
-        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
-            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
-        }
-
         // verify required parameter 'IDTargetArtifact' is not null or undefined
         if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
             throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+
+        // verify required parameter 'IDObservationArtifact' is not null or undefined
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
         }
 
         // verify required parameter 'ArtifactVersion' is not null or undefined
@@ -11478,11 +11682,13 @@ export class ArtifactApi {
      * Download Artifact media file from Headlight
      * @param IDObservationArtifact ID of record
      * @param Size 
+     * @param ArtifactVersion 
      */
-    public downloadArtifact (IDObservationArtifact: number, Size: string) : Promise<Buffer> {
+    public downloadArtifact (IDObservationArtifact: number, Size: string, ArtifactVersion: string) : Promise<Buffer> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}/{Size}'
             .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
-            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)));
+            .replace('{' + 'Size' + '}', encodeURIComponent(String(Size)))
+            .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -11498,6 +11704,11 @@ export class ArtifactApi {
         // verify required parameter 'Size' is not null or undefined
         if (Size === null || Size === undefined) {
             throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
+        }
+
+        // verify required parameter 'ArtifactVersion' is not null or undefined
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling downloadArtifact.');
         }
 
 
@@ -11588,6 +11799,126 @@ export class ArtifactApi {
                             resolve(body);
                         } else {
                             reject(`Request Error ${response.statusCode} in getArtifactSyncList!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Artifact/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ArtifactModel>> {
+        const localVarPath = this.basePath + '/Artifact/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ArtifactModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
                         }
                     }
                 })
@@ -11723,21 +12054,26 @@ export class ArtifactApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ArtifactModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ArtifactModel>> {
         const localVarPath = this.basePath + '/Artifacts/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -11747,11 +12083,6 @@ export class ArtifactApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -11857,11 +12188,11 @@ export class ArtifactApi {
     }
     /**
      * Upload Artifact media file to Headlight
-     * @param file 
      * @param IDObservationArtifact ID of record
+     * @param file 
      * @param ArtifactVersion 
      */
-    public uploadArtifact (file: Buffer, IDObservationArtifact: number, ArtifactVersion: number) : Promise<any> {
+    public uploadArtifact (IDObservationArtifact: number, file: Buffer, ArtifactVersion: number) : Promise<any> {
         const localVarPath = this.basePath + '/Artifact/Media/{IDObservationArtifact}/{ArtifactVersion}'
             .replace('{' + 'IDObservationArtifact' + '}', encodeURIComponent(String(IDObservationArtifact)))
             .replace('{' + 'ArtifactVersion' + '}', encodeURIComponent(String(ArtifactVersion)));
@@ -11872,14 +12203,14 @@ export class ArtifactApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'file' is not null or undefined
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
-        }
-
         // verify required parameter 'IDObservationArtifact' is not null or undefined
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+
+        // verify required parameter 'file' is not null or undefined
+        if (file === null || file === undefined) {
+            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
         }
 
         // verify required parameter 'ArtifactVersion' is not null or undefined
@@ -12743,6 +13074,126 @@ export class BidItemApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/BidItem/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<BidItem>> {
+        const localVarPath = this.basePath + '/BidItem/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<BidItem>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -12871,21 +13322,26 @@ export class BidItemApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<BidItem>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<BidItem>> {
         const localVarPath = this.basePath + '/BidItems/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -12895,11 +13351,6 @@ export class BidItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -13300,6 +13751,126 @@ export class CommentApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Comment/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<CommentModel>> {
+        const localVarPath = this.basePath + '/Comment/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<CommentModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -13428,21 +13999,26 @@ export class CommentApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<CommentModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<CommentModel>> {
         const localVarPath = this.basePath + '/Comments/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -13452,11 +14028,6 @@ export class CommentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -13857,6 +14428,126 @@ export class ContractApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Contract/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Contract>> {
+        const localVarPath = this.basePath + '/Contract/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Contract>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -13985,21 +14676,26 @@ export class ContractApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Contract>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Contract>> {
         const localVarPath = this.basePath + '/Contracts/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -14009,11 +14705,6 @@ export class ContractApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -14414,6 +15105,126 @@ export class CustomerApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Customer/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Customer>> {
+        const localVarPath = this.basePath + '/Customer/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Customer>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -14542,21 +15353,26 @@ export class CustomerApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Customer>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Customer>> {
         const localVarPath = this.basePath + '/Customers/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -14566,11 +15382,6 @@ export class CustomerApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -14799,13 +15610,13 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDComment ID of record
+     * @param IDDocument ID of record
      */
-    public addCommentsToDocument (IDDocument: number, IDComment: number) : Promise<any> {
+    public addCommentsToDocument (IDComment: number, IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/Comment/Add/{IDComment}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)));
+            .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -14813,14 +15624,14 @@ export class DocumentApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
-        }
-
         // verify required parameter 'IDComment' is not null or undefined
         if (IDComment === null || IDComment === undefined) {
             throw new Error('Required parameter IDComment was null or undefined when calling addCommentsToDocument.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
         }
 
 
@@ -14865,13 +15676,13 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDObservation ID of record
+     * @param IDDocument ID of record
      */
-    public addDocumentObservation (IDDocument: number, IDObservation: number) : Promise<any> {
+    public addDocumentObservation (IDObservation: number, IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/AddObservation/{IDObservation}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -14879,14 +15690,14 @@ export class DocumentApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling addDocumentObservation.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
         }
 
 
@@ -15399,6 +16210,126 @@ export class DocumentApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Document/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<DocumentModel>> {
+        const localVarPath = this.basePath + '/Document/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<DocumentModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -15527,21 +16458,26 @@ export class DocumentApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<DocumentModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<DocumentModel>> {
         const localVarPath = this.basePath + '/Documents/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -15551,11 +16487,6 @@ export class DocumentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -15601,13 +16532,13 @@ export class DocumentApi {
     }
     /**
      * 
-     * @param IDDocument ID of record
      * @param IDObservation ID of record
+     * @param IDDocument ID of record
      */
-    public removeDocumentObservation (IDDocument: number, IDObservation: number) : Promise<any> {
+    public removeDocumentObservation (IDObservation: number, IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/RemoveObservation/{IDObservation}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)));
+            .replace('{' + 'IDObservation' + '}', encodeURIComponent(String(IDObservation)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -15615,14 +16546,14 @@ export class DocumentApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
-        }
-
         // verify required parameter 'IDObservation' is not null or undefined
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling removeDocumentObservation.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
         }
 
 
@@ -15667,13 +16598,13 @@ export class DocumentApi {
     }
     /**
      * Attach an ElectronicSignature to a Document
-     * @param IDDocument ID of record
      * @param IDElectronicSignature ID of record
+     * @param IDDocument ID of record
      */
-    public signDocument (IDDocument: number, IDElectronicSignature: number) : Promise<any> {
+    public signDocument (IDElectronicSignature: number, IDDocument: number) : Promise<any> {
         const localVarPath = this.basePath + '/Document/Sign/{IDDocument}/{IDElectronicSignature}'
-            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
-            .replace('{' + 'IDElectronicSignature' + '}', encodeURIComponent(String(IDElectronicSignature)));
+            .replace('{' + 'IDElectronicSignature' + '}', encodeURIComponent(String(IDElectronicSignature)))
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -15681,14 +16612,14 @@ export class DocumentApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDDocument' is not null or undefined
-        if (IDDocument === null || IDDocument === undefined) {
-            throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
-        }
-
         // verify required parameter 'IDElectronicSignature' is not null or undefined
         if (IDElectronicSignature === null || IDElectronicSignature === undefined) {
             throw new Error('Required parameter IDElectronicSignature was null or undefined when calling signDocument.');
+        }
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
         }
 
 
@@ -16085,8 +17016,9 @@ export class DocumentApprovalApi {
     }
     /**
      * Perform Approval state transition action against Document
+     * @param body 
      */
-    public postChangeDocumenttState () : Promise<any> {
+    public postChangeDocumenttState (body: DocumentStateChangeRequest) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentApproval';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -16094,6 +17026,11 @@ export class DocumentApprovalApi {
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postChangeDocumenttState.');
+        }
 
 
         let localVarUseFormData = false;
@@ -16106,6 +17043,7 @@ export class DocumentApprovalApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
+            body: ObjectSerializer.serialize(body, "DocumentStateChangeRequest")
         };
 
         this.authentications.default.applyToRequest(localVarRequestOptions);
@@ -16200,10 +17138,10 @@ export class DocumentSendToApi {
     }
     /**
      * 
-     * @param body 
      * @param IDDocument ID of record
+     * @param body 
      */
-    public postDocumentSendToEmail (body: SendToEmailRequest, IDDocument: number) : Promise<any> {
+    public postDocumentSendToEmail (IDDocument: number, body: SendToEmailRequest) : Promise<any> {
         const localVarPath = this.basePath + '/DocumentSendTo/{IDDocument}/Email'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
         let localVarQueryParameters: any = {};
@@ -16213,14 +17151,14 @@ export class DocumentSendToApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'body' is not null or undefined
-        if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
-        }
-
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling postDocumentSendToEmail.');
+        }
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
         }
 
 
@@ -16329,21 +17267,26 @@ export class DocumentsApi {
     }
     /**
      * Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      */
-    public getUpdatedDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
+    public getUpdatedDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
+        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -16353,11 +17296,6 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedDocuments.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
         }
 
 
@@ -16402,21 +17340,26 @@ export class DocumentsApi {
     }
     /**
      * Sync Documents  Process (since this is so complex): 1. FOR EACH Document     1.1 Archive the Document     1.2 Merge in the Changes     1.5 After all Detail records are successfully stored, Update Document so Document.definition contains the serialized array of Details 2. Get all Document records for this user that have changed since the sync date
+     * @param SynchronizeFromDate FROM date (descending)
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate FROM date (descending)
      */
-    public syncDocuments (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
+    public syncDocuments (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
+        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -16426,11 +17369,6 @@ export class DocumentsApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncDocuments.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
         }
 
 
@@ -16892,6 +17830,126 @@ export class ElectronicSignatureApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/ElectronicSignature/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ElectronicSignatureModel>> {
+        const localVarPath = this.basePath + '/ElectronicSignature/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ElectronicSignatureModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -17020,21 +18078,26 @@ export class ElectronicSignatureApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ElectronicSignatureModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ElectronicSignatureModel>> {
         const localVarPath = this.basePath + '/ElectronicSignatures/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -17044,11 +18107,6 @@ export class ElectronicSignatureApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -17449,6 +18507,126 @@ export class EquipmentApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Equipment/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Equipment>> {
+        const localVarPath = this.basePath + '/Equipment/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Equipment>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -17577,21 +18755,26 @@ export class EquipmentApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Equipment>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Equipment>> {
         const localVarPath = this.basePath + '/Equipments/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -17601,11 +18784,6 @@ export class EquipmentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -18006,6 +19184,126 @@ export class LabApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Lab/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Lab>> {
+        const localVarPath = this.basePath + '/Lab/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Lab>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -18134,21 +19432,26 @@ export class LabApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Lab>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Lab>> {
         const localVarPath = this.basePath + '/Labs/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -18158,11 +19461,6 @@ export class LabApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -18563,6 +19861,126 @@ export class LabMaterialAssignmentApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/LabMaterialAssignment/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<LabMaterialAssignment>> {
+        const localVarPath = this.basePath + '/LabMaterialAssignment/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<LabMaterialAssignment>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -18691,21 +20109,26 @@ export class LabMaterialAssignmentApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<LabMaterialAssignment>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LabMaterialAssignment>> {
         const localVarPath = this.basePath + '/LabMaterialAssignments/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -18715,11 +20138,6 @@ export class LabMaterialAssignmentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -19120,6 +20538,126 @@ export class LabTestApprovalApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/LabTestApproval/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<LabTestApproval>> {
+        const localVarPath = this.basePath + '/LabTestApproval/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<LabTestApproval>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -19248,21 +20786,26 @@ export class LabTestApprovalApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<LabTestApproval>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LabTestApproval>> {
         const localVarPath = this.basePath + '/LabTestApprovals/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -19272,11 +20815,6 @@ export class LabTestApprovalApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -19677,6 +21215,126 @@ export class LabTestDefaultApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/LabTestDefault/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<LabTestDefault>> {
+        const localVarPath = this.basePath + '/LabTestDefault/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<LabTestDefault>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -19805,21 +21463,26 @@ export class LabTestDefaultApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<LabTestDefault>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LabTestDefault>> {
         const localVarPath = this.basePath + '/LabTestDefaults/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -19829,11 +21492,6 @@ export class LabTestDefaultApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -20234,6 +21892,126 @@ export class LineItemApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/LineItem/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<LineItem>> {
+        const localVarPath = this.basePath + '/LineItem/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<LineItem>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -20362,21 +22140,26 @@ export class LineItemApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<LineItem>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<LineItem>> {
         const localVarPath = this.basePath + '/LineItems/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -20386,11 +22169,6 @@ export class LineItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -20791,6 +22569,126 @@ export class MaterialApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Material/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Material>> {
+        const localVarPath = this.basePath + '/Material/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Material>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -20919,21 +22817,26 @@ export class MaterialApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Material>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Material>> {
         const localVarPath = this.basePath + '/Materials/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -20943,11 +22846,6 @@ export class MaterialApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -21348,6 +23246,126 @@ export class MaterialLineItemJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/MaterialLineItemJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<MaterialLineItemJoin>> {
+        const localVarPath = this.basePath + '/MaterialLineItemJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<MaterialLineItemJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -21476,21 +23494,26 @@ export class MaterialLineItemJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<MaterialLineItemJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<MaterialLineItemJoin>> {
         const localVarPath = this.basePath + '/MaterialLineItemJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -21500,11 +23523,6 @@ export class MaterialLineItemJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -21905,6 +23923,126 @@ export class MaterialPayItemJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/MaterialPayItemJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<MaterialPayItemJoin>> {
+        const localVarPath = this.basePath + '/MaterialPayItemJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<MaterialPayItemJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -22033,21 +24171,26 @@ export class MaterialPayItemJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<MaterialPayItemJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<MaterialPayItemJoin>> {
         const localVarPath = this.basePath + '/MaterialPayItemJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -22057,11 +24200,6 @@ export class MaterialPayItemJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -22462,6 +24600,126 @@ export class MaterialRecordOfMaterialEntryJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/MaterialRecordOfMaterialEntryJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<MaterialRecordOfMaterialEntryJoin>> {
+        const localVarPath = this.basePath + '/MaterialRecordOfMaterialEntryJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<MaterialRecordOfMaterialEntryJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -22590,21 +24848,26 @@ export class MaterialRecordOfMaterialEntryJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<MaterialRecordOfMaterialEntryJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<MaterialRecordOfMaterialEntryJoin>> {
         const localVarPath = this.basePath + '/MaterialRecordOfMaterialEntryJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -22614,11 +24877,6 @@ export class MaterialRecordOfMaterialEntryJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -23019,6 +25277,126 @@ export class MixSpecificationApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/MixSpecification/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<MixSpecification>> {
+        const localVarPath = this.basePath + '/MixSpecification/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<MixSpecification>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -23147,21 +25525,26 @@ export class MixSpecificationApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<MixSpecification>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<MixSpecification>> {
         const localVarPath = this.basePath + '/MixSpecifications/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -23171,11 +25554,6 @@ export class MixSpecificationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -23576,6 +25954,126 @@ export class MixSpecificationMaterialJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/MixSpecificationMaterialJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<MixSpecificationMaterialJoin>> {
+        const localVarPath = this.basePath + '/MixSpecificationMaterialJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<MixSpecificationMaterialJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -23704,21 +26202,26 @@ export class MixSpecificationMaterialJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<MixSpecificationMaterialJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<MixSpecificationMaterialJoin>> {
         const localVarPath = this.basePath + '/MixSpecificationMaterialJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -23728,11 +26231,6 @@ export class MixSpecificationMaterialJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -24133,6 +26631,126 @@ export class ModuleApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Module/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ModuleModel>> {
+        const localVarPath = this.basePath + '/Module/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ModuleModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -24261,21 +26879,26 @@ export class ModuleApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ModuleModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ModuleModel>> {
         const localVarPath = this.basePath + '/Modules/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -24285,11 +26908,6 @@ export class ModuleApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -24690,6 +27308,126 @@ export class NotificationApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Notification/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Notification>> {
+        const localVarPath = this.basePath + '/Notification/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Notification>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -24818,21 +27556,26 @@ export class NotificationApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Notification>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Notification>> {
         const localVarPath = this.basePath + '/Notifications/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -24842,11 +27585,6 @@ export class NotificationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -25618,21 +28356,26 @@ export class ObservationApi {
     }
     /**
      * 
+     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate 
      */
-    public getUpdatedObservations (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<Array<ObservationModel>> {
+    public getUpdatedObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<Array<ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
+        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -25642,11 +28385,6 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedObservations.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedObservations.');
         }
 
 
@@ -25915,6 +28653,126 @@ export class ObservationApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Observation/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ObservationModel>> {
+        const localVarPath = this.basePath + '/Observation/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ObservationModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Index specific Observations (solr)
      * @param IDObservation ID of record
      */
@@ -26102,21 +28960,26 @@ export class ObservationApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ObservationModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ObservationModel>> {
         const localVarPath = this.basePath + '/Observations/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -26126,11 +28989,6 @@ export class ObservationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -26176,21 +29034,26 @@ export class ObservationApi {
     }
     /**
      * Sync Observations  Process (since this is so complex): 1. FOR EACH OBSERVATION     1.1 Archive the Observation     1.2 Merge in the Changes     1.3 Translate the Observation Details     1.4 PERFORM SYNC MATCH AND UPDATE WHERE NECESSARY (TALK TO TRENT)     1.5 After all Detail records are successfully stored, Update Observation so Observation.definition contains the serialized array of Details 2. Get all observation records for this user that have changed since the sync date
+     * @param SynchronizeFromDate 
      * @param Begin Beginning (skip) number of records (to page)
      * @param Cap Maximum number of records to return
-     * @param SynchronizeFromDate 
      */
-    public syncObservations (Begin: number, Cap: number, SynchronizeFromDate: Date) : Promise<any> {
+    public syncObservations (SynchronizeFromDate: Date, Begin: number, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/Observations/Sync/{SynchronizeFromDate}/{Begin}/{Cap}'
+            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SynchronizeFromDate' + '}', encodeURIComponent(String(SynchronizeFromDate)));
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'SynchronizeFromDate' is not null or undefined
+        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
+            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
+        }
 
         // verify required parameter 'Begin' is not null or undefined
         if (Begin === null || Begin === undefined) {
@@ -26200,11 +29063,6 @@ export class ObservationApi {
         // verify required parameter 'Cap' is not null or undefined
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncObservations.');
-        }
-
-        // verify required parameter 'SynchronizeFromDate' is not null or undefined
-        if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
-            throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncObservations.');
         }
 
 
@@ -26847,15 +29705,15 @@ export class ObservationSearchsApi {
      * Search Observations using search index (solr)
      * @param IDProject ID of record
      * @param Begin Beginning (skip) number of records (to page)
-     * @param Cap Maximum number of records to return
      * @param SearchQuery solr search query
+     * @param Cap Maximum number of records to return
      */
-    public getObservationSearch (IDProject: number, Begin: number, Cap: number, SearchQuery: string) : Promise<any> {
+    public getObservationSearch (IDProject: number, Begin: number, SearchQuery: string, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationSearchs/{IDProject}/{SearchQuery}/{Begin}/{Cap}'
             .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
             .replace('{' + 'Begin' + '}', encodeURIComponent(String(Begin)))
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)));
+            .replace('{' + 'SearchQuery' + '}', encodeURIComponent(String(SearchQuery)))
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -26873,14 +29731,14 @@ export class ObservationSearchsApi {
             throw new Error('Required parameter Begin was null or undefined when calling getObservationSearch.');
         }
 
-        // verify required parameter 'Cap' is not null or undefined
-        if (Cap === null || Cap === undefined) {
-            throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
-        }
-
         // verify required parameter 'SearchQuery' is not null or undefined
         if (SearchQuery === null || SearchQuery === undefined) {
             throw new Error('Required parameter SearchQuery was null or undefined when calling getObservationSearch.');
+        }
+
+        // verify required parameter 'Cap' is not null or undefined
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getObservationSearch.');
         }
 
 
@@ -27604,13 +30462,13 @@ export class ObservationsByUpdateDateApi {
     }
     /**
      * Fetch list of observations where date is earlier than ByDate.
-     * @param Cap Maximum number of records to return
      * @param ByDate 
+     * @param Cap Maximum number of records to return
      */
-    public getObservationsByUpdateDate (Cap: number, ByDate: Date) : Promise<any> {
+    public getObservationsByUpdateDate (ByDate: Date, Cap: number) : Promise<any> {
         const localVarPath = this.basePath + '/ObservationsByUpdateDate/{ByDate}/{Cap}'
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)));
+            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)))
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -27618,14 +30476,14 @@ export class ObservationsByUpdateDateApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'Cap' is not null or undefined
-        if (Cap === null || Cap === undefined) {
-            throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
-        }
-
         // verify required parameter 'ByDate' is not null or undefined
         if (ByDate === null || ByDate === undefined) {
             throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
+        }
+
+        // verify required parameter 'Cap' is not null or undefined
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
         }
 
 
@@ -28160,6 +31018,126 @@ export class OrganizationApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Organization/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Organization>> {
+        const localVarPath = this.basePath + '/Organization/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Organization>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -28288,21 +31266,26 @@ export class OrganizationApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Organization>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Organization>> {
         const localVarPath = this.basePath + '/Organizations/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -28312,11 +31295,6 @@ export class OrganizationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -28717,6 +31695,126 @@ export class OrganizationMaterialJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/OrganizationMaterialJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<OrganizationMaterialJoin>> {
+        const localVarPath = this.basePath + '/OrganizationMaterialJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<OrganizationMaterialJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -28845,21 +31943,26 @@ export class OrganizationMaterialJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<OrganizationMaterialJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<OrganizationMaterialJoin>> {
         const localVarPath = this.basePath + '/OrganizationMaterialJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -28869,11 +31972,6 @@ export class OrganizationMaterialJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -29274,6 +32372,126 @@ export class PayItemApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/PayItem/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<PayItemModel>> {
+        const localVarPath = this.basePath + '/PayItem/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<PayItemModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -29402,21 +32620,26 @@ export class PayItemApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<PayItemModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<PayItemModel>> {
         const localVarPath = this.basePath + '/PayItems/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -29426,11 +32649,6 @@ export class PayItemApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -29831,6 +33049,126 @@ export class ProductApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Product/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Product>> {
+        const localVarPath = this.basePath + '/Product/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Product>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -29959,21 +33297,26 @@ export class ProductApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Product>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Product>> {
         const localVarPath = this.basePath + '/Products/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -29983,11 +33326,6 @@ export class ProductApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -30388,6 +33726,126 @@ export class ProductionPlantApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/ProductionPlant/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ProductionPlant>> {
+        const localVarPath = this.basePath + '/ProductionPlant/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ProductionPlant>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -30516,21 +33974,26 @@ export class ProductionPlantApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ProductionPlant>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ProductionPlant>> {
         const localVarPath = this.basePath + '/ProductionPlants/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -30540,11 +34003,6 @@ export class ProductionPlantApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -30945,6 +34403,126 @@ export class ProductionPlantMaterialApprovalApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/ProductionPlantMaterialApproval/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ProductionPlantMaterialApproval>> {
+        const localVarPath = this.basePath + '/ProductionPlantMaterialApproval/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ProductionPlantMaterialApproval>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -31073,21 +34651,26 @@ export class ProductionPlantMaterialApprovalApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ProductionPlantMaterialApproval>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ProductionPlantMaterialApproval>> {
         const localVarPath = this.basePath + '/ProductionPlantMaterialApprovals/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -31097,11 +34680,6 @@ export class ProductionPlantMaterialApprovalApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -31502,6 +35080,126 @@ export class ProjectApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Project/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ProjectModel>> {
+        const localVarPath = this.basePath + '/Project/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ProjectModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -31630,21 +35328,26 @@ export class ProjectApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ProjectModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ProjectModel>> {
         const localVarPath = this.basePath + '/Projects/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -31654,11 +35357,6 @@ export class ProjectApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -32059,6 +35757,126 @@ export class RecordOfMaterialApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/RecordOfMaterial/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<RecordOfMaterial>> {
+        const localVarPath = this.basePath + '/RecordOfMaterial/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<RecordOfMaterial>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -32187,21 +36005,26 @@ export class RecordOfMaterialApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<RecordOfMaterial>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<RecordOfMaterial>> {
         const localVarPath = this.basePath + '/RecordOfMaterials/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -32211,11 +36034,6 @@ export class RecordOfMaterialApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -32616,6 +36434,126 @@ export class RecordOfMaterialEntryApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/RecordOfMaterialEntry/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<RecordOfMaterialEntry>> {
+        const localVarPath = this.basePath + '/RecordOfMaterialEntry/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<RecordOfMaterialEntry>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -32744,21 +36682,26 @@ export class RecordOfMaterialEntryApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<RecordOfMaterialEntry>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<RecordOfMaterialEntry>> {
         const localVarPath = this.basePath + '/RecordOfMaterialEntrys/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -32768,11 +36711,6 @@ export class RecordOfMaterialEntryApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -33173,6 +37111,126 @@ export class RecordOfMaterialEntryArchiveApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/RecordOfMaterialEntryArchive/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<RecordOfMaterialEntryArchive>> {
+        const localVarPath = this.basePath + '/RecordOfMaterialEntryArchive/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<RecordOfMaterialEntryArchive>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -33301,21 +37359,26 @@ export class RecordOfMaterialEntryArchiveApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<RecordOfMaterialEntryArchive>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<RecordOfMaterialEntryArchive>> {
         const localVarPath = this.basePath + '/RecordOfMaterialEntryArchives/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -33325,11 +37388,6 @@ export class RecordOfMaterialEntryArchiveApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -33730,16 +37788,23 @@ export class ReportApi {
         );
     }
     /**
-     * 
+     * Get list of available render types for a document type. (pdf, html, etc.)
+     * @param ReportType Report type name (e.g. &#39;DCR&#39;, &#39;Headlight-Daily&#39;, etc)
      */
-    public getDocumentRenderByType () : Promise<any> {
-        const localVarPath = this.basePath + '/Report/{ReportType}';
+    public getDocumentRenderByType (ReportType: string) : Promise<any> {
+        const localVarPath = this.basePath + '/Report/{ReportType}'
+            .replace('{' + 'ReportType' + '}', encodeURIComponent(String(ReportType)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'ReportType' is not null or undefined
+        if (ReportType === null || ReportType === undefined) {
+            throw new Error('Required parameter ReportType was null or undefined when calling getDocumentRenderByType.');
+        }
 
 
         let localVarUseFormData = false;
@@ -33775,6 +37840,378 @@ export class ReportApi {
                             resolve(body);
                         } else {
                             reject(`Request Error ${response.statusCode} in getDocumentRenderByType!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Request to render a report. To get rendered files, use getReportStageFile() Example HTML flow: 1. Request /Report/Render/1247/default 2. Extract GUIDReportDescription (i.e. \"0x5984be9c8b000000\") from response object. 3. Open a new browser tab to: /Report/0x5984be9c8b000000/ 4. Rendered html page will subsequently request assets (images, css, etc)
+     * @param IDDocument ID of record
+     * @param Renderer Render format (default, html, pdf, json, etc)
+     */
+    public getRenderReport (IDDocument: number, Renderer: string) : Promise<ReportRenderResult> {
+        const localVarPath = this.basePath + '/Report/Render/{IDDocument}/{Renderer}'
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)))
+            .replace('{' + 'Renderer' + '}', encodeURIComponent(String(Renderer)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling getRenderReport.');
+        }
+
+        // verify required parameter 'Renderer' is not null or undefined
+        if (Renderer === null || Renderer === undefined) {
+            throw new Error('Required parameter Renderer was null or undefined when calling getRenderReport.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<ReportRenderResult>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ReportRenderResult");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getRenderReport!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Source JSON datum used to generate the report.
+     * @param ReportUUID UUID of completed report render.
+     */
+    public getReportDatum (ReportUUID: string) : Promise<any> {
+        const localVarPath = this.basePath + '/Report/Datum/{ReportUUID}'
+            .replace('{' + 'ReportUUID' + '}', encodeURIComponent(String(ReportUUID)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'ReportUUID' is not null or undefined
+        if (ReportUUID === null || ReportUUID === undefined) {
+            throw new Error('Required parameter ReportUUID was null or undefined when calling getReportDatum.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getReportDatum!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Manifest (JSON metadata file) about the rendered report. Includes information about other generated assets.
+     * @param ReportUUID UUID of completed report render.
+     */
+    public getReportManifest (ReportUUID: string) : Promise<any> {
+        const localVarPath = this.basePath + '/Report/Manifest/{ReportUUID}'
+            .replace('{' + 'ReportUUID' + '}', encodeURIComponent(String(ReportUUID)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'ReportUUID' is not null or undefined
+        if (ReportUUID === null || ReportUUID === undefined) {
+            throw new Error('Required parameter ReportUUID was null or undefined when calling getReportManifest.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getReportManifest!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Get staged (rendered) file for a previously rendered report.
+     * @param ReportUUID UUID of completed report render.
+     * @param StageFilePath Subpath to file in rendered report stage dir
+     */
+    public getReportStageFile (ReportUUID: string, StageFilePath: string) : Promise<Buffer> {
+        const localVarPath = this.basePath + '/Report/{ReportUUID}/{StageFilePath}'
+            .replace('{' + 'ReportUUID' + '}', encodeURIComponent(String(ReportUUID)))
+            .replace('{' + 'StageFilePath' + '}', encodeURIComponent(String(StageFilePath)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'ReportUUID' is not null or undefined
+        if (ReportUUID === null || ReportUUID === undefined) {
+            throw new Error('Required parameter ReportUUID was null or undefined when calling getReportStageFile.');
+        }
+
+        // verify required parameter 'StageFilePath' is not null or undefined
+        if (StageFilePath === null || StageFilePath === undefined) {
+            throw new Error('Required parameter StageFilePath was null or undefined when calling getReportStageFile.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            encoding: null,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Buffer>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getReportStageFile!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Report/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ReportModel>> {
+        const localVarPath = this.basePath + '/Report/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ReportModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
                         }
                     }
                 })
@@ -33910,21 +38347,26 @@ export class ReportApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ReportModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportModel>> {
         const localVarPath = this.basePath + '/Reports/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -33934,11 +38376,6 @@ export class ReportApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -34167,13 +38604,13 @@ export class ReportNamedInstanceApi {
     }
     /**
      * 
-     * @param IDReportNamedInstance ID of record
      * @param IDProject ID of record
+     * @param IDReportNamedInstance ID of record
      */
-    public addReportNamedInstanceToProject (IDReportNamedInstance: number, IDProject: number) : Promise<any> {
+    public addReportNamedInstanceToProject (IDProject: number, IDReportNamedInstance: number) : Promise<any> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/AddToProject/{IDProject}'
-            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
+            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -34181,14 +38618,14 @@ export class ReportNamedInstanceApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDReportNamedInstance' is not null or undefined
-        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
-            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling addReportNamedInstanceToProject.');
-        }
-
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling addReportNamedInstanceToProject.');
+        }
+
+        // verify required parameter 'IDReportNamedInstance' is not null or undefined
+        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
+            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling addReportNamedInstanceToProject.');
         }
 
 
@@ -34478,6 +38915,126 @@ export class ReportNamedInstanceApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/ReportNamedInstance/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<ReportNamedInstanceModel>> {
+        const localVarPath = this.basePath + '/ReportNamedInstance/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<ReportNamedInstanceModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -34606,21 +39163,26 @@ export class ReportNamedInstanceApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<ReportNamedInstanceModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<ReportNamedInstanceModel>> {
         const localVarPath = this.basePath + '/ReportNamedInstances/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -34630,11 +39192,6 @@ export class ReportNamedInstanceApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -34680,13 +39237,13 @@ export class ReportNamedInstanceApi {
     }
     /**
      * 
-     * @param IDReportNamedInstance ID of record
      * @param IDProject ID of record
+     * @param IDReportNamedInstance ID of record
      */
-    public removeReportNamedInstanceFromProject (IDReportNamedInstance: number, IDProject: number) : Promise<any> {
+    public removeReportNamedInstanceFromProject (IDProject: number, IDReportNamedInstance: number) : Promise<any> {
         const localVarPath = this.basePath + '/ReportNamedInstance/{IDReportNamedInstance}/RemoveFromProject/{IDProject}'
-            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)))
-            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)));
+            .replace('{' + 'IDProject' + '}', encodeURIComponent(String(IDProject)))
+            .replace('{' + 'IDReportNamedInstance' + '}', encodeURIComponent(String(IDReportNamedInstance)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -34694,14 +39251,14 @@ export class ReportNamedInstanceApi {
         //clear last response before initiating next operation
         this._lastResponse = null;
 
-        // verify required parameter 'IDReportNamedInstance' is not null or undefined
-        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
-            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling removeReportNamedInstanceFromProject.');
-        }
-
         // verify required parameter 'IDProject' is not null or undefined
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling removeReportNamedInstanceFromProject.');
+        }
+
+        // verify required parameter 'IDReportNamedInstance' is not null or undefined
+        if (IDReportNamedInstance === null || IDReportNamedInstance === undefined) {
+            throw new Error('Required parameter IDReportNamedInstance was null or undefined when calling removeReportNamedInstanceFromProject.');
         }
 
 
@@ -35101,6 +39658,126 @@ export class SampleApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Sample/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Sample>> {
+        const localVarPath = this.basePath + '/Sample/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Sample>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -35229,21 +39906,26 @@ export class SampleApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Sample>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Sample>> {
         const localVarPath = this.basePath + '/Samples/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -35253,11 +39935,6 @@ export class SampleApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -35658,6 +40335,126 @@ export class SampleLabJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/SampleLabJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<SampleLabJoin>> {
+        const localVarPath = this.basePath + '/SampleLabJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<SampleLabJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -35786,21 +40583,26 @@ export class SampleLabJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<SampleLabJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<SampleLabJoin>> {
         const localVarPath = this.basePath + '/SampleLabJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -35810,11 +40612,6 @@ export class SampleLabJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -36215,6 +41012,126 @@ export class SampleLineItemJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/SampleLineItemJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<SampleLineItemJoin>> {
+        const localVarPath = this.basePath + '/SampleLineItemJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<SampleLineItemJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -36343,21 +41260,26 @@ export class SampleLineItemJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<SampleLineItemJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<SampleLineItemJoin>> {
         const localVarPath = this.basePath + '/SampleLineItemJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -36367,11 +41289,6 @@ export class SampleLineItemJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -36772,6 +41689,126 @@ export class SampleLogApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/SampleLog/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<SampleLog>> {
+        const localVarPath = this.basePath + '/SampleLog/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<SampleLog>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -36900,21 +41937,26 @@ export class SampleLogApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<SampleLog>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<SampleLog>> {
         const localVarPath = this.basePath + '/SampleLogs/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -36924,11 +41966,6 @@ export class SampleLogApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -37329,6 +42366,126 @@ export class TestApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/Test/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<Test>> {
+        const localVarPath = this.basePath + '/Test/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<Test>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -37457,21 +42614,26 @@ export class TestApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<Test>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<Test>> {
         const localVarPath = this.basePath + '/Tests/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -37481,11 +42643,6 @@ export class TestApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -37886,6 +43043,126 @@ export class TestDataApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestData/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestData>> {
+        const localVarPath = this.basePath + '/TestData/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestData>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -38014,21 +43291,26 @@ export class TestDataApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestData>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestData>> {
         const localVarPath = this.basePath + '/TestDatas/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -38038,11 +43320,6 @@ export class TestDataApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -38443,6 +43720,126 @@ export class TestInstanceApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestInstance/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestInstance>> {
+        const localVarPath = this.basePath + '/TestInstance/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestInstance>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -38571,21 +43968,26 @@ export class TestInstanceApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestInstance>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestInstance>> {
         const localVarPath = this.basePath + '/TestInstances/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -38595,11 +43997,6 @@ export class TestInstanceApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -39000,6 +44397,126 @@ export class TestInstanceDataApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestInstanceData/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestInstanceData>> {
+        const localVarPath = this.basePath + '/TestInstanceData/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestInstanceData>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -39128,21 +44645,26 @@ export class TestInstanceDataApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestInstanceData>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestInstanceData>> {
         const localVarPath = this.basePath + '/TestInstanceDatas/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -39152,11 +44674,6 @@ export class TestInstanceDataApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -39557,6 +45074,126 @@ export class TestInstanceDataArchiveApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestInstanceDataArchive/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestInstanceDataArchive>> {
+        const localVarPath = this.basePath + '/TestInstanceDataArchive/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestInstanceDataArchive>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -39685,21 +45322,26 @@ export class TestInstanceDataArchiveApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestInstanceDataArchive>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestInstanceDataArchive>> {
         const localVarPath = this.basePath + '/TestInstanceDataArchives/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -39709,11 +45351,6 @@ export class TestInstanceDataArchiveApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -40114,6 +45751,126 @@ export class TestInstanceLabJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestInstanceLabJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestInstanceLabJoin>> {
+        const localVarPath = this.basePath + '/TestInstanceLabJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestInstanceLabJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -40242,21 +45999,26 @@ export class TestInstanceLabJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestInstanceLabJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestInstanceLabJoin>> {
         const localVarPath = this.basePath + '/TestInstanceLabJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -40266,11 +46028,6 @@ export class TestInstanceLabJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -40671,6 +46428,126 @@ export class TestInstanceSampleJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestInstanceSampleJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestInstanceSampleJoin>> {
+        const localVarPath = this.basePath + '/TestInstanceSampleJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestInstanceSampleJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -40799,21 +46676,26 @@ export class TestInstanceSampleJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestInstanceSampleJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestInstanceSampleJoin>> {
         const localVarPath = this.basePath + '/TestInstanceSampleJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -40823,11 +46705,6 @@ export class TestInstanceSampleJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -41228,6 +47105,126 @@ export class TestLabJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestLabJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestLabJoin>> {
+        const localVarPath = this.basePath + '/TestLabJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestLabJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -41356,21 +47353,26 @@ export class TestLabJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestLabJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestLabJoin>> {
         const localVarPath = this.basePath + '/TestLabJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -41380,11 +47382,6 @@ export class TestLabJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -41785,6 +47782,126 @@ export class TestPlanApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestPlan/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestPlan>> {
+        const localVarPath = this.basePath + '/TestPlan/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestPlan>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -41913,21 +48030,26 @@ export class TestPlanApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestPlan>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestPlan>> {
         const localVarPath = this.basePath + '/TestPlans/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -41937,11 +48059,6 @@ export class TestPlanApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -42342,6 +48459,126 @@ export class TestRecordOfMaterialEntryJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestRecordOfMaterialEntryJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestRecordOfMaterialEntryJoin>> {
+        const localVarPath = this.basePath + '/TestRecordOfMaterialEntryJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestRecordOfMaterialEntryJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -42470,21 +48707,26 @@ export class TestRecordOfMaterialEntryJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestRecordOfMaterialEntryJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestRecordOfMaterialEntryJoin>> {
         const localVarPath = this.basePath + '/TestRecordOfMaterialEntryJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -42494,11 +48736,6 @@ export class TestRecordOfMaterialEntryJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -42899,6 +49136,126 @@ export class TestSpecificationApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestSpecification/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestSpecification>> {
+        const localVarPath = this.basePath + '/TestSpecification/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestSpecification>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -43027,21 +49384,26 @@ export class TestSpecificationApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestSpecification>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestSpecification>> {
         const localVarPath = this.basePath + '/TestSpecifications/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -43051,11 +49413,6 @@ export class TestSpecificationApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -43456,6 +49813,126 @@ export class TestSpecificationMaterialTestJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestSpecificationMaterialTestJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestSpecificationMaterialTestJoin>> {
+        const localVarPath = this.basePath + '/TestSpecificationMaterialTestJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestSpecificationMaterialTestJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -43584,21 +50061,26 @@ export class TestSpecificationMaterialTestJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestSpecificationMaterialTestJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestSpecificationMaterialTestJoin>> {
         const localVarPath = this.basePath + '/TestSpecificationMaterialTestJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -43608,11 +50090,6 @@ export class TestSpecificationMaterialTestJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -44013,6 +50490,126 @@ export class TestSpecificationRequirementApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestSpecificationRequirement/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestSpecificationRequirement>> {
+        const localVarPath = this.basePath + '/TestSpecificationRequirement/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestSpecificationRequirement>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -44141,21 +50738,26 @@ export class TestSpecificationRequirementApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestSpecificationRequirement>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestSpecificationRequirement>> {
         const localVarPath = this.basePath + '/TestSpecificationRequirements/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -44165,11 +50767,6 @@ export class TestSpecificationRequirementApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -44570,6 +51167,126 @@ export class TestSpecificationSetApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestSpecificationSet/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestSpecificationSet>> {
+        const localVarPath = this.basePath + '/TestSpecificationSet/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestSpecificationSet>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -44698,21 +51415,26 @@ export class TestSpecificationSetApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestSpecificationSet>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestSpecificationSet>> {
         const localVarPath = this.basePath + '/TestSpecificationSets/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -44722,11 +51444,6 @@ export class TestSpecificationSetApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -45127,6 +51844,126 @@ export class TestSpecificationSetTestJoinApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestSpecificationSetTestJoin/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestSpecificationSetTestJoin>> {
+        const localVarPath = this.basePath + '/TestSpecificationSetTestJoin/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestSpecificationSetTestJoin>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -45255,21 +52092,26 @@ export class TestSpecificationSetTestJoinApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestSpecificationSetTestJoin>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestSpecificationSetTestJoin>> {
         const localVarPath = this.basePath + '/TestSpecificationSetTestJoins/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -45279,11 +52121,6 @@ export class TestSpecificationSetTestJoinApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -45684,6 +52521,126 @@ export class TestStepApi {
         );
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/TestStep/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<TestStep>> {
+        const localVarPath = this.basePath + '/TestStep/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<TestStep>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -45812,21 +52769,26 @@ export class TestStepApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<TestStep>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<TestStep>> {
         const localVarPath = this.basePath + '/TestSteps/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -45836,11 +52798,6 @@ export class TestStepApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -46068,6 +53025,183 @@ export class UserApi {
         );
     }
     /**
+     * Check if an email is already in use
+     * @param Email 
+     */
+    public checkEmail (Email: string) : Promise<any> {
+        const localVarPath = this.basePath + '/User/CheckEmail/{Email}'
+            .replace('{' + 'Email' + '}', encodeURIComponent(String(Email)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'Email' is not null or undefined
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling checkEmail.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in checkEmail!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Check if a LoginID is already in use
+     * @param LoginID 
+     */
+    public checkLoginID (LoginID: string) : Promise<any> {
+        const localVarPath = this.basePath + '/User/CheckLoginID/{LoginID}'
+            .replace('{' + 'LoginID' + '}', encodeURIComponent(String(LoginID)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'LoginID' is not null or undefined
+        if (LoginID === null || LoginID === undefined) {
+            throw new Error('Required parameter LoginID was null or undefined when calling checkLoginID.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in checkLoginID!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Email confirmation link for self-signup user
+     * @param EmailConfirmHash Hash code sent in confirmation email
+     */
+    public confirmEmail (EmailConfirmHash: string) : Promise<any> {
+        const localVarPath = this.basePath + '/User/ConfirmEmail/{EmailConfirmHash}'
+            .replace('{' + 'EmailConfirmHash' + '}', encodeURIComponent(String(EmailConfirmHash)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'EmailConfirmHash' is not null or undefined
+        if (EmailConfirmHash === null || EmailConfirmHash === undefined) {
+            throw new Error('Required parameter EmailConfirmHash was null or undefined when calling confirmEmail.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in confirmEmail!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow COUNT
      */
     public count () : Promise<InlineResponse200> {
@@ -46241,6 +53375,289 @@ export class UserApi {
         );
     }
     /**
+     * User forgot password email with link
+     * @param Email 
+     */
+    public forgotPassword (Email: string) : Promise<any> {
+        const localVarPath = this.basePath + '/User/ForgotPassword/{Email}'
+            .replace('{' + 'Email' + '}', encodeURIComponent(String(Email)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'Email' is not null or undefined
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling forgotPassword.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in forgotPassword!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Get Avtive Users list 
+     */
+    public getActiveUsers () : Promise<any> {
+        const localVarPath = this.basePath + '/User/Active';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getActiveUsers!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Send version and last update dates for various 
+     */
+    public getSyncIndicator () : Promise<any> {
+        const localVarPath = this.basePath + '/User/SyncIndicator';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in getSyncIndicator!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadCountQuery (body: QueryRequest) : Promise<InlineResponse200> {
+        const localVarPath = this.basePath + '/User/query/count';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse200>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadCountQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * 
+     * @param body 
+     */
+    public postReadQuery (body: QueryRequest) : Promise<Array<UserModel>> {
+        const localVarPath = this.basePath + '/User/query/read';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "QueryRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<Array<UserModel>>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postReadQuery!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -46369,21 +53786,26 @@ export class UserApi {
     }
     /**
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      */
-    public readsFiltered (begin: number, max: number, filter: string) : Promise<Array<UserModel>> {
+    public readsFiltered (filter: string, begin: number, max: number) : Promise<Array<UserModel>> {
         const localVarPath = this.basePath + '/Users/FilteredTo/{filter}/{begin}/{max}'
+            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)))
             .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
-            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
-            .replace('{' + 'filter' + '}', encodeURIComponent(String(filter)));
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         //clear last response before initiating next operation
         this._lastResponse = null;
+
+        // verify required parameter 'filter' is not null or undefined
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
 
         // verify required parameter 'begin' is not null or undefined
         if (begin === null || begin === undefined) {
@@ -46393,11 +53815,6 @@ export class UserApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-
-        // verify required parameter 'filter' is not null or undefined
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
 
@@ -46435,6 +53852,124 @@ export class UserApi {
                             resolve(body);
                         } else {
                             reject(`Request Error ${response.statusCode} in readsFiltered!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Request to resend confirmation email (user email must not be confirmed yet)
+     * @param Email 
+     */
+    public resendConfirmationEmail (Email: string) : Promise<any> {
+        const localVarPath = this.basePath + '/User/ResendConfirmationEmail/{Email}'
+            .replace('{' + 'Email' + '}', encodeURIComponent(String(Email)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'Email' is not null or undefined
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling resendConfirmationEmail.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in resendConfirmationEmail!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * User self-signup
+     * @param body 
+     */
+    public signupUser (body: UserSignupRequest) : Promise<any> {
+        const localVarPath = this.basePath + '/User/Signup';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling signupUser.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "UserSignupRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in signupUser!`);
                         }
                     }
                 })
@@ -46495,6 +54030,65 @@ export class UserApi {
                             resolve(body);
                         } else {
                             reject(`Request Error ${response.statusCode} in update!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Change user password *
+     * @param body 
+     */
+    public updatePassword (body: ChangePasswordRequest) : Promise<any> {
+        const localVarPath = this.basePath + '/Password';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling updatePassword.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "ChangePasswordRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in updatePassword!`);
                         }
                     }
                 })

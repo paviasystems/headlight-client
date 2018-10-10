@@ -18,18 +18,6 @@ export interface UserModel {
     /**
      * 
      */
-    LoginPassword: string;
-    /**
-     * 
-     */
-    PasswordResetKey: string;
-    /**
-     * 
-     */
-    LastSessionID: string;
-    /**
-     * 
-     */
     Settings: any;
     /**
      * 
@@ -123,10 +111,6 @@ export interface UserModel {
      * 
      */
     Shift: string;
-    /**
-     * 
-     */
-    SettingsJSON: string;
     /**
      * 
      */

@@ -28,24 +28,24 @@ export class ObservationsByUpdateDateApi {
 
     /**
      * Fetch list of observations where date is earlier than ByDate.
-     * @param Cap Maximum number of records to return
      * @param ByDate 
+     * @param Cap Maximum number of records to return
      */
-    public getObservationsByUpdateDate (Cap: number, ByDate: Date, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public getObservationsByUpdateDate (ByDate: Date, Cap: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/ObservationsByUpdateDate/{ByDate}/{Cap}'
-            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)))
-            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)));
+            .replace('{' + 'ByDate' + '}', encodeURIComponent(String(ByDate)))
+            .replace('{' + 'Cap' + '}', encodeURIComponent(String(Cap)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'Cap' is not null or undefined
-        if (Cap === null || Cap === undefined) {
-            throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
-        }
-
         // verify required parameter 'ByDate' is not null or undefined
         if (ByDate === null || ByDate === undefined) {
             throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
+        }
+
+        // verify required parameter 'Cap' is not null or undefined
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

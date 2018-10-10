@@ -63,10 +63,6 @@ export interface ReportModel {
     /**
      * 
      */
-    "OptionsJSON": string;
-    /**
-     * 
-     */
     "IDCustomer": number;
 }
 

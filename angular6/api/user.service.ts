@@ -18,8 +18,11 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { ChangePasswordRequest } from '../model/changePasswordRequest';
 import { InlineResponse200 } from '../model/inlineResponse200';
+import { QueryRequest } from '../model/queryRequest';
 import { UserModel } from '../model/userModel';
+import { UserSignupRequest } from '../model/userSignupRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -88,6 +91,126 @@ export class UserService {
         ];
 
         return this.httpClient.delete<boolean>(`${this.basePath}/User/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Check if an email is already in use
+     * @param Email 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public checkEmail(Email: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public checkEmail(Email: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public checkEmail(Email: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public checkEmail(Email: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling checkEmail.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/CheckEmail/${encodeURIComponent(String(Email))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Check if a LoginID is already in use
+     * @param LoginID 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public checkLoginID(LoginID: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public checkLoginID(LoginID: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public checkLoginID(LoginID: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public checkLoginID(LoginID: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (LoginID === null || LoginID === undefined) {
+            throw new Error('Required parameter LoginID was null or undefined when calling checkLoginID.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/CheckLoginID/${encodeURIComponent(String(LoginID))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Email confirmation link for self-signup user
+     * @param EmailConfirmHash Hash code sent in confirmation email
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public confirmEmail(EmailConfirmHash: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public confirmEmail(EmailConfirmHash: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public confirmEmail(EmailConfirmHash: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public confirmEmail(EmailConfirmHash: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (EmailConfirmHash === null || EmailConfirmHash === undefined) {
+            throw new Error('Required parameter EmailConfirmHash was null or undefined when calling confirmEmail.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/ConfirmEmail/${encodeURIComponent(String(EmailConfirmHash))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -221,6 +344,210 @@ export class UserService {
 
     /**
      * 
+     * User forgot password email with link
+     * @param Email 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public forgotPassword(Email: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public forgotPassword(Email: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public forgotPassword(Email: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public forgotPassword(Email: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling forgotPassword.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/ForgotPassword/${encodeURIComponent(String(Email))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Get Avtive Users list 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getActiveUsers(observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getActiveUsers(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getActiveUsers(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getActiveUsers(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/Active`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Send version and last update dates for various 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getSyncIndicator(observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getSyncIndicator(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getSyncIndicator(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getSyncIndicator(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/SyncIndicator`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadCountQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
+    public postReadCountQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
+    public postReadCountQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
+    public postReadCountQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<InlineResponse200>(`${this.basePath}/User/query/count`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<UserModel>>;
+    public postReadQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UserModel>>>;
+    public postReadQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UserModel>>>;
+    public postReadQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<Array<UserModel>>(`${this.basePath}/User/query/read`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Meadow READ
      * @param id ID of record
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -306,24 +633,24 @@ export class UserService {
     /**
      * 
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'body', reportProgress?: boolean): Observable<Array<UserModel>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UserModel>>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UserModel>>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'body', reportProgress?: boolean): Observable<Array<UserModel>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UserModel>>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UserModel>>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let headers = this.defaultHeaders;
@@ -342,6 +669,92 @@ export class UserService {
         ];
 
         return this.httpClient.get<Array<UserModel>>(`${this.basePath}/Users/FilteredTo/${encodeURIComponent(String(filter))}/${encodeURIComponent(String(begin))}/${encodeURIComponent(String(max))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Request to resend confirmation email (user email must not be confirmed yet)
+     * @param Email 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public resendConfirmationEmail(Email: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public resendConfirmationEmail(Email: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public resendConfirmationEmail(Email: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public resendConfirmationEmail(Email: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (Email === null || Email === undefined) {
+            throw new Error('Required parameter Email was null or undefined when calling resendConfirmationEmail.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/User/ResendConfirmationEmail/${encodeURIComponent(String(Email))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * User self-signup
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public signupUser(body: UserSignupRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public signupUser(body: UserSignupRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public signupUser(body: UserSignupRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public signupUser(body: UserSignupRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling signupUser.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<any>(`${this.basePath}/User/Signup`,
+            body,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -387,6 +800,52 @@ export class UserService {
         }
 
         return this.httpClient.put<UserModel>(`${this.basePath}/User`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Change user password *
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public updatePassword(body: ChangePasswordRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public updatePassword(body: ChangePasswordRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public updatePassword(body: ChangePasswordRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public updatePassword(body: ChangePasswordRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling updatePassword.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<any>(`${this.basePath}/Password`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,

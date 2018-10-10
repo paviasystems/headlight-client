@@ -16,10 +16,6 @@ import * as models from './models';
  * 
  */
 export interface ObservationModel {
-    /**
-     * 
-     */
-    "_StatusOverride": boolean;
     "Labels": models.ObservationModelLabels;
     "Details": models.MappedArrayArtifact;
     /**

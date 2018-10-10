@@ -17,10 +17,6 @@ import { ObservationModelLabels } from './observationModelLabels';
  * 
  */
 export interface ObservationModel { 
-    /**
-     * 
-     */
-    _StatusOverride: boolean;
     Labels: ObservationModelLabels;
     Details: MappedArrayArtifact;
     /**

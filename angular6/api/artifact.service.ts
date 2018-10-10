@@ -21,6 +21,7 @@ import { Observable }                                        from 'rxjs/Observab
 import { Artifact } from '../model/artifact';
 import { ArtifactModel } from '../model/artifactModel';
 import { InlineResponse200 } from '../model/inlineResponse200';
+import { QueryRequest } from '../model/queryRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -141,22 +142,22 @@ export class ArtifactService {
     /**
      * 
      * Copy Artifact media from ID to target ID
-     * @param IDObservationArtifact ID of record
      * @param IDTargetArtifact ID of record
+     * @param IDObservationArtifact ID of record
      * @param ArtifactVersion 
      * @param TargetArtifactVersion 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public copyArtifact(IDObservationArtifact: number, IDTargetArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
-            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
-        }
+    public copyArtifact(IDTargetArtifact: number, IDObservationArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public copyArtifact(IDTargetArtifact: number, IDObservationArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public copyArtifact(IDTargetArtifact: number, IDObservationArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public copyArtifact(IDTargetArtifact: number, IDObservationArtifact: number, ArtifactVersion: number, TargetArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDTargetArtifact === null || IDTargetArtifact === undefined) {
             throw new Error('Required parameter IDTargetArtifact was null or undefined when calling copyArtifact.');
+        }
+        if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
+            throw new Error('Required parameter IDObservationArtifact was null or undefined when calling copyArtifact.');
         }
         if (ArtifactVersion === null || ArtifactVersion === undefined) {
             throw new Error('Required parameter ArtifactVersion was null or undefined when calling copyArtifact.');
@@ -317,18 +318,22 @@ export class ArtifactService {
      * Download Artifact media file from Headlight
      * @param IDObservationArtifact ID of record
      * @param Size 
+     * @param ArtifactVersion 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
-    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
-    public downloadArtifact(IDObservationArtifact: number, Size: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
-    public downloadArtifact(IDObservationArtifact: number, Size: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public downloadArtifact(IDObservationArtifact: number, Size: string, ArtifactVersion: string, observe?: 'body', reportProgress?: boolean): Observable<Blob>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, ArtifactVersion: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, ArtifactVersion: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
+    public downloadArtifact(IDObservationArtifact: number, Size: string, ArtifactVersion: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling downloadArtifact.');
         }
         if (Size === null || Size === undefined) {
             throw new Error('Required parameter Size was null or undefined when calling downloadArtifact.');
+        }
+        if (ArtifactVersion === null || ArtifactVersion === undefined) {
+            throw new Error('Required parameter ArtifactVersion was null or undefined when calling downloadArtifact.');
         }
 
         let headers = this.defaultHeaders;
@@ -384,6 +389,98 @@ export class ArtifactService {
         ];
 
         return this.httpClient.get<Array<Artifact>>(`${this.basePath}/Artifact/Media/GetSyncList`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadCountQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
+    public postReadCountQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
+    public postReadCountQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
+    public postReadCountQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<InlineResponse200>(`${this.basePath}/Artifact/query/count`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
+    public postReadQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
+    public postReadQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
+    public postReadQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<Array<ArtifactModel>>(`${this.basePath}/Artifact/query/read`,
+            body,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -480,24 +577,24 @@ export class ArtifactService {
     /**
      * 
      * Meadow READ filtered list
+     * @param filter FBV meadow filter
      * @param begin Beginning (skip) number of records (to page)
      * @param max Maximum number of records to return
-     * @param filter FBV meadow filter
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
-    public readsFiltered(begin: number, max: number, filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
+    public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (filter === null || filter === undefined) {
+            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
+        }
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
-        }
-        if (filter === null || filter === undefined) {
-            throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
 
         let headers = this.defaultHeaders;
@@ -574,21 +671,21 @@ export class ArtifactService {
     /**
      * 
      * Upload Artifact media file to Headlight
-     * @param file 
      * @param IDObservationArtifact ID of record
+     * @param file 
      * @param ArtifactVersion 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public uploadArtifact(file: Blob, IDObservationArtifact: number, ArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
-        }
+    public uploadArtifact(IDObservationArtifact: number, file: Blob, ArtifactVersion: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public uploadArtifact(IDObservationArtifact: number, file: Blob, ArtifactVersion: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public uploadArtifact(IDObservationArtifact: number, file: Blob, ArtifactVersion: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public uploadArtifact(IDObservationArtifact: number, file: Blob, ArtifactVersion: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (IDObservationArtifact === null || IDObservationArtifact === undefined) {
             throw new Error('Required parameter IDObservationArtifact was null or undefined when calling uploadArtifact.');
+        }
+        if (file === null || file === undefined) {
+            throw new Error('Required parameter file was null or undefined when calling uploadArtifact.');
         }
         if (ArtifactVersion === null || ArtifactVersion === undefined) {
             throw new Error('Required parameter ArtifactVersion was null or undefined when calling uploadArtifact.');

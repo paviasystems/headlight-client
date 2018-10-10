@@ -84,15 +84,22 @@ export class DocumentApprovalApi {
     }
     /**
      * Perform Approval state transition action against Document
+     * @param body 
      */
-    public postChangeDocumenttState (extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public postChangeDocumenttState (body: models.DocumentStateChangeRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/DocumentApproval';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postChangeDocumenttState.');
+        }
+
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
+            data: body,
             params: queryParameters,
             headers: headerParams
         };

@@ -75,10 +75,6 @@ export interface PayItemModel {
     /**
      * 
      */
-    "ExtendedJSON": string;
-    /**
-     * 
-     */
     "IDCustomer": number;
     /**
      * 

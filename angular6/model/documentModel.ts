@@ -140,8 +140,4 @@ export interface DocumentModel {
      * 
      */
     Form: number;
-    /**
-     * 
-     */
-    FormDataJSON: string;
 }

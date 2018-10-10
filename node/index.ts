@@ -7,13 +7,47 @@
 */
 
 import * as API from './api';
+import {BaseRepository,SimpleQuery} from 'ts-repository-fluent';
 export { API };
+
+type constructor<T> = new()=>T;
 
 const HEADLIGHT_API_VERSION = '1.0';
 
 export interface GeneralAPI
 {
     setDefaultAuthentication(pAuth: API.Authentication): void;
+}
+
+export interface IQueryable<T> extends GeneralAPI
+{
+    postReadQuery(body: any): Promise<Array<T>>;
+    postReadCountQuery(body: any): Promise<any>;
+}
+
+export class Repository<T> extends BaseRepository<T>
+{
+    constructor(private _apiClass: IQueryable<T>, ormType: constructor<T>)
+    {
+        super(ormType);
+        //TODO: bit of a hack to deal with Headlight Model types.
+        // This is needed to properly build the primary Id field names.
+        this._DataTypeName = this._DataType.name.replace('Model', '');
+    }
+
+    async reads(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
+    {
+        return await this._apiClass.postReadQuery(pQuery.packageQuery());
+    }
+    async readsLite(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
+    {
+        throw 'Not implemented!';
+    }
+    async count(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<number>
+    {
+        let result = await this._apiClass.postReadCountQuery(pQuery.packageQuery());
+        return result.Count;
+    }
 }
 
 export class CookieAuth implements API.Authentication {
@@ -127,5 +161,15 @@ export class Client
         apiObject.setDefaultAuthentication(this._Cookie);
 
         return <T>apiObject;
+    }
+
+    /**
+     * Get reference to an API, and configure it according to current state of client.
+     */
+    public Repository<T extends IQueryable<ORM>, ORM>(pApiType: new(baseURL: string)=>T, pORMType: constructor<ORM>): Repository<ORM>
+    {
+        let apiObject = this.API(pApiType);
+
+        return new Repository(apiObject, pORMType);
     }
 }

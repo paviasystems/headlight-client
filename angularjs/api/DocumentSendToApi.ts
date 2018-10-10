@@ -28,23 +28,23 @@ export class DocumentSendToApi {
 
     /**
      * 
-     * @param body 
      * @param IDDocument ID of record
+     * @param body 
      */
-    public postDocumentSendToEmail (body: models.SendToEmailRequest, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public postDocumentSendToEmail (IDDocument: number, body: models.SendToEmailRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/DocumentSendTo/{IDDocument}/Email'
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'body' is not null or undefined
-        if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
-        }
-
         // verify required parameter 'IDDocument' is not null or undefined
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling postDocumentSendToEmail.');
+        }
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
