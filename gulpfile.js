@@ -27,7 +27,7 @@ libGulp.task('minified',
         //tmpBrowserify.ignore('underscore');
 
         return tmpBrowserify
-            .plugin(tsify, { noImplicitAny: true, declaration: true })
+            .plugin(tsify, { noImplicitAny: false, declaration: true })
             .transform('babelify', {
             "presets": [
                 [
@@ -63,7 +63,7 @@ libGulp.task('debug',
         });
 
         return tmpBrowserify
-            .plugin(tsify, { noImplicitAny: true, declaration: true })
+            .plugin(tsify, { noImplicitAny: false, declaration: true })
             .transform('babelify', {
             "presets": [
                 [
