@@ -342,6 +342,34 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Allows a report to perform a bulk upsert in context of a document.
+     * @param body 
+     */
+    public postFormProcessor (body: models.FormProcessorRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/Document/FormProcessor';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postFormProcessor.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * 
      * @param body 
      */

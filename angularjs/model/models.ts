@@ -10,6 +10,7 @@ export * from './DocumentStateChangeRequest';
 export * from './ElectronicSignature';
 export * from './ElectronicSignatureModel';
 export * from './Equipment';
+export * from './FormProcessorRequest';
 export * from './ISession';
 export * from './InlineResponse200';
 export * from './InlineResponse2001';

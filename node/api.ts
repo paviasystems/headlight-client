@@ -1946,6 +1946,56 @@ export class Equipment {
 /**
 * 
 */
+export class FormProcessorRequest {
+    /**
+    * 
+    */
+    'IDDocument': number;
+    /**
+    * 
+    */
+    'Observations': Array<ObservationModel>;
+    /**
+    * 
+    */
+    'Samples': Array<Sample>;
+    /**
+    * 
+    */
+    'SampleLogs': Array<SampleLog>;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "IDDocument",
+            "baseName": "IDDocument",
+            "type": "number"
+        },
+        {
+            "name": "Observations",
+            "baseName": "Observations",
+            "type": "Array<ObservationModel>"
+        },
+        {
+            "name": "Samples",
+            "baseName": "Samples",
+            "type": "Array<Sample>"
+        },
+        {
+            "name": "SampleLogs",
+            "baseName": "SampleLogs",
+            "type": "Array<SampleLog>"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return FormProcessorRequest.attributeTypeMap;
+    }
+}
+
+/**
+* 
+*/
 export class ISession {
     /**
     * 
@@ -11117,6 +11167,7 @@ let typeMap: {[index: string]: any} = {
     "ElectronicSignature": ElectronicSignature,
     "ElectronicSignatureModel": ElectronicSignatureModel,
     "Equipment": Equipment,
+    "FormProcessorRequest": FormProcessorRequest,
     "ISession": ISession,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
@@ -16203,6 +16254,65 @@ export class DocumentApi {
                             resolve(body);
                         } else {
                             reject(`Request Error ${response.statusCode} in getDocumentReportParameters!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Allows a report to perform a bulk upsert in context of a document.
+     * @param body 
+     */
+    public postFormProcessor (body: FormProcessorRequest) : Promise<any> {
+        const localVarPath = this.basePath + '/Document/FormProcessor';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postFormProcessor.');
+        }
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(body, "FormProcessorRequest")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<any>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in postFormProcessor!`);
                         }
                     }
                 })

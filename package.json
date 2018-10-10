@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/headlight-bundle.min.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/_mocha --bail --colors --compilers ts-node/register ./node/test/*.ts"
+    "test": "./node_modules/mocha/bin/_mocha --bail --colors --compilers ts-node/register ./node/test/*.ts",
+    "precommit": "tsc"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,6 @@
   },
   "dependencies": {
     "request": "^2.75.0",
-    "ts-repository-fluent": "^0.0.8"
+    "ts-repository-fluent": "^0.0.9"
   }
 }

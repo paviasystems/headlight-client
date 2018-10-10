@@ -113,5 +113,17 @@ describe('Node API test', function() {
         
         expect(projectCount).to.be.gt(1);
     });
+
+    it ('can perform a join query', async() => {
+        let samplesQuery = client.Repository(Headlight.API.SampleApi, Headlight.API.Sample).query(client);
+
+        //get the Sample that belongs to the first SampleLog
+        let sampleRecords = await samplesQuery
+            .joinOn(Headlight.API.SampleLog, 'IDSample', 'IDSample', JoinType.INNER)
+            .whereOn(Headlight.API.SampleLog, 'IDSampleLog', 1)
+            .reads();
+        
+        expect(sampleRecords.length).to.be.gt(0);
+    });
 });
 

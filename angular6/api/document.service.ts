@@ -19,6 +19,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 import { Observable }                                        from 'rxjs/Observable';
 
 import { DocumentModel } from '../model/documentModel';
+import { FormProcessorRequest } from '../model/formProcessorRequest';
 import { InlineResponse200 } from '../model/inlineResponse200';
 import { QueryRequest } from '../model/queryRequest';
 
@@ -501,6 +502,52 @@ export class DocumentService {
         ];
 
         return this.httpClient.get<any>(`${this.basePath}/Document/${encodeURIComponent(String(IDDocument))}/ReportParameters`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Allows a report to perform a bulk upsert in context of a document.
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public postFormProcessor(body: FormProcessorRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postFormProcessor.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<any>(`${this.basePath}/Document/FormProcessor`,
+            body,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
