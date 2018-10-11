@@ -7982,6 +7982,18 @@
 					"application/json"
 				],
 				"responses": {
+					"200": {
+						"description": "Object containing token",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Token": {
+									"type": "string",
+									"description": ""
+								}
+							}
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
