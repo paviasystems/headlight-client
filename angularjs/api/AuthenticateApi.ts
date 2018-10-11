@@ -78,7 +78,7 @@ export class AuthenticateApi {
     /**
      * Check out temporary authentication token for user in session.
      */
-    public checkoutSessionToken (extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public checkoutSessionToken (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
         const localVarPath = this.basePath + '/CheckoutSessionToken';
 
         let queryParameters: any = {};
@@ -99,7 +99,7 @@ export class AuthenticateApi {
     /**
      * Logout user (remove session from server)
      */
-    public deAuthenticate (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
+    public deAuthenticate (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2002> {
         const localVarPath = this.basePath + '/Deauthenticate';
 
         let queryParameters: any = {};

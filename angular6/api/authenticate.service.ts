@@ -20,6 +20,7 @@ import { Observable }                                        from 'rxjs/Observab
 
 import { ISession } from '../model/iSession';
 import { InlineResponse2001 } from '../model/inlineResponse2001';
+import { InlineResponse2002 } from '../model/inlineResponse2002';
 import { LoginRequest } from '../model/loginRequest';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -146,9 +147,9 @@ export class AuthenticateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public checkoutSessionToken(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public checkoutSessionToken(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public checkoutSessionToken(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public checkoutSessionToken(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
+    public checkoutSessionToken(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public checkoutSessionToken(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
     public checkoutSessionToken(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -166,7 +167,7 @@ export class AuthenticateService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/CheckoutSessionToken`,
+        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/CheckoutSessionToken`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -182,9 +183,9 @@ export class AuthenticateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deAuthenticate(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public deAuthenticate(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
-    public deAuthenticate(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
+    public deAuthenticate(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
+    public deAuthenticate(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public deAuthenticate(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
     public deAuthenticate(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -202,7 +203,7 @@ export class AuthenticateService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<InlineResponse2001>(`${this.basePath}/Deauthenticate`,
+        return this.httpClient.get<InlineResponse2002>(`${this.basePath}/Deauthenticate`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

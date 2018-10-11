@@ -2184,6 +2184,26 @@ export class InlineResponse2001 {
     /**
     * 
     */
+    'Token'?: string;
+
+    static discriminator: string | undefined = undefined;
+
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "Token",
+            "baseName": "Token",
+            "type": "string"
+        }    ];
+
+    static getAttributeTypeMap() {
+        return InlineResponse2001.attributeTypeMap;
+    }
+}
+
+export class InlineResponse2002 {
+    /**
+    * 
+    */
     'Success'?: boolean;
 
     static discriminator: string | undefined = undefined;
@@ -2196,7 +2216,7 @@ export class InlineResponse2001 {
         }    ];
 
     static getAttributeTypeMap() {
-        return InlineResponse2001.attributeTypeMap;
+        return InlineResponse2002.attributeTypeMap;
     }
 }
 
@@ -11171,6 +11191,7 @@ let typeMap: {[index: string]: any} = {
     "ISession": ISession,
     "InlineResponse200": InlineResponse200,
     "InlineResponse2001": InlineResponse2001,
+    "InlineResponse2002": InlineResponse2002,
     "Lab": Lab,
     "LabMaterialAssignment": LabMaterialAssignment,
     "LabTestApproval": LabTestApproval,
@@ -12493,60 +12514,8 @@ export class AuthenticateApi {
     /**
      * Check out temporary authentication token for user in session.
      */
-    public checkoutSessionToken () : Promise<any> {
+    public checkoutSessionToken () : Promise<InlineResponse2001> {
         const localVarPath = this.basePath + '/CheckoutSessionToken';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        //clear last response before initiating next operation
-        this._lastResponse = null;
-
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            timeout: this._timeout,
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
-            new Promise<any>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    this._lastResponse = response;
-
-                    if (error || (body && body.Error)) {
-                        reject(error || body.Error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve(body);
-                        } else {
-                            reject(`Request Error ${response.statusCode} in checkoutSessionToken!`);
-                        }
-                    }
-                })
-            })
-        );
-    }
-    /**
-     * Logout user (remove session from server)
-     */
-    public deAuthenticate () : Promise<InlineResponse2001> {
-        const localVarPath = this.basePath + '/Deauthenticate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
@@ -12585,6 +12554,59 @@ export class AuthenticateApi {
                         reject(error || body.Error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "InlineResponse2001");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve(body);
+                        } else {
+                            reject(`Request Error ${response.statusCode} in checkoutSessionToken!`);
+                        }
+                    }
+                })
+            })
+        );
+    }
+    /**
+     * Logout user (remove session from server)
+     */
+    public deAuthenticate () : Promise<InlineResponse2002> {
+        const localVarPath = this.basePath + '/Deauthenticate';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        //clear last response before initiating next operation
+        this._lastResponse = null;
+
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            timeout: this._timeout,
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return this.authentications.default.executeWithAuth(localVarRequestOptions, ()=>
+            new Promise<InlineResponse2002>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    this._lastResponse = response;
+
+                    if (error || (body && body.Error)) {
+                        reject(error || body.Error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "InlineResponse2002");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {

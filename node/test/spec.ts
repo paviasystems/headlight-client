@@ -36,6 +36,14 @@ describe('Node API test', function() {
         expect(record.IDUser).to.eq(client.UserSession.UserID);
     });
 
+    it('can authenticate using a session token', async() => {
+        const authApi = client.API(Headlight.API.AuthenticateApi);
+        let token = await authApi.checkoutSessionToken();
+
+        let session = await client.loginWithToken(token.Token);
+        expect(session).to.have.property('SessionID');
+    });
+
     it('will load API from cache', async() => {
         let userApi = client.API(Headlight.API.UserApi);
 

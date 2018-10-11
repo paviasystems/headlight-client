@@ -53,6 +53,7 @@ export class Repository<T> extends BaseRepository<T>
 export class CookieAuth implements API.Authentication {
     private _Username: string;
     private _Password: string;
+    private _Token: string;
 
     constructor(private sessionId: string, private client: Client){
     }
@@ -62,11 +63,23 @@ export class CookieAuth implements API.Authentication {
         this.sessionId = pSessionId;
         this._Username = pUsername;
         this._Password = pPassword;
+        this._Token = null;
+    }
+
+    setToken(pSessionId: string, pSessionToken: string)
+    {
+        this.sessionId = pSessionId;
+        this._Token = pSessionToken;
+        this._Username = null;
+        this._Password = null;
     }
 
     applyToRequest(requestOptions: any): void {
         if (this.sessionId) {
             requestOptions.headers['Cookie'] = 'UserSession=' + this.sessionId;
+        }
+        else if (this._Token) {
+            requestOptions.qs['SessionToken'] = this._Token;
         }
     }
 
@@ -81,6 +94,10 @@ export class CookieAuth implements API.Authentication {
             //TODO: should implement with statusCode
             if (this.sessionId && pError && pError.indexOf('authenticated'))
             {
+                if (!this._Username || !this._Password)
+                {
+                    return Promise.reject('No credentials were given to authenticate with server.');
+                }
                 //our session has expired, login again
                 return this.client.login(this._Username, this._Password)
                     .then(()=>
@@ -122,8 +139,8 @@ export class Client
         this._BaseURL = pBaseURL;
         this._ApiReferences = {};
 
-        this._Auth = new API.AuthenticateApi(pBaseURL);
         this._Cookie = new CookieAuth(null, this);
+        this._Auth = this.API(API.AuthenticateApi);
     }
 
     get UserSession(): API.ISession
@@ -136,6 +153,8 @@ export class Client
      */
     public async login(pUsername: string, pPassword: string): Promise<API.ISession>
     {
+        this._UserSession = null;
+
         var result = await this._Auth.authenticate({UserName: pUsername, Password: pPassword});
         if (!result.UserID)
         {
@@ -143,6 +162,25 @@ export class Client
         }
         this._UserSession = result;
         this._Cookie.setCredentials(result.SessionID, pUsername, pPassword);
+
+        return Promise.resolve(result);
+    }
+
+    /**
+     * Perform login operation, and keep session cookie for use in later API calls.
+     */
+    public async loginWithToken(pSessionToken: string): Promise<API.ISession>
+    {
+        this._UserSession = null;
+        this._Cookie.setToken(null, pSessionToken);
+
+        var result = await this._Auth.checkSession();
+        if (!result.UserID)
+        {
+            return Promise.reject('Login failure! Check if token is still valid.');
+        }
+        this._UserSession = result;
+        this._Cookie.setToken(result.SessionID, pSessionToken);
 
         return Promise.resolve(result);
     }

@@ -16,6 +16,6 @@ export interface InlineResponse2001 {
     /**
      * 
      */
-    "Success"?: boolean;
+    "Token"?: string;
 }
 

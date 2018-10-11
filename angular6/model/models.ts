@@ -14,6 +14,7 @@ export * from './formProcessorRequest';
 export * from './iSession';
 export * from './inlineResponse200';
 export * from './inlineResponse2001';
+export * from './inlineResponse2002';
 export * from './lab';
 export * from './labMaterialAssignment';
 export * from './labTestApproval';

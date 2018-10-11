@@ -11,9 +11,9 @@
  */
 
 
-export interface InlineResponse2001 { 
+export interface InlineResponse2002 { 
     /**
      * 
      */
-    Token?: string;
+    Success?: boolean;
 }
