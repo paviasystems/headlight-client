@@ -9188,6 +9188,12 @@
 					"application/json"
 				],
 				"responses": {
+					"200": {
+						"description": "Updated record data",
+						"schema": {
+							"$ref": "#/definitions/FormProcessorRequest"
+						}
+					},
 					"204": {
 						"description": "No content"
 					}
