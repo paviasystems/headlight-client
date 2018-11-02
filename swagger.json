@@ -7326,6 +7326,61 @@
 				]
 			}
 		},
+		"/Artifacts/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ArtifactModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Artifact"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Artifacts/Count": {
 			"get": {
 				"operationId": "_count",
@@ -7798,6 +7853,61 @@
 				]
 			}
 		},
+		"/BidItems/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/BidItem"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"BidItem"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/BidItems/Count": {
 			"get": {
 				"operationId": "_count",
@@ -8213,6 +8323,61 @@
 				]
 			}
 		},
+		"/Comments/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/CommentModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Comment"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Comments/Count": {
 			"get": {
 				"operationId": "_count",
@@ -8574,6 +8739,61 @@
 				]
 			}
 		},
+		"/Contracts/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Contract"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Contract"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Contracts/Count": {
 			"get": {
 				"operationId": "_count",
@@ -8931,6 +9151,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Customers/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Customer"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Customer"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -9814,6 +10089,61 @@
 				]
 			}
 		},
+		"/Documents/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Document"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Documents/Count": {
 			"get": {
 				"operationId": "_count",
@@ -10289,6 +10619,61 @@
 				]
 			}
 		},
+		"/ElectronicSignatures/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ElectronicSignatureModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"ElectronicSignature"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ElectronicSignatures/Count": {
 			"get": {
 				"operationId": "_count",
@@ -10646,6 +11031,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Equipments/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Equipment"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Equipment"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -11219,6 +11659,61 @@
 				]
 			}
 		},
+		"/LabMaterialAssignments/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabMaterialAssignment"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"LabMaterialAssignment"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/LabMaterialAssignments/Count": {
 			"get": {
 				"operationId": "_count",
@@ -11576,6 +12071,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/LabTestApprovals/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestApproval"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"LabTestApproval"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -11941,6 +12491,61 @@
 				]
 			}
 		},
+		"/LabTestDefaults/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestDefault"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"LabTestDefault"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/LabTestDefaults/Count": {
 			"get": {
 				"operationId": "_count",
@@ -12090,6 +12695,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Labs/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Lab"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Lab"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -12451,6 +13111,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/LineItems/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LineItem"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"LineItem"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -13024,6 +13739,61 @@
 				]
 			}
 		},
+		"/MaterialLineItemJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialLineItemJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"MaterialLineItemJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/MaterialLineItemJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -13381,6 +14151,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/MaterialPayItemJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialPayItemJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"MaterialPayItemJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -13746,6 +14571,61 @@
 				]
 			}
 		},
+		"/MaterialRecordOfMaterialEntryJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"MaterialRecordOfMaterialEntryJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/MaterialRecordOfMaterialEntryJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -13895,6 +14775,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Materials/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Material"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Material"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -14468,6 +15403,61 @@
 				]
 			}
 		},
+		"/MixSpecificationMaterialJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecificationMaterialJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"MixSpecificationMaterialJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/MixSpecificationMaterialJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -14617,6 +15607,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/MixSpecifications/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecification"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"MixSpecification"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -14982,6 +16027,61 @@
 				]
 			}
 		},
+		"/Modules/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ModuleModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Module"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/Modules/Count": {
 			"get": {
 				"operationId": "_count",
@@ -15339,6 +16439,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Notifications/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Notification"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Notification"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -16247,6 +17402,61 @@
 						"description": "",
 						"in": "path",
 						"name": "EmailAddress",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/Observations/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ObservationModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Observation"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
 						"required": true,
 						"type": "string"
 					}
@@ -17193,6 +18403,61 @@
 				]
 			}
 		},
+		"/OrganizationMaterialJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/OrganizationMaterialJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"OrganizationMaterialJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/OrganizationMaterialJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -17342,6 +18607,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Organizations/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Organization"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Organization"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -17734,6 +19054,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/PayItems/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/PayItemModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"PayItem"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -18515,6 +19890,61 @@
 				]
 			}
 		},
+		"/ProductionPlantMaterialApprovals/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlantMaterialApproval"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"ProductionPlantMaterialApproval"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ProductionPlantMaterialApprovals/Count": {
 			"get": {
 				"operationId": "_count",
@@ -18668,6 +20098,61 @@
 				]
 			}
 		},
+		"/ProductionPlants/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlant"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"ProductionPlant"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ProductionPlants/Count": {
 			"get": {
 				"operationId": "_count",
@@ -18817,6 +20302,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Products/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Product"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Product"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -19178,6 +20718,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Projects/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProjectModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Project"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -19959,6 +21554,61 @@
 				]
 			}
 		},
+		"/RecordOfMaterialEntryArchives/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"RecordOfMaterialEntryArchive"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/RecordOfMaterialEntryArchives/Count": {
 			"get": {
 				"operationId": "_count",
@@ -20112,6 +21762,61 @@
 				]
 			}
 		},
+		"/RecordOfMaterialEntrys/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntry"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"RecordOfMaterialEntry"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/RecordOfMaterialEntrys/Count": {
 			"get": {
 				"operationId": "_count",
@@ -20261,6 +21966,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/RecordOfMaterials/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterial"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"RecordOfMaterial"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -21063,6 +22823,61 @@
 				]
 			}
 		},
+		"/ReportNamedInstances/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportNamedInstanceModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"ReportNamedInstance"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/ReportNamedInstances/Count": {
 			"get": {
 				"operationId": "_count",
@@ -21255,6 +23070,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Reports/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Report"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -21828,6 +23698,61 @@
 				]
 			}
 		},
+		"/SampleLabJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLabJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"SampleLabJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/SampleLabJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -22185,6 +24110,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/SampleLineItemJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLineItemJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"SampleLineItemJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -22550,6 +24530,61 @@
 				]
 			}
 		},
+		"/SampleLogs/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLog"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"SampleLog"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/SampleLogs/Count": {
 			"get": {
 				"operationId": "_count",
@@ -22699,6 +24734,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Samples/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Sample"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Sample"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -23268,6 +25358,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestDatas/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestData"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestData"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -24049,6 +26194,61 @@
 				]
 			}
 		},
+		"/TestInstanceDataArchives/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceDataArchive"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestInstanceDataArchive"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestInstanceDataArchives/Count": {
 			"get": {
 				"operationId": "_count",
@@ -24198,6 +26398,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestInstanceDatas/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceData"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestInstanceData"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -24563,6 +26818,61 @@
 				]
 			}
 		},
+		"/TestInstanceLabJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceLabJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestInstanceLabJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestInstanceLabJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -24924,6 +27234,61 @@
 				]
 			}
 		},
+		"/TestInstanceSampleJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceSampleJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestInstanceSampleJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestInstanceSampleJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -25073,6 +27438,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestInstances/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstance"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestInstance"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -25438,6 +27858,61 @@
 				]
 			}
 		},
+		"/TestLabJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestLabJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestLabJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestLabJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -25799,6 +28274,61 @@
 				]
 			}
 		},
+		"/TestPlans/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestPlan"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestPlan"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestPlans/Count": {
 			"get": {
 				"operationId": "_count",
@@ -26156,6 +28686,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestRecordOfMaterialEntryJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestRecordOfMaterialEntryJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -26729,6 +29314,61 @@
 				]
 			}
 		},
+		"/TestSpecificationMaterialTestJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestSpecificationMaterialTestJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestSpecificationMaterialTestJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -27086,6 +29726,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestSpecificationRequirements/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationRequirement"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestSpecificationRequirement"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -27659,6 +30354,61 @@
 				]
 			}
 		},
+		"/TestSpecificationSetTestJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSetTestJoin"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestSpecificationSetTestJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestSpecificationSetTestJoins/Count": {
 			"get": {
 				"operationId": "_count",
@@ -27812,6 +30562,61 @@
 				]
 			}
 		},
+		"/TestSpecificationSets/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSet"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestSpecificationSet"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestSpecificationSets/Count": {
 			"get": {
 				"operationId": "_count",
@@ -27961,6 +30766,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/TestSpecifications/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecification"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestSpecification"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -28326,6 +31186,61 @@
 				]
 			}
 		},
+		"/TestSteps/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestStep"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"TestStep"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
 		"/TestSteps/Count": {
 			"get": {
 				"operationId": "_count",
@@ -28475,6 +31390,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Tests/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Test"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"Test"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
@@ -29033,6 +32003,61 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Users/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"User"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
 					}
 				]
 			}
