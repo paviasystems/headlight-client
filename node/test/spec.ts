@@ -36,10 +36,22 @@ describe('Node API test', function() {
         expect(record.IDUser).to.eq(client.UserSession.UserID);
     });
 
+    it ('will auto-login if session invalid', async() => {
+        const authAPI = client.API(Headlight.API.AuthenticateApi);
+        let result = await authAPI.deAuthenticate();
+        expect(result).to.have.property('Success');
+
+        //try getting a record after having logged out
+        let userApi = client.API(Headlight.API.UserApi);
+        let record = await userApi.read(client.UserSession.UserID);
+        expect(record.IDUser).to.eq(client.UserSession.UserID);
+    }).timeout(35000);
+
     it('can authenticate using a session token', async() => {
         const authApi = client.API(Headlight.API.AuthenticateApi);
         let token = await authApi.checkoutSessionToken();
 
+        //note: using a temp token means auto-relogin cannot happen
         let session = await client.loginWithToken(token.Token);
         expect(session).to.have.property('SessionID');
     });
@@ -74,17 +86,6 @@ describe('Node API test', function() {
         expect(updatedRecord.Settings['apiTest']).to.eq(testTime);
         expect(updatedRecord.UpdateDate).to.be.gt(record.UpdateDate);
     });
-
-    it ('will auto-login if session invalid', async() => {
-        const authAPI = client.API(Headlight.API.AuthenticateApi);
-        let result = await authAPI.deAuthenticate();
-        expect(result).to.have.property('Success');
-
-        //try getting a record after having logged out
-        let userApi = client.API(Headlight.API.UserApi);
-        let record = await userApi.read(client.UserSession.UserID);
-        expect(record.IDUser).to.eq(client.UserSession.UserID);
-    }).timeout(35000);
 
     it ('can access a different API with renewed credentials', async() => {
         const customerApi = client.API(Headlight.API.CustomerApi);
