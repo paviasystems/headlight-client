@@ -15,7 +15,7 @@ const process = require('process');
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0; //allow self-signed certs for local testing
 
-const _ServerURL = 'https://headlight.local/1.0';
+const _ServerURL = 'https://headlightqa.paviasystems.com/1.0';
 const _UserName = process.env['DEV_USER'] || 'user';
 const _Password = process.env['DEV_PASSWORD'] || 'password123';
 
