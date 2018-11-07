@@ -57,6 +57,6 @@
   },
   "dependencies": {
     "request": "^2.75.0",
-    "ts-repository-fluent": "^0.0.9"
+    "ts-repository-fluent": "^0.1.1"
   }
 }

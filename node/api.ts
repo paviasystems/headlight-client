@@ -132,6 +132,13 @@ class ObjectSerializer {
                 let attributeType = attributeTypes[index];
                 instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
             }
+            //directly forward any non-defined properties
+            for(let key in data) {
+                if (!instance[key])
+                {
+                    instance[key] = data[key];
+                }
+            }
             return instance;
         }
     }
