@@ -1217,6 +1217,11 @@
 					"format": "double",
 					"description": ""
 				},
+				"ExternalSyncDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
 				"Name": {
 					"type": "string",
 					"description": ""
@@ -1225,9 +1230,22 @@
 					"type": "string",
 					"description": ""
 				},
+				"DesignatedTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
 				"IDDevice": {
 					"type": "number",
 					"format": "double",
+					"description": ""
+				},
+				"ObservationType": {
+					"type": "string",
+					"description": ""
+				},
+				"Status": {
+					"type": "string",
 					"description": ""
 				},
 				"CaptureLatitude": {
@@ -1235,46 +1253,6 @@
 					"description": ""
 				},
 				"CaptureLongitude": {
-					"type": "string",
-					"description": ""
-				},
-				"IDProject": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Priority": {
-					"type": "string",
-					"description": ""
-				},
-				"Tags": {
-					"type": "string",
-					"description": ""
-				},
-				"Contractors": {
-					"type": "string",
-					"description": ""
-				},
-				"BidItems": {
-					"type": "string",
-					"description": ""
-				},
-				"Version": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"SpritePage": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"DesignatedTime": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"ObservationType": {
 					"type": "string",
 					"description": ""
 				},
@@ -1294,25 +1272,30 @@
 					"type": "string",
 					"description": ""
 				},
+				"IDProject": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Priority": {
+					"type": "string",
+					"description": ""
+				},
+				"Version": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"SpritePage": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
 				"SnapshotJSON": {
 					"type": "string",
 					"description": ""
 				},
 				"AppHash": {
-					"type": "string",
-					"description": ""
-				},
-				"Locked": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Transcoded": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Status": {
 					"type": "string",
 					"description": ""
 				},
@@ -1325,17 +1308,14 @@
 					"format": "double",
 					"description": ""
 				},
-				"LineItems": {
-					"type": "string",
+				"Locked": {
+					"type": "number",
+					"format": "double",
 					"description": ""
 				},
-				"ExternalSyncDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
-				"Equipment": {
-					"type": "string",
+				"Transcoded": {
+					"type": "number",
+					"format": "double",
 					"description": ""
 				},
 				"ExternalSyncGUID": {
@@ -1356,34 +1336,29 @@
 				"Deleted",
 				"DeleteDate",
 				"DeletingIDUser",
+				"ExternalSyncDate",
 				"Name",
 				"Description",
+				"DesignatedTime",
 				"IDDevice",
+				"ObservationType",
+				"Status",
 				"CaptureLatitude",
 				"CaptureLongitude",
-				"IDProject",
-				"Priority",
-				"Tags",
-				"Contractors",
-				"BidItems",
-				"Version",
-				"SpritePage",
-				"DesignatedTime",
-				"ObservationType",
 				"UserLatitude",
 				"UserLongitude",
 				"AlignmentStation",
 				"AlignmentOffset",
+				"IDProject",
+				"Priority",
+				"Version",
+				"SpritePage",
 				"SnapshotJSON",
 				"AppHash",
-				"Locked",
-				"Transcoded",
-				"Status",
 				"StateName",
 				"StateStep",
-				"LineItems",
-				"ExternalSyncDate",
-				"Equipment",
+				"Locked",
+				"Transcoded",
 				"ExternalSyncGUID"
 			]
 		},
@@ -6420,6 +6395,11 @@
 				"ComputationTemplate": {
 					"type": "string",
 					"description": ""
+				},
+				"Important": {
+					"type": "number",
+					"format": "double",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -6438,7 +6418,8 @@
 				"Name",
 				"Notes",
 				"Computed",
-				"ComputationTemplate"
+				"ComputationTemplate",
+				"Important"
 			]
 		},
 		"TestData": {
