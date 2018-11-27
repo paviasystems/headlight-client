@@ -2322,6 +2322,71 @@
 				"Message"
 			]
 		},
+		"DocumentPolyModel": {
+			"description": "",
+			"properties": {
+				"RemoteRecord": {
+					"type": "object",
+					"description": ""
+				},
+				"IDDocumentPolyJoin": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"GUIDDocumentPolyJoin": {
+					"type": "string",
+					"description": ""
+				},
+				"CreateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"CreatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"UpdateDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"UpdatingIDUser": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"IDDocument": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"RemoteType": {
+					"type": "string",
+					"description": ""
+				},
+				"IDRemote": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"RemoteRecord",
+				"IDDocumentPolyJoin",
+				"GUIDDocumentPolyJoin",
+				"CreateDate",
+				"CreatingIDUser",
+				"UpdateDate",
+				"UpdatingIDUser",
+				"IDDocument",
+				"RemoteType",
+				"IDRemote"
+			]
+		},
 		"Sample": {
 			"description": "",
 			"properties": {
@@ -10024,6 +10089,422 @@
 						"description": "ID of record",
 						"in": "path",
 						"name": "IDDocument",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoin": {
+			"post": {
+				"operationId": "_create",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/DocumentPolyModel"
+						}
+					}
+				},
+				"description": "Meadow POST (Create)",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocumentPolyModel"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "_update",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/DocumentPolyModel"
+						}
+					}
+				},
+				"description": "Meadow PUT (Update)",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocumentPolyModel"
+						}
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoin/query/count": {
+			"post": {
+				"operationId": "_postReadCountQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Number of records found",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoin/query/read": {
+			"post": {
+				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentPolyModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoin/{id}": {
+			"get": {
+				"operationId": "_read",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/DocumentPolyModel"
+						}
+					}
+				},
+				"description": "Meadow READ",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "_delete",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				},
+				"description": "Meadow DELETE",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoins/By/{field}/{value}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsByValue",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentPolyModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ by field value",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "field name",
+						"in": "path",
+						"name": "field",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "WHERE field value",
+						"in": "path",
+						"name": "value",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoins/Count": {
+			"get": {
+				"operationId": "_count",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": []
+			}
+		},
+		"/DocumentPolyJoins/FilteredTo/{filter}/Count": {
+			"get": {
+				"operationId": "_countFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"Count": {
+									"type": "number",
+									"format": "double",
+									"description": ""
+								}
+							}
+						}
+					}
+				},
+				"description": "Meadow COUNT with filter",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoins/FilteredTo/{filter}/{begin}/{max}": {
+			"get": {
+				"operationId": "_readsFiltered",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentPolyModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ filtered list",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "filter",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/DocumentPolyJoins/{begin}/{max}": {
+			"get": {
+				"operationId": "_reads",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentPolyModel"
+							}
+						}
+					}
+				},
+				"description": "Meadow READ list",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"parameters": [
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "max",
 						"required": true,
 						"type": "integer",
 						"format": "int64"
