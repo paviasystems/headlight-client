@@ -10,7 +10,7 @@ import * as API from './api';
 import {BaseRepository,SimpleQuery} from 'ts-repository-fluent';
 export { API };
 
-type constructor<T> = new()=>T;
+export type constructor<T> = new()=>T;
 
 const HEADLIGHT_API_VERSION = '1.0';
 
