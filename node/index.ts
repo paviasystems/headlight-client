@@ -22,6 +22,7 @@ export interface GeneralAPI
 export interface IQueryable<T> extends GeneralAPI
 {
     postReadQuery(body: any): Promise<Array<T>>;
+    postReadsLiteQuery(body: any): Promise<Array<T>>;
     postReadCountQuery(body: any): Promise<any>;
 }
 
@@ -41,7 +42,7 @@ export class Repository<T> extends BaseRepository<T>
     }
     async readsLite(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
     {
-        throw 'Not implemented!';
+        return await this._apiClass.postReadsLiteQuery(pQuery.packageQuery());
     }
     async count(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<number>
     {
