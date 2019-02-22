@@ -2838,31 +2838,6 @@
 				"SampleLogs"
 			]
 		},
-		"DocumentStateChangeRequest": {
-			"description": "",
-			"properties": {
-				"IDDocument": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Action": {
-					"type": "string",
-					"description": ""
-				},
-				"IDElectronicSignature": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				}
-			},
-			"type": "object",
-			"required": [
-				"IDDocument",
-				"Action",
-				"IDElectronicSignature"
-			]
-		},
 		"ElectronicSignature": {
 			"description": "",
 			"properties": {
@@ -3141,6 +3116,71 @@
 				"SequenceNumber",
 				"ExternalSyncGUID",
 				"Form"
+			]
+		},
+		"DocumentCloneRequest": {
+			"description": "",
+			"properties": {
+				"IDDocuments": {
+					"type": "array",
+					"items": {
+						"type": "number",
+						"format": "double"
+					},
+					"description": ""
+				},
+				"IDProject": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"SetRequestingUserID": {
+					"type": "boolean",
+					"description": ""
+				},
+				"OffsetFromSpecificTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"OffsetFromCurrentTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDDocuments",
+				"IDProject",
+				"SetRequestingUserID",
+				"OffsetFromSpecificTime",
+				"OffsetFromCurrentTime"
+			]
+		},
+		"DocumentStateChangeRequest": {
+			"description": "",
+			"properties": {
+				"IDDocument": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Action": {
+					"type": "string",
+					"description": ""
+				},
+				"IDElectronicSignature": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				}
+			},
+			"type": "object",
+			"required": [
+				"IDDocument",
+				"Action",
+				"IDElectronicSignature"
 			]
 		},
 		"SampleLabJoin": {
@@ -9980,6 +10020,42 @@
 				]
 			}
 		},
+		"/Document/{IDDocument}/Clone": {
+			"post": {
+				"operationId": "postCloneDocument",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Cloned Document",
+						"schema": {
+							"$ref": "#/definitions/DocumentModel"
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "postCloneDocument API",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDDocument",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
 		"/Document/{IDDocument}/Comment/Add/{IDComment}": {
 			"get": {
 				"operationId": "addCommentsToDocument",
@@ -10881,6 +10957,46 @@
 						"name": "value",
 						"required": true,
 						"type": "string"
+					}
+				]
+			}
+		},
+		"/Documents/Clone": {
+			"post": {
+				"operationId": "postCloneBulkDocuments",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Cloned Documents",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "postCloneBulkDocuments API",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocumentCloneRequest"
+						}
 					}
 				]
 			}
