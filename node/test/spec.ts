@@ -126,10 +126,10 @@ describe('Node API test', function() {
     it ('can perform a join query', async() => {
         let samplesQuery = client.Repository(Headlight.API.SampleApi, Headlight.API.Sample).query(client);
 
-        //get the Sample that belongs to the first SampleLog
+        //get the Sample that belongs to a SampleLog
         let sampleRecords = await samplesQuery
             .joinOn(Headlight.API.SampleLog, 'IDSample', 'IDSample', JoinType.INNER)
-            .whereOn(Headlight.API.SampleLog, 'IDSampleLog', 1)
+            .whereOn(Headlight.API.SampleLog, 'IDSampleLog', 595)
             .reads();
         
         expect(sampleRecords.length).to.be.gt(0);
