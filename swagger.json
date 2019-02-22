@@ -9,39 +9,40 @@
 					"items": {
 						"type": "string"
 					},
-					"description": ""
+					"description": "DEPRECATED "
 				},
 				"BidItems": {
 					"type": "array",
 					"items": {
 						"type": "string"
 					},
-					"description": ""
+					"description": "DEPRECATED "
 				},
 				"LineItems": {
 					"type": "array",
 					"items": {
 						"type": "string"
 					},
-					"description": ""
+					"description": "DEPRECATED "
 				},
 				"Contractors": {
 					"type": "array",
 					"items": {
 						"type": "string"
 					},
-					"description": ""
+					"description": "DEPRECATED "
 				},
 				"TagTypes": {
 					"type": "array",
 					"items": {
 						"type": "string"
 					},
-					"description": ""
+					"description": "DEPRECATED "
 				},
 				"LabelTypes": {
 					"type": "object",
-					"description": ""
+					"properties": {},
+					"description": "Tag configuration for this project.\n  Use 1.0/ObservationTagProjectJoins/FilteredTo/FBV~IDProject~EQ~71~FBV~TagType~EQ~Contractor~FSF~Tag~ASC/0/10\nto get list of available tags of each type in the project."
 				},
 				"CustomProperties": {
 					"type": "object",
@@ -1362,6 +1363,11 @@
 				"ExternalSyncGUID"
 			]
 		},
+		"MappedArrayObservationTagJoin": {
+			"description": "",
+			"properties": {},
+			"type": "object"
+		},
 		"MappedArrayArtifact": {
 			"description": "",
 			"properties": {},
@@ -1371,14 +1377,7 @@
 			"description": "",
 			"properties": {
 				"Labels": {
-					"type": "object",
-					"properties": {
-						"SAVE": {
-							"type": "boolean",
-							"description": ""
-						}
-					},
-					"description": ""
+					"$ref": "#/definitions/MappedArrayObservationTagJoin"
 				},
 				"Details": {
 					"$ref": "#/definitions/MappedArrayArtifact"
@@ -7287,6 +7286,46 @@
 				]
 			}
 		},
+		"/Artifact/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ArtifactModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Artifact"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Artifact/{IDArtifact}/ClearSyncFlag": {
 			"get": {
 				"operationId": "clearArtifactSyncFlag",
@@ -7841,6 +7880,46 @@
 				]
 			}
 		},
+		"/BidItem/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/BidItem"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"BidItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/BidItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -8154,7 +8233,7 @@
 						"description": "No content"
 					}
 				},
-				"description": "Check out temporary authentication token for user in session.",
+				"description": "Check out temporary authentication token for user in session.\nCan then be used by another client via querystring parameter (e.g. https://headlightqa.paviasystems.com/1.0/CheckSession?SessionToken=VALUE)",
 				"tags": [
 					"Authenticate"
 				],
@@ -8274,6 +8353,46 @@
 		"/Comment/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/CommentModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Comment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Comment/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -8727,6 +8846,46 @@
 				]
 			}
 		},
+		"/Contract/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Contract"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Contract"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Contract/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -9106,6 +9265,46 @@
 		"/Customer/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Customer"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Customer"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Customer/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -9706,6 +9905,46 @@
 				]
 			}
 		},
+		"/Document/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Document"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Document/{IDDocument}/AddObservation/{IDObservation}": {
 			"get": {
 				"operationId": "addDocumentObservation",
@@ -10246,6 +10485,46 @@
 				]
 			}
 		},
+		"/DocumentPolyJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/DocumentPolyModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"DocumentPolyJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/DocumentPolyJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -10718,6 +10997,56 @@
 				]
 			}
 		},
+		"/Documents/QueryProjectApprovalStatus/{IDProject}/{Status}/{Begin}/{Cap}": {
+			"get": {
+				"operationId": "getDocumentsQueryApprovalStatus",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get list of Documents where user can perform actions based on Approval Status, query direct from db",
+				"tags": [
+					"DocumentApproval"
+				],
+				"parameters": [
+					{
+						"description": "ID of record",
+						"in": "path",
+						"name": "IDProject",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "Begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "Document Status",
+						"in": "path",
+						"name": "Status",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "Cap",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
 		"/Documents/Sync/{SynchronizeFromDate}/{Begin}/{Cap}": {
 			"post": {
 				"operationId": "syncDocuments",
@@ -10793,6 +11122,55 @@
 						"required": true,
 						"type": "integer",
 						"format": "int64"
+					},
+					{
+						"description": "Maximum number of records to return",
+						"in": "path",
+						"name": "Cap",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				]
+			}
+		},
+		"/Documents/WithApprovalStatus/{Status}/FilteredTo/{Filter}/{Begin}/{Cap}": {
+			"get": {
+				"operationId": "getDocumentsByApprovalStatus",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Gets a filtered list of Documents, further filtered based of the ApprovalStatus relative to current user",
+				"tags": [
+					"DocumentApproval"
+				],
+				"parameters": [
+					{
+						"description": "Document Status",
+						"in": "path",
+						"name": "Status",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"description": "Beginning (skip) number of records (to page)",
+						"in": "path",
+						"name": "Begin",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"description": "FBV meadow filter",
+						"in": "path",
+						"name": "Filter",
+						"required": true,
+						"type": "string"
 					},
 					{
 						"description": "Maximum number of records to return",
@@ -10986,6 +11364,46 @@
 		"/ElectronicSignature/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ElectronicSignatureModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ElectronicSignature"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ElectronicSignature/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -11439,6 +11857,46 @@
 				]
 			}
 		},
+		"/Equipment/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Equipment"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Equipment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Equipment/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -11855,6 +12313,46 @@
 				]
 			}
 		},
+		"/Lab/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Lab"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Lab"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Lab/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -12026,6 +12524,46 @@
 		"/LabMaterialAssignment/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabMaterialAssignment"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabMaterialAssignment"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LabMaterialAssignment/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -12479,6 +13017,46 @@
 				]
 			}
 		},
+		"/LabTestApproval/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestApproval"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/LabTestApproval/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -12858,6 +13436,46 @@
 		"/LabTestDefault/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LabTestDefault"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LabTestDefault"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/LabTestDefault/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -13519,6 +14137,46 @@
 				]
 			}
 		},
+		"/LineItem/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/LineItem"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"LineItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/LineItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -13935,6 +14593,46 @@
 				]
 			}
 		},
+		"/Material/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Material"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Material"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Material/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -14106,6 +14804,46 @@
 		"/MaterialLineItemJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialLineItemJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialLineItemJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -14559,6 +15297,46 @@
 				]
 			}
 		},
+		"/MaterialPayItemJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialPayItemJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialPayItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/MaterialPayItemJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -14938,6 +15716,46 @@
 		"/MaterialRecordOfMaterialEntryJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MaterialRecordOfMaterialEntryJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MaterialRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MaterialRecordOfMaterialEntryJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -15599,6 +16417,46 @@
 				]
 			}
 		},
+		"/MixSpecification/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecification"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/MixSpecification/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -15770,6 +16628,46 @@
 		"/MixSpecificationMaterialJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MixSpecificationMaterialJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"MixSpecificationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/MixSpecificationMaterialJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -16431,6 +17329,46 @@
 				]
 			}
 		},
+		"/Module/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ModuleModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Module"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Module/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -16810,6 +17748,46 @@
 		"/Notification/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Notification"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Notification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Notification/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -17330,6 +18308,46 @@
 		"/Observation/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ObservationModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Observation"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/Observation/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -18599,6 +19617,46 @@
 				]
 			}
 		},
+		"/Organization/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Organization"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Organization"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Organization/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -18770,6 +19828,46 @@
 		"/OrganizationMaterialJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/OrganizationMaterialJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"OrganizationMaterialJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/OrganizationMaterialJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -19462,6 +20560,46 @@
 				]
 			}
 		},
+		"/PayItem/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/PayItemModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"PayItem"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/PayItem/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -19878,6 +21016,46 @@
 				]
 			}
 		},
+		"/Product/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Product"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Product"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Product/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -20086,6 +21264,46 @@
 				]
 			}
 		},
+		"/ProductionPlant/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlant"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlant"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/ProductionPlant/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -20257,6 +21475,46 @@
 		"/ProductionPlantMaterialApproval/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProductionPlantMaterialApproval"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ProductionPlantMaterialApproval"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ProductionPlantMaterialApproval/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -21126,6 +22384,46 @@
 				]
 			}
 		},
+		"/Project/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ProjectModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Project"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Project/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -21542,6 +22840,46 @@
 				]
 			}
 		},
+		"/RecordOfMaterial/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterial"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterial"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/RecordOfMaterial/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -21750,6 +23088,46 @@
 				]
 			}
 		},
+		"/RecordOfMaterialEntry/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntry"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntry"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/RecordOfMaterialEntry/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -21921,6 +23299,46 @@
 		"/RecordOfMaterialEntryArchive/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/RecordOfMaterialEntryArchive"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"RecordOfMaterialEntryArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/RecordOfMaterialEntryArchive/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -22882,6 +24300,46 @@
 				]
 			}
 		},
+		"/Report/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Report"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Report/{ReportType}": {
 			"get": {
 				"operationId": "getDocumentRenderByType",
@@ -23120,6 +24578,46 @@
 		"/ReportNamedInstance/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/ReportNamedInstanceModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"ReportNamedInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/ReportNamedInstance/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -23894,6 +25392,46 @@
 				]
 			}
 		},
+		"/Sample/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Sample"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Sample"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Sample/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -24065,6 +25603,46 @@
 		"/SampleLabJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLabJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLabJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -24518,6 +26096,46 @@
 				]
 			}
 		},
+		"/SampleLineItemJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLineItemJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLineItemJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/SampleLineItemJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -24897,6 +26515,46 @@
 		"/SampleLog/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SampleLog"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"SampleLog"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/SampleLog/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -25558,6 +27216,46 @@
 				]
 			}
 		},
+		"/Test/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Test"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"Test"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/Test/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -25729,6 +27427,46 @@
 		"/TestData/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestData"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestData/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -26182,6 +27920,46 @@
 				]
 			}
 		},
+		"/TestInstance/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstance"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstance"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstance/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -26390,6 +28168,46 @@
 				]
 			}
 		},
+		"/TestInstanceData/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceData"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceData"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstanceData/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -26561,6 +28379,46 @@
 		"/TestInstanceDataArchive/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceDataArchive"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceDataArchive"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceDataArchive/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -27222,6 +29080,46 @@
 				]
 			}
 		},
+		"/TestInstanceLabJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceLabJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestInstanceLabJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -27601,6 +29499,46 @@
 		"/TestInstanceSampleJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestInstanceSampleJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestInstanceSampleJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestInstanceSampleJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -28262,6 +30200,46 @@
 				]
 			}
 		},
+		"/TestLabJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestLabJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestLabJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestLabJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -28641,6 +30619,46 @@
 		"/TestPlan/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestPlan"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestPlan"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestPlan/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -29094,6 +31112,46 @@
 				]
 			}
 		},
+		"/TestRecordOfMaterialEntryJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestRecordOfMaterialEntryJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestRecordOfMaterialEntryJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestRecordOfMaterialEntryJoin/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -29510,6 +31568,46 @@
 				]
 			}
 		},
+		"/TestSpecification/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecification"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecification"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecification/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -29681,6 +31779,46 @@
 		"/TestSpecificationMaterialTestJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationMaterialTestJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationMaterialTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationMaterialTestJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -30134,6 +32272,46 @@
 				]
 			}
 		},
+		"/TestSpecificationRequirement/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationRequirement"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationRequirement"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecificationRequirement/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -30550,6 +32728,46 @@
 				]
 			}
 		},
+		"/TestSpecificationSet/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSet"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSet"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestSpecificationSet/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -30721,6 +32939,46 @@
 		"/TestSpecificationSetTestJoin/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestSpecificationSetTestJoin"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestSpecificationSetTestJoin"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/TestSpecificationSetTestJoin/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
@@ -31590,6 +33848,46 @@
 				]
 			}
 		},
+		"/TestStep/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TestStep"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"TestStep"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
 		"/TestStep/{id}": {
 			"get": {
 				"operationId": "_read",
@@ -32374,6 +34672,46 @@
 		"/User/query/read": {
 			"post": {
 				"operationId": "_postReadQuery",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Array of records found",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserModel"
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "",
+				"tags": [
+					"User"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"description": "",
+						"in": "body",
+						"name": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QueryRequest"
+						}
+					}
+				]
+			}
+		},
+		"/User/query/readsLite": {
+			"post": {
+				"operationId": "_postReadsLiteQuery",
 				"produces": [
 					"application/json"
 				],
