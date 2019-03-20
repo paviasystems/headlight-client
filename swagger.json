@@ -1218,11 +1218,6 @@
 					"format": "double",
 					"description": ""
 				},
-				"ExternalSyncDate": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
 				"Name": {
 					"type": "string",
 					"description": ""
@@ -1231,22 +1226,9 @@
 					"type": "string",
 					"description": ""
 				},
-				"DesignatedTime": {
-					"type": "string",
-					"format": "date-time",
-					"description": ""
-				},
 				"IDDevice": {
 					"type": "number",
 					"format": "double",
-					"description": ""
-				},
-				"ObservationType": {
-					"type": "string",
-					"description": ""
-				},
-				"Status": {
-					"type": "string",
 					"description": ""
 				},
 				"CaptureLatitude": {
@@ -1254,6 +1236,46 @@
 					"description": ""
 				},
 				"CaptureLongitude": {
+					"type": "string",
+					"description": ""
+				},
+				"IDProject": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Priority": {
+					"type": "string",
+					"description": ""
+				},
+				"Tags": {
+					"type": "string",
+					"description": ""
+				},
+				"Contractors": {
+					"type": "string",
+					"description": ""
+				},
+				"BidItems": {
+					"type": "string",
+					"description": ""
+				},
+				"Version": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"SpritePage": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"DesignatedTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"ObservationType": {
 					"type": "string",
 					"description": ""
 				},
@@ -1273,30 +1295,25 @@
 					"type": "string",
 					"description": ""
 				},
-				"IDProject": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"Priority": {
-					"type": "string",
-					"description": ""
-				},
-				"Version": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
-				"SpritePage": {
-					"type": "number",
-					"format": "double",
-					"description": ""
-				},
 				"SnapshotJSON": {
 					"type": "string",
 					"description": ""
 				},
 				"AppHash": {
+					"type": "string",
+					"description": ""
+				},
+				"Locked": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Transcoded": {
+					"type": "number",
+					"format": "double",
+					"description": ""
+				},
+				"Status": {
 					"type": "string",
 					"description": ""
 				},
@@ -1309,14 +1326,17 @@
 					"format": "double",
 					"description": ""
 				},
-				"Locked": {
-					"type": "number",
-					"format": "double",
+				"LineItems": {
+					"type": "string",
 					"description": ""
 				},
-				"Transcoded": {
-					"type": "number",
-					"format": "double",
+				"ExternalSyncDate": {
+					"type": "string",
+					"format": "date-time",
+					"description": ""
+				},
+				"Equipment": {
+					"type": "string",
 					"description": ""
 				},
 				"ExternalSyncGUID": {
@@ -1337,29 +1357,34 @@
 				"Deleted",
 				"DeleteDate",
 				"DeletingIDUser",
-				"ExternalSyncDate",
 				"Name",
 				"Description",
-				"DesignatedTime",
 				"IDDevice",
-				"ObservationType",
-				"Status",
 				"CaptureLatitude",
 				"CaptureLongitude",
+				"IDProject",
+				"Priority",
+				"Tags",
+				"Contractors",
+				"BidItems",
+				"Version",
+				"SpritePage",
+				"DesignatedTime",
+				"ObservationType",
 				"UserLatitude",
 				"UserLongitude",
 				"AlignmentStation",
 				"AlignmentOffset",
-				"IDProject",
-				"Priority",
-				"Version",
-				"SpritePage",
 				"SnapshotJSON",
 				"AppHash",
-				"StateName",
-				"StateStep",
 				"Locked",
 				"Transcoded",
+				"Status",
+				"StateName",
+				"StateStep",
+				"LineItems",
+				"ExternalSyncDate",
+				"Equipment",
 				"ExternalSyncGUID"
 			]
 		},
@@ -2177,6 +2202,11 @@
 					"type": "number",
 					"format": "double",
 					"description": ""
+				},
+				"Default": {
+					"type": "number",
+					"format": "double",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -2196,7 +2226,8 @@
 				"Hash",
 				"OptionsJSON",
 				"IDReportArchetype",
-				"IDCustomer"
+				"IDCustomer",
+				"Default"
 			]
 		},
 		"ReportRenderResult": {
@@ -4199,6 +4230,22 @@
 				"Units": {
 					"type": "string",
 					"description": ""
+				},
+				"SampleRate": {
+					"type": "string",
+					"description": ""
+				},
+				"RequiredSampleCount": {
+					"type": "string",
+					"description": ""
+				},
+				"SampleFrequency": {
+					"type": "string",
+					"description": ""
+				},
+				"Quantity": {
+					"type": "string",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -4219,7 +4266,11 @@
 				"ConversionFactor",
 				"ApprovedSourceRequired",
 				"SpecialInstructions",
-				"Units"
+				"Units",
+				"SampleRate",
+				"RequiredSampleCount",
+				"SampleFrequency",
+				"Quantity"
 			]
 		},
 		"MixSpecification": {
@@ -5017,6 +5068,14 @@
 				"ExternalSyncGUID": {
 					"type": "string",
 					"description": ""
+				},
+				"Status": {
+					"type": "string",
+					"description": ""
+				},
+				"StatusMessage": {
+					"type": "string",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -5043,7 +5102,9 @@
 				"StartDate",
 				"EstimatedCompletionDate",
 				"ActualCompletionDate",
-				"ExternalSyncGUID"
+				"ExternalSyncGUID",
+				"Status",
+				"StatusMessage"
 			]
 		},
 		"TestInstanceSampleJoin": {
@@ -5742,6 +5803,11 @@
 				"ComputationTemplate": {
 					"type": "string",
 					"description": ""
+				},
+				"IDTest": {
+					"type": "number",
+					"format": "double",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -5763,7 +5829,8 @@
 				"OperationType",
 				"ValueMinimum",
 				"ValueMaximum",
-				"ComputationTemplate"
+				"ComputationTemplate",
+				"IDTest"
 			]
 		},
 		"TestSpecificationMaterialTestJoin": {
@@ -6407,6 +6474,10 @@
 				"Notes": {
 					"type": "string",
 					"description": ""
+				},
+				"Hash": {
+					"type": "string",
+					"description": ""
 				}
 			},
 			"type": "object",
@@ -6423,7 +6494,8 @@
 				"ExternalSyncDate",
 				"IDCustomer",
 				"Name",
-				"Notes"
+				"Notes",
+				"Hash"
 			]
 		},
 		"TestStep": {
@@ -34544,24 +34616,6 @@
 				]
 			}
 		},
-		"/User/Active": {
-			"get": {
-				"operationId": "getActiveUsers",
-				"produces": [
-					"application/json"
-				],
-				"responses": {
-					"204": {
-						"description": "No content"
-					}
-				},
-				"description": "Get Avtive Users list ",
-				"tags": [
-					"User"
-				],
-				"parameters": []
-			}
-		},
 		"/User/CheckEmail/{Email}": {
 			"get": {
 				"operationId": "checkEmail",
@@ -34921,6 +34975,24 @@
 						"format": "int64"
 					}
 				]
+			}
+		},
+		"/Users/Active": {
+			"get": {
+				"operationId": "getActiveUsers",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get Avtive Users list ",
+				"tags": [
+					"User"
+				],
+				"parameters": []
 			}
 		},
 		"/Users/By/{field}/{value}/{begin}/{max}": {
