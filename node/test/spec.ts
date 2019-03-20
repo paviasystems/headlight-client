@@ -14,6 +14,8 @@ const _UserName = process.env['DEV_USER'] || 'user';
 const _Password = process.env['DEV_PASSWORD'] || 'password123';
 
 describe('Node API test', function() {
+    this.timeout(5000); //give network requests more time for build slaves
+
     var client = new Headlight.Client(_ServerURL);
 
     it('can get API', ()=>{
