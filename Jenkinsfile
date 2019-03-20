@@ -1,5 +1,5 @@
 //run only on nodes with docker (label) installed
-node('docker,nodejs'){
+node('docker, nodejs'){
     dir('/Pavia/headlight-client') {
         git credentialsId: 'e1340a16-bdab-4d7f-9cba-51cc21229bc2', url: 'https://github.com/paviasystems/headlight-client.git'
 
