@@ -14,7 +14,7 @@ node('nodejs'){
                 sh 'npm test'
             }
             stage('Deploy') {
-                sh 'tsc'
+                sh './node_modules/typescript/bin/tsc'
                 sh 'node ./node_modules/gulp/bin/gulp.js build'
                 sh 'sed -i \'\' "s/\\"version\\": \\"3.0.*\\"/\\"version\\": \\"3.0.$BUILD_NUMBER\\"/" ./package.json'
                 sh 'npm publish .'
