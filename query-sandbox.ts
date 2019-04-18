@@ -2,7 +2,7 @@
 * Sandbox script for quickly developing queries and API client code snippets.
 * 1. Checkout https://github.com/paviasystems/headlight-client.git
 * 2. npm install
-* 3. Open this file in Visual Studio Code
+* 3. Open the repo folder (which contains this file) in Visual Studio Code
 * 4. Run task 'Launch Sandbox'
 *
 * @license Pavia Systems, All Rights Reserved
