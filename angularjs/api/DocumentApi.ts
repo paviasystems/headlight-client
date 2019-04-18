@@ -59,7 +59,7 @@ export class DocumentApi {
      * @param IDComment ID of record
      * @param IDDocument ID of record
      */
-    public addCommentsToDocument (IDComment: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public addCommentsToDocument (IDComment: number, IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<any> {
         const localVarPath = this.basePath + '/Document/{IDDocument}/Comment/Add/{IDComment}'
             .replace('{' + 'IDComment' + '}', encodeURIComponent(String(IDComment)))
             .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
@@ -342,10 +342,66 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * postCloneBulkDocuments API
+     * @param body 
+     */
+    public postCloneBulkDocuments (body: models.DocumentCloneRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
+        const localVarPath = this.basePath + '/Documents/Clone';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postCloneBulkDocuments.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * postCloneDocument API
+     * @param IDDocument ID of record
+     */
+    public postCloneDocument (IDDocument: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.DocumentModel> {
+        const localVarPath = this.basePath + '/Document/{IDDocument}/Clone'
+            .replace('{' + 'IDDocument' + '}', encodeURIComponent(String(IDDocument)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'IDDocument' is not null or undefined
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling postCloneDocument.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Allows a report to perform a bulk upsert in context of a document.
      * @param body 
      */
-    public postFormProcessor (body: models.FormProcessorRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public postFormProcessor (body: models.FormProcessorRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.FormProcessorRequest> {
         const localVarPath = this.basePath + '/Document/FormProcessor';
 
         let queryParameters: any = {};
@@ -426,6 +482,34 @@ export class DocumentApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * 
+     * @param body 
+     */
+    public postReadsLiteQuery (body: models.QueryRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
+        const localVarPath = this.basePath + '/Document/query/readsLite';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadsLiteQuery.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: body,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -473,6 +557,55 @@ export class DocumentApi {
         // verify required parameter 'max' is not null or undefined
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling reads.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+            params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    public readsByValue (field: string, begin: number, max: number, value: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.DocumentModel>> {
+        const localVarPath = this.basePath + '/Documents/By/{field}/{value}/{begin}/{max}'
+            .replace('{' + 'field' + '}', encodeURIComponent(String(field)))
+            .replace('{' + 'begin' + '}', encodeURIComponent(String(begin)))
+            .replace('{' + 'max' + '}', encodeURIComponent(String(max)))
+            .replace('{' + 'value' + '}', encodeURIComponent(String(value)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'field' is not null or undefined
+        if (field === null || field === undefined) {
+            throw new Error('Required parameter field was null or undefined when calling readsByValue.');
+        }
+
+        // verify required parameter 'begin' is not null or undefined
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling readsByValue.');
+        }
+
+        // verify required parameter 'max' is not null or undefined
+        if (max === null || max === undefined) {
+            throw new Error('Required parameter max was null or undefined when calling readsByValue.');
+        }
+
+        // verify required parameter 'value' is not null or undefined
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling readsByValue.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {

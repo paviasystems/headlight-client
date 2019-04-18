@@ -10135,8 +10135,11 @@
 					"application/json"
 				],
 				"responses": {
-					"204": {
-						"description": "No content"
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "object"
+						}
 					}
 				},
 				"description": "",

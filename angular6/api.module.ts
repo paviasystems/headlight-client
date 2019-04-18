@@ -12,6 +12,7 @@ import { ContractService } from './api/contract.service';
 import { CustomerService } from './api/customer.service';
 import { DocumentService } from './api/document.service';
 import { DocumentApprovalService } from './api/documentApproval.service';
+import { DocumentPolyJoinService } from './api/documentPolyJoin.service';
 import { DocumentSendToService } from './api/documentSendTo.service';
 import { DocumentsService } from './api/documents.service';
 import { DocumentsByObservationService } from './api/documentsByObservation.service';
@@ -87,6 +88,7 @@ import { UserService } from './api/user.service';
     CustomerService,
     DocumentService,
     DocumentApprovalService,
+    DocumentPolyJoinService,
     DocumentSendToService,
     DocumentsService,
     DocumentsByObservationService,

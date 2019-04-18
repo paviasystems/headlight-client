@@ -16,7 +16,7 @@ import * as models from './models';
  * 
  */
 export interface ObservationModel {
-    "Labels": models.ObservationModelLabels;
+    "Labels": models.MappedArrayObservationTagJoin;
     "Details": models.MappedArrayArtifact;
     /**
      * 

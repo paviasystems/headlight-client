@@ -76,7 +76,7 @@ export class AuthenticateApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Check out temporary authentication token for user in session.
+     * Check out temporary authentication token for user in session. Can then be used by another client via querystring parameter (e.g. https://headlightqa.paviasystems.com/1.0/CheckSession?SessionToken=VALUE)
      */
     public checkoutSessionToken (extraHttpRequestParams?: any ) : ng.IHttpPromise<models.InlineResponse2001> {
         const localVarPath = this.basePath + '/CheckoutSessionToken';

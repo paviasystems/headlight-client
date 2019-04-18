@@ -18,6 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { DocumentCloneRequest } from '../model/documentCloneRequest';
 import { DocumentModel } from '../model/documentModel';
 import { FormProcessorRequest } from '../model/formProcessorRequest';
 import { InlineResponse200 } from '../model/inlineResponse200';
@@ -513,14 +514,102 @@ export class DocumentService {
 
     /**
      * 
+     * postCloneBulkDocuments API
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postCloneBulkDocuments(body: DocumentCloneRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<DocumentModel>>;
+    public postCloneBulkDocuments(body: DocumentCloneRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
+    public postCloneBulkDocuments(body: DocumentCloneRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
+    public postCloneBulkDocuments(body: DocumentCloneRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postCloneBulkDocuments.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<Array<DocumentModel>>(`${this.basePath}/Documents/Clone`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * postCloneDocument API
+     * @param IDDocument ID of record
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postCloneDocument(IDDocument: number, observe?: 'body', reportProgress?: boolean): Observable<DocumentModel>;
+    public postCloneDocument(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentModel>>;
+    public postCloneDocument(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentModel>>;
+    public postCloneDocument(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (IDDocument === null || IDDocument === undefined) {
+            throw new Error('Required parameter IDDocument was null or undefined when calling postCloneDocument.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+
+        return this.httpClient.post<DocumentModel>(`${this.basePath}/Document/${encodeURIComponent(String(IDDocument))}/Clone`,
+            null,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Allows a report to perform a bulk upsert in context of a document.
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postFormProcessor(body: FormProcessorRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public postFormProcessor(body: FormProcessorRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public postFormProcessor(body: FormProcessorRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'body', reportProgress?: boolean): Observable<FormProcessorRequest>;
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FormProcessorRequest>>;
+    public postFormProcessor(body: FormProcessorRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FormProcessorRequest>>;
     public postFormProcessor(body: FormProcessorRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postFormProcessor.');
@@ -546,7 +635,7 @@ export class DocumentService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<any>(`${this.basePath}/Document/FormProcessor`,
+        return this.httpClient.post<FormProcessorRequest>(`${this.basePath}/Document/FormProcessor`,
             body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -651,6 +740,52 @@ export class DocumentService {
 
     /**
      * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<DocumentModel>>;
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
+    public postReadsLiteQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadsLiteQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<Array<DocumentModel>>(`${this.basePath}/Document/query/readsLite`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Meadow READ
      * @param id ID of record
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -724,6 +859,58 @@ export class DocumentService {
         ];
 
         return this.httpClient.get<Array<DocumentModel>>(`${this.basePath}/Documents/${encodeURIComponent(String(begin))}/${encodeURIComponent(String(max))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'body', reportProgress?: boolean): Observable<Array<DocumentModel>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (field === null || field === undefined) {
+            throw new Error('Required parameter field was null or undefined when calling readsByValue.');
+        }
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling readsByValue.');
+        }
+        if (max === null || max === undefined) {
+            throw new Error('Required parameter max was null or undefined when calling readsByValue.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling readsByValue.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<DocumentModel>>(`${this.basePath}/Documents/By/${encodeURIComponent(String(field))}/${encodeURIComponent(String(value))}/${encodeURIComponent(String(begin))}/${encodeURIComponent(String(max))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

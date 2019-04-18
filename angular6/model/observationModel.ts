@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 import { MappedArrayArtifact } from './mappedArrayArtifact';
-import { ObservationModelLabels } from './observationModelLabels';
+import { MappedArrayObservationTagJoin } from './mappedArrayObservationTagJoin';
 
 
 /**
  * 
  */
 export interface ObservationModel { 
-    Labels: ObservationModelLabels;
+    Labels: MappedArrayObservationTagJoin;
     Details: MappedArrayArtifact;
     /**
      * 

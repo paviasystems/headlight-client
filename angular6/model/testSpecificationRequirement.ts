@@ -87,4 +87,8 @@ export interface TestSpecificationRequirement {
      * 
      */
     ComputationTemplate: string;
+    /**
+     * 
+     */
+    IDTest: number;
 }

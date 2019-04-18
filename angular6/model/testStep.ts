@@ -75,4 +75,8 @@ export interface TestStep {
      * 
      */
     ComputationTemplate: string;
+    /**
+     * 
+     */
+    Important: number;
 }

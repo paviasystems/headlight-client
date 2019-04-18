@@ -67,4 +67,8 @@ export interface Test {
      * 
      */
     Notes: string;
+    /**
+     * 
+     */
+    Hash: string;
 }

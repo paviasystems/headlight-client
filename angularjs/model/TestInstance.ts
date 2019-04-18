@@ -108,5 +108,13 @@ export interface TestInstance {
      * 
      */
     "ExternalSyncGUID": string;
+    /**
+     * 
+     */
+    "Status": string;
+    /**
+     * 
+     */
+    "StatusMessage": string;
 }
 

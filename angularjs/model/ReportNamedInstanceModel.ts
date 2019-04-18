@@ -80,5 +80,9 @@ export interface ReportNamedInstanceModel {
      * 
      */
     "IDCustomer": number;
+    /**
+     * 
+     */
+    "_Default": number;
 }
 

@@ -143,7 +143,7 @@ export class AuthenticateService {
 
     /**
      * 
-     * Check out temporary authentication token for user in session.
+     * Check out temporary authentication token for user in session. Can then be used by another client via querystring parameter (e.g. https://headlightqa.paviasystems.com/1.0/CheckSession?SessionToken&#x3D;VALUE)
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

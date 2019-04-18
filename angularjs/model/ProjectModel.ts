@@ -17,27 +17,27 @@ import * as models from './models';
  */
 export interface ProjectModel {
     /**
-     * 
+     * DEPRECATED 
      */
     "Tags": Array<string>;
     /**
-     * 
+     * DEPRECATED 
      */
     "BidItems": Array<string>;
     /**
-     * 
+     * DEPRECATED 
      */
     "LineItems": Array<string>;
     /**
-     * 
+     * DEPRECATED 
      */
     "Contractors": Array<string>;
     /**
-     * 
+     * DEPRECATED 
      */
     "TagTypes": Array<string>;
     /**
-     * 
+     * Tag configuration for this project.   Use 1.0/ObservationTagProjectJoins/FilteredTo/FBV~IDProject~EQ~71~FBV~TagType~EQ~Contractor~FSF~Tag~ASC/0/10 to get list of available tags of each type in the project.
      */
     "LabelTypes": any;
     /**

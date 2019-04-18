@@ -138,6 +138,110 @@ export class DocumentApprovalService {
 
     /**
      * 
+     * Gets a filtered list of Documents, further filtered based of the ApprovalStatus relative to current user
+     * @param Status Document Status
+     * @param Begin Beginning (skip) number of records (to page)
+     * @param Filter FBV meadow filter
+     * @param Cap Maximum number of records to return
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (Status === null || Status === undefined) {
+            throw new Error('Required parameter Status was null or undefined when calling getDocumentsByApprovalStatus.');
+        }
+        if (Begin === null || Begin === undefined) {
+            throw new Error('Required parameter Begin was null or undefined when calling getDocumentsByApprovalStatus.');
+        }
+        if (Filter === null || Filter === undefined) {
+            throw new Error('Required parameter Filter was null or undefined when calling getDocumentsByApprovalStatus.');
+        }
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getDocumentsByApprovalStatus.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/Documents/WithApprovalStatus/${encodeURIComponent(String(Status))}/FilteredTo/${encodeURIComponent(String(Filter))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Get list of Documents where user can perform actions based on Approval Status, query direct from db
+     * @param IDProject ID of record
+     * @param Begin Beginning (skip) number of records (to page)
+     * @param Status Document Status
+     * @param Cap Maximum number of records to return
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (IDProject === null || IDProject === undefined) {
+            throw new Error('Required parameter IDProject was null or undefined when calling getDocumentsQueryApprovalStatus.');
+        }
+        if (Begin === null || Begin === undefined) {
+            throw new Error('Required parameter Begin was null or undefined when calling getDocumentsQueryApprovalStatus.');
+        }
+        if (Status === null || Status === undefined) {
+            throw new Error('Required parameter Status was null or undefined when calling getDocumentsQueryApprovalStatus.');
+        }
+        if (Cap === null || Cap === undefined) {
+            throw new Error('Required parameter Cap was null or undefined when calling getDocumentsQueryApprovalStatus.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<any>(`${this.basePath}/Documents/QueryProjectApprovalStatus/${encodeURIComponent(String(IDProject))}/${encodeURIComponent(String(Status))}/${encodeURIComponent(String(Begin))}/${encodeURIComponent(String(Cap))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Perform Approval state transition action against Document
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

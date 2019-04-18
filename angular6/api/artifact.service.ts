@@ -492,6 +492,52 @@ export class ArtifactService {
 
     /**
      * 
+     * 
+     * @param body 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
+    public postReadsLiteQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
+    public postReadsLiteQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling postReadsLiteQuery.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<Array<ArtifactModel>>(`${this.basePath}/Artifact/query/readsLite`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
      * Meadow READ
      * @param id ID of record
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -565,6 +611,58 @@ export class ArtifactService {
         ];
 
         return this.httpClient.get<Array<ArtifactModel>>(`${this.basePath}/Artifacts/${encodeURIComponent(String(begin))}/${encodeURIComponent(String(max))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ArtifactModel>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ArtifactModel>>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ArtifactModel>>>;
+    public readsByValue(field: string, begin: number, max: number, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (field === null || field === undefined) {
+            throw new Error('Required parameter field was null or undefined when calling readsByValue.');
+        }
+        if (begin === null || begin === undefined) {
+            throw new Error('Required parameter begin was null or undefined when calling readsByValue.');
+        }
+        if (max === null || max === undefined) {
+            throw new Error('Required parameter max was null or undefined when calling readsByValue.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling readsByValue.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<ArtifactModel>>(`${this.basePath}/Artifacts/By/${encodeURIComponent(String(field))}/${encodeURIComponent(String(value))}/${encodeURIComponent(String(begin))}/${encodeURIComponent(String(max))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

@@ -84,5 +84,21 @@ export interface MaterialLineItemJoin {
      * 
      */
     "Units": string;
+    /**
+     * 
+     */
+    "SampleRate": string;
+    /**
+     * 
+     */
+    "RequiredSampleCount": string;
+    /**
+     * 
+     */
+    "SampleFrequency": string;
+    /**
+     * 
+     */
+    "Quantity": string;
 }
 
