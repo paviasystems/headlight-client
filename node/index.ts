@@ -6,7 +6,9 @@
 * @author Jason Hillier <jason.hillier@paviasystems.com>
 */
 
+const util = require('util');
 import * as API from './api';
+import * as Request from 'request';
 import {BaseRepository,SimpleQuery} from 'ts-repository-fluent';
 export { API };
 
@@ -210,5 +212,61 @@ export class Client
         let apiObject = this.API(pApiType);
 
         return new Repository(apiObject, pORMType);
+    }
+
+    private setOptions(options?: Request.CoreOptions, body?: any): Request.CoreOptions
+    {
+        options = options ? options : {};
+        if (!options.hasOwnProperty('json')) options.json = true;
+        if (!options.hasOwnProperty('headers')) options.headers = [];
+        if (!options.hasOwnProperty('qs')) options.qs = [];
+        if (!options.hasOwnProperty('baseUrl')) options.baseUrl = this._BaseURL;
+
+        this._Cookie.applyToRequest(options);
+        options.body = body;
+
+        return options;
+    }
+
+    private processResponse<T>(response: any): Promise<T>
+    {
+        if (!response || !response.body || response.body.error || response.body.Error)
+        {
+            return Promise.reject("Received error!");
+        }
+        else
+        {
+            return Promise.resolve(response.body);
+        }
+    }
+
+    public async GET<T>(url: string, options?: Request.CoreOptions): Promise<T>
+    {
+        options = this.setOptions(options);
+        var response = await util.promisify(Request.get)(url, options);
+        return this.processResponse<T>(response);
+    }
+
+    public async POST<T>(url: string, body: any, options?: Request.CoreOptions): Promise<T>
+    {
+        options = this.setOptions(options, body);
+        var response = await util.promisify(Request.post)(url, options);
+        return this.processResponse<T>(response);
+    }
+
+    public async PUT<T>(url: string, body: any, options?: Request.CoreOptions): Promise<T>
+    {
+        options = this.setOptions(options, body);
+        var response = await util.promisify(Request.put)(url, options);
+        return this.processResponse<T>(response);
+    }
+
+    public async DELETE(url: string, body: any, options?: Request.CoreOptions): Promise<number>
+    {
+        options = this.setOptions(options, body);
+        var response = await util.promisify(Request.delete)(url, options);
+        await this.processResponse<any>(response);
+        
+        return Promise.resolve(response.body.count);
     }
 }

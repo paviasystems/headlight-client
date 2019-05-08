@@ -136,5 +136,11 @@ describe('Node API test', function() {
         
         expect(sampleRecords.length).to.be.gt(0);
     });
+
+    it ('can perform an HTTP GET', async() => {
+        var projects = await client.GET<Headlight.API.ProjectModel[]>("/Projects/0/1");
+        expect(projects.length).to.be.gt(0);
+        expect(projects[0].IDProject).to.be.gt(0);
+    });
 });
 
