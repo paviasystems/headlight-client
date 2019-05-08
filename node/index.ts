@@ -232,7 +232,13 @@ export class Client
     {
         if (!response || !response.body || response.body.error || response.body.Error)
         {
-            return Promise.reject("Received error!");
+            var error = "";
+            if (response && response.body)
+            {
+                error = response.body.error || response.body.Error;
+            }
+            
+            return Promise.reject("Response error: " + error);
         }
         else
         {
@@ -261,12 +267,12 @@ export class Client
         return this.processResponse<T>(response);
     }
 
-    public async DELETE(url: string, body: any, options?: Request.CoreOptions): Promise<number>
+    public async DELETE(url: string, options?: Request.CoreOptions): Promise<number>
     {
-        options = this.setOptions(options, body);
+        options = this.setOptions(options);
         var response = await util.promisify(Request.delete)(url, options);
         await this.processResponse<any>(response);
-        
+
         return Promise.resolve(response.body.count);
     }
 }
