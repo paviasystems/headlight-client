@@ -142,5 +142,20 @@ describe('Node API test', function() {
         expect(projects.length).to.be.gt(0);
         expect(projects[0].IDProject).to.be.gt(0);
     });
+
+    it ('can get a paged records using getAllRecordsPaged()',  async() => {
+        var pProjectManifestRecords = await client.getAllRecordsPaged(`ProjectObservationManifestJoins/By/IDProject/0`, {}, 5);
+        expect (pProjectManifestRecords.length).to.be.eq(5);
+    });
+
+    it ('can get a file buffer using getFileExtended() with GET method', async() =>{
+        var pResponse = await client.getFileExtended('Observation/12/Image/Standard', {method:'GET'});
+        expect(pResponse.headers['content-type']).to.eq('image/jpeg');
+    });
+
+    it ('can get a file buffer using getFileExtended() with POST method', async() =>{
+        var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/5000', {method:'POST', body:{IDObservation:12}});
+        expect(pResponse.headers['content-type']).to.eq('application/octet-stream');
+    });
 });
 

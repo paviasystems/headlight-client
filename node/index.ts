@@ -275,4 +275,98 @@ export class Client
 
         return Promise.resolve(response.body.count);
     }
+
+    public async getAllRecordsPaged(pUrl, pOptions, pSize): Promise<any>
+    {
+        return util.promisify(this._getAllRecordsPaged.bind(this))(pUrl, pOptions, pSize);
+    }
+
+    _getAllRecordsPaged(pUrl: string, pOptions, pSize, fIterator, fCallback)
+    {
+        if (!fIterator)
+        {
+            fIterator = (pError, tmpRecords, fNext)=>
+            {
+                return fNext();
+            }
+        }
+        if (!pOptions) pOptions = {};
+        if (!pOptions.Page)
+            pOptions.Page = 0;
+        if (!pOptions.AllRecords)
+            pOptions.AllRecords = [];
+
+        var pError = null;
+        this.GET(`${pUrl}/${pOptions.Page}/${pSize}`, pOptions).then((pRecords) =>
+        {
+            if (!pRecords)
+                pError = `Failed to Get Records for ${pUrl}!`;
+
+            let tmpRecords = pRecords as Array<any>;
+            pOptions.AllRecords = pOptions.AllRecords.concat(tmpRecords);
+
+           //Call invoker's iterator function
+           fIterator(pError, tmpRecords, (pIterError, pIterStop)=>
+           {
+               if (pIterError)
+               {
+                   let tmpResults = pOptions.AllRecords;
+                   delete pOptions['Page'];
+                   delete pOptions['AllRecords'];
+                   return fCallback(pIterError, tmpResults);
+               }
+               else if (pIterStop)
+               {
+                   let tmpResults = pOptions.AllRecords;
+                   delete pOptions['Page'];
+                   delete pOptions['AllRecords'];
+                   return fCallback(null, tmpResults);
+               }
+               else
+               {
+                   if (!tmpRecords.length ||
+                       tmpRecords.length < pSize)
+                   {
+                       let tmpResults = pOptions.AllRecords;
+                       delete pOptions['Page'];
+                       delete pOptions['AllRecords'];
+                       return fCallback(null, tmpResults); //no more records to get
+                   }
+                   else
+                   {
+                       pOptions.Page += tmpRecords.length;
+                       //recurse
+                       return this._getAllRecordsPaged(pUrl, pOptions, pSize, fIterator, fCallback);
+                   }
+               }
+           });
+        });
+        
+    }
+
+    getHttpRequestMethod(pOptions)
+    {
+        if (!pOptions.method)
+            return Request.get;
+
+        switch(pOptions.method)
+        {
+            case 'GET':
+                return Request.get;
+            case 'POST':
+                return Request.post;
+        }
+    }
+
+    /**
+     * HTTP GET advanced file download request to Headlight
+     *
+     * @method getFileExtended
+     */
+    public async getFileExtended(pUrl, pOptions):Promise<any>
+    {
+        pOptions = this.setOptions(pOptions, pOptions.body);
+        var pResponse = await util.promisify(this.getHttpRequestMethod(pOptions))(pUrl,pOptions)
+        return Promise.resolve(pResponse);
+    }
 }
