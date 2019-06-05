@@ -10,8 +10,10 @@ const expect = chai.expect;
 //const jsonata = require('jsonata');
 
 const _ServerURL = 'https://headlightqa.paviasystems.com/1.0';
-const _UserName = process.env['DEV_USER'] || 'user';
-const _Password = process.env['DEV_PASSWORD'] || 'password123';
+// const _UserName = process.env['DEV_USER'] || 'user';
+// const _Password = process.env['DEV_PASSWORD'] || 'password123';
+const _UserName = process.env['DEV_USER'] || 'wisam';
+const _Password = process.env['DEV_PASSWORD'] || 'gringolet';
 
 describe('Node API test', function() {
     this.timeout(5000); //give network requests more time for build slaves
