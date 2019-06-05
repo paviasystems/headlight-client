@@ -17,6 +17,7 @@ describe('Node API test', function() {
     this.timeout(5000); //give network requests more time for build slaves
 
     var client = new Headlight.Client(_ServerURL);
+    var pSpreadSheetObservationID = 0;
 
     it('can get API', ()=>{
         const bidItemApi = client.API(Headlight.API.BidItemApi);
@@ -148,14 +149,30 @@ describe('Node API test', function() {
         expect (pProjectManifestRecords.length).to.be.eq(5);
     });
 
+    it('can create a SpreadSheet type observation', async() => {
+        let observationsRepo = client.Repository(Headlight.API.ObservationApi, Headlight.API.ObservationModel)
+        let pTargetObservation = await observationsRepo.createEmptyEntity();
+        
+        pTargetObservation.ObservationType = 'Legacy Personnel';   
+        pTargetObservation.IDProject = 328;
+        pTargetObservation.Name ='Test Personnel Observation';
+
+        let pPersonnelObservation = await client.API(Headlight.API.ObservationApi).create(pTargetObservation);
+        pSpreadSheetObservationID = pPersonnelObservation.IDObservation;
+
+        expect(pPersonnelObservation.Name).to.eq( pTargetObservation.Name );
+        expect(pPersonnelObservation.ObservationType).to.eq(pTargetObservation.ObservationType)
+       
+    });
+
     it ('can get a file buffer using getFileExtended() with GET method', async() =>{
         var pResponse = await client.getFileExtended('Observation/12/Image/Standard', {method:'GET'});
-        expect(pResponse.headers['content-type']).to.eq('image/jpeg');
+        expect(pResponse[0].headers['content-type']).to.eq('image/jpeg');
     });
 
     it ('can get a file buffer using getFileExtended() with POST method', async() =>{
-        var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/5000', {method:'POST', body:{IDObservation:12}});
-        expect(pResponse.headers['content-type']).to.eq('application/octet-stream');
+        var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/10', {method:'POST', body: {'IDObservation': pSpreadSheetObservationID} });
+        expect(pResponse[0].headers['content-type']).to.eq('application/octet-stream');
     });
 });
 
