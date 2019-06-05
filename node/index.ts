@@ -418,7 +418,7 @@ export class Client
         .pipe(libFS.createWriteStream(tmpBufferFile))
         .once('close', ()=>
         {
-            return fCallback([tmpErr, tmpResponse, tmpBufferFile]);
+            return fCallback(tmpErr, tmpResponse, tmpBufferFile);
         });
     }
 
