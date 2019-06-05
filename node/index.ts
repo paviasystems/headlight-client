@@ -9,12 +9,12 @@
 const util = require('util');
 const libFS = require('fs');
 const libRm = require('rimraf');
-const libUUID = require('fable-uuid');
 
 import * as API from './api';
 import * as Request from 'request';
 import {BaseRepository,SimpleQuery} from 'ts-repository-fluent';
 export { API };
+import { v4 as uuid } from 'uuid';
 
 export type constructor<T> = new()=>T;
 
@@ -441,6 +441,6 @@ export class Client
             console.log('Trouble accessing directory: ' + BUFFER_DIR);
         }
 
-        return BUFFER_DIR + libUUID.getUUID();
+        return BUFFER_DIR + uuid();
     }
 }
