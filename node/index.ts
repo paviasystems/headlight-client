@@ -7,6 +7,10 @@
 */
 
 const util = require('util');
+const libFS = require('fs');
+const libRm = require('rimraf');
+const libUUID = require('fable-uuid');
+
 import * as API from './api';
 import * as Request from 'request';
 import {BaseRepository,SimpleQuery} from 'ts-repository-fluent';
@@ -15,6 +19,8 @@ export { API };
 export type constructor<T> = new()=>T;
 
 const HEADLIGHT_API_VERSION = '1.0';
+const BUFFER_DIR = 'buffer/'; //prepare a buffer directory for operations that require file-on-disk
+
 
 export interface GeneralAPI
 {
@@ -359,14 +365,82 @@ export class Client
     }
 
     /**
+     * HTTP GET basic file download request to Headlight
+     *
+     * @method getFile
+     */
+    getFileAsync(pUrl): Promise<void>
+    {
+        return util.promisify(this.getFile.bind(this))(pUrl);
+    }
+
+    /**
+     * HTTP GET basic file download request to Headlight
+     *
+     * @method getFile
+     */
+    getFile(pUrl, fCallback)
+    {
+        return this.getFileExtended(pUrl, {method: 'GET'}, fCallback);
+    }
+
+    /**
+     * HTTP GET advanced file download request to Headlight
+     *
+     * @method getFileExtendedAsync
+     */
+    public async getFileExtendedAsync(pUrl, pOptions):Promise<any>
+    {
+        return util.promisify(this.getFileExtended.bind(this))(pUrl, pOptions);
+    }
+
+    /**
      * HTTP GET advanced file download request to Headlight
      *
      * @method getFileExtended
      */
-    public async getFileExtended(pUrl, pOptions):Promise<any>
+    getFileExtended(pUrl, pOptions, fCallback)
     {
+        var tmpBufferFile = this.generateBufferFileName();
         pOptions = this.setOptions(pOptions, pOptions.body);
-        var pResponse = await util.promisify(this.getHttpRequestMethod(pOptions))(pUrl,pOptions)
-        return Promise.resolve(pResponse);
+        var tmpErr;
+        var tmpResponse;
+        
+        this.getHttpRequestMethod(pOptions)(pUrl,pOptions, (err, pResponse) =>
+        {
+            tmpErr = err;
+            tmpResponse = pResponse;
+        })
+        .once('error', (err)=>
+        {
+            return fCallback(err);
+        })
+        .pipe(libFS.createWriteStream(tmpBufferFile))
+        .once('close', ()=>
+        {
+            return fCallback([tmpErr, tmpResponse, tmpBufferFile]);
+        });
+    }
+
+    /**
+     * Internal method to create temporary files on disk
+     *
+     * @method generateBufferFileName
+     */
+    generateBufferFileName()
+    {
+        try
+        {
+            if (!libFS.existsSync(BUFFER_DIR))
+            {
+                libRm.sync(BUFFER_DIR);
+                libFS.mkdirSync(BUFFER_DIR);
+            }
+        } catch (ex)
+        {
+            console.log('Trouble accessing directory: ' + BUFFER_DIR);
+        }
+
+        return BUFFER_DIR + libUUID.getUUID();
     }
 }

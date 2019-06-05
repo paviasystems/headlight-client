@@ -10,8 +10,8 @@ const expect = chai.expect;
 //const jsonata = require('jsonata');
 
 const _ServerURL = 'https://headlightqa.paviasystems.com/1.0';
-const _UserName = process.env['DEV_USER'] || 'user';
-const _Password = process.env['DEV_PASSWORD'] || 'password123';
+const _UserName = process.env['DEV_USER'] || 'wisam';
+const _Password = process.env['DEV_PASSWORD'] || 'gringolet';
 
 describe('Node API test', function() {
     this.timeout(5000); //give network requests more time for build slaves
@@ -149,13 +149,9 @@ describe('Node API test', function() {
     });
 
     it ('can get a file buffer using getFileExtended() with GET method', async() =>{
-        var pResponse = await client.getFileExtended('Observation/12/Image/Standard', {method:'GET'});
-        expect(pResponse.headers['content-type']).to.eq('image/jpeg');
-    });
-
-    it ('can get a file buffer using getFileExtended() with POST method', async() =>{
-        var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/5000', {method:'POST', body:{IDObservation:12}});
-        expect(pResponse.headers['content-type']).to.eq('application/octet-stream');
+        var pResponse = await client.getFileExtendedAsync('Observation/12/Image/Standard', {method:'GET'});
+        // expect(pResponse[2] instanceof Buffer).to.eq(true);
+        expect(pResponse[1].headers['content-type']).to.eq('image/jpeg');
     });
 });
 
