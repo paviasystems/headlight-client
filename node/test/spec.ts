@@ -144,9 +144,14 @@ describe('Node API test', function() {
         expect(projects[0].IDProject).to.be.gt(0);
     });
 
-    it ('can get a paged records using getAllRecordsPaged()',  async() => {
+    it ('can get a paged records using getAllRecordsPaged() using GET',  async() => {
         var pProjectManifestRecords = await client.getAllRecordsPaged(`ProjectObservationManifestJoins/By/IDProject/0`, {}, 5);
         expect (pProjectManifestRecords.length).to.be.eq(5);
+    });
+
+    it ('can get a paged records using getAllRecordsPaged() using POST',  async() => {
+        var pObservationsFiltered = await client.getAllRecordsPaged(`ObservationsFilter`, {method: 'POST', body: {IDProject: 328}}, 10);
+        expect (pObservationsFiltered.length).to.be.eq(10);
     });
 
     it('can create a SpreadSheet type observation', async() => {

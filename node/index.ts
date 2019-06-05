@@ -303,12 +303,14 @@ export class Client
             pOptions.AllRecords = [];
 
         var pError = null;
-        this.GET(`${pUrl}/${pOptions.Page}/${pSize}`, pOptions).then((pRecords) =>
+        pOptions = this.setOptions(pOptions, pOptions.body);
+
+        this.getHttpRequestMethod(pOptions)(`${pUrl}/${pOptions.Page}/${pSize}`, pOptions, (err, pResponse) =>
         {
-            if (!pRecords)
+            if (!pResponse)
                 pError = `Failed to Get Records for ${pUrl}!`;
 
-            let tmpRecords = pRecords as Array<any>;
+            let tmpRecords = pResponse.body;
             pOptions.AllRecords = pOptions.AllRecords.concat(tmpRecords);
 
            //Call invoker's iterator function
@@ -347,7 +349,6 @@ export class Client
                }
            });
         });
-        
     }
 
     getHttpRequestMethod(pOptions)
