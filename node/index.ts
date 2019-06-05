@@ -369,29 +369,19 @@ export class Client
      *
      * @method getFile
      */
-    getFileAsync(pUrl): Promise<void>
+    public async getFile(pUrl): Promise<Array<any>>
     {
-        return util.promisify(this.getFile.bind(this))(pUrl);
+        return util.promisify(this._getFile.bind(this))(pUrl);
     }
 
     /**
      * HTTP GET basic file download request to Headlight
      *
-     * @method getFile
+     * @method _getFile
      */
-    getFile(pUrl, fCallback)
+    private _getFile(pUrl, fCallback)
     {
-        return this.getFileExtended(pUrl, {method: 'GET'}, fCallback);
-    }
-
-    /**
-     * HTTP GET advanced file download request to Headlight
-     *
-     * @method getFileExtendedAsync
-     */
-    public async getFileExtendedAsync(pUrl, pOptions):Promise<any>
-    {
-        return util.promisify(this.getFileExtended.bind(this))(pUrl, pOptions);
+        return this._getFileExtended(pUrl, {method: 'GET'}, fCallback);
     }
 
     /**
@@ -399,7 +389,17 @@ export class Client
      *
      * @method getFileExtended
      */
-    getFileExtended(pUrl, pOptions, fCallback)
+    public async getFileExtended(pUrl, pOptions):Promise<Array<any>>
+    {
+        return util.promisify(this._getFileExtended.bind(this))(pUrl, pOptions);
+    }
+
+    /**
+     * HTTP GET advanced file download request to Headlight
+     *
+     * @method _getFileExtended
+     */
+    private _getFileExtended(pUrl, pOptions, fCallback)
     {
         var tmpBufferFile = this.generateBufferFileName();
         pOptions = this.setOptions(pOptions, pOptions.body);
@@ -418,7 +418,7 @@ export class Client
         .pipe(libFS.createWriteStream(tmpBufferFile))
         .once('close', ()=>
         {
-            return fCallback(tmpErr, tmpResponse, tmpBufferFile);
+            return fCallback(tmpErr, [tmpResponse, tmpBufferFile]);
         });
     }
 

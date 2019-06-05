@@ -166,17 +166,13 @@ describe('Node API test', function() {
     });
 
     it ('can get a file buffer using getFileExtended() with GET method', async() =>{
-        client.getFileExtended('Observation/12/Image/Standard', {method:'GET'}, (pError, pResponse, pBufferFile) =>
-        {
-            expect(pResponse.headers['content-type']).to.eq('image/jpeg');
-        });
+        var pResponse = await client.getFileExtended('Observation/12/Image/Standard', {method:'GET'});
+        expect(pResponse[0].headers['content-type']).to.eq('image/jpeg');
     });
 
     it ('can get a file buffer using getFileExtended() with POST method', async() =>{
-        client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/10', {method:'POST', body: {'IDObservation': pSpreadSheetObservationID} }, (pError, pResponse, pBufferFile) =>
-        {            
-            expect(pResponse.headers['content-type']).to.eq('application/octet-stream');
-        });
+        var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/10', {method:'POST', body: {'IDObservation': pSpreadSheetObservationID} });
+        expect(pResponse[0].headers['content-type']).to.eq('application/octet-stream');
     });
 });
 
