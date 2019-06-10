@@ -179,5 +179,12 @@ describe('Node API test', function() {
         var pResponse = await client.getFileExtended('ObservationsFilter/DownloadSpreadsheet/0/10', {method:'POST', body: {'IDObservation': pSpreadSheetObservationID} });
         expect(pResponse[0].headers['content-type']).to.eq('application/octet-stream');
     });
+
+    it ('can check if file exists', async() =>{
+        var pFileName =  `Observation_12_V1_Thumbnail`;
+        var pResponse = await client.checkIfFileExists(pFileName);
+
+        expect(pResponse).to.eq(false);
+    });
 });
 

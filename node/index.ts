@@ -444,4 +444,31 @@ export class Client
 
         return BUFFER_DIR + uuid();
     }
+    /**
+     * Check if file exists in RemoteFS
+     *
+     * @method checkIfFileExists
+     */
+    public async checkIfFileExists(pFileName)
+    {
+        return util.promisify(this._checkIfFileExists.bind(this))(pFileName);
+    }
+
+    /**
+     * Check if file exists in RemoteFS
+     *
+     * @method _checkIfFileExists
+     */
+    private _checkIfFileExists(pFileName, fCallback)
+    {
+        // Check if the file is already there
+        var pOptions = this.setOptions({method: 'GET'});
+        Request.get('Media/Count/' + pFileName, pOptions, (err, pResponse)=>
+        {
+            if (err)
+                return fCallback(err);
+            else
+                return fCallback(null, pResponse.body.Count > 0);
+        });
+    }
 }
