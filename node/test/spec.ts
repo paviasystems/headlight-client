@@ -145,13 +145,27 @@ describe('Node API test', function() {
     });
 
     it ('can get a paged records using getAllRecordsPaged() using GET',  async() => {
-        var pProjectManifestRecords = await client.getAllRecordsPaged(`ProjectObservationManifestJoins/By/IDProject/0`, {}, 5);
-        expect (pProjectManifestRecords.length).to.be.eq(5);
+
+        var tmpTotalRecords = 0;
+        var pProjectManifestRecords = await client.getAllRecordsPaged(`ProjectObservationManifestJoins/By/IDProject/328`, {}, 5, (pError, pRecords, fNext) =>
+        {  
+            tmpTotalRecords += pRecords.length;
+            return fNext();
+        });
+
+        expect (tmpTotalRecords).to.be.eq(18);
     });
 
     it ('can get a paged records using getAllRecordsPaged() using POST',  async() => {
-        var pObservationsFiltered = await client.getAllRecordsPaged(`ObservationsFilter`, {method: 'POST', body: {IDProject: 328}}, 10);
-        expect (pObservationsFiltered.length).to.be.eq(10);
+        
+        var tmpTotalRecords = 0;
+        var pObservationsFiltered = await client.getAllRecordsPaged(`ObservationsFilter`, {method: 'POST', body: {IDProject: 1, ObservationType: 'Legacy Equipment'}}, 5, (pError, pRecords, fNext) =>
+        {
+            tmpTotalRecords += pRecords.length;
+            return fNext();
+        });
+
+        expect (tmpTotalRecords).to.be.eq(14);
     });
 
     it('can create a SpreadSheet type observation', async() => {
