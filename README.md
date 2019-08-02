@@ -66,3 +66,21 @@ the client under the "Headlight" namespace.
   </body>
 </html>
 ```
+
+### Using as a bower component
+
+bower.json
+```
+{
+  ...
+  "dependencies": {
+    "headlight-client": "https://github.com/paviasystems/headlight-client.git"
+  },
+  "overrides": {
+    "headlight-client": {
+      "main": [
+        "dist/headlight-bundle.min.js"
+      ]
+    }
+}
+```
