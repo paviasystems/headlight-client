@@ -282,9 +282,9 @@ export class Client
         return Promise.resolve(response.body.count);
     }
 
-    public async getAllRecordsPaged(pUrl, pOptions, pSize): Promise<any>
+    public async getAllRecordsPaged(pUrl, pOptions, pSize, fIterator): Promise<any>
     {
-        return util.promisify(this._getAllRecordsPaged.bind(this))(pUrl, pOptions, pSize);
+        return util.promisify(this._getAllRecordsPaged.bind(this))(pUrl, pOptions, pSize, fIterator);
     }
 
     _getAllRecordsPaged(pUrl: string, pOptions, pSize, fIterator, fCallback)
