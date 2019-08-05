@@ -3,6 +3,7 @@
   "version": "3.0.1",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "browser": "dist/headlight-bundle.min.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/_mocha --bail --colors --compilers ts-node/register ./node/test/*.ts",
