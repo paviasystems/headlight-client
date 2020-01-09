@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { DocumentStateChangeRequest } from '../model/documentStateChangeRequest';
 
@@ -67,6 +67,7 @@ export class DocumentApprovalService {
     public getDocumentApproverList(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentApproverList(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentApproverList(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentApproverList.');
         }
@@ -107,6 +108,7 @@ export class DocumentApprovalService {
     public getDocumentState(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentState(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentState(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentState.');
         }
@@ -150,15 +152,19 @@ export class DocumentApprovalService {
     public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (Status === null || Status === undefined) {
             throw new Error('Required parameter Status was null or undefined when calling getDocumentsByApprovalStatus.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getDocumentsByApprovalStatus.');
         }
+
         if (Filter === null || Filter === undefined) {
             throw new Error('Required parameter Filter was null or undefined when calling getDocumentsByApprovalStatus.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getDocumentsByApprovalStatus.');
         }
@@ -202,15 +208,19 @@ export class DocumentApprovalService {
     public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getDocumentsQueryApprovalStatus.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getDocumentsQueryApprovalStatus.');
         }
+
         if (Status === null || Status === undefined) {
             throw new Error('Required parameter Status was null or undefined when calling getDocumentsQueryApprovalStatus.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getDocumentsQueryApprovalStatus.');
         }
@@ -251,6 +261,7 @@ export class DocumentApprovalService {
     public postChangeDocumenttState(body: DocumentStateChangeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public postChangeDocumenttState(body: DocumentStateChangeRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public postChangeDocumenttState(body: DocumentStateChangeRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postChangeDocumenttState.');
         }

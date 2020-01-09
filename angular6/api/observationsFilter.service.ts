@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { ObservationFilterRequest } from '../model/observationFilterRequest';
 
@@ -69,12 +69,15 @@ export class ObservationsFilterService {
     public getObservationsFilter(body: ObservationFilterRequest, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationsFilter(body: ObservationFilterRequest, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationsFilter(body: ObservationFilterRequest, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling getObservationsFilter.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getObservationsFilter.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsFilter.');
         }
@@ -121,6 +124,7 @@ export class ObservationsFilterService {
     public getObservationsFilterCount(body: ObservationFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationsFilterCount(body: ObservationFilterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationsFilterCount(body: ObservationFilterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling getObservationsFilterCount.');
         }

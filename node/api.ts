@@ -11674,7 +11674,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -11866,7 +11867,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -11926,7 +11928,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -11986,7 +11989,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ArtifactModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12060,7 +12064,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Buffer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12113,7 +12118,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Artifact>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Artifact>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12173,7 +12179,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12233,7 +12240,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12293,7 +12301,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12353,7 +12362,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ArtifactModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12420,7 +12430,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12501,7 +12512,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12575,7 +12587,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ArtifactModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12635,7 +12648,8 @@ export class ArtifactApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ArtifactModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ArtifactModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12835,7 +12849,8 @@ export class AuthenticateApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ISession");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ISession");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12888,7 +12903,8 @@ export class AuthenticateApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ISession");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ISession");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12941,7 +12957,8 @@ export class AuthenticateApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2001");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse2001");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -12994,7 +13011,8 @@ export class AuthenticateApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse2002");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse2002");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13350,7 +13368,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13403,7 +13422,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13463,7 +13483,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13523,7 +13544,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "BidItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "BidItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13583,7 +13605,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13643,7 +13666,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13703,7 +13727,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13763,7 +13788,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "BidItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "BidItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13830,7 +13856,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13911,7 +13938,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -13985,7 +14013,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<BidItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<BidItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14045,7 +14074,8 @@ export class BidItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "BidItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "BidItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14168,7 +14198,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14221,7 +14252,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14281,7 +14313,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14341,7 +14374,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "CommentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "CommentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14401,7 +14435,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14461,7 +14496,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14521,7 +14557,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14581,7 +14618,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "CommentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "CommentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14648,7 +14686,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14729,7 +14768,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14803,7 +14843,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<CommentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14863,7 +14904,8 @@ export class CommentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "CommentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "CommentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -14986,7 +15028,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15039,7 +15082,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15099,7 +15143,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15159,7 +15204,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Contract");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Contract");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15219,7 +15265,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15279,7 +15326,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Contract>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15339,7 +15387,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Contract>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15399,7 +15448,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Contract");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Contract");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15466,7 +15516,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Contract>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15547,7 +15598,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Contract>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15621,7 +15673,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Contract>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Contract>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15681,7 +15734,8 @@ export class ContractApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Contract");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Contract");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15804,7 +15858,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15857,7 +15912,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15917,7 +15973,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -15977,7 +16034,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Customer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Customer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16037,7 +16095,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16097,7 +16156,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Customer>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16157,7 +16217,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Customer>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16217,7 +16278,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Customer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Customer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16284,7 +16346,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Customer>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16365,7 +16428,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Customer>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16439,7 +16503,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Customer>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Customer>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16499,7 +16564,8 @@ export class CustomerApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Customer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Customer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16622,7 +16688,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16689,7 +16756,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "any");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "any");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16808,7 +16876,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16868,7 +16937,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -16928,7 +16998,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17165,7 +17236,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Buffer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17284,7 +17356,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17344,7 +17417,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17404,7 +17478,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "FormProcessorRequest");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "FormProcessorRequest");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17464,7 +17539,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17524,7 +17600,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17584,7 +17661,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17644,7 +17722,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17711,7 +17790,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17792,7 +17872,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -17866,7 +17947,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18117,7 +18199,8 @@ export class DocumentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18692,7 +18775,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18745,7 +18829,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18805,7 +18890,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18865,7 +18951,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18925,7 +19012,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -18985,7 +19073,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19045,7 +19134,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19105,7 +19195,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19172,7 +19263,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19253,7 +19345,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19327,7 +19420,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<DocumentPolyModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19387,7 +19481,8 @@ export class DocumentPolyJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "DocumentPolyModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -19970,7 +20065,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20023,7 +20119,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20083,7 +20180,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20143,7 +20241,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20203,7 +20302,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20263,7 +20363,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20323,7 +20424,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20383,7 +20485,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20450,7 +20553,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20531,7 +20635,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20605,7 +20710,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ElectronicSignatureModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20665,7 +20771,8 @@ export class ElectronicSignatureApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ElectronicSignatureModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20788,7 +20895,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20841,7 +20949,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20901,7 +21010,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -20961,7 +21071,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Equipment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Equipment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21021,7 +21132,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21081,7 +21193,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21141,7 +21254,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21201,7 +21315,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Equipment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Equipment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21268,7 +21383,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21349,7 +21465,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21423,7 +21540,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Equipment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Equipment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21483,7 +21601,8 @@ export class EquipmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Equipment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Equipment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21606,7 +21725,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21659,7 +21779,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21719,7 +21840,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21779,7 +21901,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Lab");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Lab");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21839,7 +21962,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21899,7 +22023,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Lab>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -21959,7 +22084,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Lab>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22019,7 +22145,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Lab");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Lab");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22086,7 +22213,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Lab>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22167,7 +22295,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Lab>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22241,7 +22370,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Lab>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Lab>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22301,7 +22431,8 @@ export class LabApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Lab");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Lab");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22424,7 +22555,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22477,7 +22609,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22537,7 +22670,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22597,7 +22731,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22657,7 +22792,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22717,7 +22853,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22777,7 +22914,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22837,7 +22975,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22904,7 +23043,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -22985,7 +23125,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23059,7 +23200,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabMaterialAssignment>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23119,7 +23261,8 @@ export class LabMaterialAssignmentApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabMaterialAssignment");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23242,7 +23385,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23295,7 +23439,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23355,7 +23500,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23415,7 +23561,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23475,7 +23622,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23535,7 +23683,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23595,7 +23744,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23655,7 +23805,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23722,7 +23873,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23803,7 +23955,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23877,7 +24030,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -23937,7 +24091,8 @@ export class LabTestApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24060,7 +24215,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24113,7 +24269,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24173,7 +24330,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24233,7 +24391,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestDefault");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestDefault");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24293,7 +24452,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24353,7 +24513,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24413,7 +24574,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24473,7 +24635,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestDefault");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestDefault");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24540,7 +24703,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24621,7 +24785,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24695,7 +24860,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LabTestDefault>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24755,7 +24921,8 @@ export class LabTestDefaultApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LabTestDefault");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LabTestDefault");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24878,7 +25045,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24931,7 +25099,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -24991,7 +25160,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25051,7 +25221,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LineItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LineItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25111,7 +25282,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25171,7 +25343,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25231,7 +25404,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25291,7 +25465,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LineItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LineItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25358,7 +25533,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25439,7 +25615,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25513,7 +25690,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<LineItem>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<LineItem>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25573,7 +25751,8 @@ export class LineItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "LineItem");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "LineItem");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25696,7 +25875,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25749,7 +25929,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25809,7 +25990,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25869,7 +26051,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Material");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Material");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25929,7 +26112,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -25989,7 +26173,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Material>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26049,7 +26234,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Material>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26109,7 +26295,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Material");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Material");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26176,7 +26363,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Material>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26257,7 +26445,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Material>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26331,7 +26520,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Material>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Material>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26391,7 +26581,8 @@ export class MaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Material");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Material");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26514,7 +26705,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26567,7 +26759,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26627,7 +26820,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26687,7 +26881,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26747,7 +26942,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26807,7 +27003,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26867,7 +27064,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26927,7 +27125,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -26994,7 +27193,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27075,7 +27275,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27149,7 +27350,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27209,7 +27411,8 @@ export class MaterialLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27332,7 +27535,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27385,7 +27589,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27445,7 +27650,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27505,7 +27711,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27565,7 +27772,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27625,7 +27833,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27685,7 +27894,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27745,7 +27955,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27812,7 +28023,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27893,7 +28105,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -27967,7 +28180,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialPayItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28027,7 +28241,8 @@ export class MaterialPayItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialPayItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28150,7 +28365,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28203,7 +28419,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28263,7 +28480,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28323,7 +28541,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28383,7 +28602,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28443,7 +28663,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28503,7 +28724,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28563,7 +28785,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28630,7 +28853,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28711,7 +28935,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28785,7 +29010,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MaterialRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28845,7 +29071,8 @@ export class MaterialRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MaterialRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -28968,7 +29195,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29021,7 +29249,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29081,7 +29310,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29141,7 +29371,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29201,7 +29432,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29261,7 +29493,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29321,7 +29554,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29381,7 +29615,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29448,7 +29683,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29529,7 +29765,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29603,7 +29840,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29663,7 +29901,8 @@ export class MixSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29786,7 +30025,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29839,7 +30079,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29899,7 +30140,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -29959,7 +30201,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30019,7 +30262,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30079,7 +30323,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30139,7 +30384,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30199,7 +30445,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30266,7 +30513,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30347,7 +30595,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30421,7 +30670,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<MixSpecificationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30481,7 +30731,8 @@ export class MixSpecificationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "MixSpecificationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30604,7 +30855,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30657,7 +30909,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30717,7 +30970,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30777,7 +31031,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ModuleModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ModuleModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30837,7 +31092,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30897,7 +31153,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -30957,7 +31214,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31017,7 +31275,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ModuleModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ModuleModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31084,7 +31343,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31165,7 +31425,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31239,7 +31500,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ModuleModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31299,7 +31561,8 @@ export class ModuleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ModuleModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ModuleModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31422,7 +31685,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31475,7 +31739,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31535,7 +31800,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31595,7 +31861,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Notification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Notification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31655,7 +31922,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31715,7 +31983,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Notification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31775,7 +32044,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Notification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31835,7 +32105,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Notification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Notification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31902,7 +32173,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Notification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -31983,7 +32255,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Notification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32057,7 +32330,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Notification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Notification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32117,7 +32391,8 @@ export class NotificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Notification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Notification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32240,7 +32515,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32463,7 +32739,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32523,7 +32800,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32583,7 +32861,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ObservationModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ObservationModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32650,7 +32929,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Buffer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32717,7 +32997,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Buffer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32857,7 +33138,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32917,7 +33199,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -32977,7 +33260,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ObservationModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ObservationModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33141,7 +33425,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33201,7 +33486,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33261,7 +33547,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33380,7 +33667,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ObservationModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ObservationModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33447,7 +33735,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33528,7 +33817,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33602,7 +33892,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ObservationModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -33853,7 +34144,8 @@ export class ObservationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ObservationModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ObservationModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35414,7 +35706,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35467,7 +35760,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35527,7 +35821,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35587,7 +35882,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Organization");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Organization");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35647,7 +35943,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35707,7 +36004,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Organization>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35767,7 +36065,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Organization>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35827,7 +36126,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Organization");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Organization");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35894,7 +36194,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Organization>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -35975,7 +36276,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Organization>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36049,7 +36351,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Organization>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Organization>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36109,7 +36412,8 @@ export class OrganizationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Organization");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Organization");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36232,7 +36536,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36285,7 +36590,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36345,7 +36651,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36405,7 +36712,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36465,7 +36773,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36525,7 +36834,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36585,7 +36895,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36645,7 +36956,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36712,7 +37024,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36793,7 +37106,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36867,7 +37181,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<OrganizationMaterialJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -36927,7 +37242,8 @@ export class OrganizationMaterialJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "OrganizationMaterialJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37050,7 +37366,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37103,7 +37420,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37163,7 +37481,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37223,7 +37542,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "PayItemModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "PayItemModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37283,7 +37603,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37343,7 +37664,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37403,7 +37725,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37463,7 +37786,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "PayItemModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "PayItemModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37530,7 +37854,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37611,7 +37936,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37685,7 +38011,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<PayItemModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37745,7 +38072,8 @@ export class PayItemApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "PayItemModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "PayItemModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37868,7 +38196,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37921,7 +38250,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -37981,7 +38311,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38041,7 +38372,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Product");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Product");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38101,7 +38433,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38161,7 +38494,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Product>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38221,7 +38555,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Product>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38281,7 +38616,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Product");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Product");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38348,7 +38684,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Product>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38429,7 +38766,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Product>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38503,7 +38841,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Product>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Product>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38563,7 +38902,8 @@ export class ProductApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Product");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Product");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38686,7 +39026,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38739,7 +39080,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38799,7 +39141,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38859,7 +39202,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlant");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlant");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38919,7 +39263,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -38979,7 +39324,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39039,7 +39385,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39099,7 +39446,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlant");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlant");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39166,7 +39514,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39247,7 +39596,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39321,7 +39671,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlant>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39381,7 +39732,8 @@ export class ProductionPlantApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlant");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlant");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39504,7 +39856,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39557,7 +39910,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39617,7 +39971,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39677,7 +40032,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39737,7 +40093,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39797,7 +40154,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39857,7 +40215,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39917,7 +40276,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -39984,7 +40344,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40065,7 +40426,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40139,7 +40501,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProductionPlantMaterialApproval>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40199,7 +40562,8 @@ export class ProductionPlantMaterialApprovalApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProductionPlantMaterialApproval");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40322,7 +40686,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40375,7 +40740,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40435,7 +40801,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40495,7 +40862,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProjectModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProjectModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40555,7 +40923,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40615,7 +40984,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40675,7 +41045,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40735,7 +41106,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProjectModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProjectModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40802,7 +41174,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40883,7 +41256,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -40957,7 +41331,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ProjectModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41017,7 +41392,8 @@ export class ProjectApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ProjectModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ProjectModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41140,7 +41516,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41193,7 +41570,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41253,7 +41631,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41313,7 +41692,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41373,7 +41753,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41433,7 +41814,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41493,7 +41875,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41553,7 +41936,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41620,7 +42004,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41701,7 +42086,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41775,7 +42161,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterial>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41835,7 +42222,8 @@ export class RecordOfMaterialApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterial");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -41958,7 +42346,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42011,7 +42400,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42071,7 +42461,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42131,7 +42522,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42191,7 +42583,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42251,7 +42644,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42311,7 +42705,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42371,7 +42766,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42438,7 +42834,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42519,7 +42916,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42593,7 +42991,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntry>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42653,7 +43052,8 @@ export class RecordOfMaterialEntryApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntry");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42776,7 +43176,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42829,7 +43230,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42889,7 +43291,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -42949,7 +43352,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43009,7 +43413,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43069,7 +43474,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43129,7 +43535,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43189,7 +43596,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43256,7 +43664,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43337,7 +43746,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43411,7 +43821,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<RecordOfMaterialEntryArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43471,7 +43882,8 @@ export class RecordOfMaterialEntryArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "RecordOfMaterialEntryArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43594,7 +44006,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43647,7 +44060,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43707,7 +44121,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43767,7 +44182,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -43893,7 +44309,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportRenderResult");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportRenderResult");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44078,7 +44495,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Buffer");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Buffer");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44138,7 +44556,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44198,7 +44617,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44258,7 +44678,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44318,7 +44739,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44385,7 +44807,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44466,7 +44889,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44540,7 +44964,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44600,7 +45025,8 @@ export class ReportApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44723,7 +45149,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44842,7 +45269,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44902,7 +45330,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -44962,7 +45391,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45095,7 +45525,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45155,7 +45586,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45215,7 +45647,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45275,7 +45708,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45342,7 +45776,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45423,7 +45858,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45497,7 +45933,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<ReportNamedInstanceModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45623,7 +46060,8 @@ export class ReportNamedInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "ReportNamedInstanceModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45746,7 +46184,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45799,7 +46238,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45859,7 +46299,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45919,7 +46360,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Sample");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Sample");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -45979,7 +46421,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46039,7 +46482,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Sample>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46099,7 +46543,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Sample>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46159,7 +46604,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Sample");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Sample");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46226,7 +46672,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Sample>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46307,7 +46754,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Sample>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46381,7 +46829,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Sample>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Sample>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46441,7 +46890,8 @@ export class SampleApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Sample");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Sample");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46564,7 +47014,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46617,7 +47068,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46677,7 +47129,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46737,7 +47190,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46797,7 +47251,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46857,7 +47312,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46917,7 +47373,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -46977,7 +47434,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47044,7 +47502,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47125,7 +47584,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47199,7 +47659,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47259,7 +47720,8 @@ export class SampleLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47382,7 +47844,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47435,7 +47898,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47495,7 +47959,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47555,7 +48020,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47615,7 +48081,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47675,7 +48142,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47735,7 +48203,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47795,7 +48264,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47862,7 +48332,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -47943,7 +48414,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48017,7 +48489,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLineItemJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48077,7 +48550,8 @@ export class SampleLineItemJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLineItemJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48200,7 +48674,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48253,7 +48728,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48313,7 +48789,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48373,7 +48850,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLog");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLog");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48433,7 +48911,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48493,7 +48972,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48553,7 +49033,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48613,7 +49094,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLog");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLog");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48680,7 +49162,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48761,7 +49244,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48835,7 +49319,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<SampleLog>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -48895,7 +49380,8 @@ export class SampleLogApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "SampleLog");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "SampleLog");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49018,7 +49504,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49071,7 +49558,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49131,7 +49619,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49191,7 +49680,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Test");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Test");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49251,7 +49741,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49311,7 +49802,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Test>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49371,7 +49863,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Test>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49431,7 +49924,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Test");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Test");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49498,7 +49992,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Test>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49579,7 +50074,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Test>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49653,7 +50149,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Test>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<Test>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49713,7 +50210,8 @@ export class TestApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Test");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Test");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49836,7 +50334,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49889,7 +50388,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -49949,7 +50449,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50009,7 +50510,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50069,7 +50571,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50129,7 +50632,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50189,7 +50693,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50249,7 +50754,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50316,7 +50822,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50397,7 +50904,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50471,7 +50979,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50531,7 +51040,8 @@ export class TestDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50654,7 +51164,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50707,7 +51218,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50767,7 +51279,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50827,7 +51340,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstance");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstance");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50887,7 +51401,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -50947,7 +51462,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51007,7 +51523,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51067,7 +51584,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstance");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstance");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51134,7 +51652,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51215,7 +51734,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51289,7 +51809,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstance>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51349,7 +51870,8 @@ export class TestInstanceApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstance");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstance");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51472,7 +51994,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51525,7 +52048,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51585,7 +52109,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51645,7 +52170,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51705,7 +52231,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51765,7 +52292,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51825,7 +52353,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51885,7 +52414,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -51952,7 +52482,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52033,7 +52564,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52107,7 +52639,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceData>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52167,7 +52700,8 @@ export class TestInstanceDataApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceData");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceData");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52290,7 +52824,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52343,7 +52878,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52403,7 +52939,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52463,7 +53000,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52523,7 +53061,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52583,7 +53122,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52643,7 +53183,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52703,7 +53244,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52770,7 +53312,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52851,7 +53394,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52925,7 +53469,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceDataArchive>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -52985,7 +53530,8 @@ export class TestInstanceDataArchiveApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceDataArchive");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53108,7 +53654,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53161,7 +53708,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53221,7 +53769,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53281,7 +53830,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53341,7 +53891,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53401,7 +53952,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53461,7 +54013,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53521,7 +54074,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53588,7 +54142,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53669,7 +54224,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53743,7 +54299,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53803,7 +54360,8 @@ export class TestInstanceLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53926,7 +54484,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -53979,7 +54538,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54039,7 +54599,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54099,7 +54660,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54159,7 +54721,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54219,7 +54782,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54279,7 +54843,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54339,7 +54904,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54406,7 +54972,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54487,7 +55054,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54561,7 +55129,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestInstanceSampleJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54621,7 +55190,8 @@ export class TestInstanceSampleJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestInstanceSampleJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54744,7 +55314,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54797,7 +55368,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54857,7 +55429,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54917,7 +55490,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -54977,7 +55551,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55037,7 +55612,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55097,7 +55673,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55157,7 +55734,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55224,7 +55802,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55305,7 +55884,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55379,7 +55959,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestLabJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55439,7 +56020,8 @@ export class TestLabJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestLabJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestLabJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55562,7 +56144,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55615,7 +56198,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55675,7 +56259,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55735,7 +56320,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestPlan");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestPlan");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55795,7 +56381,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55855,7 +56442,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55915,7 +56503,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -55975,7 +56564,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestPlan");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestPlan");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56042,7 +56632,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56123,7 +56714,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56197,7 +56789,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestPlan>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56257,7 +56850,8 @@ export class TestPlanApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestPlan");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestPlan");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56380,7 +56974,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56433,7 +57028,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56493,7 +57089,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56553,7 +57150,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56613,7 +57211,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56673,7 +57272,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56733,7 +57333,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56793,7 +57394,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56860,7 +57462,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -56941,7 +57544,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57015,7 +57619,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestRecordOfMaterialEntryJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57075,7 +57680,8 @@ export class TestRecordOfMaterialEntryJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestRecordOfMaterialEntryJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57198,7 +57804,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57251,7 +57858,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57311,7 +57919,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57371,7 +57980,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57431,7 +58041,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57491,7 +58102,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57551,7 +58163,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57611,7 +58224,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57678,7 +58292,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57759,7 +58374,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57833,7 +58449,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecification>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -57893,7 +58510,8 @@ export class TestSpecificationApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecification");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecification");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58016,7 +58634,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58069,7 +58688,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58129,7 +58749,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58189,7 +58810,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58249,7 +58871,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58309,7 +58932,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58369,7 +58993,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58429,7 +59054,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58496,7 +59122,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58577,7 +59204,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58651,7 +59279,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationMaterialTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58711,7 +59340,8 @@ export class TestSpecificationMaterialTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationMaterialTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58834,7 +59464,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58887,7 +59518,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -58947,7 +59579,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59007,7 +59640,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59067,7 +59701,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59127,7 +59762,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59187,7 +59823,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59247,7 +59884,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59314,7 +59952,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59395,7 +60034,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59469,7 +60109,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationRequirement>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59529,7 +60170,8 @@ export class TestSpecificationRequirementApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationRequirement");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59652,7 +60294,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59705,7 +60348,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59765,7 +60409,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59825,7 +60470,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59885,7 +60531,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -59945,7 +60592,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60005,7 +60653,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60065,7 +60714,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60132,7 +60782,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60213,7 +60864,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60287,7 +60939,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSet>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60347,7 +61000,8 @@ export class TestSpecificationSetApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSet");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60470,7 +61124,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60523,7 +61178,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60583,7 +61239,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60643,7 +61300,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60703,7 +61361,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60763,7 +61422,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60823,7 +61483,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60883,7 +61544,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -60950,7 +61612,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61031,7 +61694,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61105,7 +61769,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestSpecificationSetTestJoin>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61165,7 +61830,8 @@ export class TestSpecificationSetTestJoinApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestSpecificationSetTestJoin");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61288,7 +61954,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61341,7 +62008,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61401,7 +62069,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61461,7 +62130,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestStep");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestStep");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61521,7 +62191,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61581,7 +62252,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestStep>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61641,7 +62313,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestStep>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61701,7 +62374,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestStep");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestStep");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61768,7 +62442,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestStep>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61849,7 +62524,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestStep>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61923,7 +62599,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<TestStep>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<TestStep>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -61983,7 +62660,8 @@ export class TestStepApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "TestStep");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "TestStep");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62106,7 +62784,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "boolean");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "boolean");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62336,7 +63015,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62396,7 +63076,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62456,7 +63137,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "UserModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "UserModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62679,7 +63361,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "InlineResponse200");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "InlineResponse200");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62739,7 +63422,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62799,7 +63483,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62859,7 +63544,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "UserModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "UserModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -62926,7 +63612,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -63007,7 +63694,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -63081,7 +63769,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<UserModel>");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "Array<UserModel>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {
@@ -63259,7 +63948,8 @@ export class UserApi {
                     if (error || (body && body.Error)) {
                         reject(error || body.Error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "UserModel");
+                        // -- disabling this as it can result in data loss from any kind of type alignment issue.
+                        //body = ObjectSerializer.deserialize(body, "UserModel");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve(body);
                         } else {

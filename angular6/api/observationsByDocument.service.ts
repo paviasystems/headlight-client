@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -68,12 +68,15 @@ export class ObservationsByDocumentService {
     public getObservationsByDocument(IDDocument: number, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationsByDocument(IDDocument: number, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationsByDocument(IDDocument: number, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getObservationsByDocument.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getObservationsByDocument.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsByDocument.');
         }
@@ -115,9 +118,11 @@ export class ObservationsByDocumentService {
     public getObservationsByNoDocument(IDProject: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationsByNoDocument(IDProject: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationsByNoDocument(IDProject: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDProject === null || IDProject === undefined) {
             throw new Error('Required parameter IDProject was null or undefined when calling getObservationsByNoDocument.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsByNoDocument.');
         }

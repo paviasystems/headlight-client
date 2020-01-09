@@ -6,6 +6,7 @@
 * @author Jason Hillier <jason.hillier@paviasystems.com>
 */
 import * as API from './api';
+import * as Request from 'request';
 import { BaseRepository, SimpleQuery } from 'ts-repository-fluent';
 export { API };
 export declare type constructor<T> = new () => T;
@@ -14,6 +15,7 @@ export interface GeneralAPI {
 }
 export interface IQueryable<T> extends GeneralAPI {
     postReadQuery(body: any): Promise<Array<T>>;
+    postReadsLiteQuery(body: any): Promise<Array<T>>;
     postReadCountQuery(body: any): Promise<any>;
 }
 export declare class Repository<T> extends BaseRepository<T> {
@@ -59,4 +61,47 @@ export declare class Client {
      * Get reference to an API, and configure it according to current state of client.
      */
     Repository<T extends IQueryable<ORM>, ORM>(pApiType: new (baseURL: string) => T, pORMType: constructor<ORM>): Repository<ORM>;
+    private setOptions;
+    private processResponse;
+    GET<T>(url: string, options?: Request.CoreOptions): Promise<T>;
+    POST<T>(url: string, body: any, options?: Request.CoreOptions): Promise<T>;
+    PUT<T>(url: string, body: any, options?: Request.CoreOptions): Promise<T>;
+    DELETE(url: string, options?: Request.CoreOptions): Promise<number>;
+    getAllRecordsPaged(pUrl: any, pOptions: any, pSize: any, fIterator: any): Promise<any>;
+    _getAllRecordsPaged(pUrl: string, pOptions: any, pSize: any, fIterator: any, fCallback: any): void;
+    getHttpRequestMethod(pOptions: any): {
+        (uri: string, options?: Request.CoreOptions, callback?: Request.RequestCallback): Request.Request;
+        (uri: string, callback?: Request.RequestCallback): Request.Request;
+        (options: Request.Options, callback?: Request.RequestCallback): Request.Request;
+    };
+    /**
+     * HTTP GET basic file download request to Headlight
+     *
+     * @method getFile
+     */
+    getFile(pUrl: any): Promise<Array<any>>;
+    /**
+     * HTTP GET basic file download request to Headlight
+     *
+     * @method _getFile
+     */
+    private _getFile;
+    /**
+     * HTTP GET advanced file download request to Headlight
+     *
+     * @method getFileExtended
+     */
+    getFileExtended(pUrl: any, pOptions: any): Promise<Array<any>>;
+    /**
+     * HTTP GET advanced file download request to Headlight
+     *
+     * @method _getFileExtended
+     */
+    private _getFileExtended;
+    /**
+     * Internal method to create temporary files on disk
+     *
+     * @method generateBufferFileName
+     */
+    generateBufferFileName(): string;
 }

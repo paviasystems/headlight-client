@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { SendToEmailRequest } from '../model/sendToEmailRequest';
 
@@ -68,9 +68,11 @@ export class DocumentSendToService {
     public postDocumentSendToEmail(IDDocument: number, body: SendToEmailRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public postDocumentSendToEmail(IDDocument: number, body: SendToEmailRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public postDocumentSendToEmail(IDDocument: number, body: SendToEmailRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling postDocumentSendToEmail.');
         }
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postDocumentSendToEmail.');
         }

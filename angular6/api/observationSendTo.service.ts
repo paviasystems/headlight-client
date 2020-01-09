@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -67,9 +67,11 @@ export class ObservationSendToService {
     public getObservationSendToEmail(IDObservation: number, EmailAddress: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationSendToEmail(IDObservation: number, EmailAddress: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationSendToEmail(IDObservation: number, EmailAddress: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling getObservationSendToEmail.');
         }
+
         if (EmailAddress === null || EmailAddress === undefined) {
             throw new Error('Required parameter EmailAddress was null or undefined when calling getObservationSendToEmail.');
         }

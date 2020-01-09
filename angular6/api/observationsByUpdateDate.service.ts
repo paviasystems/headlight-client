@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -67,9 +67,11 @@ export class ObservationsByUpdateDateService {
     public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getObservationsByUpdateDate(ByDate: Date, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (ByDate === null || ByDate === undefined) {
             throw new Error('Required parameter ByDate was null or undefined when calling getObservationsByUpdateDate.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getObservationsByUpdateDate.');
         }

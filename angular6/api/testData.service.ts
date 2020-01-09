@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { InlineResponse200 } from '../model/inlineResponse200';
 import { QueryRequest } from '../model/queryRequest';
@@ -69,6 +69,7 @@ export class TestDataService {
     public _delete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<boolean>>;
     public _delete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<boolean>>;
     public _delete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
         }
@@ -145,6 +146,7 @@ export class TestDataService {
     public countFiltered(filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
     public countFiltered(filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public countFiltered(filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
         }
@@ -185,6 +187,7 @@ export class TestDataService {
     public create(body: TestData, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TestData>>;
     public create(body: TestData, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TestData>>;
     public create(body: TestData, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
         }
@@ -231,6 +234,7 @@ export class TestDataService {
     public postReadCountQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
     public postReadCountQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public postReadCountQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
         }
@@ -277,6 +281,7 @@ export class TestDataService {
     public postReadQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TestData>>>;
     public postReadQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TestData>>>;
     public postReadQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
         }
@@ -323,6 +328,7 @@ export class TestDataService {
     public postReadsLiteQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TestData>>>;
     public postReadsLiteQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TestData>>>;
     public postReadsLiteQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadsLiteQuery.');
         }
@@ -369,6 +375,7 @@ export class TestDataService {
     public read(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TestData>>;
     public read(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TestData>>;
     public read(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
         }
@@ -410,9 +417,11 @@ export class TestDataService {
     public reads(begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TestData>>>;
     public reads(begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TestData>>>;
     public reads(begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling reads.');
         }
@@ -456,15 +465,19 @@ export class TestDataService {
     public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TestData>>>;
     public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TestData>>>;
     public readsByValue(field: string, begin: number, max: number, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (field === null || field === undefined) {
             throw new Error('Required parameter field was null or undefined when calling readsByValue.');
         }
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsByValue.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsByValue.');
         }
+
         if (value === null || value === undefined) {
             throw new Error('Required parameter value was null or undefined when calling readsByValue.');
         }
@@ -507,12 +520,15 @@ export class TestDataService {
     public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TestData>>>;
     public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TestData>>>;
     public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
         }
@@ -553,6 +569,7 @@ export class TestDataService {
     public update(body: TestData, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TestData>>;
     public update(body: TestData, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TestData>>;
     public update(body: TestData, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
         }

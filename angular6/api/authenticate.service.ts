@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { ISession } from '../model/iSession';
 import { InlineResponse2001 } from '../model/inlineResponse2001';
@@ -70,6 +70,7 @@ export class AuthenticateService {
     public authenticate(body: LoginRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ISession>>;
     public authenticate(body: LoginRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ISession>>;
     public authenticate(body: LoginRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling authenticate.');
         }
@@ -224,6 +225,7 @@ export class AuthenticateService {
     public impersonateUser(IDUser: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public impersonateUser(IDUser: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public impersonateUser(IDUser: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDUser === null || IDUser === undefined) {
             throw new Error('Required parameter IDUser was null or undefined when calling impersonateUser.');
         }

@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { DocumentCloneRequest } from '../model/documentCloneRequest';
 import { DocumentModel } from '../model/documentModel';
@@ -71,6 +71,7 @@ export class DocumentService {
     public _delete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<boolean>>;
     public _delete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<boolean>>;
     public _delete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling _delete.');
         }
@@ -112,9 +113,11 @@ export class DocumentService {
     public addCommentsToDocument(IDComment: number, IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public addCommentsToDocument(IDComment: number, IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public addCommentsToDocument(IDComment: number, IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDComment === null || IDComment === undefined) {
             throw new Error('Required parameter IDComment was null or undefined when calling addCommentsToDocument.');
         }
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling addCommentsToDocument.');
         }
@@ -156,9 +159,11 @@ export class DocumentService {
     public addDocumentObservation(IDObservation: number, IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public addDocumentObservation(IDObservation: number, IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public addDocumentObservation(IDObservation: number, IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling addDocumentObservation.');
         }
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling addDocumentObservation.');
         }
@@ -235,6 +240,7 @@ export class DocumentService {
     public countFiltered(filter: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
     public countFiltered(filter: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public countFiltered(filter: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling countFiltered.');
         }
@@ -275,6 +281,7 @@ export class DocumentService {
     public create(body: DocumentModel, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentModel>>;
     public create(body: DocumentModel, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentModel>>;
     public create(body: DocumentModel, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling create.');
         }
@@ -321,6 +328,7 @@ export class DocumentService {
     public getDocumentCountBySequenceNumber(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentCountBySequenceNumber(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentCountBySequenceNumber(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentCountBySequenceNumber.');
         }
@@ -361,6 +369,7 @@ export class DocumentService {
     public getDocumentHTML(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentHTML(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentHTML(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentHTML.');
         }
@@ -401,6 +410,7 @@ export class DocumentService {
     public getDocumentJSON(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentJSON(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentJSON(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentJSON.');
         }
@@ -441,6 +451,7 @@ export class DocumentService {
     public getDocumentPDF(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Blob>>;
     public getDocumentPDF(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Blob>>;
     public getDocumentPDF(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentPDF.');
         }
@@ -483,6 +494,7 @@ export class DocumentService {
     public getDocumentReportParameters(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentReportParameters(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentReportParameters(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling getDocumentReportParameters.');
         }
@@ -523,6 +535,7 @@ export class DocumentService {
     public postCloneBulkDocuments(body: DocumentCloneRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public postCloneBulkDocuments(body: DocumentCloneRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public postCloneBulkDocuments(body: DocumentCloneRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postCloneBulkDocuments.');
         }
@@ -569,6 +582,7 @@ export class DocumentService {
     public postCloneDocument(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentModel>>;
     public postCloneDocument(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentModel>>;
     public postCloneDocument(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling postCloneDocument.');
         }
@@ -611,6 +625,7 @@ export class DocumentService {
     public postFormProcessor(body: FormProcessorRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FormProcessorRequest>>;
     public postFormProcessor(body: FormProcessorRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FormProcessorRequest>>;
     public postFormProcessor(body: FormProcessorRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postFormProcessor.');
         }
@@ -657,6 +672,7 @@ export class DocumentService {
     public postReadCountQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
     public postReadCountQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public postReadCountQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadCountQuery.');
         }
@@ -703,6 +719,7 @@ export class DocumentService {
     public postReadQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public postReadQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public postReadQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadQuery.');
         }
@@ -749,6 +766,7 @@ export class DocumentService {
     public postReadsLiteQuery(body: QueryRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public postReadsLiteQuery(body: QueryRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public postReadsLiteQuery(body: QueryRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling postReadsLiteQuery.');
         }
@@ -795,6 +813,7 @@ export class DocumentService {
     public read(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentModel>>;
     public read(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentModel>>;
     public read(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling read.');
         }
@@ -836,9 +855,11 @@ export class DocumentService {
     public reads(begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public reads(begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public reads(begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling reads.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling reads.');
         }
@@ -882,15 +903,19 @@ export class DocumentService {
     public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public readsByValue(field: string, begin: number, max: number, value: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public readsByValue(field: string, begin: number, max: number, value: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (field === null || field === undefined) {
             throw new Error('Required parameter field was null or undefined when calling readsByValue.');
         }
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsByValue.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsByValue.');
         }
+
         if (value === null || value === undefined) {
             throw new Error('Required parameter value was null or undefined when calling readsByValue.');
         }
@@ -933,12 +958,15 @@ export class DocumentService {
     public readsFiltered(filter: string, begin: number, max: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentModel>>>;
     public readsFiltered(filter: string, begin: number, max: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentModel>>>;
     public readsFiltered(filter: string, begin: number, max: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (filter === null || filter === undefined) {
             throw new Error('Required parameter filter was null or undefined when calling readsFiltered.');
         }
+
         if (begin === null || begin === undefined) {
             throw new Error('Required parameter begin was null or undefined when calling readsFiltered.');
         }
+
         if (max === null || max === undefined) {
             throw new Error('Required parameter max was null or undefined when calling readsFiltered.');
         }
@@ -980,9 +1008,11 @@ export class DocumentService {
     public removeDocumentObservation(IDObservation: number, IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public removeDocumentObservation(IDObservation: number, IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public removeDocumentObservation(IDObservation: number, IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling removeDocumentObservation.');
         }
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling removeDocumentObservation.');
         }
@@ -1024,9 +1054,11 @@ export class DocumentService {
     public signDocument(IDElectronicSignature: number, IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public signDocument(IDElectronicSignature: number, IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public signDocument(IDElectronicSignature: number, IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDElectronicSignature === null || IDElectronicSignature === undefined) {
             throw new Error('Required parameter IDElectronicSignature was null or undefined when calling signDocument.');
         }
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling signDocument.');
         }
@@ -1067,6 +1099,7 @@ export class DocumentService {
     public undeleteDocument(IDDocument: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public undeleteDocument(IDDocument: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public undeleteDocument(IDDocument: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDDocument === null || IDDocument === undefined) {
             throw new Error('Required parameter IDDocument was null or undefined when calling undeleteDocument.');
         }
@@ -1107,6 +1140,7 @@ export class DocumentService {
     public update(body: DocumentModel, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentModel>>;
     public update(body: DocumentModel, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentModel>>;
     public update(body: DocumentModel, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling update.');
         }

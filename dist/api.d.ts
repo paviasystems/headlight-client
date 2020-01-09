@@ -1,5 +1,3 @@
-/// <reference types="request" />
-/// <reference types="node" />
 /**
  * HeadlightAPI
  * Pavia Headlight API Server
@@ -535,6 +533,42 @@ export declare class Customer {
 /**
 *
 */
+export declare class DocumentCloneRequest {
+    /**
+    *
+    */
+    'IDDocuments': Array<number>;
+    /**
+    *
+    */
+    'IDProject': number;
+    /**
+    *
+    */
+    'SetRequestingUserID': boolean;
+    /**
+    *
+    */
+    'OffsetFromSpecificTime': Date;
+    /**
+    *
+    */
+    'OffsetFromCurrentTime': Date;
+    static discriminator: string | undefined;
+    static attributeTypeMap: Array<{
+        name: string;
+        baseName: string;
+        type: string;
+    }>;
+    static getAttributeTypeMap(): {
+        name: string;
+        baseName: string;
+        type: string;
+    }[];
+}
+/**
+*
+*/
 export declare class DocumentModel {
     /**
     *
@@ -660,6 +694,62 @@ export declare class DocumentModel {
     *
     */
     'Form': number;
+    static discriminator: string | undefined;
+    static attributeTypeMap: Array<{
+        name: string;
+        baseName: string;
+        type: string;
+    }>;
+    static getAttributeTypeMap(): {
+        name: string;
+        baseName: string;
+        type: string;
+    }[];
+}
+/**
+*
+*/
+export declare class DocumentPolyModel {
+    /**
+    *
+    */
+    'RemoteRecord': any;
+    /**
+    *
+    */
+    'IDDocumentPolyJoin': number;
+    /**
+    *
+    */
+    'GUIDDocumentPolyJoin': string;
+    /**
+    *
+    */
+    'CreateDate': Date;
+    /**
+    *
+    */
+    'CreatingIDUser': number;
+    /**
+    *
+    */
+    'UpdateDate': Date;
+    /**
+    *
+    */
+    'UpdatingIDUser': number;
+    /**
+    *
+    */
+    'IDDocument': number;
+    /**
+    *
+    */
+    'RemoteType': string;
+    /**
+    *
+    */
+    'IDRemote': number;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -1618,6 +1708,22 @@ export declare class MappedArrayArtifact {
 /**
 *
 */
+export declare class MappedArrayObservationTagJoin {
+    static discriminator: string | undefined;
+    static attributeTypeMap: Array<{
+        name: string;
+        baseName: string;
+        type: string;
+    }>;
+    static getAttributeTypeMap(): {
+        name: string;
+        baseName: string;
+        type: string;
+    }[];
+}
+/**
+*
+*/
 export declare class Material {
     /**
     *
@@ -1783,6 +1889,22 @@ export declare class MaterialLineItemJoin {
     *
     */
     'Units': string;
+    /**
+    *
+    */
+    'SampleRate': string;
+    /**
+    *
+    */
+    'RequiredSampleCount': string;
+    /**
+    *
+    */
+    'SampleFrequency': string;
+    /**
+    *
+    */
+    'Quantity': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -2534,7 +2656,7 @@ export declare class ObservationFilterRequestPriority {
 *
 */
 export declare class ObservationModel {
-    'Labels': ObservationModelLabels;
+    'Labels': MappedArrayObservationTagJoin;
     'Details': MappedArrayArtifact;
     /**
     *
@@ -2668,26 +2790,6 @@ export declare class ObservationModel {
     *
     */
     'ExternalSyncGUID': string;
-    static discriminator: string | undefined;
-    static attributeTypeMap: Array<{
-        name: string;
-        baseName: string;
-        type: string;
-    }>;
-    static getAttributeTypeMap(): {
-        name: string;
-        baseName: string;
-        type: string;
-    }[];
-}
-/**
-*
-*/
-export declare class ObservationModelLabels {
-    /**
-    *
-    */
-    'SAVE'?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -3225,27 +3327,27 @@ export declare class ProductionPlantMaterialApproval {
 */
 export declare class ProjectModel {
     /**
-    *
+    * DEPRECATED
     */
     'Tags': Array<string>;
     /**
-    *
+    * DEPRECATED
     */
     'BidItems': Array<string>;
     /**
-    *
+    * DEPRECATED
     */
     'LineItems': Array<string>;
     /**
-    *
+    * DEPRECATED
     */
     'Contractors': Array<string>;
     /**
-    *
+    * DEPRECATED
     */
     'TagTypes': Array<string>;
     /**
-    *
+    * Tag configuration for this project.   Use 1.0/ObservationTagProjectJoins/FilteredTo/FBV~IDProject~EQ~71~FBV~TagType~EQ~Contractor~FSF~Tag~ASC/0/10 to get list of available tags of each type in the project.
     */
     'LabelTypes': any;
     /**
@@ -3724,6 +3826,10 @@ export declare class ReportNamedInstanceModel {
     *
     */
     'IDCustomer': number;
+    /**
+    *
+    */
+    '_Default': number;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -4272,6 +4378,10 @@ export declare class Test {
     *
     */
     'Notes': string;
+    /**
+    *
+    */
+    'Hash': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -4456,6 +4566,14 @@ export declare class TestInstance {
     *
     */
     'ExternalSyncGUID': string;
+    /**
+    *
+    */
+    'Status': string;
+    /**
+    *
+    */
+    'StatusMessage': string;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -5236,6 +5354,10 @@ export declare class TestSpecificationRequirement {
     *
     */
     'ComputationTemplate': string;
+    /**
+    *
+    */
+    'IDTest': number;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -5448,6 +5570,10 @@ export declare class TestStep {
     *
     */
     'ComputationTemplate': string;
+    /**
+    *
+    */
+    'Important': number;
     static discriminator: string | undefined;
     static attributeTypeMap: Array<{
         name: string;
@@ -5756,6 +5882,11 @@ export declare class ArtifactApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ArtifactModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ArtifactModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -5766,6 +5897,14 @@ export declare class ArtifactApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ArtifactModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ArtifactModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -5814,7 +5953,7 @@ export declare class AuthenticateApi {
      */
     checkSession(): Promise<ISession>;
     /**
-     * Check out temporary authentication token for user in session.
+     * Check out temporary authentication token for user in session. Can then be used by another client via querystring parameter (e.g. https://headlightqa.paviasystems.com/1.0/CheckSession?SessionToken=VALUE)
      */
     checkoutSessionToken(): Promise<InlineResponse2001>;
     /**
@@ -5903,6 +6042,11 @@ export declare class BidItemApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<BidItem>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<BidItem>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -5913,6 +6057,14 @@ export declare class BidItemApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<BidItem>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<BidItem>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -5974,6 +6126,11 @@ export declare class CommentApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<CommentModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<CommentModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -5984,6 +6141,14 @@ export declare class CommentApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<CommentModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<CommentModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6045,6 +6210,11 @@ export declare class ContractApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Contract>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Contract>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6055,6 +6225,14 @@ export declare class ContractApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Contract>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Contract>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6116,6 +6294,11 @@ export declare class CustomerApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Customer>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Customer>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6126,6 +6309,14 @@ export declare class CustomerApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Customer>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Customer>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6214,10 +6405,20 @@ export declare class DocumentApi {
      */
     getDocumentReportParameters(IDDocument: number): Promise<any>;
     /**
+     * postCloneBulkDocuments API
+     * @param body
+     */
+    postCloneBulkDocuments(body: DocumentCloneRequest): Promise<Array<DocumentModel>>;
+    /**
+     * postCloneDocument API
+     * @param IDDocument ID of record
+     */
+    postCloneDocument(IDDocument: number): Promise<DocumentModel>;
+    /**
      * Allows a report to perform a bulk upsert in context of a document.
      * @param body
      */
-    postFormProcessor(body: FormProcessorRequest): Promise<any>;
+    postFormProcessor(body: FormProcessorRequest): Promise<FormProcessorRequest>;
     /**
      *
      * @param body
@@ -6229,6 +6430,11 @@ export declare class DocumentApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<DocumentModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<DocumentModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6239,6 +6445,14 @@ export declare class DocumentApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<DocumentModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<DocumentModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6302,10 +6516,110 @@ export declare class DocumentApprovalApi {
      */
     getDocumentState(IDDocument: number): Promise<any>;
     /**
+     * Gets a filtered list of Documents, further filtered based of the ApprovalStatus relative to current user
+     * @param Status Document Status
+     * @param Begin Beginning (skip) number of records (to page)
+     * @param Filter FBV meadow filter
+     * @param Cap Maximum number of records to return
+     */
+    getDocumentsByApprovalStatus(Status: string, Begin: number, Filter: string, Cap: number): Promise<any>;
+    /**
+     * Get list of Documents where user can perform actions based on Approval Status, query direct from db
+     * @param IDProject ID of record
+     * @param Begin Beginning (skip) number of records (to page)
+     * @param Status Document Status
+     * @param Cap Maximum number of records to return
+     */
+    getDocumentsQueryApprovalStatus(IDProject: number, Begin: number, Status: string, Cap: number): Promise<any>;
+    /**
      * Perform Approval state transition action against Document
      * @param body
      */
     postChangeDocumenttState(body: DocumentStateChangeRequest): Promise<any>;
+    getLastResponse(): any;
+}
+export declare enum DocumentPolyJoinApiApiKeys {
+}
+export declare class DocumentPolyJoinApi {
+    protected _basePath: string;
+    protected defaultHeaders: any;
+    protected _useQuerystring: boolean;
+    protected _lastResponse: any;
+    protected _timeout: number;
+    protected authentications: {
+        'default': Authentication;
+    };
+    constructor(basePath?: string);
+    useQuerystring: boolean;
+    basePath: string;
+    timeout: number;
+    setDefaultAuthentication(auth: Authentication): void;
+    setApiKey(key: DocumentPolyJoinApiApiKeys, value: string): void;
+    /**
+     * Meadow DELETE
+     * @param id ID of record
+     */
+    _delete(id: number): Promise<boolean>;
+    /**
+     * Meadow COUNT
+     */
+    count(): Promise<InlineResponse200>;
+    /**
+     * Meadow COUNT with filter
+     * @param filter FBV meadow filter
+     */
+    countFiltered(filter: string): Promise<InlineResponse200>;
+    /**
+     * Meadow POST (Create)
+     * @param body
+     */
+    create(body: DocumentPolyModel): Promise<DocumentPolyModel>;
+    /**
+     *
+     * @param body
+     */
+    postReadCountQuery(body: QueryRequest): Promise<InlineResponse200>;
+    /**
+     *
+     * @param body
+     */
+    postReadQuery(body: QueryRequest): Promise<Array<DocumentPolyModel>>;
+    /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<DocumentPolyModel>>;
+    /**
+     * Meadow READ
+     * @param id ID of record
+     */
+    read(id: number): Promise<DocumentPolyModel>;
+    /**
+     * Meadow READ list
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     */
+    reads(begin: number, max: number): Promise<Array<DocumentPolyModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<DocumentPolyModel>>;
+    /**
+     * Meadow READ filtered list
+     * @param filter FBV meadow filter
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     */
+    readsFiltered(filter: string, begin: number, max: number): Promise<Array<DocumentPolyModel>>;
+    /**
+     * Meadow PUT (Update)
+     * @param body
+     */
+    update(body: DocumentPolyModel): Promise<DocumentPolyModel>;
     getLastResponse(): any;
 }
 export declare enum DocumentSendToApiApiKeys {
@@ -6437,6 +6751,11 @@ export declare class ElectronicSignatureApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ElectronicSignatureModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ElectronicSignatureModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6447,6 +6766,14 @@ export declare class ElectronicSignatureApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ElectronicSignatureModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ElectronicSignatureModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6508,6 +6835,11 @@ export declare class EquipmentApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Equipment>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Equipment>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6518,6 +6850,14 @@ export declare class EquipmentApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Equipment>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Equipment>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6579,6 +6919,11 @@ export declare class LabApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Lab>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Lab>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6589,6 +6934,14 @@ export declare class LabApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Lab>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Lab>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6650,6 +7003,11 @@ export declare class LabMaterialAssignmentApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<LabMaterialAssignment>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<LabMaterialAssignment>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6660,6 +7018,14 @@ export declare class LabMaterialAssignmentApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<LabMaterialAssignment>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<LabMaterialAssignment>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6721,6 +7087,11 @@ export declare class LabTestApprovalApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<LabTestApproval>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<LabTestApproval>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6731,6 +7102,14 @@ export declare class LabTestApprovalApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<LabTestApproval>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<LabTestApproval>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6792,6 +7171,11 @@ export declare class LabTestDefaultApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<LabTestDefault>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<LabTestDefault>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6802,6 +7186,14 @@ export declare class LabTestDefaultApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<LabTestDefault>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<LabTestDefault>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6863,6 +7255,11 @@ export declare class LineItemApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<LineItem>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<LineItem>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6873,6 +7270,14 @@ export declare class LineItemApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<LineItem>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<LineItem>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -6934,6 +7339,11 @@ export declare class MaterialApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Material>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Material>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -6944,6 +7354,14 @@ export declare class MaterialApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Material>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Material>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7005,6 +7423,11 @@ export declare class MaterialLineItemJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<MaterialLineItemJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<MaterialLineItemJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7015,6 +7438,14 @@ export declare class MaterialLineItemJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<MaterialLineItemJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<MaterialLineItemJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7076,6 +7507,11 @@ export declare class MaterialPayItemJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<MaterialPayItemJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<MaterialPayItemJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7086,6 +7522,14 @@ export declare class MaterialPayItemJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<MaterialPayItemJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<MaterialPayItemJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7147,6 +7591,11 @@ export declare class MaterialRecordOfMaterialEntryJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<MaterialRecordOfMaterialEntryJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<MaterialRecordOfMaterialEntryJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7157,6 +7606,14 @@ export declare class MaterialRecordOfMaterialEntryJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<MaterialRecordOfMaterialEntryJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<MaterialRecordOfMaterialEntryJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7218,6 +7675,11 @@ export declare class MixSpecificationApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<MixSpecification>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<MixSpecification>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7228,6 +7690,14 @@ export declare class MixSpecificationApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<MixSpecification>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<MixSpecification>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7289,6 +7759,11 @@ export declare class MixSpecificationMaterialJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<MixSpecificationMaterialJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<MixSpecificationMaterialJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7299,6 +7774,14 @@ export declare class MixSpecificationMaterialJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<MixSpecificationMaterialJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<MixSpecificationMaterialJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7360,6 +7843,11 @@ export declare class ModuleApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ModuleModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ModuleModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7370,6 +7858,14 @@ export declare class ModuleApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ModuleModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ModuleModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7431,6 +7927,11 @@ export declare class NotificationApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Notification>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Notification>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7441,6 +7942,14 @@ export declare class NotificationApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Notification>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Notification>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7559,6 +8068,11 @@ export declare class ObservationApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ObservationModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ObservationModel>>;
+    /**
      * Index specific Observations (solr)
      * @param IDObservation ID of record
      */
@@ -7574,6 +8088,14 @@ export declare class ObservationApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ObservationModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ObservationModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7886,6 +8408,11 @@ export declare class OrganizationApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Organization>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Organization>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7896,6 +8423,14 @@ export declare class OrganizationApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Organization>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Organization>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -7957,6 +8492,11 @@ export declare class OrganizationMaterialJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<OrganizationMaterialJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<OrganizationMaterialJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -7967,6 +8507,14 @@ export declare class OrganizationMaterialJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<OrganizationMaterialJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<OrganizationMaterialJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8028,6 +8576,11 @@ export declare class PayItemApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<PayItemModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<PayItemModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8038,6 +8591,14 @@ export declare class PayItemApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<PayItemModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<PayItemModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8099,6 +8660,11 @@ export declare class ProductApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Product>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Product>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8109,6 +8675,14 @@ export declare class ProductApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Product>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Product>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8170,6 +8744,11 @@ export declare class ProductionPlantApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ProductionPlant>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ProductionPlant>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8180,6 +8759,14 @@ export declare class ProductionPlantApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ProductionPlant>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ProductionPlant>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8241,6 +8828,11 @@ export declare class ProductionPlantMaterialApprovalApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ProductionPlantMaterialApproval>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ProductionPlantMaterialApproval>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8251,6 +8843,14 @@ export declare class ProductionPlantMaterialApprovalApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ProductionPlantMaterialApproval>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ProductionPlantMaterialApproval>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8312,6 +8912,11 @@ export declare class ProjectApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ProjectModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ProjectModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8322,6 +8927,14 @@ export declare class ProjectApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ProjectModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ProjectModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8383,6 +8996,11 @@ export declare class RecordOfMaterialApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<RecordOfMaterial>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<RecordOfMaterial>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8393,6 +9011,14 @@ export declare class RecordOfMaterialApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<RecordOfMaterial>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<RecordOfMaterial>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8454,6 +9080,11 @@ export declare class RecordOfMaterialEntryApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<RecordOfMaterialEntry>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<RecordOfMaterialEntry>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8464,6 +9095,14 @@ export declare class RecordOfMaterialEntryApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<RecordOfMaterialEntry>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<RecordOfMaterialEntry>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8525,6 +9164,11 @@ export declare class RecordOfMaterialEntryArchiveApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<RecordOfMaterialEntryArchive>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<RecordOfMaterialEntryArchive>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8535,6 +9179,14 @@ export declare class RecordOfMaterialEntryArchiveApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<RecordOfMaterialEntryArchive>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<RecordOfMaterialEntryArchive>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8623,6 +9275,11 @@ export declare class ReportApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ReportModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ReportModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8633,6 +9290,14 @@ export declare class ReportApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ReportModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ReportModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8707,6 +9372,11 @@ export declare class ReportNamedInstanceApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<ReportNamedInstanceModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<ReportNamedInstanceModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8717,6 +9387,14 @@ export declare class ReportNamedInstanceApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<ReportNamedInstanceModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<ReportNamedInstanceModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8784,6 +9462,11 @@ export declare class SampleApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Sample>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Sample>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8794,6 +9477,14 @@ export declare class SampleApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Sample>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Sample>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8855,6 +9546,11 @@ export declare class SampleLabJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<SampleLabJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<SampleLabJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8865,6 +9561,14 @@ export declare class SampleLabJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<SampleLabJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<SampleLabJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8926,6 +9630,11 @@ export declare class SampleLineItemJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<SampleLineItemJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<SampleLineItemJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -8936,6 +9645,14 @@ export declare class SampleLineItemJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<SampleLineItemJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<SampleLineItemJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -8997,6 +9714,11 @@ export declare class SampleLogApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<SampleLog>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<SampleLog>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9007,6 +9729,14 @@ export declare class SampleLogApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<SampleLog>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<SampleLog>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9068,6 +9798,11 @@ export declare class TestApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<Test>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<Test>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9078,6 +9813,14 @@ export declare class TestApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<Test>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<Test>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9139,6 +9882,11 @@ export declare class TestDataApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestData>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestData>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9149,6 +9897,14 @@ export declare class TestDataApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestData>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestData>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9210,6 +9966,11 @@ export declare class TestInstanceApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestInstance>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestInstance>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9220,6 +9981,14 @@ export declare class TestInstanceApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestInstance>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestInstance>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9281,6 +10050,11 @@ export declare class TestInstanceDataApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestInstanceData>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestInstanceData>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9291,6 +10065,14 @@ export declare class TestInstanceDataApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestInstanceData>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestInstanceData>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9352,6 +10134,11 @@ export declare class TestInstanceDataArchiveApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestInstanceDataArchive>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestInstanceDataArchive>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9362,6 +10149,14 @@ export declare class TestInstanceDataArchiveApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestInstanceDataArchive>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestInstanceDataArchive>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9423,6 +10218,11 @@ export declare class TestInstanceLabJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestInstanceLabJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestInstanceLabJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9433,6 +10233,14 @@ export declare class TestInstanceLabJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestInstanceLabJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestInstanceLabJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9494,6 +10302,11 @@ export declare class TestInstanceSampleJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestInstanceSampleJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestInstanceSampleJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9504,6 +10317,14 @@ export declare class TestInstanceSampleJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestInstanceSampleJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestInstanceSampleJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9565,6 +10386,11 @@ export declare class TestLabJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestLabJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestLabJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9575,6 +10401,14 @@ export declare class TestLabJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestLabJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestLabJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9636,6 +10470,11 @@ export declare class TestPlanApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestPlan>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestPlan>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9646,6 +10485,14 @@ export declare class TestPlanApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestPlan>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestPlan>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9707,6 +10554,11 @@ export declare class TestRecordOfMaterialEntryJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestRecordOfMaterialEntryJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestRecordOfMaterialEntryJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9717,6 +10569,14 @@ export declare class TestRecordOfMaterialEntryJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestRecordOfMaterialEntryJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestRecordOfMaterialEntryJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9778,6 +10638,11 @@ export declare class TestSpecificationApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestSpecification>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestSpecification>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9788,6 +10653,14 @@ export declare class TestSpecificationApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestSpecification>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestSpecification>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9849,6 +10722,11 @@ export declare class TestSpecificationMaterialTestJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestSpecificationMaterialTestJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestSpecificationMaterialTestJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9859,6 +10737,14 @@ export declare class TestSpecificationMaterialTestJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestSpecificationMaterialTestJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestSpecificationMaterialTestJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9920,6 +10806,11 @@ export declare class TestSpecificationRequirementApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestSpecificationRequirement>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestSpecificationRequirement>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -9930,6 +10821,14 @@ export declare class TestSpecificationRequirementApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestSpecificationRequirement>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestSpecificationRequirement>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -9991,6 +10890,11 @@ export declare class TestSpecificationSetApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestSpecificationSet>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestSpecificationSet>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -10001,6 +10905,14 @@ export declare class TestSpecificationSetApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestSpecificationSet>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestSpecificationSet>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -10062,6 +10974,11 @@ export declare class TestSpecificationSetTestJoinApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestSpecificationSetTestJoin>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestSpecificationSetTestJoin>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -10072,6 +10989,14 @@ export declare class TestSpecificationSetTestJoinApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestSpecificationSetTestJoin>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestSpecificationSetTestJoin>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -10133,6 +11058,11 @@ export declare class TestStepApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<TestStep>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<TestStep>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -10143,6 +11073,14 @@ export declare class TestStepApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<TestStep>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<TestStep>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter
@@ -10232,6 +11170,11 @@ export declare class UserApi {
      */
     postReadQuery(body: QueryRequest): Promise<Array<UserModel>>;
     /**
+     *
+     * @param body
+     */
+    postReadsLiteQuery(body: QueryRequest): Promise<Array<UserModel>>;
+    /**
      * Meadow READ
      * @param id ID of record
      */
@@ -10242,6 +11185,14 @@ export declare class UserApi {
      * @param max Maximum number of records to return
      */
     reads(begin: number, max: number): Promise<Array<UserModel>>;
+    /**
+     * Meadow READ by field value
+     * @param field field name
+     * @param begin Beginning (skip) number of records (to page)
+     * @param max Maximum number of records to return
+     * @param value WHERE field value
+     */
+    readsByValue(field: string, begin: number, max: number, value: string): Promise<Array<UserModel>>;
     /**
      * Meadow READ filtered list
      * @param filter FBV meadow filter

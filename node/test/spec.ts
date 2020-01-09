@@ -87,7 +87,7 @@ describe('Node API test', function() {
         let updatedRecord = await userApi.update(record);
 
         expect(updatedRecord.Settings['apiTest']).to.eq(testTime);
-        expect(updatedRecord.UpdateDate).to.be.gt(record.UpdateDate);
+        expect(updatedRecord.UpdateDate).to.not.eq(record.UpdateDate);
     });
 
     it ('can access a different API with renewed credentials', async() => {

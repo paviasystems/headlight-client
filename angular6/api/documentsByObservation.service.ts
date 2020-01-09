@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -66,6 +66,7 @@ export class DocumentsByObservationService {
     public getDocumentByObservation(IDObservation: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getDocumentByObservation(IDObservation: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getDocumentByObservation(IDObservation: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (IDObservation === null || IDObservation === undefined) {
             throw new Error('Required parameter IDObservation was null or undefined when calling getDocumentByObservation.');
         }

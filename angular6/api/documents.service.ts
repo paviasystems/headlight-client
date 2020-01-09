@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -68,12 +68,15 @@ export class DocumentsService {
     public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public getUpdatedDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling getUpdatedDocuments.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling getUpdatedDocuments.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling getUpdatedDocuments.');
         }
@@ -116,12 +119,15 @@ export class DocumentsService {
     public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public syncDocuments(SynchronizeFromDate: Date, Begin: number, Cap: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
         if (SynchronizeFromDate === null || SynchronizeFromDate === undefined) {
             throw new Error('Required parameter SynchronizeFromDate was null or undefined when calling syncDocuments.');
         }
+
         if (Begin === null || Begin === undefined) {
             throw new Error('Required parameter Begin was null or undefined when calling syncDocuments.');
         }
+
         if (Cap === null || Cap === undefined) {
             throw new Error('Required parameter Cap was null or undefined when calling syncDocuments.');
         }
