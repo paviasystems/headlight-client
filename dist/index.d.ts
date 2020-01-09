@@ -44,7 +44,7 @@ export declare class Client {
     private _Auth;
     private _ApiReferences;
     constructor(pBaseURL: string);
-    readonly UserSession: API.ISession;
+    get UserSession(): API.ISession;
     /**
      * Perform login operation, and keep session cookie for use in later API calls.
      */

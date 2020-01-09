@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+/// <reference types="node" />
 import localVarRequest = require('request');
 /**
 *
@@ -5823,9 +5824,11 @@ export declare class ArtifactApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ArtifactApiApiKeys, value: string): void;
     /**
@@ -5938,9 +5941,11 @@ export declare class AuthenticateApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: AuthenticateApiApiKeys, value: string): void;
     /**
@@ -5979,9 +5984,11 @@ export declare class BatchExportApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: BatchExportApiApiKeys, value: string): void;
     /**
@@ -6007,9 +6014,11 @@ export declare class BidItemApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: BidItemApiApiKeys, value: string): void;
     /**
@@ -6091,9 +6100,11 @@ export declare class CommentApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: CommentApiApiKeys, value: string): void;
     /**
@@ -6175,9 +6186,11 @@ export declare class ContractApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ContractApiApiKeys, value: string): void;
     /**
@@ -6259,9 +6272,11 @@ export declare class CustomerApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: CustomerApiApiKeys, value: string): void;
     /**
@@ -6343,9 +6358,11 @@ export declare class DocumentApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentApiApiKeys, value: string): void;
     /**
@@ -6500,9 +6517,11 @@ export declare class DocumentApprovalApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentApprovalApiApiKeys, value: string): void;
     /**
@@ -6550,9 +6569,11 @@ export declare class DocumentPolyJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentPolyJoinApiApiKeys, value: string): void;
     /**
@@ -6634,9 +6655,11 @@ export declare class DocumentSendToApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentSendToApiApiKeys, value: string): void;
     /**
@@ -6659,9 +6682,11 @@ export declare class DocumentsApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentsApiApiKeys, value: string): void;
     /**
@@ -6692,9 +6717,11 @@ export declare class DocumentsByObservationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DocumentsByObservationApiApiKeys, value: string): void;
     /**
@@ -6716,9 +6743,11 @@ export declare class ElectronicSignatureApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ElectronicSignatureApiApiKeys, value: string): void;
     /**
@@ -6800,9 +6829,11 @@ export declare class EquipmentApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: EquipmentApiApiKeys, value: string): void;
     /**
@@ -6884,9 +6915,11 @@ export declare class LabApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: LabApiApiKeys, value: string): void;
     /**
@@ -6968,9 +7001,11 @@ export declare class LabMaterialAssignmentApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: LabMaterialAssignmentApiApiKeys, value: string): void;
     /**
@@ -7052,9 +7087,11 @@ export declare class LabTestApprovalApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: LabTestApprovalApiApiKeys, value: string): void;
     /**
@@ -7136,9 +7173,11 @@ export declare class LabTestDefaultApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: LabTestDefaultApiApiKeys, value: string): void;
     /**
@@ -7220,9 +7259,11 @@ export declare class LineItemApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: LineItemApiApiKeys, value: string): void;
     /**
@@ -7304,9 +7345,11 @@ export declare class MaterialApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MaterialApiApiKeys, value: string): void;
     /**
@@ -7388,9 +7431,11 @@ export declare class MaterialLineItemJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MaterialLineItemJoinApiApiKeys, value: string): void;
     /**
@@ -7472,9 +7517,11 @@ export declare class MaterialPayItemJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MaterialPayItemJoinApiApiKeys, value: string): void;
     /**
@@ -7556,9 +7603,11 @@ export declare class MaterialRecordOfMaterialEntryJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MaterialRecordOfMaterialEntryJoinApiApiKeys, value: string): void;
     /**
@@ -7640,9 +7689,11 @@ export declare class MixSpecificationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MixSpecificationApiApiKeys, value: string): void;
     /**
@@ -7724,9 +7775,11 @@ export declare class MixSpecificationMaterialJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: MixSpecificationMaterialJoinApiApiKeys, value: string): void;
     /**
@@ -7808,9 +7861,11 @@ export declare class ModuleApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ModuleApiApiKeys, value: string): void;
     /**
@@ -7892,9 +7947,11 @@ export declare class NotificationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: NotificationApiApiKeys, value: string): void;
     /**
@@ -7976,9 +8033,11 @@ export declare class ObservationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationApiApiKeys, value: string): void;
     /**
@@ -8139,9 +8198,11 @@ export declare class ObservationApprovalApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationApprovalApiApiKeys, value: string): void;
     /**
@@ -8172,9 +8233,11 @@ export declare class ObservationCloneTemplatesApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationCloneTemplatesApiApiKeys, value: string): void;
     /**
@@ -8196,9 +8259,11 @@ export declare class ObservationSearchsApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationSearchsApiApiKeys, value: string): void;
     /**
@@ -8229,9 +8294,11 @@ export declare class ObservationSendToApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationSendToApiApiKeys, value: string): void;
     /**
@@ -8258,9 +8325,11 @@ export declare class ObservationsBatchTagApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationsBatchTagApiApiKeys, value: string): void;
     /**
@@ -8285,9 +8354,11 @@ export declare class ObservationsByDocumentApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationsByDocumentApiApiKeys, value: string): void;
     /**
@@ -8317,9 +8388,11 @@ export declare class ObservationsByUpdateDateApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationsByUpdateDateApiApiKeys, value: string): void;
     /**
@@ -8342,9 +8415,11 @@ export declare class ObservationsFilterApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ObservationsFilterApiApiKeys, value: string): void;
     /**
@@ -8373,9 +8448,11 @@ export declare class OrganizationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: OrganizationApiApiKeys, value: string): void;
     /**
@@ -8457,9 +8534,11 @@ export declare class OrganizationMaterialJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: OrganizationMaterialJoinApiApiKeys, value: string): void;
     /**
@@ -8541,9 +8620,11 @@ export declare class PayItemApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: PayItemApiApiKeys, value: string): void;
     /**
@@ -8625,9 +8706,11 @@ export declare class ProductApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ProductApiApiKeys, value: string): void;
     /**
@@ -8709,9 +8792,11 @@ export declare class ProductionPlantApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ProductionPlantApiApiKeys, value: string): void;
     /**
@@ -8793,9 +8878,11 @@ export declare class ProductionPlantMaterialApprovalApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ProductionPlantMaterialApprovalApiApiKeys, value: string): void;
     /**
@@ -8877,9 +8964,11 @@ export declare class ProjectApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ProjectApiApiKeys, value: string): void;
     /**
@@ -8961,9 +9050,11 @@ export declare class RecordOfMaterialApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: RecordOfMaterialApiApiKeys, value: string): void;
     /**
@@ -9045,9 +9136,11 @@ export declare class RecordOfMaterialEntryApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: RecordOfMaterialEntryApiApiKeys, value: string): void;
     /**
@@ -9129,9 +9222,11 @@ export declare class RecordOfMaterialEntryArchiveApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: RecordOfMaterialEntryArchiveApiApiKeys, value: string): void;
     /**
@@ -9213,9 +9308,11 @@ export declare class ReportApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ReportApiApiKeys, value: string): void;
     /**
@@ -9324,9 +9421,11 @@ export declare class ReportNamedInstanceApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: ReportNamedInstanceApiApiKeys, value: string): void;
     /**
@@ -9427,9 +9526,11 @@ export declare class SampleApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: SampleApiApiKeys, value: string): void;
     /**
@@ -9511,9 +9612,11 @@ export declare class SampleLabJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: SampleLabJoinApiApiKeys, value: string): void;
     /**
@@ -9595,9 +9698,11 @@ export declare class SampleLineItemJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: SampleLineItemJoinApiApiKeys, value: string): void;
     /**
@@ -9679,9 +9784,11 @@ export declare class SampleLogApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: SampleLogApiApiKeys, value: string): void;
     /**
@@ -9763,9 +9870,11 @@ export declare class TestApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestApiApiKeys, value: string): void;
     /**
@@ -9847,9 +9956,11 @@ export declare class TestDataApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestDataApiApiKeys, value: string): void;
     /**
@@ -9931,9 +10042,11 @@ export declare class TestInstanceApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestInstanceApiApiKeys, value: string): void;
     /**
@@ -10015,9 +10128,11 @@ export declare class TestInstanceDataApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestInstanceDataApiApiKeys, value: string): void;
     /**
@@ -10099,9 +10214,11 @@ export declare class TestInstanceDataArchiveApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestInstanceDataArchiveApiApiKeys, value: string): void;
     /**
@@ -10183,9 +10300,11 @@ export declare class TestInstanceLabJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestInstanceLabJoinApiApiKeys, value: string): void;
     /**
@@ -10267,9 +10386,11 @@ export declare class TestInstanceSampleJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestInstanceSampleJoinApiApiKeys, value: string): void;
     /**
@@ -10351,9 +10472,11 @@ export declare class TestLabJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestLabJoinApiApiKeys, value: string): void;
     /**
@@ -10435,9 +10558,11 @@ export declare class TestPlanApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestPlanApiApiKeys, value: string): void;
     /**
@@ -10519,9 +10644,11 @@ export declare class TestRecordOfMaterialEntryJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestRecordOfMaterialEntryJoinApiApiKeys, value: string): void;
     /**
@@ -10603,9 +10730,11 @@ export declare class TestSpecificationApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestSpecificationApiApiKeys, value: string): void;
     /**
@@ -10687,9 +10816,11 @@ export declare class TestSpecificationMaterialTestJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestSpecificationMaterialTestJoinApiApiKeys, value: string): void;
     /**
@@ -10771,9 +10902,11 @@ export declare class TestSpecificationRequirementApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestSpecificationRequirementApiApiKeys, value: string): void;
     /**
@@ -10855,9 +10988,11 @@ export declare class TestSpecificationSetApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestSpecificationSetApiApiKeys, value: string): void;
     /**
@@ -10939,9 +11074,11 @@ export declare class TestSpecificationSetTestJoinApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestSpecificationSetTestJoinApiApiKeys, value: string): void;
     /**
@@ -11023,9 +11160,11 @@ export declare class TestStepApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: TestStepApiApiKeys, value: string): void;
     /**
@@ -11107,9 +11246,11 @@ export declare class UserApi {
         'default': Authentication;
     };
     constructor(basePath?: string);
-    useQuerystring: boolean;
-    basePath: string;
-    timeout: number;
+    set useQuerystring(value: boolean);
+    set basePath(basePath: string);
+    get basePath(): string;
+    set timeout(pTimeout: number);
+    get timeout(): number;
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: UserApiApiKeys, value: string): void;
     /**
