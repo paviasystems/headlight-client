@@ -1,6 +1,6 @@
 //run only on nodes with docker (label) installed
 node('nodejs && docker'){
-    git credentialsId: 'e1340a16-bdab-4d7f-9cba-51cc21229bc2', url: 'https://github.com/paviasystems/headlight-client.git'
+    git credentialsId: 'e1340a16-bdab-4d7f-9cba-51cc21229bc2', url: 'https://env.GITHUB_TOKEN@github.com/paviasystems/headlight-client.git'
 
     try
     {
